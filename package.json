@@ -1,0 +1,13 @@
+{
+  "name": "csc-ai-copilot",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "node apps/api/src/index.js",
+    "dev:api": "node apps/api/src/index.js",
+    "dev:ui": "npm --prefix apps/operator-ui run dev"
+  }
+}

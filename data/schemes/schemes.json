@@ -1,0 +1,27 @@
+[
+  {
+    "scheme_id": "sch_old_age_pension",
+    "scheme_name": "Old Age Pension",
+    "conditions": {
+      "min_age": 60
+    },
+    "required_documents": ["aadhaar", "age_proof"]
+  },
+  {
+    "scheme_id": "sch_widow_pension",
+    "scheme_name": "Widow Pension",
+    "conditions": {
+      "gender": "female",
+      "min_age": 18
+    },
+    "required_documents": ["aadhaar", "spouse_death_certificate"]
+  },
+  {
+    "scheme_id": "sch_ayushman_bharat",
+    "scheme_name": "Ayushman Bharat",
+    "conditions": {
+      "max_income": 250000
+    },
+    "required_documents": ["aadhaar", "income_proof"]
+  }
+]

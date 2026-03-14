@@ -1,0 +1,63 @@
+openapi: 3.0.3
+info:
+  title: CSC AI Copilot API
+  version: 0.2.0
+servers:
+  - url: http://localhost:4000
+paths:
+  /services:
+    get:
+      summary: List services
+      responses:
+        "200":
+          description: OK
+  /services/{serviceType}:
+    get:
+      summary: Get service schema
+      parameters:
+        - name: serviceType
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not found
+  /applications:
+    get:
+      summary: List stored applications
+      responses:
+        "200":
+          description: OK
+  /validate-application:
+    post:
+      summary: Validate application and return AI insights
+      responses:
+        "200":
+          description: OK
+  /extract-document:
+    post:
+      summary: OCR extract document fields
+      responses:
+        "200":
+          description: OK
+  /predict-risk:
+    post:
+      summary: Predict rejection risk
+      responses:
+        "200":
+          description: OK
+  /recommend-schemes:
+    post:
+      summary: Recommend eligible schemes
+      responses:
+        "200":
+          description: OK
+  /explain:
+    post:
+      summary: Generate explanation text
+      responses:
+        "200":
+          description: OK

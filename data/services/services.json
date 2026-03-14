@@ -1,0 +1,445 @@
+[
+  {
+    "service_id": "svc_income_certificate",
+    "service_name": "Income Certificate",
+    "service_type": "income_certificate",
+    "sections": [
+      {
+        "name": "Beneficiary Details",
+        "fields": [
+          { "key": "gender", "type": "string", "required": true },
+          { "key": "age_of_beneficiary", "type": "number", "required": true },
+          { "key": "beneficiary_guardian_type", "type": "string", "required": true },
+          { "key": "beneficiary_guardian_name", "type": "string", "required": true },
+          { "key": "relation_with_applicant", "type": "string", "required": true },
+          { "key": "beneficiary_relative_name", "type": "string", "required": true },
+          { "key": "caste", "type": "string", "required": true },
+          { "key": "type", "type": "string", "required": true },
+          { "key": "class_number", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Address Details",
+        "fields": [
+          { "key": "address", "type": "string", "required": true },
+          { "key": "pin_code", "type": "string", "required": true },
+          { "key": "district", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Income Details",
+        "fields": [
+          { "key": "business_or_service_details", "type": "string", "required": true },
+          { "key": "reason_for_application", "type": "string", "required": true },
+          { "key": "annual_income", "type": "number", "required": true },
+          { "key": "average_income_last_3_years", "type": "number", "required": true }
+        ]
+      },
+      {
+        "name": "Declaration",
+        "fields": [
+          { "key": "date", "type": "date", "required": true },
+          { "key": "place", "type": "string", "required": true },
+          { "key": "applicant_name", "type": "string", "required": true },
+          { "key": "signature", "type": "string", "required": true }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": ["affidavit", "income_proof"],
+      "optional": [],
+      "accepted_groups": {
+        "income_proof": [
+          "certificate_from_patwari",
+          "certificate_from_sarpanch",
+          "employer_income_certificate",
+          "form16",
+          "land_income_proof",
+          "income_of_family_members"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_domicile_certificate",
+    "service_name": "Domicile Certificate",
+    "service_type": "domicile_certificate",
+    "sections": [
+      {
+        "name": "General Details",
+        "fields": [
+          { "key": "beneficiary_guardian_type", "type": "string", "required": true },
+          { "key": "beneficiary_guardian_name", "type": "string", "required": true },
+          { "key": "guardian_occupation", "type": "string", "required": true },
+          { "key": "place_of_birth", "type": "string", "required": true },
+          { "key": "gender", "type": "string", "required": true },
+          { "key": "date_of_birth", "type": "date", "required": true }
+        ]
+      },
+      {
+        "name": "Address Details",
+        "fields": [
+          { "key": "address", "type": "string", "required": true },
+          { "key": "pin_code", "type": "string", "required": true },
+          { "key": "district", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Residence Details",
+        "fields": [
+          { "key": "particulars_of_stay_after_birth", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Business Details",
+        "fields": [
+          { "key": "beneficiary_business_or_service_details", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Education Details",
+        "fields": [
+          { "key": "beneficiary_education_level", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Other Details",
+        "fields": [
+          { "key": "voter_id_available", "type": "boolean", "required": true },
+          { "key": "district_name_of_beneficiary", "type": "string", "required": true },
+          { "key": "living_in_state_years", "type": "number", "required": true },
+          { "key": "reason_for_domicile_application", "type": "string", "required": true },
+          { "key": "other_details", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Declaration",
+        "fields": [
+          { "key": "date", "type": "date", "required": true },
+          { "key": "signature", "type": "string", "required": true }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": ["affidavit", "proof_of_15_years_residence", "educational_certificate"],
+      "optional": ["proof_of_5_years_residence"],
+      "accepted_groups": {
+        "proof_of_15_years_residence": [
+          "birth_certificate",
+          "voter_id",
+          "ration_card",
+          "electricity_bill",
+          "land_house_document",
+          "ward_member_certificate"
+        ],
+        "proof_of_5_years_residence": [
+          "birth_certificate",
+          "voter_id",
+          "ration_card",
+          "electricity_bill",
+          "land_house_document",
+          "ward_member_certificate"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_sc_st_certificate",
+    "service_name": "SC/ST Certificate",
+    "service_type": "sc_st_certificate",
+    "sections": [
+      {
+        "name": "General Details",
+        "fields": [
+          { "key": "beneficiary_guardian_type", "type": "string", "required": true },
+          { "key": "beneficiary_guardian_name", "type": "string", "required": true },
+          { "key": "guardian_type_english", "type": "string", "required": true },
+          { "key": "guardian_name_english", "type": "string", "required": true },
+          { "key": "gender", "type": "string", "required": true },
+          { "key": "marital_status", "type": "string", "required": true },
+          { "key": "date_of_birth", "type": "date", "required": true },
+          { "key": "relation_to_applicant", "type": "string", "required": true },
+          { "key": "caste", "type": "string", "required": true },
+          { "key": "category", "type": "string", "required": true },
+          { "key": "caste_english", "type": "string", "required": true },
+          { "key": "category_english", "type": "string", "required": true },
+          { "key": "category_number", "type": "string", "required": true },
+          { "key": "beneficiary_name_english", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Present Address",
+        "fields": [
+          { "key": "address", "type": "string", "required": true },
+          { "key": "pin_code", "type": "string", "required": true },
+          { "key": "post_box_number", "type": "string", "required": true },
+          { "key": "district", "type": "string", "required": true },
+          { "key": "address_english", "type": "string", "required": true },
+          { "key": "present_permanent_same", "type": "boolean", "required": true }
+        ]
+      },
+      {
+        "name": "Permanent Address",
+        "fields": [
+          { "key": "address", "type": "string", "required": true },
+          { "key": "pin_code", "type": "string", "required": true },
+          { "key": "district", "type": "string", "required": true },
+          { "key": "post_box_number", "type": "string", "required": true },
+          { "key": "police_station", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Permanent Address Before 1950",
+        "fields": [
+          { "key": "village_or_town", "type": "string", "required": true },
+          { "key": "patwari_halka_number", "type": "string", "required": true },
+          { "key": "tehsil", "type": "string", "required": true },
+          { "key": "district", "type": "string", "required": true },
+          { "key": "head_of_family_name", "type": "string", "required": true },
+          { "key": "relation_to_head_of_family", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Residence Since 1950",
+        "fields": [
+          { "key": "guardian_residence_since_1950", "type": "string", "required": true },
+          { "key": "guardian_address_details", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Other Details",
+        "fields": [
+          { "key": "previous_scst_certificate", "type": "string", "required": true },
+          { "key": "document_proof_for_scst", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Declaration",
+        "fields": [
+          { "key": "date", "type": "date", "required": true },
+          { "key": "place", "type": "string", "required": true },
+          { "key": "applicant_name", "type": "string", "required": true },
+          { "key": "signature", "type": "string", "required": true }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": ["caste_proof"],
+      "optional": ["affidavit", "vanshavali", "gram_sabha_proposal"],
+      "accepted_groups": {
+        "caste_proof": [
+          "caste_certificate_other_state",
+          "certificate_from_sarpanch",
+          "school_transfer_certificate",
+          "father_service_certificate",
+          "educational_certificate",
+          "census_register",
+          "citizen_register",
+          "jamabandi"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_obc_certificate",
+    "service_name": "OBC Certificate",
+    "service_type": "obc_certificate",
+    "sections": [
+      {
+        "name": "General Details",
+        "fields": [
+          { "key": "beneficiary_guardian_type", "type": "string", "required": true },
+          { "key": "beneficiary_guardian_name", "type": "string", "required": true },
+          { "key": "guardian_type_english", "type": "string", "required": true },
+          { "key": "guardian_name_english", "type": "string", "required": true },
+          { "key": "gender", "type": "string", "required": true },
+          { "key": "marital_status", "type": "string", "required": true },
+          { "key": "date_of_birth", "type": "date", "required": true },
+          { "key": "relation_to_applicant", "type": "string", "required": true },
+          { "key": "caste_obc", "type": "string", "required": true },
+          { "key": "category", "type": "string", "required": true },
+          { "key": "caste_english", "type": "string", "required": true },
+          { "key": "category_english", "type": "string", "required": true },
+          { "key": "category_number", "type": "string", "required": true },
+          { "key": "beneficiary_name_english", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Present Address",
+        "fields": [
+          { "key": "address", "type": "string", "required": true },
+          { "key": "pin_code", "type": "string", "required": true },
+          { "key": "post_box_number", "type": "string", "required": true },
+          { "key": "district", "type": "string", "required": true },
+          { "key": "address_english", "type": "string", "required": true },
+          { "key": "present_permanent_same", "type": "boolean", "required": true }
+        ]
+      },
+      {
+        "name": "Permanent Address",
+        "fields": [
+          { "key": "address", "type": "string", "required": true },
+          { "key": "pin_code", "type": "string", "required": true },
+          { "key": "district", "type": "string", "required": true },
+          { "key": "post_box_number", "type": "string", "required": true },
+          { "key": "police_station", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Historical Address",
+        "fields": [
+          { "key": "village_or_town", "type": "string", "required": true },
+          { "key": "patwari_halka_number", "type": "string", "required": true },
+          { "key": "tehsil", "type": "string", "required": true },
+          { "key": "district", "type": "string", "required": true },
+          { "key": "head_of_family_name", "type": "string", "required": true },
+          { "key": "relation_to_head_of_family", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Residence Since 1984",
+        "fields": [
+          { "key": "guardian_residence_since_1984", "type": "string", "required": true },
+          { "key": "guardian_address_details", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Declaration",
+        "fields": [
+          { "key": "date", "type": "date", "required": true },
+          { "key": "place", "type": "string", "required": true },
+          { "key": "applicant_name", "type": "string", "required": true },
+          { "key": "signature", "type": "string", "required": true }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": ["affidavit", "income_proof", "obc_proof"],
+      "optional": ["vanshavali", "gram_sabha_proposal"],
+      "accepted_groups": {
+        "income_proof": [
+          "patwari_certificate",
+          "sarpanch_certificate",
+          "employer_income_certificate",
+          "form16"
+        ],
+        "obc_proof": [
+          "obc_certificate_of_father",
+          "educational_certificate",
+          "school_transfer_certificate",
+          "jamabandi",
+          "census_register"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_land_use_information",
+    "service_name": "Land Use Information",
+    "service_type": "land_use_information",
+    "sections": [
+      {
+        "name": "Applicant Details",
+        "fields": [
+          { "key": "applicant_name", "type": "string", "required": true },
+          { "key": "father_name", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Land Details",
+        "fields": [
+          { "key": "village_name", "type": "string", "required": true },
+          { "key": "patwari_halka_number", "type": "string", "required": true },
+          { "key": "khasra_number", "type": "string", "required": true },
+          { "key": "is_applicant_owner", "type": "boolean", "required": true }
+        ]
+      },
+      {
+        "name": "Declaration",
+        "fields": [
+          { "key": "date", "type": "date", "required": true },
+          { "key": "place", "type": "string", "required": true },
+          { "key": "applicant_name", "type": "string", "required": true },
+          { "key": "signature", "type": "string", "required": true }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": ["khasra", "naksha", "challan_copy"],
+      "optional": [],
+      "accepted_groups": {}
+    }
+  },
+  {
+    "service_id": "svc_birth_certificate_correction",
+    "service_name": "Birth Certificate Correction",
+    "service_type": "birth_certificate_correction",
+    "sections": [
+      {
+        "name": "Application Info",
+        "fields": [
+          { "key": "application_number", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Place of Birth",
+        "fields": [
+          { "key": "birth_place_type", "type": "string", "required": true },
+          { "key": "hospital_or_institute_name", "type": "string", "required": true },
+          { "key": "birth_place_local_language", "type": "string", "required": true },
+          { "key": "birth_place_english", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Child Birth Registration",
+        "fields": [
+          { "key": "date_of_birth", "type": "date", "required": true },
+          { "key": "gender", "type": "string", "required": true },
+          { "key": "child_name_local_language", "type": "string", "required": true },
+          { "key": "child_name_english", "type": "string", "required": true },
+          { "key": "registration_number", "type": "string", "required": true },
+          { "key": "registration_date", "type": "date", "required": true }
+        ]
+      },
+      {
+        "name": "Father Details",
+        "fields": [
+          { "key": "father_name_local_language", "type": "string", "required": true },
+          { "key": "father_name_english", "type": "string", "required": true },
+          { "key": "father_aadhaar_number", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Guardian Address",
+        "fields": [
+          { "key": "address_at_time_of_birth_local_language", "type": "string", "required": true },
+          { "key": "address_at_time_of_birth_english", "type": "string", "required": true },
+          { "key": "permanent_address_local_language", "type": "string", "required": true },
+          { "key": "permanent_address_english", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Mother Details",
+        "fields": [
+          { "key": "mother_name_local_language", "type": "string", "required": true },
+          { "key": "mother_name_english", "type": "string", "required": true },
+          { "key": "mother_aadhaar_number", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Declaration",
+        "fields": [
+          { "key": "date", "type": "date", "required": true },
+          { "key": "place", "type": "string", "required": true },
+          { "key": "applicant_name", "type": "string", "required": true },
+          { "key": "signature", "type": "string", "required": true }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [],
+      "optional": [],
+      "accepted_groups": {}
+    }
+  }
+]
