@@ -1,9 +1,9 @@
 const { listServices, getServiceByType } = require("../modules/services/serviceSchema");
 const { runValidation } = require("../modules/validation/validateApplication");
 const { runOcrExtraction } = require("../modules/ocr/ocrStub");
-const { extractFeatures } = require("../modules/features/featureExtractor");
-const { scoreRisk } = require("../modules/risk/riskScore");
+const { scoreRisk, applyRiskGuardrails } = require("../modules/risk/riskScore");
 const { callMlApi } = require("../modules/risk/mlClient");
+const { buildRiskFeatures } = require("../modules/risk/featureEngineering");
 const { recommend } = require("../modules/schemes/recommendSchemes");
 const { explain } = require("../modules/llm/explain");
 const { buildApplication } = require("../modules/applications/applicationBuilder");
@@ -165,7 +165,15 @@ async function validateApplication(req, res) {
     validation.warnings.push("Document mismatch detected");
   }
 
-  const features = extractFeatures({ serviceType, citizenData, validation, verification });
+  const { features, summary } = buildRiskFeatures({
+    serviceType,
+    citizenData,
+    documents: persistedDocs,
+    service,
+    validation,
+    verification,
+    ocrResults
+  });
 
   const enrichedDocs = (persistedDocs || []).map((doc, idx) => {
     const fields = (ocrResults[idx] && ocrResults[idx].fields) || {};
@@ -184,8 +192,26 @@ async function validateApplication(req, res) {
     applicationId: application_id,
     citizenData
   });
+  if (risk && risk.code === "VALIDATION_ERROR") {
+    res.status(400).json({ error: "Invalid risk model input", details: risk.details });
+    return;
+  }
   if (!risk || risk.error) {
     risk = scoreRisk(features, validation);
+  }
+  risk = applyRiskGuardrails(risk, features);
+
+  logRiskRequestDiagnostics({
+    applicationId: application_id || "adhoc",
+    serviceType,
+    summary,
+    engineeredPayload: features,
+    finalResponse: risk
+  });
+
+  if (process.env.NODE_ENV !== "production") {
+    risk.debug_summary = summary;
+    logRiskSummary(application_id || "adhoc", summary, risk);
   }
 
   const schemes = recommend(citizenData || {});
@@ -233,16 +259,125 @@ async function listApplications(req, res) {
 
 async function predictRisk(req, res) {
   const payload = req.body || {};
-  const features = payload.features || {};
-  let risk = await callMlApi(features, {
-    serviceType: payload.serviceType,
-    applicationId: payload.application_id,
-    citizenData: payload.citizenData
+  const serviceType = payload.serviceType || payload.service_type;
+  if (!serviceType) {
+    res.status(400).json({ error: "serviceType is required" });
+    return;
+  }
+
+  const service = await getServiceByType(serviceType);
+  const documents = payload.documents || [];
+  const ocrResults = payload.ocrResults || [];
+  const citizenData = payload.citizenData || {};
+  const derived = buildRiskFeatures({
+    serviceType,
+    citizenData,
+    documents,
+    service,
+    verification: payload.verification,
+    ocrResults
   });
+  const features = mergeFeatureOverrides(derived.features, payload.features || {});
+
+  let risk = await callMlApi(features, {
+    serviceType,
+    applicationId: payload.application_id,
+    citizenData
+  });
+  if (risk && risk.code === "VALIDATION_ERROR") {
+    res.status(400).json({ error: "Invalid risk model input", details: risk.details });
+    return;
+  }
   if (!risk || risk.error) {
     risk = scoreRisk(features, { warnings: [] });
   }
+  risk = applyRiskGuardrails(risk, features);
+
+  logRiskRequestDiagnostics({
+    applicationId: payload.application_id || "adhoc",
+    serviceType,
+    summary: derived.summary,
+    engineeredPayload: features,
+    finalResponse: risk
+  });
+
+  if (process.env.NODE_ENV !== "production") {
+    risk.debug_summary = derived.summary;
+    logRiskSummary(payload.application_id || "adhoc", derived.summary, risk);
+  }
+
   res.json(risk);
+}
+
+function logRiskSummary(applicationId, summary, risk) {
+  console.log("[risk-summary]", {
+    application_id: applicationId,
+    service_type: summary.service_type,
+    missing_documents_count: summary.missing_documents_count,
+    missing_fields_count: summary.missing_fields_count,
+    field_mismatch_count: summary.field_mismatch_count,
+    document_quality_score: summary.document_quality_score,
+    risk_probability: risk.risk_probability,
+    risk_score: risk.risk_score,
+    risk_level: risk.risk_level,
+    rejected_prediction: risk.rejected_prediction,
+    threshold_used: risk.threshold_used
+  });
+}
+
+function logRiskRequestDiagnostics({ applicationId, serviceType, summary, engineeredPayload, finalResponse }) {
+  if (process.env.NODE_ENV === "production") return;
+
+  console.log("[risk-request]", {
+    application_id: applicationId,
+    service_type: serviceType,
+    uploaded_docs: summary.uploaded_documents || [],
+    missing_mandatory_docs: summary.missing_mandatory_documents || [],
+    missing_required_fields: summary.missing_required_fields || []
+  });
+
+  console.log("[risk-engineered-payload]", {
+    application_id: applicationId,
+    payload: engineeredPayload
+  });
+
+  console.log("[risk-final-response]", {
+    application_id: applicationId,
+    response: finalResponse
+  });
+}
+
+function mergeFeatureOverrides(engineered, incoming) {
+  if (!incoming || typeof incoming !== "object") {
+    return engineered;
+  }
+
+  const protectedKeys = new Set([
+    "missing_documents_count",
+    "missing_fields_count",
+    "field_mismatch_count",
+    "document_quality_score",
+    "age_eligible",
+    "income_eligible",
+    "district_valid",
+    "service_type",
+    "age",
+    "gender",
+    "caste",
+    "district",
+    "annual_income",
+    "average_income_last_3_years"
+  ]);
+
+  const merged = { ...engineered };
+  Object.entries(incoming).forEach(([key, value]) => {
+    if (protectedKeys.has(key)) {
+      return;
+    }
+    merged[key] = value;
+  });
+
+  return merged;
 }
 
 async function recommendSchemes(req, res) {
