@@ -6,5 +6,325 @@
     "citizen_data": {},
     "application_status": "draft",
     "created_at": "2026-03-14T12:08:04.737Z"
+  },
+  {
+    "application_id": "app_1773490248458",
+    "service_type": "income_certificate",
+    "operator_id": "hello",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T12:10:48.458Z"
+  },
+  {
+    "application_id": "app_1773490442768",
+    "service_type": "domicile_certificate",
+    "operator_id": "a",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T12:14:02.768Z"
+  },
+  {
+    "application_id": "app_1773490656833",
+    "service_type": "domicile_certificate",
+    "operator_id": "a",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T12:17:36.833Z"
+  },
+  {
+    "application_id": "app_1773491130190",
+    "service_type": "domicile_certificate",
+    "operator_id": "werf",
+    "citizen_data": {},
+    "application_status": "submitted",
+    "created_at": "2026-03-14T12:25:30.190Z"
+  },
+  {
+    "application_id": "app_1773491144397",
+    "service_type": "domicile_certificate",
+    "operator_id": "werf",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T12:25:44.397Z"
+  },
+  {
+    "application_id": "app_1773494162457",
+    "service_type": "income_certificate",
+    "operator_id": "asg",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:16:02.457Z"
+  },
+  {
+    "application_id": "app_1773494215203",
+    "service_type": "income_certificate",
+    "operator_id": "asg",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:16:55.203Z"
+  },
+  {
+    "application_id": "app_1773494446787",
+    "service_type": "income_certificate",
+    "operator_id": "asg",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:20:46.787Z"
+  },
+  {
+    "application_id": "app_1773494454650",
+    "service_type": "domicile_certificate",
+    "operator_id": "sagf",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:20:54.650Z"
+  },
+  {
+    "application_id": "app_1773494528034",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:22:08.034Z"
+  },
+  {
+    "application_id": "app_1773494722911",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:25:22.911Z"
+  },
+  {
+    "application_id": "app_1773494733743",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:25:33.743Z"
+  },
+  {
+    "application_id": "app_1773494734564",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:25:34.564Z"
+  },
+  {
+    "application_id": "app_1773494734816",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:25:34.816Z"
+  },
+  {
+    "application_id": "app_1773494735016",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:25:35.016Z"
+  },
+  {
+    "application_id": "app_1773494735203",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:25:35.203Z"
+  },
+  {
+    "application_id": "app_1773494735419",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:25:35.419Z"
+  },
+  {
+    "application_id": "app_1773494735652",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:25:35.652Z"
+  },
+  {
+    "application_id": "app_1773494861354",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:27:41.354Z"
+  },
+  {
+    "application_id": "app_1773494862587",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:27:42.587Z"
+  },
+  {
+    "application_id": "app_1773494862741",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:27:42.741Z"
+  },
+  {
+    "application_id": "app_1773494863076",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:27:43.076Z"
+  },
+  {
+    "application_id": "app_1773494863318",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:27:43.318Z"
+  },
+  {
+    "application_id": "app_1773494863518",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:27:43.518Z"
+  },
+  {
+    "application_id": "app_1773494863755",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:27:43.755Z"
+  },
+  {
+    "application_id": "app_1773494864203",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:27:44.203Z"
+  },
+  {
+    "application_id": "app_1773494951603",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:29:11.603Z"
+  },
+  {
+    "application_id": "app_1773494952233",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:29:12.233Z"
+  },
+  {
+    "application_id": "app_1773494952428",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:29:12.428Z"
+  },
+  {
+    "application_id": "app_1773494952697",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:29:12.697Z"
+  },
+  {
+    "application_id": "app_1773494952896",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:29:12.896Z"
+  },
+  {
+    "application_id": "app_1773494953096",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:29:13.096Z"
+  },
+  {
+    "application_id": "app_1773494953318",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:29:13.318Z"
+  },
+  {
+    "application_id": "app_1773494953507",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:29:13.507Z"
+  },
+  {
+    "application_id": "app_1773494953709",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:29:13.709Z"
+  },
+  {
+    "application_id": "app_1773494953913",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:29:13.913Z"
+  },
+  {
+    "application_id": "app_1773494954127",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:29:14.127Z"
+  },
+  {
+    "application_id": "app_1773494956894",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:29:16.894Z"
+  },
+  {
+    "application_id": "app_1773495864732",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:44:24.732Z"
+  },
+  {
+    "application_id": "app_1773496350197",
+    "service_type": "income_certificate",
+    "operator_id": "afs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T13:52:30.197Z"
   }
 ]
