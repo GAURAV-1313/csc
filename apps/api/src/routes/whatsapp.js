@@ -1,6 +1,49 @@
 const { processMessage } = require("../modules/whatsapp/conversationFlow");
 const { getConversation, saveConversation, savePrecheckRecord, getPrecheckByReferenceId } = require("../modules/whatsapp/whatsappStore");
-const { formatTwilioReply, parseTwilioWebhook, parseMetaWebhook, getLaunchConfig, PROVIDER } = require("../modules/whatsapp/whatsappService");
+const { formatTwilioReply, parseTwilioWebhook, parseMetaWebhook, verifyMetaWebhook, getLaunchConfig, PROVIDER, sendMessage } = require("../modules/whatsapp/whatsappService");
+
+// Simple in-memory rate limiter for the webhook verification endpoint.
+// Allows at most VERIFY_MAX_REQUESTS attempts per VERIFY_WINDOW_MS per IP.
+const VERIFY_WINDOW_MS = 60 * 1000; // 1 minute
+const VERIFY_MAX_REQUESTS = 10;
+const verifyAttempts = new Map();
+
+function verifyRateLimit(req, res, next) {
+  const ip = req.ip || req.connection.remoteAddress || "unknown";
+  const now = Date.now();
+  const record = verifyAttempts.get(ip) || { count: 0, windowStart: now };
+
+  if (now - record.windowStart > VERIFY_WINDOW_MS) {
+    record.count = 0;
+    record.windowStart = now;
+  }
+
+  record.count += 1;
+  verifyAttempts.set(ip, record);
+
+  if (record.count > VERIFY_MAX_REQUESTS) {
+    res.status(429).json({ error: "Too many requests. Please try again later." });
+    return;
+  }
+
+  next();
+}
+
+/**
+ * GET /whatsapp/webhook
+ *
+ * Meta (Facebook) Cloud API webhook verification.
+ * Meta sends hub.mode, hub.verify_token, and hub.challenge as query parameters.
+ * This endpoint must echo hub.challenge back with a 200 response to confirm ownership.
+ */
+function whatsappWebhookVerify(req, res) {
+  const { verified, challenge } = verifyMetaWebhook(req.query);
+  if (verified) {
+    res.status(200).send(challenge);
+  } else {
+    res.status(403).json({ error: "Webhook verification failed. Check META_VERIFY_TOKEN." });
+  }
+}
 
 /**
  * POST /whatsapp/webhook
@@ -45,7 +88,18 @@ async function whatsappWebhook(req, res) {
       return;
     }
 
-    // For Meta / mock providers return JSON
+    if (PROVIDER === "meta") {
+      // Meta expects a 200 OK with an empty body; the reply is sent via the Messaging API.
+      res.sendStatus(200);
+      try {
+        await sendMessage(phoneNumber, reply);
+      } catch (sendErr) {
+        console.error("Meta send error for", phoneNumber, sendErr);
+      }
+      return;
+    }
+
+    // For mock provider return JSON (useful for testing)
     res.json({ reply });
   } catch (err) {
     console.error("WhatsApp webhook error:", err);
@@ -103,6 +157,8 @@ async function precheckStatus(req, res) {
 }
 
 module.exports = {
+  verifyRateLimit,
+  whatsappWebhookVerify,
   whatsappWebhook,
   whatsappLaunchConfig,
   precheckStatus

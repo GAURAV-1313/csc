@@ -70,6 +70,39 @@ async function sendMessage(toNumber, messageBody) {
     return response.json();
   }
 
+  if (PROVIDER === "meta") {
+    const token = process.env.META_WHATSAPP_TOKEN;
+    const phoneNumberId = process.env.META_PHONE_NUMBER_ID;
+
+    if (!token || !phoneNumberId) {
+      throw new Error("Meta credentials are not configured (META_WHATSAPP_TOKEN, META_PHONE_NUMBER_ID)");
+    }
+
+    const url = `https://graph.facebook.com/v17.0/${phoneNumberId}/messages`;
+    const payload = {
+      messaging_product: "whatsapp",
+      to: toNumber,
+      type: "text",
+      text: { body: messageBody }
+    };
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Meta API error: ${response.status} ${errorText}`);
+    }
+
+    return response.json();
+  }
+
   if (PROVIDER === "whatsapp_web") {
     throw new Error("whatsapp_web provider is not yet initialized. Call initWhatsAppWebClient() first.");
   }
@@ -105,6 +138,23 @@ function parseMetaWebhook(body) {
 }
 
 /**
+ * Verify an incoming Meta (Facebook) webhook subscription request.
+ * Meta sends a GET request with hub.mode, hub.verify_token, and hub.challenge.
+ * Returns true if verified (caller should respond with hub.challenge), false otherwise.
+ */
+function verifyMetaWebhook(query) {
+  const mode = query["hub.mode"];
+  const token = query["hub.verify_token"];
+  const challenge = query["hub.challenge"];
+  const verifyToken = process.env.META_VERIFY_TOKEN;
+
+  if (mode === "subscribe" && verifyToken && token === verifyToken) {
+    return { verified: true, challenge };
+  }
+  return { verified: false, challenge: null };
+}
+
+/**
  * Build a launch configuration for the client-side WhatsApp button.
  * Returns the WhatsApp deep-link URL and display metadata.
  */
@@ -127,6 +177,7 @@ module.exports = {
   formatTwilioReply,
   parseTwilioWebhook,
   parseMetaWebhook,
+  verifyMetaWebhook,
   getLaunchConfig,
   PROVIDER
 };

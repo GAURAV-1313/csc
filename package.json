@@ -9,5 +9,11 @@
     "dev": "node apps/api/src/index.js",
     "dev:api": "node apps/api/src/index.js",
     "dev:ui": "npm --prefix apps/operator-ui run dev"
+  },
+  "devDependencies": {
+    "prisma": "^5.22.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0"
   }
 }

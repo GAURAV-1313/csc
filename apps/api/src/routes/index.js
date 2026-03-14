@@ -13,7 +13,7 @@ const {
   listApplications,
   uploadApplicationDocument
 } = require("./handlers");
-const { whatsappWebhook, whatsappLaunchConfig, precheckStatus } = require("./whatsapp");
+const { whatsappWebhookVerify, whatsappWebhook, whatsappLaunchConfig, precheckStatus } = require("./whatsapp");
 
 function registerRoutes(app, upload) {
   app.get("/services", getServices);
@@ -31,6 +31,7 @@ function registerRoutes(app, upload) {
   app.post("/explain", explainRisk);
 
   // WhatsApp chatbot routes
+  app.get("/whatsapp/webhook", whatsappWebhookVerify);
   app.post("/whatsapp/webhook", whatsappWebhook);
   app.get("/public/whatsapp-launch-config", whatsappLaunchConfig);
   app.get("/whatsapp/precheck-status/:referenceId", precheckStatus);
