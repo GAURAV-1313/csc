@@ -467,3 +467,216 @@ textarea {
     position: static;
   }
 }
+
+/* ── WhatsApp floating widget ── */
+@keyframes wa-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+  50%       { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+}
+
+@keyframes wa-bounce-in {
+  0%   { opacity: 0; transform: scale(0.6) translateY(20px); }
+  70%  { opacity: 1; transform: scale(1.05) translateY(-4px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+@keyframes wa-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.wa-widget {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  animation: wa-bounce-in 0.5s ease both;
+}
+
+.wa-fab {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: #25D366;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+  animation: wa-pulse 2.4s ease-in-out infinite;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.wa-fab:hover,
+.wa-fab:focus {
+  background: #1ebe57;
+  transform: scale(1.1);
+  outline: none;
+  animation: none;
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.55);
+}
+
+.wa-tooltip {
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  animation: wa-fade-in 0.18s ease;
+  pointer-events: none;
+  max-width: 240px;
+  text-align: right;
+}
+
+.wa-tooltip::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 22px;
+  bottom: -6px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #1a1a1a;
+}
+
+/* ── WhatsApp popup modal ── */
+.wa-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 100px 28px 100px 28px;
+  z-index: 10000;
+  animation: wa-fade-in 0.2s ease;
+}
+
+.wa-popup {
+  background: var(--panel);
+  border-radius: 20px;
+  width: 340px;
+  max-width: calc(100vw - 56px);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.2);
+  overflow: hidden;
+  animation: wa-bounce-in 0.35s ease;
+}
+
+.wa-popup-header {
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 18px;
+}
+
+.wa-popup-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wa-popup-title {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.wa-popup-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 4px;
+  border-radius: 50%;
+  transition: background 0.15s;
+}
+
+.wa-popup-close:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.wa-popup-body {
+  padding: 18px;
+}
+
+.wa-popup-greeting {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.wa-popup-desc {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+
+.wa-popup-steps {
+  padding-left: 18px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wa-popup-steps li {
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+.wa-popup-footer {
+  padding: 14px 18px 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn.wa-popup-start {
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
+}
+
+.btn.wa-popup-start:hover {
+  background: #1ebe57;
+}
+
+@media (max-width: 480px) {
+  .wa-widget {
+    bottom: 16px;
+    right: 16px;
+  }
+  .wa-popup-overlay {
+    padding: 16px;
+    align-items: flex-end;
+    justify-content: stretch;
+  }
+  .wa-popup {
+    width: 100%;
+    max-width: 100%;
+  }
+}
