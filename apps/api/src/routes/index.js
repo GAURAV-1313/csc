@@ -13,7 +13,7 @@ const {
   listApplications,
   uploadApplicationDocument
 } = require("./handlers");
-const { whatsappWebhookVerify, whatsappWebhook, whatsappLaunchConfig, precheckStatus } = require("./whatsapp");
+const { whatsappWebhook, whatsappLaunchConfig, precheckStatus, whatsappReport, whatsappReportLookup } = require("./whatsapp");
 
 function registerRoutes(app, upload) {
   app.get("/services", getServices);
@@ -31,10 +31,13 @@ function registerRoutes(app, upload) {
   app.post("/explain", explainRisk);
 
   // WhatsApp chatbot routes
-  app.get("/whatsapp/webhook", whatsappWebhookVerify);
   app.post("/whatsapp/webhook", whatsappWebhook);
   app.get("/public/whatsapp-launch-config", whatsappLaunchConfig);
   app.get("/whatsapp/precheck-status/:referenceId", precheckStatus);
+
+  // External WhatsApp bot proxy routes (requires BOT_API_BASE_URL + BOT_API_TOKEN)
+  app.get("/whatsapp-report/:referenceId", whatsappReport);
+  app.post("/whatsapp-report/lookup", whatsappReportLookup);
 }
 
 module.exports = { registerRoutes };
