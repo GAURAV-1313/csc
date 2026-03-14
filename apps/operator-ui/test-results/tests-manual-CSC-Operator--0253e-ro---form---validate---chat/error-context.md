@@ -1,0 +1,84 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - generic [ref=e7]: भाषा चुनें
+      - combobox [ref=e8]:
+        - option "हिंदी" [selected]
+        - option "English"
+    - generic [ref=e9]: डिजिटल भारत के साथ जारी रखें
+  - generic [ref=e12]:
+    - img "CSC Digital India" [ref=e13]
+    - generic [ref=e14]:
+      - paragraph [ref=e15]: कॉमन सर्विस सेंटर
+      - paragraph [ref=e16]: Digital Seva Portal
+  - generic [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - heading "Birth Registration & Certificate" [level=1] [ref=e20]
+        - paragraph [ref=e21]: "आवेदन आईडी: app_1773527116773"
+      - button "डैशबोर्ड पर वापस" [ref=e22] [cursor=pointer]
+    - generic [ref=e23]:
+      - generic [ref=e24]:
+        - generic [ref=e25]: परिचय
+        - paragraph [ref=e26]: Birth Registration & Certificate सेवा के लिए ऑनलाइन आवेदन की सुविधा उपलब्ध है। कृपया आवेदन शुरू करने से पहले आवश्यक दस्तावेज़ और विवरण तैयार रखें।
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]: फॉर्म देखें
+          - generic [ref=e30]:
+            - generic [ref=e31]: Form Assistance
+            - button "फॉर्म देखें" [ref=e32] [cursor=pointer]
+        - generic [ref=e33]:
+          - generic [ref=e34]: शुल्क संबंधित जानकारी
+          - paragraph [ref=e35]: "Lok Seva Kendra: ₹30.0"
+          - paragraph [ref=e36]: "Online: ₹30.0"
+        - generic [ref=e37]:
+          - generic [ref=e38]: संपर्क
+          - paragraph [ref=e39]: Lok Seva Kendra
+        - generic [ref=e40]:
+          - generic [ref=e41]: समय सीमा
+          - paragraph [ref=e42]: 7 Days
+      - generic [ref=e43]:
+        - generic [ref=e44]: आवश्यक दस्तावेज़
+        - table [ref=e45]:
+          - rowgroup [ref=e46]:
+            - row "क्रमांक दस्तावेज़ प्रकार अनिवार्य" [ref=e47]:
+              - columnheader "क्रमांक" [ref=e48]
+              - columnheader "दस्तावेज़ प्रकार" [ref=e49]
+              - columnheader "अनिवार्य" [ref=e50]
+          - rowgroup [ref=e51]:
+            - row "1 Birth Information Form हाँ" [ref=e52]:
+              - cell "1" [ref=e53]
+              - cell "Birth Information Form" [ref=e54]
+              - cell "हाँ" [ref=e55]
+            - row "2 Order हाँ" [ref=e56]:
+              - cell "2" [ref=e57]
+              - cell "Order" [ref=e58]
+              - cell "हाँ" [ref=e59]
+            - row "3 Affidavit नहीं" [ref=e60]:
+              - cell "3" [ref=e61]
+              - cell "Affidavit" [ref=e62]
+              - cell "नहीं" [ref=e63]
+            - row "4 Additional नहीं" [ref=e64]:
+              - cell "4" [ref=e65]
+              - cell "Additional" [ref=e66]
+              - cell "नहीं" [ref=e67]
+            - row "5 Additional Document नहीं" [ref=e68]:
+              - cell "5" [ref=e69]
+              - cell "Additional Document" [ref=e70]
+              - cell "नहीं" [ref=e71]
+            - row "6 aadhaar card नहीं" [ref=e72]:
+              - cell "6" [ref=e73]
+              - cell "aadhaar card" [ref=e74]
+              - cell "नहीं" [ref=e75]
+            - row "7 pan card नहीं" [ref=e76]:
+              - cell "7" [ref=e77]
+              - cell "pan card" [ref=e78]
+              - cell "नहीं" [ref=e79]
+  - generic "WhatsApp पर प्री-चेक शुरू करें" [ref=e80]:
+    - button "WhatsApp पर प्री-चेक शुरू करें" [ref=e81] [cursor=pointer]:
+      - img [ref=e82]
+  - button "💬" [ref=e85] [cursor=pointer]
+```

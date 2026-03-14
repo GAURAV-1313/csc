@@ -52,6 +52,20 @@ function mapCitizenDataToForm(
   return mapped;
 }
 
+function mapOcrFieldsToForm(ocrFields: Record<string, unknown>): Record<string, string> {
+  const mapped: Record<string, string> = {};
+  if (!ocrFields) return mapped;
+  const normalize = (value: unknown) => (value === null || value === undefined ? "" : String(value));
+
+  if (ocrFields.name) mapped.applicant_name = normalize(ocrFields.name);
+  if (ocrFields.dob || ocrFields.date_of_birth) mapped.date_of_birth = normalize(ocrFields.dob || ocrFields.date_of_birth);
+  if (ocrFields.aadhaar_number || ocrFields.aadhaar) mapped.aadhaar_number = normalize(ocrFields.aadhaar_number || ocrFields.aadhaar);
+  if (ocrFields.pan_number || ocrFields.pan) mapped.pan_number = normalize(ocrFields.pan_number || ocrFields.pan);
+  if (ocrFields.address) mapped.address = normalize(ocrFields.address);
+
+  return mapped;
+}
+
 const incomeCertificateSchema: ServiceSchema = {
   service_id: "income_certificate",
   service_name: "Income Certificate",
@@ -475,7 +489,6 @@ export default function ApplicationForm() {
   const [validationResult, setValidationResult] = useState<ValidationResult | null>(null);
   const [loading, setLoading] = useState(true);
   const [validating, setValidating] = useState(false);
-  const [autoValidating, setAutoValidating] = useState(false);
   const [chatAutoOpen, setChatAutoOpen] = useState(false);
   const [viewMode, setViewMode] = useState<"intro" | "form">("intro");
   const [lang, setLang] = useState<"hi" | "en">(
@@ -623,19 +636,11 @@ export default function ApplicationForm() {
     }
 
     autoValidateTimer.current = window.setTimeout(async () => {
-      setAutoValidating(true);
-      try {
-        const result = await api.validateApplication(payload);
-        setValidationResult(result);
-        if (!chatAutoOpen) {
-          setChatAutoOpen(true);
-        }
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setAutoValidating(false);
+      await validateApplication(true);
+      if (!chatAutoOpen) {
+        setChatAutoOpen(true);
       }
-    }, 900);
+    }, 600);
 
     return () => {
       if (autoValidateTimer.current) {
@@ -665,7 +670,7 @@ export default function ApplicationForm() {
     }
   };
 
-  const validateApplication = async () => {
+  const validateApplication = async (silent = false) => {
     if (!schema || !serviceType) return;
     setValidating(true);
     try {
@@ -674,7 +679,9 @@ export default function ApplicationForm() {
         citizenData: formData,
         documents: uploadedDocs.map((doc) => ({
           documentType: (doc.document_type as string) || (doc.documentType as string),
-          filePath: (doc.file_path as string) || (doc.filePath as string)
+          filePath: (doc.file_path as string) || (doc.filePath as string),
+          ocrData: doc.ocrData as Record<string, unknown> | undefined,
+          sampleId: doc.sampleId as string | undefined
         })),
         application_id: applicationId
       };
@@ -682,7 +689,9 @@ export default function ApplicationForm() {
       setValidationResult(result);
     } catch (error) {
       console.error(error);
-      alert(error.message);
+      if (!silent) {
+        alert(error.message);
+      }
     } finally {
       setValidating(false);
     }
@@ -925,6 +934,66 @@ export default function ApplicationForm() {
 
             <div className="layout csc-form-layout">
               <div className="grid csc-form-grid">
+                <div className="card csc-section-card">
+                  <div className="csc-section-header">
+                    <h3 className="csc-section-title">Aadhaar / PAN Upload</h3>
+                    <a href="#csc-docs" className="csc-doc-shortcut">All Documents</a>
+                  </div>
+                  <p className="csc-section-note">Upload Aadhaar or PAN once to auto-fill matching fields.</p>
+                  <div className="csc-doc-quick">
+                    <label className={`csc-doc-upload ${!applicationId ? "disabled" : ""}`}>
+                      Aadhaar Upload
+                      <input
+                        type="file"
+                        disabled={!applicationId}
+                        onChange={async (event) => {
+                          const file = event.target.files?.[0];
+                          if (!applicationId || !file) return;
+                          try {
+                            const result = await api.uploadDocument(applicationId, "aadhaar_card", file);
+                            handleUploaded(result);
+                            const ocrFields = (result.ocr && result.ocr.fields) || {};
+                            const mapped = mapOcrFieldsToForm(ocrFields);
+                            if (Object.keys(mapped).length > 0) {
+                              setFormData((prev) => ({ ...prev, ...mapped }));
+                            }
+                          } catch (error) {
+                            console.error(error);
+                            alert(error.message);
+                          } finally {
+                            event.target.value = "";
+                          }
+                        }}
+                      />
+                    </label>
+                    <label className={`csc-doc-upload ${!applicationId ? "disabled" : ""}`}>
+                      PAN Upload
+                      <input
+                        type="file"
+                        disabled={!applicationId}
+                        onChange={async (event) => {
+                          const file = event.target.files?.[0];
+                          if (!applicationId || !file) return;
+                          try {
+                            const result = await api.uploadDocument(applicationId, "pan_card", file);
+                            handleUploaded(result);
+                            const ocrFields = (result.ocr && result.ocr.fields) || {};
+                            const mapped = mapOcrFieldsToForm(ocrFields);
+                            if (Object.keys(mapped).length > 0) {
+                              setFormData((prev) => ({ ...prev, ...mapped }));
+                            }
+                          } catch (error) {
+                            console.error(error);
+                            alert(error.message);
+                          } finally {
+                            event.target.value = "";
+                          }
+                        }}
+                      />
+                    </label>
+                  </div>
+                </div>
+
                 <DynamicForm schema={schema} formData={formData} onChange={handleChange} />
                 <DocumentUploader
                   applicationId={applicationId}
@@ -947,7 +1016,7 @@ export default function ApplicationForm() {
                   </button>
                 </div>
               </div>
-              <ValidationPanel validationResult={validationResult} />
+              <ValidationPanel validationResult={validationResult} schema={schema} formData={formData} />
             </div>
           </>
         )}

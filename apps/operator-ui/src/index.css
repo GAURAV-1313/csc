@@ -545,6 +545,58 @@ textarea {
   font-size: 14px;
 }
 
+.wa-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: 1px solid #bbf7d0;
+  background: linear-gradient(90deg, #f0fdf4, #dcfce7);
+  box-shadow: 0 12px 24px rgba(16, 185, 129, 0.15);
+  color: #14532d;
+  width: 100%;
+  min-height: 96px;
+}
+
+.wa-banner-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: #22c55e;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.wa-banner-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.wa-banner-content strong {
+  font-size: 16px;
+}
+
+.wa-banner-content span {
+  font-size: 12px;
+  color: #166534;
+}
+
+.wa-banner-cta {
+  margin-left: auto;
+  background: #16a34a;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 12px;
+}
+
 .services-showcase {
   margin-top: 32px;
   background: #fff3e0;
@@ -792,6 +844,80 @@ textarea {
   letter-spacing: -0.01em;
 }
 
+.csc-section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.csc-section-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.csc-doc-shortcut {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #fed7aa;
+  background: #fff7ed;
+  color: #c2410c;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.csc-doc-shortcut:hover {
+  background: #ffedd5;
+}
+
+.csc-doc-upload {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #c7d2fe;
+  background: #eef2ff;
+  color: #1e3a8a;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.csc-doc-upload input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.csc-doc-upload.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.csc-doc-upload.disabled input {
+  cursor: not-allowed;
+}
+
+.csc-doc-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.csc-section-note {
+  color: #64748b;
+  font-size: 13px;
+}
+
 .csc-form-page .form-row label {
   color: #13213b;
   font-weight: 600;
@@ -811,6 +937,33 @@ textarea {
 .csc-form-page .form-row textarea:focus {
   outline: 2px solid rgba(255, 118, 47, 0.25);
   border-color: #ff762f;
+}
+
+.field-hints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.field-hint {
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #fde68a;
+}
+
+.field-error {
+  color: #b91c1c;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.input-error {
+  border-color: #f87171 !important;
+  background: #fff5f5;
 }
 
 .csc-doc-list {

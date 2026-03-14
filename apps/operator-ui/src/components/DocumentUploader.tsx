@@ -34,7 +34,7 @@ export default function DocumentUploader({ applicationId, requiredDocuments, doc
   const acceptedGroups = requiredDocuments?.accepted_groups || {};
 
   return (
-    <div className="card csc-section-card">
+    <div className="card csc-section-card" id="csc-docs">
       <h3 className="csc-section-title">Required Documents</h3>
       <div className="grid csc-doc-list">
         {[...mandatory, ...optional].map((doc) => (

@@ -18,6 +18,7 @@ export default function Login() {
   );
   const [heroIndex, setHeroIndex] = useState(0);
   const [services, setServices] = useState<ServiceSchema[]>([]);
+  const [waLink, setWaLink] = useState<string | null>(null);
 
   const copy = {
     hi: {
@@ -91,6 +92,18 @@ export default function Login() {
         console.error(error);
         if (!mounted) return;
         setServices([]);
+      });
+
+    api
+      .getWhatsappLaunchConfig()
+      .then((cfg) => {
+        if (!mounted) return;
+        const link = cfg?.deep_link || cfg?.whatsapp_url || cfg?.fallback_link;
+        setWaLink(link || null);
+      })
+      .catch(() => {
+        if (!mounted) return;
+        setWaLink(null);
       });
 
     return () => {
@@ -199,6 +212,23 @@ export default function Login() {
               <img src={heroImages[heroIndex]} alt="Digital Seva Banner" />
             </div>
 
+            {waLink && (
+              <a className="wa-banner" href={waLink} target="_blank" rel="noreferrer">
+                <div className="wa-banner-icon" aria-hidden="true">📱</div>
+                <div className="wa-banner-content">
+                  <strong>{lang === "hi" ? "WhatsApp प्री-चेक शुरू करें" : "Start Pre-Check on WhatsApp"}</strong>
+                  <span>
+                    {lang === "hi"
+                      ? "नागरिक अपना रेफरेंस आईडी लेकर रिपोर्ट मंगवा सकते हैं"
+                      : "Citizens can use their Reference ID to fetch the report"}
+                  </span>
+                </div>
+                <div className="wa-banner-cta">
+                  {lang === "hi" ? "WhatsApp खोलें" : "Open WhatsApp"}
+                </div>
+              </a>
+            )}
+
             <div className="notice">
               <strong>सूचना:</strong>
               <span>{t.notice}</span>
@@ -214,18 +244,25 @@ export default function Login() {
                 <label>{t.operatorId}</label>
                 <input
                   type="text"
+                  data-testid="login-operator-id"
                   value={form.operator_id}
                   onChange={(event) => handleChange("operator_id", event.target.value)}
                 />
               </div>
               <div className="form-row">
                 <label>{t.name}</label>
-                <input type="text" value={form.name} onChange={(event) => handleChange("name", event.target.value)} />
+                <input
+                  type="text"
+                  data-testid="login-name"
+                  value={form.name}
+                  onChange={(event) => handleChange("name", event.target.value)}
+                />
               </div>
               <div className="form-row">
                 <label>{t.district}</label>
                 <input
                   type="text"
+                  data-testid="login-district"
                   value={form.district}
                   onChange={(event) => handleChange("district", event.target.value)}
                 />
