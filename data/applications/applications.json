@@ -2900,5 +2900,1056 @@
     "citizen_data": {},
     "application_status": "draft",
     "created_at": "2026-03-14T20:58:03.356Z"
+  },
+  {
+    "application_id": "app_1773522444187",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "sff",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T21:07:24.187Z"
+  },
+  {
+    "application_id": "app_1773522702993",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "sff",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T21:11:42.993Z"
+  },
+  {
+    "application_id": "app_1773522778621",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "sff",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T21:12:58.621Z"
+  },
+  {
+    "application_id": "app_1773522778623",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "sff",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T21:12:58.623Z"
+  },
+  {
+    "application_id": "app_1773522940862",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "sff",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T21:15:40.862Z"
+  },
+  {
+    "application_id": "app_1773522940865",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "sff",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T21:15:40.865Z"
+  },
+  {
+    "application_id": "app_1773525772843",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "sff",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T22:02:52.843Z"
+  },
+  {
+    "application_id": "app_1773527116773",
+    "service_type": "birth_certificate_correction",
+    "operator_id": "operator_demo",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T22:25:16.773Z"
+  },
+  {
+    "application_id": "app_1773528102446",
+    "service_type": "sc_st_certificate",
+    "operator_id": "sff",
+    "citizen_data": {
+      "beneficiary_guardian_type": ""
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-14T22:41:58.031Z",
+    "service_name": "SC/ST Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing documents: Caste Proof"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Caste Proof"
+      ],
+      "schemaErrors": [],
+      "documentStatus": {
+        "missing": [
+          "Caste Proof"
+        ],
+        "optional": [
+          "Residential Proof",
+          "Electricity Bill",
+          "Ration Card",
+          "Telephone Bill",
+          "Birth Certificate",
+          "Voters Identity Card",
+          "Bpl Certificate",
+          "Land And House Document",
+          "Driving License",
+          "Other Documents",
+          "Certificate From Ward Member, Local Mla/Mp",
+          "Photo Identity Card",
+          "Service Certificate Of Father / Guardian",
+          "Order Of Involuntary Migration",
+          "Domicile Certificate",
+          "Sc/St Certificate From Sarpanch / Parshad / Mla / Mp",
+          "Transfer Certificate From Any Recognized School Or Any School Countersigned By Deo",
+          "Father/Guardians Service Certificate/Identity Card",
+          "Educational Certificate",
+          "Caste Certificate Issued Earlier To The Applicant Or Any Member Of His Family",
+          "Primary School Certificate",
+          "Birth Information Form",
+          "Misal",
+          "Adhikar Abhilekh",
+          "Jamabandi",
+          "Census Register Of 1931",
+          "Citizen Register Of 1959",
+          "Dakhil / Kharij Panji",
+          "Disability / Unavailability Proof",
+          "Affidavit",
+          "Vanshavali",
+          "Vanshavali 1",
+          "Vanshavali 2",
+          "Vanshavali 3",
+          "Vanshavali 4",
+          "Gram Sabha Proposal (Resident Of Rural Areas People)",
+          "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "document_quality",
+        "missing_documents",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 0,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "document_quality",
+        "missing_documents"
+      ],
+      "debug_summary": {
+        "service_type": "sc_st_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Caste Proof"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 1,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Caste Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773528562431",
+    "service_type": "sc_st_certificate",
+    "operator_id": "gaurav singh",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T22:49:22.431Z"
+  },
+  {
+    "application_id": "app_1773529367875",
+    "service_type": "death_registration_certificate",
+    "operator_id": "saf",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T23:02:47.875Z"
+  },
+  {
+    "application_id": "app_1773529376829",
+    "service_type": "income_certificate",
+    "operator_id": "saf",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T23:02:56.829Z"
+  },
+  {
+    "application_id": "app_1773529565547",
+    "service_type": "income_certificate",
+    "operator_id": "saf",
+    "citizen_data": {
+      "age_of_beneficiary": "",
+      "pin_code": "",
+      "annual_income": ""
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-14T23:07:18.745Z",
+    "service_name": "Income Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing documents: Affidavit, Income Proof"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Affidavit",
+        "Income Proof"
+      ],
+      "schemaErrors": [],
+      "documentStatus": {
+        "missing": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "optional": [
+          "Income Certificate Employer/Form 16",
+          "Income From Land/House",
+          "Other Documents",
+          "Application Form",
+          "Form 16",
+          "Income Of Other Members Of The Family",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 1,
+      "risk_score": 1,
+      "risk_level": "VERY_HIGH",
+      "score_percent": 100,
+      "rejected_prediction": true,
+      "threshold_used": 0.5,
+      "main_contributing_factors": [
+        "missing_documents",
+        "Missing mandatory documents"
+      ],
+      "debug_summary": {
+        "service_type": "income_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 2,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 0,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773529745241",
+    "service_type": "sc_st_certificate",
+    "operator_id": "rtyu",
+    "citizen_data": {},
+    "application_status": "validated",
+    "created_at": "2026-03-14T23:09:53.215Z",
+    "service_name": "SC/ST Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing documents: Caste Proof"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Caste Proof"
+      ],
+      "schemaErrors": [],
+      "documentStatus": {
+        "missing": [
+          "Caste Proof"
+        ],
+        "optional": [
+          "Residential Proof",
+          "Electricity Bill",
+          "Ration Card",
+          "Telephone Bill",
+          "Birth Certificate",
+          "Voters Identity Card",
+          "Bpl Certificate",
+          "Land And House Document",
+          "Driving License",
+          "Other Documents",
+          "Certificate From Ward Member, Local Mla/Mp",
+          "Photo Identity Card",
+          "Service Certificate Of Father / Guardian",
+          "Order Of Involuntary Migration",
+          "Domicile Certificate",
+          "Sc/St Certificate From Sarpanch / Parshad / Mla / Mp",
+          "Transfer Certificate From Any Recognized School Or Any School Countersigned By Deo",
+          "Father/Guardians Service Certificate/Identity Card",
+          "Educational Certificate",
+          "Caste Certificate Issued Earlier To The Applicant Or Any Member Of His Family",
+          "Primary School Certificate",
+          "Birth Information Form",
+          "Misal",
+          "Adhikar Abhilekh",
+          "Jamabandi",
+          "Census Register Of 1931",
+          "Citizen Register Of 1959",
+          "Dakhil / Kharij Panji",
+          "Disability / Unavailability Proof",
+          "Affidavit",
+          "Vanshavali",
+          "Vanshavali 1",
+          "Vanshavali 2",
+          "Vanshavali 3",
+          "Vanshavali 4",
+          "Gram Sabha Proposal (Resident Of Rural Areas People)",
+          "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "document_quality",
+        "missing_documents",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 0,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "document_quality",
+        "missing_documents"
+      ],
+      "debug_summary": {
+        "service_type": "sc_st_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Caste Proof"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 1,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Caste Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773529972200",
+    "service_type": "death_registration_certificate",
+    "operator_id": "rtyu",
+    "citizen_data": {},
+    "application_status": "validated",
+    "created_at": "2026-03-14T23:13:16.681Z",
+    "service_name": "Death Registration & Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing documents: Order, Certificate/Document, Permission Form, Death Information Form, Self Attested Shapat Patra"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Order",
+        "Certificate/Document",
+        "Permission Form",
+        "Death Information Form",
+        "Self Attested Shapat Patra"
+      ],
+      "schemaErrors": [],
+      "documentStatus": {
+        "missing": [
+          "Order",
+          "Certificate/Document",
+          "Permission Form",
+          "Death Information Form",
+          "Self Attested Shapat Patra"
+        ],
+        "optional": [
+          "Affidavit",
+          "Additional Document",
+          "Other Documents",
+          "Form",
+          "Form 4",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "document_quality",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "document_quality"
+      ],
+      "debug_summary": {
+        "service_type": "death_registration_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Order",
+          "Certificate/Document",
+          "Permission Form",
+          "Death Information Form",
+          "Self Attested Shapat Patra"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 5,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Order",
+          "Certificate/Document",
+          "Permission Form",
+          "Death Information Form",
+          "Self Attested Shapat Patra"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773530019200",
+    "service_type": "sc_st_certificate",
+    "operator_id": "rtyu",
+    "citizen_data": {},
+    "application_status": "validated",
+    "created_at": "2026-03-14T23:14:56.112Z",
+    "service_name": "SC/ST Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing documents: Caste Proof"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Caste Proof"
+      ],
+      "schemaErrors": [],
+      "documentStatus": {
+        "missing": [
+          "Caste Proof"
+        ],
+        "optional": [
+          "Residential Proof",
+          "Electricity Bill",
+          "Ration Card",
+          "Telephone Bill",
+          "Birth Certificate",
+          "Voters Identity Card",
+          "Bpl Certificate",
+          "Land And House Document",
+          "Driving License",
+          "Other Documents",
+          "Certificate From Ward Member, Local Mla/Mp",
+          "Photo Identity Card",
+          "Service Certificate Of Father / Guardian",
+          "Order Of Involuntary Migration",
+          "Domicile Certificate",
+          "Sc/St Certificate From Sarpanch / Parshad / Mla / Mp",
+          "Transfer Certificate From Any Recognized School Or Any School Countersigned By Deo",
+          "Father/Guardians Service Certificate/Identity Card",
+          "Educational Certificate",
+          "Caste Certificate Issued Earlier To The Applicant Or Any Member Of His Family",
+          "Primary School Certificate",
+          "Birth Information Form",
+          "Misal",
+          "Adhikar Abhilekh",
+          "Jamabandi",
+          "Census Register Of 1931",
+          "Citizen Register Of 1959",
+          "Dakhil / Kharij Panji",
+          "Disability / Unavailability Proof",
+          "Affidavit",
+          "Vanshavali",
+          "Vanshavali 1",
+          "Vanshavali 2",
+          "Vanshavali 3",
+          "Vanshavali 4",
+          "Gram Sabha Proposal (Resident Of Rural Areas People)",
+          "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "document_quality",
+        "missing_documents",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 0,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "document_quality",
+        "missing_documents"
+      ],
+      "debug_summary": {
+        "service_type": "sc_st_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Caste Proof"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 1,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Caste Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773530247224",
+    "service_type": "sc_st_certificate",
+    "operator_id": "rtyu",
+    "citizen_data": {
+      "relation_to_applicant": "hello"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-14T23:17:57.143Z",
+    "service_name": "SC/ST Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing documents: Caste Proof"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Caste Proof"
+      ],
+      "schemaErrors": [],
+      "documentStatus": {
+        "missing": [
+          "Caste Proof"
+        ],
+        "optional": [
+          "Residential Proof",
+          "Electricity Bill",
+          "Ration Card",
+          "Telephone Bill",
+          "Birth Certificate",
+          "Voters Identity Card",
+          "Bpl Certificate",
+          "Land And House Document",
+          "Driving License",
+          "Other Documents",
+          "Certificate From Ward Member, Local Mla/Mp",
+          "Photo Identity Card",
+          "Service Certificate Of Father / Guardian",
+          "Order Of Involuntary Migration",
+          "Domicile Certificate",
+          "Sc/St Certificate From Sarpanch / Parshad / Mla / Mp",
+          "Transfer Certificate From Any Recognized School Or Any School Countersigned By Deo",
+          "Father/Guardians Service Certificate/Identity Card",
+          "Educational Certificate",
+          "Caste Certificate Issued Earlier To The Applicant Or Any Member Of His Family",
+          "Primary School Certificate",
+          "Birth Information Form",
+          "Misal",
+          "Adhikar Abhilekh",
+          "Jamabandi",
+          "Census Register Of 1931",
+          "Citizen Register Of 1959",
+          "Dakhil / Kharij Panji",
+          "Disability / Unavailability Proof",
+          "Affidavit",
+          "Vanshavali",
+          "Vanshavali 1",
+          "Vanshavali 2",
+          "Vanshavali 3",
+          "Vanshavali 4",
+          "Gram Sabha Proposal (Resident Of Rural Areas People)",
+          "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "document_quality",
+        "missing_documents",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 0,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "document_quality",
+        "missing_documents"
+      ],
+      "debug_summary": {
+        "service_type": "sc_st_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Caste Proof"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 1,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Caste Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773530401751",
+    "service_type": "sc_st_certificate",
+    "operator_id": "rtyu",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T23:20:01.751Z"
+  },
+  {
+    "application_id": "app_1773530401755",
+    "service_type": "sc_st_certificate",
+    "operator_id": "rtyu",
+    "citizen_data": {
+      "relation_to_applicant": "hello",
+      "beneficiary_guardian_type_in_english": "hello",
+      "address": "gaurav singh",
+      "patwari_halka_number": "afskshafjhljaksfhgjk,",
+      "tehsil": "afdskhgjkdaghlkjhfsk",
+      "name_of_head_of_family_on_this_date": "afdsaf",
+      "district": "afdsaffds",
+      "is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh": "afsdfa",
+      "address_details_of_applicants_guardian": "adfasfsd",
+      "details_of_document_to_proof_that_beneficiary_belongs_to_sc_st": "afsf",
+      "have_applicant_issued_scst_certificate_before": "afdsf"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-14T23:26:52.101Z",
+    "service_name": "SC/ST Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing documents: Caste Proof",
+        "Document mismatch detected"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Caste Proof"
+      ],
+      "schemaErrors": [],
+      "documentStatus": {
+        "missing": [
+          "Caste Proof"
+        ],
+        "optional": [
+          "Residential Proof",
+          "Electricity Bill",
+          "Ration Card",
+          "Telephone Bill",
+          "Birth Certificate",
+          "Voters Identity Card",
+          "Bpl Certificate",
+          "Land And House Document",
+          "Driving License",
+          "Other Documents",
+          "Certificate From Ward Member, Local Mla/Mp",
+          "Photo Identity Card",
+          "Service Certificate Of Father / Guardian",
+          "Order Of Involuntary Migration",
+          "Domicile Certificate",
+          "Sc/St Certificate From Sarpanch / Parshad / Mla / Mp",
+          "Transfer Certificate From Any Recognized School Or Any School Countersigned By Deo",
+          "Father/Guardians Service Certificate/Identity Card",
+          "Educational Certificate",
+          "Caste Certificate Issued Earlier To The Applicant Or Any Member Of His Family",
+          "Primary School Certificate",
+          "Birth Information Form",
+          "Misal",
+          "Adhikar Abhilekh",
+          "Jamabandi",
+          "Census Register Of 1931",
+          "Citizen Register Of 1959",
+          "Dakhil / Kharij Panji",
+          "Disability / Unavailability Proof",
+          "Affidavit",
+          "Vanshavali",
+          "Vanshavali 1",
+          "Vanshavali 2",
+          "Vanshavali 3",
+          "Vanshavali 4",
+          "Gram Sabha Proposal (Resident Of Rural Areas People)",
+          "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [
+        {
+          "field": "address",
+          "reason": "mismatch"
+        }
+      ],
+      "field_mismatch_count": 1,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "document_quality",
+        "missing_documents",
+        "field_mismatch",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 0,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "document_quality",
+        "missing_documents",
+        "field_mismatch"
+      ],
+      "debug_summary": {
+        "service_type": "sc_st_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Caste Proof"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 1,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 1,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Caste Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773530937866",
+    "service_type": "sc_st_certificate",
+    "operator_id": "rtyu",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T23:28:57.866Z"
+  },
+  {
+    "application_id": "app_1773530937870",
+    "service_type": "sc_st_certificate",
+    "operator_id": "rtyu",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T23:28:57.870Z"
+  },
+  {
+    "application_id": "app_1773530990065",
+    "service_type": "sc_st_certificate",
+    "operator_id": "rtyu",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T23:29:50.065Z"
   }
 ]

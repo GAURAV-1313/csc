@@ -1,12 +1,29 @@
 const fs = require("fs");
 const path = require("path");
 const pdfParse = require("pdf-parse");
-const pdfjsLib = require("pdfjs-dist/legacy/build/pdf.js");
 const { createCanvas } = require("@napi-rs/canvas");
 const { createWorker } = require("tesseract.js");
 const { loadJson, saveJson } = require("../../utils/dataLoader");
 
 const CACHE_PATH = "cache/ocr_cache.json";
+
+let pdfjsLibPromise;
+
+async function loadPdfJsLib() {
+  if (!pdfjsLibPromise) {
+    pdfjsLibPromise = (async () => {
+      try {
+        // pdfjs-dist v4+ ships ESM builds under .mjs
+        return await import("pdfjs-dist/legacy/build/pdf.mjs");
+      } catch (_) {
+        // Backward compatibility for older pdfjs-dist layouts
+        // eslint-disable-next-line global-require
+        return require("pdfjs-dist/legacy/build/pdf.js");
+      }
+    })();
+  }
+  return pdfjsLibPromise;
+}
 
 async function extractTextFromPdf(filePath) {
   const buffer = fs.readFileSync(filePath);
@@ -15,6 +32,7 @@ async function extractTextFromPdf(filePath) {
 }
 
 async function renderPdfToImages(filePath, maxPages = 3) {
+  const pdfjsLib = await loadPdfJsLib();
   const buffer = fs.readFileSync(filePath);
   const pdf = await pdfjsLib.getDocument({ data: buffer }).promise;
   const pageCount = Math.min(pdf.numPages, maxPages);

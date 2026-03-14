@@ -1,13 +1,16 @@
-function validateAgainstSchema(schema, citizenData) {
+function validateAgainstSchema(schema, citizenData, requiredKeys = []) {
   const errors = [];
   if (!schema || !schema.sections) {
     return { errors };
   }
 
+  const requiredSet = new Set((requiredKeys || []).map((key) => String(key)));
+
   schema.sections.forEach((section) => {
     (section.fields || []).forEach((field) => {
       const value = citizenData ? citizenData[field.key] : undefined;
-      if (field.required && (value === undefined || value === null || value === "")) {
+      const isRequired = true;
+      if (isRequired && (value === undefined || value === null || value === "")) {
         errors.push(`Missing required field: ${field.key}`);
         return;
       }

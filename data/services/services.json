@@ -1014,7 +1014,10 @@
           "Affidavit"
         ],
         "Income Proof": [
-          "Certificate From Patwari/Sarpanch/Parshad"
+          "Certificate From Patwari/Sarpanch/Parshad",
+          "Form 16",
+          "Income Certificate Employer/Form 16",
+          "form16"
         ]
       }
     }

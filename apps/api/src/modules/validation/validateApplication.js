@@ -2,12 +2,14 @@ const { runRules } = require("./ruleEngine");
 const { validateAgainstSchema } = require("./schemaValidator");
 const { validateDocuments } = require("./documentValidator");
 const { loadJson } = require("../../utils/dataLoader");
+const { parseServiceRequirements } = require("../services/serviceRegistry");
 
 function runValidation({ serviceType, citizenData, documents, service }) {
   const rulesByService = loadJson("rules/rules.json");
   const rules = rulesByService[serviceType] || [];
 
-  const schemaErrors = validateAgainstSchema(service, citizenData || {});
+  const required = parseServiceRequirements(service);
+  const schemaErrors = validateAgainstSchema(service, citizenData || {}, required.requiredFields);
   const ruleResult = runRules(rules, citizenData || {});
   const docs = validateDocuments(service ? service.required_documents : {}, documents || []);
 

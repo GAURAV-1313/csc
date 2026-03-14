@@ -83,24 +83,55 @@ function getUploadedDocTypes(documents) {
 
 function findMissingDocuments(uploadedDocTypes, mandatory, acceptedGroups) {
   if (!Array.isArray(mandatory) || mandatory.length === 0) return [];
-  const provided = new Set(uploadedDocTypes || []);
+  const provided = (uploadedDocTypes || []).map((doc) => normalizeDocKey(doc));
+  const providedSet = new Set(provided);
 
   const missing = [];
 
   mandatory.forEach((docKey) => {
-    const normalizedKey = normalizeString(docKey).toLowerCase();
+    const normalizedKey = normalizeDocKey(docKey);
     if (!normalizedKey) return;
 
-    if (provided.has(normalizedKey)) return;
+    if (providedSet.has(normalizedKey)) return;
+    if (hasFuzzyMatch(normalizedKey, provided)) return;
 
     const accepted = Array.isArray(acceptedGroups && acceptedGroups[docKey]) ? acceptedGroups[docKey] : [];
-    const satisfiedByGroup = accepted.some((alt) => provided.has(normalizeString(alt).toLowerCase()));
+    const satisfiedByGroup = accepted.some((alt) => {
+      const altKey = normalizeDocKey(alt);
+      if (!altKey) return false;
+      return providedSet.has(altKey) || hasFuzzyMatch(altKey, provided);
+    });
     if (!satisfiedByGroup) {
       missing.push(docKey);
     }
   });
 
   return missing;
+}
+
+function normalizeDocKey(value) {
+  if (value == null) return "";
+  return String(value)
+    .toLowerCase()
+    .replace(/[_/]/g, " ")
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function hasFuzzyMatch(target, providedKeys) {
+  if (!target) return false;
+  const targetTokens = new Set(target.split(" ").filter(Boolean));
+  if (targetTokens.size === 0) return false;
+  return providedKeys.some((candidate) => {
+    const candidateTokens = new Set(candidate.split(" ").filter(Boolean));
+    if (candidateTokens.size === 0) return false;
+    let overlap = 0;
+    targetTokens.forEach((token) => {
+      if (candidateTokens.has(token)) overlap += 1;
+    });
+    return overlap / Math.max(targetTokens.size, candidateTokens.size) >= 0.5;
+  });
 }
 
 function findMissingRequiredFields(citizenData, requiredFields) {
@@ -117,6 +148,11 @@ function findMissingRequiredFields(citizenData, requiredFields) {
 
 function countFieldMismatches(citizenData, ocrResults) {
   if (!Array.isArray(ocrResults) || ocrResults.length === 0) {
+    return 0;
+  }
+
+  const hasAnyOcrFields = ocrResults.some((ocr) => ocr && ocr.fields && Object.keys(ocr.fields).length > 0);
+  if (!hasAnyOcrFields) {
     return 0;
   }
 

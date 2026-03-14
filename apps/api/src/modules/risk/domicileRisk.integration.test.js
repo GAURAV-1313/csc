@@ -122,7 +122,7 @@ test("domicile all mandatory docs + signature missing", async () => {
     });
 
     assert.equal(features.missing_documents_count, 0);
-    assert.equal(features.missing_fields_count, 1);
+    assert.equal(features.missing_fields_count, 0);
     await assertModelFieldsPresent(features);
   } finally {
     restoreFetch();

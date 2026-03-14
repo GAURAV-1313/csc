@@ -44,6 +44,30 @@ function parseServiceRequirements(service) {
     });
   });
 
+  if (requiredFields.length === 0) {
+    const fallbackKeys = [
+      "applicant_name",
+      "beneficiary_name",
+      "beneficiary_guardian_name",
+      "date_of_birth",
+      "dob",
+      "address",
+      "district",
+      "pin_code",
+      "signature"
+    ];
+    const availableKeys = new Set(
+      (service.sections || [])
+        .flatMap((section) => (section.fields || []).map((field) => field && field.key))
+        .filter(Boolean)
+    );
+    fallbackKeys.forEach((key) => {
+      if (availableKeys.has(key)) {
+        requiredFields.push(key);
+      }
+    });
+  }
+
   const requiredDocs = service.required_documents || {};
   const mandatoryDocuments = Array.isArray(requiredDocs.mandatory) ? requiredDocs.mandatory : [];
   const acceptedGroups = requiredDocs.accepted_groups && typeof requiredDocs.accepted_groups === "object"
