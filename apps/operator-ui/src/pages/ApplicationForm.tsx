@@ -56,9 +56,71 @@ const incomeCertificateSchema: ServiceSchema = {
   }
 };
 
+const domicileCertificateSchema: ServiceSchema = {
+  service_id: "domicile_certificate",
+  service_name: "Domicile Certificate",
+  service_type: "domicile_certificate",
+  sections: [
+    {
+      name: "General Details",
+      fields: [
+        { key: "beneficiary_guardian_type", type: "text", required: true },
+        { key: "beneficiary_guardian_name", type: "text", required: true },
+        { key: "guardian_occupation", type: "text", required: true },
+        { key: "place_of_birth", type: "text", required: true },
+        { key: "gender", type: "text", required: true },
+        { key: "date_of_birth", type: "date", required: true }
+      ]
+    },
+    {
+      name: "Address Details",
+      fields: [
+        { key: "address", type: "textarea", required: true },
+        { key: "pin_code", type: "text", required: true },
+        { key: "district", type: "text", required: true }
+      ]
+    },
+    {
+      name: "Residence Details",
+      fields: [{ key: "particulars_of_stay_after_birth", type: "textarea", required: true }]
+    },
+    {
+      name: "Business Details",
+      fields: [{ key: "beneficiary_business_or_service_details", type: "textarea", required: true }]
+    },
+    {
+      name: "Education Details",
+      fields: [{ key: "beneficiary_education_level", type: "text", required: true }]
+    },
+    {
+      name: "Other Details",
+      fields: [
+        { key: "voter_id_available", type: "boolean", required: true },
+        { key: "district_name_of_beneficiary", type: "text", required: true },
+        { key: "living_in_state_years", type: "number", required: true },
+        { key: "reason_for_domicile_application", type: "textarea", required: true },
+        { key: "other_details", type: "textarea", required: true }
+      ]
+    },
+    {
+      name: "Declaration",
+      fields: [
+        { key: "date", type: "date", required: true },
+        { key: "signature", type: "text", required: true }
+      ]
+    }
+  ],
+  required_documents: {
+    mandatory: ["affidavit", "proof_of_15_years_residence", "educational_certificate"],
+    optional: []
+  }
+};
+
 export default function ApplicationForm() {
   const { serviceType } = useParams<{ serviceType: string }>();
   const isIncomeCertificate = serviceType === "income_certificate";
+  const isDomicileCertificate = serviceType === "domicile_certificate";
+  const isCustomCertificate = isIncomeCertificate || isDomicileCertificate;
   const navigate = useNavigate();
   const [schema, setSchema] = useState<ServiceSchema | null>(null);
   const [applicationId, setApplicationId] = useState<string | null>(null);
@@ -82,7 +144,12 @@ export default function ApplicationForm() {
                 ...incomeCertificateSchema,
                 service_name: service.service?.service_name || incomeCertificateSchema.service_name
               }
-            : service.service
+            : isDomicileCertificate
+              ? {
+                  ...domicileCertificateSchema,
+                  service_name: service.service?.service_name || domicileCertificateSchema.service_name
+                }
+              : service.service
         );
 
         const draft = await api.createApplicationDraft({ serviceType, citizenData: {} });
@@ -99,7 +166,7 @@ export default function ApplicationForm() {
     return () => {
       mounted = false;
     };
-  }, [serviceType, isIncomeCertificate]);
+  }, [serviceType, isIncomeCertificate, isDomicileCertificate]);
 
   const handleChange = (key: string, value: string | number | boolean) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
@@ -138,7 +205,7 @@ export default function ApplicationForm() {
   const submitApplication = async () => {
     if (!applicationId) return;
     try {
-      if (isIncomeCertificate && serviceType) {
+      if (isCustomCertificate && serviceType) {
         const prediction = await api.predictRisk({ features: formData });
         navigate(`/service/${serviceType}/risk-summary`, {
           state: {
@@ -197,7 +264,7 @@ export default function ApplicationForm() {
         {loading ? (
           <div className="card">Loading schema...</div>
         ) : (
-          <div className={`layout csc-form-layout ${isIncomeCertificate ? "no-panel" : ""}`}>
+          <div className={`layout csc-form-layout ${isCustomCertificate ? "no-panel" : ""}`}>
             <div className="grid csc-form-grid">
               <DynamicForm schema={schema} formData={formData} onChange={handleChange} />
               <DocumentUploader
@@ -207,17 +274,17 @@ export default function ApplicationForm() {
                 onUploaded={handleUploaded}
               />
               <div className="card csc-submit-card">
-                {!isIncomeCertificate && (
+                {!isCustomCertificate && (
                   <button className="btn" onClick={validateApplication} disabled={validating}>
                     {validating ? "Validating..." : "Validate Application"}
                   </button>
                 )}
                 <button className="btn secondary" onClick={submitApplication}>
-                  {isIncomeCertificate ? "Continue to Risk Summary" : "Submit to eDistrict"}
+                  {isCustomCertificate ? "Continue to Risk Summary" : "Submit to eDistrict"}
                 </button>
               </div>
             </div>
-            {!isIncomeCertificate && <ValidationPanel validationResult={validationResult} />}
+            {!isCustomCertificate && <ValidationPanel validationResult={validationResult} />}
           </div>
         )}
       </div>
