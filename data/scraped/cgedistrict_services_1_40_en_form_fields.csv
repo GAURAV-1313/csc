@@ -1,0 +1,487 @@
+serviceId,serviceName,section,fieldLabel,inputType,dataType,row,col
+1,Birth Registration & Certificate,,,,,,
+2,Death Registration & Certificate,,,,,,
+3,Marriage Registration & Certificate,Marriage Details,Date of Marriage,date,Date,2,1
+3,Marriage Registration & Certificate,Marriage Details,Place of Marriage,textarea,Alfa Numeric,2,2
+3,Marriage Registration & Certificate,Marriage Details,Type of Marriage,drop down,Charactar,3,1
+3,Marriage Registration & Certificate,Marriage Details,Is marriage Registered,drop down,Charactar,3,2
+3,Marriage Registration & Certificate,Marriage Details,Registration Number,text,Number,4,1
+3,Marriage Registration & Certificate,Marriage Details,Other Details,textarea,Charactar,4,2
+3,Marriage Registration & Certificate,Groom Details,Name of Groom in Local Language,text,Charactar,6,1
+3,Marriage Registration & Certificate,Groom Details,Name of Groom in English,text,Charactar,6,2
+3,Marriage Registration & Certificate,Groom Details,Date of Birth of Groom,date,Date,7,1
+3,Marriage Registration & Certificate,Groom Details,Age at time of marriage,text,Number,7,2
+3,Marriage Registration & Certificate,Groom Details,Father Name in local language,text,Charactar,8,1
+3,Marriage Registration & Certificate,Groom Details,Father Name in English,textarea,Charactar,8,2
+3,Marriage Registration & Certificate,Groom Details,Marital Status of Groom,drop down,Charactar,9,1
+3,Marriage Registration & Certificate,Address Of Groom,Present Address of groom in Local Language,textarea,Alfa Numeric,11,1
+3,Marriage Registration & Certificate,Address Of Groom,Present Address of Groom in English,textarea,Alfa Numeric,11,2
+3,Marriage Registration & Certificate,Address Of Groom,Permanent Address of Groom in Local Language,textarea,Alfa Numeric,12,1
+3,Marriage Registration & Certificate,Address Of Groom,Permanent Address of Groom in English,textarea,Alfa Numeric,12,2
+3,Marriage Registration & Certificate,Address Of Groom,Witness Details of Groom Side,fieldset,Alfa Numeric,13,1
+3,Marriage Registration & Certificate,Bride Details,Name of Bride in local language,text,Charactar,15,1
+3,Marriage Registration & Certificate,Bride Details,Name of Bride in English,text,Charactar,15,2
+3,Marriage Registration & Certificate,Bride Details,Date of Birth of Bride,date,Date,16,1
+3,Marriage Registration & Certificate,Bride Details,Bride Age at time of marriage,text,Number,16,2
+3,Marriage Registration & Certificate,Bride Details,Fathers name of Bride in Local language,text,Charactar,17,1
+3,Marriage Registration & Certificate,Bride Details,Fathers name of Bride in English,text,Charactar,17,2
+3,Marriage Registration & Certificate,Bride Details,Marital Status of Bride,drop down,Charactar,18,1
+3,Marriage Registration & Certificate,Address Of Bride,Present  Address  of Bride in Local Language,textarea,Alfa Numeric,20,1
+3,Marriage Registration & Certificate,Address Of Bride,Present Address of Bride in English,textarea,Alfa Numeric,20,2
+3,Marriage Registration & Certificate,Address Of Bride,Permanent Address of Bride in Local Language,textarea,Alfa Numeric,21,1
+3,Marriage Registration & Certificate,Address Of Bride,Permanent Address of Bride in English,textarea,Alfa Numeric,21,2
+3,Marriage Registration & Certificate,Address Of Bride,Witness Details of Bride Side,fieldset,Alfa Numeric,22,1
+4,SC/ST Certificate,General Details,Beneficiary Guardian Type,drop down,Charactar,2,1
+4,SC/ST Certificate,General Details,Beneficiary Guardian name,text,Charactar,2,2
+4,SC/ST Certificate,General Details,Beneficiary Guardian Type in English,drop down,Charactar,3,1
+4,SC/ST Certificate,General Details,Beneficiary Guardian name in English,text,Charactar,3,2
+4,SC/ST Certificate,General Details,Gender,drop down,Charactar,4,1
+4,SC/ST Certificate,General Details,Marital Status,drop down,Charactar,4,2
+4,SC/ST Certificate,General Details,Date of Birth,date,Date,5,1
+4,SC/ST Certificate,General Details,Relation to Applicant,drop down,Charactar,5,2
+4,SC/ST Certificate,General Details,Caste STSC,search,Search,6,1
+4,SC/ST Certificate,General Details,Category,text,Charactar,6,2
+4,SC/ST Certificate,General Details,Caste In English,text,Charactar,7,1
+4,SC/ST Certificate,General Details,Category In English,text,Charactar,7,2
+4,SC/ST Certificate,General Details,Category Number,text,Charactar,8,1
+4,SC/ST Certificate,General Details,Beneficiary name in English,text,Charactar,8,2
+4,SC/ST Certificate,Present Address of Applicant,Address,textarea,Alfa Numeric,10,1
+4,SC/ST Certificate,Present Address of Applicant,PIN Code,text,Number,10,2
+4,SC/ST Certificate,Present Address of Applicant,Post Box Number,text,Alfa Numeric,11,1
+4,SC/ST Certificate,Present Address of Applicant,District,drop down,Charactar,11,2
+4,SC/ST Certificate,Present Address of Applicant,Address In English,textarea,Alfa Numeric,12,1
+4,SC/ST Certificate,Present Address of Applicant,Is Present Address and Permanent Address is same,drop down,Charactar,12,2
+4,SC/ST Certificate,Permanent Address of Applicant,Address,textarea,Alfa Numeric,14,1
+4,SC/ST Certificate,Permanent Address of Applicant,PIN Code,text,Number,14,2
+4,SC/ST Certificate,Permanent Address of Applicant,District,drop down,Charactar,15,1
+4,SC/ST Certificate,Permanent Address of Applicant,Post Box Number,text,Alfa Numeric,15,1
+4,SC/ST Certificate,Permanent Address of Applicant,Police Station,search,Search,16,2
+4,SC/ST Certificate,Permanent Address on or Before Date 10 August 1950,Village or Town,text,Charactar,18,1
+4,SC/ST Certificate,Permanent Address on or Before Date 10 August 1950,Patwari Halka Number,text,Number,18,2
+4,SC/ST Certificate,Permanent Address on or Before Date 10 August 1950,Tehsil,text,Charactar,19,1
+4,SC/ST Certificate,Permanent Address on or Before Date 10 August 1950,District,Data List,Charactar,19,2
+4,SC/ST Certificate,Permanent Address on or Before Date 10 August 1950,Name of Head Of Family on This Date,text,Charactar,20,1
+4,SC/ST Certificate,Permanent Address on or Before Date 10 August 1950,Applicant Relation to Head of Family,drop down,Charactar,20,2
+4,SC/ST Certificate,Address Details of Year 10 August 1950 SC or 06 September 1950 ST to till Date Applicant or his Father or Mother or Guardian,Is Applicant or his Father or Mother or Guardian Year 1950 to till Date live in Chhattisgarh,drop down,Number,22,1
+4,SC/ST Certificate,Address Details of Year 10 August 1950 SC or 06 September 1950 ST to till Date Applicant or his Father or Mother or Guardian,Address Details of Applicants Guardian,fieldset,Alfa Numeric,23,1
+4,SC/ST Certificate,Other Details,Have Applicant issued scst certificate before,drop down,Charactar,25,1
+4,SC/ST Certificate,Other Details,Details of document to proof that Beneficiary belongs to SC ST,textarea,Charactar,25,2
+5,OBC Certificate,General Details,Beneficiary Guardian Type,drop down,Charactar,2,1
+5,OBC Certificate,General Details,Beneficiary Guardian name,text,Charactar,2,2
+5,OBC Certificate,General Details,Beneficiary Guardian Type in English,drop down,Charactar,3,1
+5,OBC Certificate,General Details,Beneficiary Guardian name in English,text,Charactar,3,2
+5,OBC Certificate,General Details,Gender,drop down,Charactar,4,1
+5,OBC Certificate,General Details,Marital Status,drop down,Charactar,4,2
+5,OBC Certificate,General Details,Date of Birth,date,Date,5,1
+5,OBC Certificate,General Details,Relation to Applicant,drop down,Charactar,5,2
+5,OBC Certificate,General Details,Caste OBC,search,Search,6,1
+5,OBC Certificate,General Details,Category,text,Charactar,6,2
+5,OBC Certificate,General Details,Caste In English,text,Charactar,7,1
+5,OBC Certificate,General Details,Category In English,text,Charactar,7,2
+5,OBC Certificate,General Details,Category Number,text,Charactar,8,1
+5,OBC Certificate,General Details,Beneficiary name in English,text,Charactar,8,2
+5,OBC Certificate,Present Address of Applicant,Address,textarea,Alfa Numeric,10,1
+5,OBC Certificate,Present Address of Applicant,PIN Code,text,Number,10,2
+5,OBC Certificate,Present Address of Applicant,Post Box Number,text,Alfa Numeric,11,1
+5,OBC Certificate,Present Address of Applicant,District,drop down,Charactar,11,2
+5,OBC Certificate,Present Address of Applicant,Address In English,textarea,Alfa Numeric,12,1
+5,OBC Certificate,Present Address of Applicant,Is Present Address and Permanent Address is same,drop down,Charactar,12,2
+5,OBC Certificate,Permanent Address of Applicant,Address,textarea,Alfa Numeric,14,1
+5,OBC Certificate,Permanent Address of Applicant,PIN Code,text,Number,14,2
+5,OBC Certificate,Permanent Address of Applicant,Post Box Number,text,Alfa Numeric,15,1
+5,OBC Certificate,Permanent Address of Applicant,District,drop down,Charactar,15,2
+5,OBC Certificate,Permanent Address of Applicant,Police Station,search,Search,16,1
+5,OBC Certificate,Address Before or on Date 26/12/1984,Village or Town,text,Charactar,18,1
+5,OBC Certificate,Address Before or on Date 26/12/1984,Patwari Halka Number,text,Number,18,2
+5,OBC Certificate,Address Before or on Date 26/12/1984,Tehsil,text,Charactar,19,1
+5,OBC Certificate,Address Before or on Date 26/12/1984,District,Data List,Charactar,19,2
+5,OBC Certificate,Address Before or on Date 26/12/1984,Name of Head Of Family on This Date,text,Charactar,20,1
+5,OBC Certificate,Address Before or on Date 26/12/1984,Applicant Relation to Head of Family,drop down,Charactar,20,2
+5,OBC Certificate,Address Details of Applicant/his Father / Mother/ Guardian from Year 26/12/1984 to till Date,Address Details of Applicants Guardian,fieldset,Alfa Numeric,22,1
+6,Income Certificate,Beneficiary Details,Gender,drop down,Charactar,2,1
+6,Income Certificate,Beneficiary Details,Age of Beneficiary,number,Number,2,2
+6,Income Certificate,Beneficiary Details,Beneficiary Guardian Type,drop down,Charactar,3,1
+6,Income Certificate,Beneficiary Details,Beneficiary Guardian name,text,Charactar,3,2
+6,Income Certificate,Beneficiary Details,Relation with Applicant,drop down,Alfa Numeric,4,1
+6,Income Certificate,Beneficiary Details,Son or Daughter or Wife Name of Beneficiary,text,Number,4,2
+6,Income Certificate,Beneficiary Details,Caste,search,Search,5,1
+6,Income Certificate,Beneficiary Details,Type,text,Charactar,5,2
+6,Income Certificate,Beneficiary Details,Class Number,text,Charactar,6,1
+6,Income Certificate,Address Details,Address,textarea,Alfa Numeric,8,1
+6,Income Certificate,Address Details,PIN Code,text,Number,8,2
+6,Income Certificate,Address Details,District,drop down,Charactar,9,1
+6,Income Certificate,Income Details,Details of Business or service,search,Search,11,1
+6,Income Certificate,Income Details,Reason for application,Data List,Charactar,11,2
+6,Income Certificate,Income Details,Annual Income,text,Charactar,12,1
+6,Income Certificate,Income Details,Average Income For Last 3 Years,text,Charactar,12,2
+7,Domicile Certificate,General Details,Beneficiary Guardian Type,drop down,Charactar,2,1
+7,Domicile Certificate,General Details,Beneficiary Guardian name,text,Charactar,2,2
+7,Domicile Certificate,General Details,Guardians Occupation of Beneficiary,search,Search,3,1
+7,Domicile Certificate,General Details,Beneficiary place of Birth,text,Charactar,3,2
+7,Domicile Certificate,General Details,Gender,drop down,Charactar,4,1
+7,Domicile Certificate,General Details,Date of Birth,date,Date,4,2
+7,Domicile Certificate,Address Details,Address,textarea,Alfa Numeric,6,1
+7,Domicile Certificate,Address Details,PIN Code,text,Number,6,2
+7,Domicile Certificate,Address Details,District,drop down,Charactar,7,1
+7,Domicile Certificate,Particulars of stay After Birth of Beneficiary,Particulars of stay After Birth of Beneficiary,fieldset,Alfa Numeric,9,1
+7,Domicile Certificate,Beneficiary Details of Business or Service,Beneficiary Details of Business or service,fieldset,Alfa Numeric,11,1
+7,Domicile Certificate,Beneficiary Education Level,Beneficiary Education Level,fieldset,Alfa Numeric,13,1
+7,Domicile Certificate,Other Details,Have Beneficiary Voter Id,drop down,Charactar,15,1
+7,Domicile Certificate,Other Details,District Name of Beneficiary,drop down,Charactar,15,2
+7,Domicile Certificate,Other Details,Living From in Years,number,Date,16,1
+7,Domicile Certificate,Other Details,Reason for application Domicile,text,Charactar,16,2
+7,Domicile Certificate,Other Details,Any other detail,text,Charactar,17,1
+8,RTI filling at District Collectorate,General,Nationality,drop down,Alfa Numeric,2,1
+8,RTI filling at District Collectorate,General,Is Applicant comes Under BPL,drop down,Charactar,3,1
+8,RTI filling at District Collectorate,General,Mode of Receiving Information,drop down,Alfa Numeric,5,1
+8,RTI filling at District Collectorate,General,Subject,text,Charactar,7,1
+8,RTI filling at District Collectorate,General,Detail of required information,textarea,Alfa Numeric,8,1
+9,RTI filling at Municipalities/Panchayat,General,Nationality,drop down,Alfa Numeric,2,1
+9,RTI filling at Municipalities/Panchayat,General,Is Applicant comes Under BPL,drop down,Charactar,3,1
+9,RTI filling at Municipalities/Panchayat,General,Mode of Receiving Information,drop down,Alfa Numeric,5,1
+9,RTI filling at Municipalities/Panchayat,General,Subject,text,Charactar,7,1
+9,RTI filling at Municipalities/Panchayat,General,Detail of required information,textarea,Alfa Numeric,8,1
+10,Public Grievance Municipal Corporation/Municipality/Town Panchayat,General,Grievance Category,drop down,Charactar,2,1
+10,Public Grievance Municipal Corporation/Municipality/Town Panchayat,General,Related Departmental Section,drop down,Alfa Numeric,3,1
+10,Public Grievance Municipal Corporation/Municipality/Town Panchayat,General,Related Departmental Sub Section,drop down,Alfa Numeric,4,1
+10,Public Grievance Municipal Corporation/Municipality/Town Panchayat,General,Detail of Grievance,textarea,Charactar,5,1
+11,Public Grievance Collectorate,General,Grievance Category,drop down,Charactar,2,1
+11,Public Grievance Collectorate,General,Related Departmental Section,drop down,Alfa Numeric,3,1
+11,Public Grievance Collectorate,General,Related Departmental Sub Section,drop down,Alfa Numeric,4,1
+11,Public Grievance Collectorate,General,Detail of Grievance,textarea,Charactar,5,1
+12,Application for inclusion in Indira Gandhi old age Pension,General,Father or Husband name,text,Charactar,1,1
+12,Application for inclusion in Indira Gandhi old age Pension,General,Name of Successor,text,Charactar,1,2
+12,Application for inclusion in Indira Gandhi old age Pension,Address of the Applicant,Street or Neighborhood Name,text,Charactar,3,1
+12,Application for inclusion in Indira Gandhi old age Pension,Address of the Applicant,Ward no and Ward name,text,Alfa Numeric,3,2
+12,Application for inclusion in Indira Gandhi old age Pension,Address of the Applicant,House No or Village,text,Alfa Numeric,4,1
+12,Application for inclusion in Indira Gandhi old age Pension,Address of the Applicant,Street or Post Office,text,Charactar,4,2
+12,Application for inclusion in Indira Gandhi old age Pension,Address of the Applicant,District,drop down,Charactar,5,1
+12,Application for inclusion in Indira Gandhi old age Pension,Address of the Applicant,PIN Code,text,Number,5,2
+12,Application for inclusion in Indira Gandhi old age Pension,BPL Details,Survey Year,date,Date,7,1
+12,Application for inclusion in Indira Gandhi old age Pension,BPL Details,Block  Or Municipal,text,Charactar,7,2
+12,Application for inclusion in Indira Gandhi old age Pension,BPL Details,Family Identification Survey No,text,Number,8,1
+12,Application for inclusion in Indira Gandhi old age Pension,BPL Details,Identification No,text,Number,8,2
+12,Application for inclusion in Indira Gandhi old age Pension,BPL Details,Gender,drop down,Charactar,9,1
+12,Application for inclusion in Indira Gandhi old age Pension,BPL Details,Date of Birth,date,Date,9,2
+12,Application for inclusion in Indira Gandhi old age Pension,BPL Details,Age,text,Number,10,1
+12,Application for inclusion in Indira Gandhi old age Pension,BPL Details,Caste Category,drop down,Charactar,10,2
+12,Application for inclusion in Indira Gandhi old age Pension,BPL Details,Minority,drop down,Charactar,11,1
+12,Application for inclusion in Indira Gandhi old age Pension,BPL Details,EPIC Number,text,Number,11,2
+12,Application for inclusion in Indira Gandhi old age Pension,BPL Details,Enrollment Number of Aadhaar,text,Alfa Numeric,12,1
+12,Application for inclusion in Indira Gandhi old age Pension,Payment Details,Aadhaar Card No,text,Number,18,1
+12,Application for inclusion in Indira Gandhi old age Pension,Payment Details,Name of Bank or Post Office,text,Charactar,18,2
+12,Application for inclusion in Indira Gandhi old age Pension,Payment Details,Name of the Branch,text,Charactar,19,1
+12,Application for inclusion in Indira Gandhi old age Pension,Payment Details,Account No,text,Number,19,2
+12,Application for inclusion in Indira Gandhi old age Pension,Payment Details,IFSC code,text,Alfa Numeric,20,2
+13,Application for inclusion in Samajik Suraksha Pension Yojana,General,Father or Husband name,text,Charactar,1,1
+13,Application for inclusion in Samajik Suraksha Pension Yojana,General,Name of Successor,text,Charactar,1,2
+13,Application for inclusion in Samajik Suraksha Pension Yojana,General,Disable or Dwarf,drop down,Charactar,2,1
+13,Application for inclusion in Samajik Suraksha Pension Yojana,Address of the Applicant,Street or Neighborhood Name,text,Charactar,4,1
+13,Application for inclusion in Samajik Suraksha Pension Yojana,Address of the Applicant,Ward no and Ward name,text,Alfa Numeric,4,2
+13,Application for inclusion in Samajik Suraksha Pension Yojana,Address of the Applicant,House No or Village,text,Alfa Numeric,5,1
+13,Application for inclusion in Samajik Suraksha Pension Yojana,Address of the Applicant,Street or Post Office,text,Charactar,5,2
+13,Application for inclusion in Samajik Suraksha Pension Yojana,Address of the Applicant,District,drop down,Charactar,6,1
+13,Application for inclusion in Samajik Suraksha Pension Yojana,Address of the Applicant,PIN Code,text,Number,6,2
+13,Application for inclusion in Samajik Suraksha Pension Yojana,BPL Details,Year,date,Date,8,1
+13,Application for inclusion in Samajik Suraksha Pension Yojana,BPL Details,Block  Or Municipal,text,Charactar,8,2
+13,Application for inclusion in Samajik Suraksha Pension Yojana,BPL Details,Family Identification Survey No,text,Number,9,1
+13,Application for inclusion in Samajik Suraksha Pension Yojana,BPL Details,Identification No,text,Number,9,2
+13,Application for inclusion in Samajik Suraksha Pension Yojana,BPL Details,Gender,drop down,Charactar,10,1
+13,Application for inclusion in Samajik Suraksha Pension Yojana,BPL Details,Date of Birth,date,Date,10,2
+13,Application for inclusion in Samajik Suraksha Pension Yojana,BPL Details,Age,text,Number,11,1
+13,Application for inclusion in Samajik Suraksha Pension Yojana,BPL Details,Caste Category,drop down,Charactar,11,2
+13,Application for inclusion in Samajik Suraksha Pension Yojana,BPL Details,Minority,drop down,Charactar,12,1
+13,Application for inclusion in Samajik Suraksha Pension Yojana,BPL Details,Type of Disability 1,drop down,Charactar,13,1
+13,Application for inclusion in Samajik Suraksha Pension Yojana,BPL Details,Percentage of Disability 1,number,Number,13,2
+13,Application for inclusion in Samajik Suraksha Pension Yojana,BPL Details,Type of Disability 2,drop down,Charactar,14,1
+13,Application for inclusion in Samajik Suraksha Pension Yojana,BPL Details,Percentage of Disability 2,number,Number,14,2
+13,Application for inclusion in Samajik Suraksha Pension Yojana,BPL Details,EPIC Number,text,Number,15,1
+13,Application for inclusion in Samajik Suraksha Pension Yojana,BPL Details,Enrollment Number of Aadhaar,text,Alfa Numeric,15,2
+13,Application for inclusion in Samajik Suraksha Pension Yojana,Payment Details,Aadhaar Card No,text,Number,18,1
+13,Application for inclusion in Samajik Suraksha Pension Yojana,Payment Details,Name of Bank or Post Office,text,Charactar,18,2
+13,Application for inclusion in Samajik Suraksha Pension Yojana,Payment Details,Name of the Branch,text,Charactar,19,1
+13,Application for inclusion in Samajik Suraksha Pension Yojana,Payment Details,Account No,text,Number,19,2
+13,Application for inclusion in Samajik Suraksha Pension Yojana,Payment Details,IFSC code,text,Alfa Numeric,20,1
+14,Application for inclusion in Sukhad Sahara Yojana,General,Father or Husband name,text,Charactar,1,1
+14,Application for inclusion in Sukhad Sahara Yojana,General,Name of Successor,text,Charactar,1,2
+14,Application for inclusion in Sukhad Sahara Yojana,General,Widow or Segregation,drop down,Alfa Numeric,2,1
+14,Application for inclusion in Sukhad Sahara Yojana,Address of the Applicant,Street or Neighborhood Name,text,Charactar,4,1
+14,Application for inclusion in Sukhad Sahara Yojana,Address of the Applicant,Ward no and Ward name,text,Alfa Numeric,4,2
+14,Application for inclusion in Sukhad Sahara Yojana,Address of the Applicant,House No or Village,text,Alfa Numeric,5,1
+14,Application for inclusion in Sukhad Sahara Yojana,Address of the Applicant,Street or Post Office,text,Charactar,5,2
+14,Application for inclusion in Sukhad Sahara Yojana,Address of the Applicant,District,drop down,Charactar,6,1
+14,Application for inclusion in Sukhad Sahara Yojana,Address of the Applicant,PIN Code,text,Number,6,2
+14,Application for inclusion in Sukhad Sahara Yojana,BPL Details,Year,date,Date,8,1
+14,Application for inclusion in Sukhad Sahara Yojana,BPL Details,Block  Or Municipal,text,Charactar,8,2
+14,Application for inclusion in Sukhad Sahara Yojana,BPL Details,Family Identification Survey No,text,Number,9,1
+14,Application for inclusion in Sukhad Sahara Yojana,BPL Details,Identification No,text,Number,9,2
+14,Application for inclusion in Sukhad Sahara Yojana,BPL Details,Date of Birth,date,Date,10,1
+14,Application for inclusion in Sukhad Sahara Yojana,BPL Details,Age,text,Number,10,2
+14,Application for inclusion in Sukhad Sahara Yojana,BPL Details,Caste Category,drop down,Charactar,11,1
+14,Application for inclusion in Sukhad Sahara Yojana,BPL Details,Minority,drop down,Charactar,11,2
+14,Application for inclusion in Sukhad Sahara Yojana,BPL Details,EPIC Number,text,Number,12,1
+14,Application for inclusion in Sukhad Sahara Yojana,BPL Details,Enrollment Number of Aadhaar,text,Alfa Numeric,12,2
+14,Application for inclusion in Sukhad Sahara Yojana,Payment Details,Aadhaar Card No,text,Number,18,1
+14,Application for inclusion in Sukhad Sahara Yojana,Payment Details,Name of Bank or Post Office,text,Charactar,18,2
+14,Application for inclusion in Sukhad Sahara Yojana,Payment Details,Name of the Branch,text,Charactar,19,1
+14,Application for inclusion in Sukhad Sahara Yojana,Payment Details,Account No,text,Number,19,2
+14,Application for inclusion in Sukhad Sahara Yojana,Payment Details,IFSC code,text,Alfa Numeric,20,1
+15,Application for inclusion in Widow Pension,General,Father or Husband name,text,Charactar,1,1
+15,Application for inclusion in Widow Pension,General,Name of Successor,text,Charactar,1,2
+15,Application for inclusion in Widow Pension,Address of the Applicant,Street or Neighborhood Name,text,Charactar,3,1
+15,Application for inclusion in Widow Pension,Address of the Applicant,Ward no and Ward name,text,Alfa Numeric,3,2
+15,Application for inclusion in Widow Pension,Address of the Applicant,House No or Village,text,Alfa Numeric,4,1
+15,Application for inclusion in Widow Pension,Address of the Applicant,Street or Post Office,text,Charactar,4,2
+15,Application for inclusion in Widow Pension,Address of the Applicant,District,drop down,Charactar,5,1
+15,Application for inclusion in Widow Pension,Address of the Applicant,PIN Code,text,Number,5,2
+15,Application for inclusion in Widow Pension,BPL Details,Year,date,Date,7,1
+15,Application for inclusion in Widow Pension,BPL Details,Block  Or Municipal,text,Charactar,7,2
+15,Application for inclusion in Widow Pension,BPL Details,Family Identification Survey No,text,Number,8,1
+15,Application for inclusion in Widow Pension,BPL Details,Identification No,text,Number,8,2
+15,Application for inclusion in Widow Pension,BPL Details,Date of Birth,date,Date,10,1
+15,Application for inclusion in Widow Pension,BPL Details,Age,text,Number,10,2
+15,Application for inclusion in Widow Pension,BPL Details,Caste Category,drop down,Charactar,11,1
+15,Application for inclusion in Widow Pension,BPL Details,Minority,drop down,Charactar,11,2
+15,Application for inclusion in Widow Pension,BPL Details,EPIC Number,text,Number,12,1
+15,Application for inclusion in Widow Pension,BPL Details,Enrollment Number of Aadhaar,text,Alfa Numeric,12,2
+15,Application for inclusion in Widow Pension,Payment Details,Aadhaar Card No,text,Number,18,1
+15,Application for inclusion in Widow Pension,Payment Details,Name of Bank or Post Office,text,Charactar,18,2
+15,Application for inclusion in Widow Pension,Payment Details,Name of the Branch,text,Charactar,19,1
+15,Application for inclusion in Widow Pension,Payment Details,Account No,text,Number,19,2
+15,Application for inclusion in Widow Pension,Payment Details,IFSC code,text,Alfa Numeric,20,1
+16,Application for Case listing (Revenue Court),General,Filing No,text,Alfa Numeric,1,1
+16,Application for Case listing (Revenue Court),General,Filling Date,date,Date,1,1
+16,Application for Case listing (Revenue Court),General,Sequence,text,Number,2,1
+16,Application for Case listing (Revenue Court),General,Head,drop down,Alfa Numeric,3,1
+16,Application for Case listing (Revenue Court),General,Financial Year,drop down,Alfa Numeric,4,1
+16,Application for Case listing (Revenue Court),General,Case Number,text,Charactar,5,1
+16,Application for Case listing (Revenue Court),General,Type of Case,drop down,Alfa Numeric,6,1
+16,Application for Case listing (Revenue Court),General,Name of Revenue Court,drop down,Charactar,6,2
+16,Application for Case listing (Revenue Court),General,Petitioner,fieldset,Alfa Numeric,7,1
+16,Application for Case listing (Revenue Court),General,Respondent,fieldset,Alfa Numeric,8,1
+17,Court Order Certificate (Revenue Court),General,Name Of Applicant,text,Charactar,1,1
+17,Court Order Certificate (Revenue Court),General,Proof of Identity of Applicant,drop down,Charactar,2,1
+17,Court Order Certificate (Revenue Court),General,Case Number written in Pink or Yellow Slip,text,Number,3,1
+17,Court Order Certificate (Revenue Court),General,Type of Case,drop down,Alfa Numeric,5,1
+17,Court Order Certificate (Revenue Court),General,Date of Court Order,date,Date,6,1
+17,Court Order Certificate (Revenue Court),General,Details of Desired Court Order,textarea,Alfa Numeric,7,1
+18,Issuance of Ration card,,,,,,
+19,,,,,,,
+20,,,,,,,
+21,Issuance of Trade License,Details,Is Trade License has already been issued,drop down,Number,2,1
+21,Issuance of Trade License,Details,Previous Licence No,text,Alfa Numeric,2,2
+21,Issuance of Trade License,Details,Old Reference No,text,Alfa Numeric,3,1
+21,Issuance of Trade License,Details,Previous Licence Date,date,Date,3,2
+21,Issuance of Trade License,Details,Person or Firm or Organization Name,text,Charactar,4,1
+21,Issuance of Trade License,Details,Person or Firm or Organization Address,textarea,Alfa Numeric,4,2
+21,Issuance of Trade License,Details,Under Rule 12 B Name and Address of Director or Manager Mention in  Rule 50 1 B,text,Alfa Numeric,5,1
+21,Issuance of Trade License,Shop Address,Colony,text,Alfa Numeric,7,1
+21,Issuance of Trade License,Shop Address,Ward no and Ward name,text,Alfa Numeric,7,2
+21,Issuance of Trade License,Shop Address,Shop Postal Address,textarea,Alfa Numeric,8,1
+21,Issuance of Trade License,Shop Address,PIN Code,text,Number,8,2
+21,Issuance of Trade License,Shop Address,Property Id No,text,Alfa Numeric,9,1
+21,Issuance of Trade License,Shop Address,Food Item and Other Business Name,text,Charactar,9,2
+21,Issuance of Trade License,Shop Address,Shop Varieties,drop down,Alfa Numeric,10,1
+21,Issuance of Trade License,Shop Address,Trade Licence Fees,text,Alfa Numeric,10,2
+21,Issuance of Trade License,Shop Address,Shop Starting Date,date,Date,11,1
+22,Shop and Establishment Registration,General Details,Date of  Establishment,date,Date,3,1
+22,Shop and Establishment Registration,General Details,Type of Establishment,drop down,Charactar,3,2
+22,Shop and Establishment Registration,General Details,Name of Establishment,text,Charactar,4,1
+22,Shop and Establishment Registration,Establishment Address,Shop No,text,Alfa Numeric,6,1
+22,Shop and Establishment Registration,Establishment Address,Property Id No,text,Alfa Numeric,6,2
+22,Shop and Establishment Registration,Establishment Address,Address,textarea,Alfa Numeric,7,1
+22,Shop and Establishment Registration,Establishment Address,PIN Code,text,Number,7,2
+22,Shop and Establishment Registration,Other Details,Nature of Business,text,Charactar,9,1
+22,Shop and Establishment Registration,Other Details,Detail of Other premises related to establishment like Godown or workshop or Office etc,text,Alfa Numeric,9,2
+22,Shop and Establishment Registration,Other Details,Name of Owner,text,Charactar,10,1
+22,Shop and Establishment Registration,Other Details,Permanent Address of owner,textarea,Alfa Numeric,10,2
+22,Shop and Establishment Registration,Other Details,Detail of person who will maintain accounts or other secret information,text,Alfa Numeric,11,1
+22,Shop and Establishment Registration,Owners Details,Owners details,fieldset,Alfa Numeric,13,1
+22,Shop and Establishment Registration,Owners Details,Is Owners  Family  Member involve in Establishment,drop down,Charactar,14,1
+22,Shop and Establishment Registration,Detail of Involve Family Member in Ownership,Detail of Involve Family Member in Ownership,fieldset,Alfa Numeric,16,1
+22,Shop and Establishment Registration,Detail of Employees,No of Male Employee,text,Number,18,1
+22,Shop and Establishment Registration,Detail of Employees,No of Female Employee,text,Number,18,2
+22,Shop and Establishment Registration,Detail of Employees,Total No of Employee,text,Number,19,1
+22,Shop and Establishment Registration,Detail of Employees,Day of weekly off,drop down,Charactar,19,2
+23,Food Registration(Application for Small Cottage),,,,,,
+24,Application for Water Tap Connection,General,Fathers name,text,Charactar,1,1
+24,Application for Water Tap Connection,General,Address,textarea,Alfa Numeric,1,2
+24,Application for Water Tap Connection,General,House No,text,Alfa Numeric,2,1
+24,Application for Water Tap Connection,General,Ward,text,Alfa Numeric,2,2
+24,Application for Water Tap Connection,General,Annual Rent,text,Alfa Numeric,3,1
+24,Application for Water Tap Connection,General,BPL No,text,Number,3,2
+24,Application for Water Tap Connection,Details of Land Lord,Land Lords Name,text,Charactar,5,1
+24,Application for Water Tap Connection,Details of Land Lord,Land Lords Father Name,text,Charactar,5,2
+24,Application for Water Tap Connection,Details of Land Lord,Land Lords Address,textarea,Alfa Numeric,6,1
+24,Application for Water Tap Connection,Details of Land Lord,Property Id No,text,Alfa Numeric,6,2
+24,Application for Water Tap Connection,Detail of Water Tap Connection,Connection Type,drop down,Charactar,10,1
+24,Application for Water Tap Connection,Detail of Water Tap Connection,Permanent Connection Required,drop down,Alfa Numeric,10,2
+24,Application for Water Tap Connection,Detail of Water Tap Connection,Old water tap Connection,drop down,Alfa Numeric,11,1
+24,Application for Water Tap Connection,Detail of Water Tap Connection,Details of Old water tap Connection,text,Alfa Numeric,11,2
+24,Application for Water Tap Connection,Detail of Water Tap Connection,Purpose of New Water connection,drop down,Alfa Numeric,12,1
+24,Application for Water Tap Connection,Detail of Water Tap Connection,Details of Other Purpose of New Water connection,text,Alfa Numeric,12,2
+25,NOC for Building (Plan) Construction,Beneficiary Details,Fathers name,text,Charactar,2,1
+25,NOC for Building (Plan) Construction,Beneficiary Details,Permanent Address,textarea,Alfa Numeric,2,2
+25,NOC for Building (Plan) Construction,Beneficiary Details,Ward No,text,Number,3,1
+25,NOC for Building (Plan) Construction,Beneficiary Details,The name of the area where the work is proposed to be,text,Alfa Numeric,3,2
+25,NOC for Building (Plan) Construction,Beneficiary Details,Plot No,text,Alfa Numeric,4,1
+25,NOC for Building (Plan) Construction,Beneficiary Details,House No,text,Alfa Numeric,4,2
+25,NOC for Building (Plan) Construction,Beneficiary Details,Plot Length,text,Alfa Numeric,5,1
+25,NOC for Building (Plan) Construction,Beneficiary Details,Plot Width,text,Alfa Numeric,5,2
+25,NOC for Building (Plan) Construction,Beneficiary Details,Plot Area,text,Alfa Numeric,6,1
+25,NOC for Building (Plan) Construction,Beneficiary Details,NoC Proof Nazul  No,text,Alfa Numeric,6,2
+25,NOC for Building (Plan) Construction,Beneficiary Details,NoC Proof Nazul Date,date,Date,7,1
+25,NOC for Building (Plan) Construction,Beneficiary Details,Expected expense for change in type of Construction or further construction in an existing building,text,Alfa Numeric,7,2
+25,NOC for Building (Plan) Construction,Architect Details,Name,text,Charactar,9,1
+25,NOC for Building (Plan) Construction,Architect Details,License No,text,Alfa Numeric,9,2
+25,NOC for Building (Plan) Construction,Architect Details,License given By Municipal,text,Alfa Numeric,10,1
+25,NOC for Building (Plan) Construction,Architect Details,To Date,date,Date,10,2
+25,NOC for Building (Plan) Construction,Architect Details,Nature of Construction,drop down,Alfa Numeric,11,1
+25,NOC for Building (Plan) Construction,Architect Details,Code for the Construction,text,Alfa Numeric,11,2
+25,NOC for Building (Plan) Construction,Architect Details,Type of Construction,drop down,Alfa Numeric,12,1
+25,NOC for Building (Plan) Construction,Architect Details,Total Plinth Area in Sq M,text,Number,12,2
+25,NOC for Building (Plan) Construction,Architect Details,The total floor area in square meters including the entire basement floors,text,Alfa Numeric,13,1
+25,NOC for Building (Plan) Construction,No and type of dwelling units in Construction,No and type of dwelling units in Construction,fieldset,Alfa Numeric,15,1
+25,NOC for Building (Plan) Construction,No and type of dwelling units in Construction,Estimate Construction Cost,text,Alfa Numeric,16,1
+25,NOC for Building (Plan) Construction,No and type of dwelling units in Construction,Number of issue of authorization certificate,text,Alfa Numeric,16,2
+25,NOC for Building (Plan) Construction,No and type of dwelling units in Construction,Date of issue of authorization certificate,date,Date,17,1
+25,NOC for Building (Plan) Construction,No and type of dwelling units in Construction,Date of Commencement of Construction,date,Date,17,2
+25,NOC for Building (Plan) Construction,No and type of dwelling units in Construction,Date of Completion of Construction,date,Date,18,1
+26,Name transfer (Mutation) of Property Municipal area,Transferor Details,Name,text,Charactar,2,1
+26,Name transfer (Mutation) of Property Municipal area,Transferor Details,Fathers name,text,Charactar,2,2
+26,Name transfer (Mutation) of Property Municipal area,Transferor Details,Address,textarea,Alfa Numeric,3,1
+26,Name transfer (Mutation) of Property Municipal area,Transferor Details,The name of the person whose name is registered in the relevant land or buildings to municipal,text,Charactar,3,2
+26,Name transfer (Mutation) of Property Municipal area,Transferee Details,Name,text,Charactar,5,1
+26,Name transfer (Mutation) of Property Municipal area,Transferee Details,Fathers name,text,Charactar,5,2
+26,Name transfer (Mutation) of Property Municipal area,Transferee Details,Address,textarea,Alfa Numeric,6,1
+26,Name transfer (Mutation) of Property Municipal area,Transferee Details,Property Type,drop down,Charactar,6,2
+26,Name transfer (Mutation) of Property Municipal area,Transferee Details,Ward no and Ward name,text,Alfa Numeric,7,1
+26,Name transfer (Mutation) of Property Municipal area,Transferee Details,Building No,text,Alfa Numeric,7,2
+26,Name transfer (Mutation) of Property Municipal area,Transferee Details,Tax is imposed on him by the municipal corporation,drop down,Charactar,8,1
+26,Name transfer (Mutation) of Property Municipal area,Transferee Details,name of tax payee,text,Charactar,8,2
+26,Name transfer (Mutation) of Property Municipal area,Transferee Details,mode of title transfer,drop down,Alfa Numeric,9,1
+26,Name transfer (Mutation) of Property Municipal area,Transferee Details,Property Rate,text,Number,9,2
+26,Name transfer (Mutation) of Property Municipal area,Transferee Details,date of registration,date,Alfa Numeric,10,1
+26,Name transfer (Mutation) of Property Municipal area,The individual portion of the land or buildings or land building the value of the rights contained in the event of,name of dead person,text,Charactar,12,1
+26,Name transfer (Mutation) of Property Municipal area,The individual portion of the land or buildings or land building the value of the rights contained in the event of,Name of Heir,text,Charactar,12,2
+26,Name transfer (Mutation) of Property Municipal area,The individual portion of the land or buildings or land building the value of the rights contained in the event of,Father Name of Heir,text,Alfa Numeric,13,1
+26,Name transfer (Mutation) of Property Municipal area,The individual portion of the land or buildings or land building the value of the rights contained in the event of,Address of Heir,textarea,Alfa Numeric,13,2
+26,Name transfer (Mutation) of Property Municipal area,The individual portion of the land or buildings or land building the value of the rights contained in the event of,Title Acquisition No,text,Number,14,1
+26,Name transfer (Mutation) of Property Municipal area,The individual portion of the land or buildings or land building the value of the rights contained in the event of,Title Acquisition type,drop down,Alfa Numeric,14,2
+27,Request for Nakal of document From Bhuiyan(copy of land record etc),General,District,drop down,Charactar,1,1
+27,Request for Nakal of document From Bhuiyan(copy of land record etc),General,Tehsil,drop down,Charactar,2,1
+27,Request for Nakal of document From Bhuiyan(copy of land record etc),General,Village,drop down,Alfa Numeric,3,1
+27,Request for Nakal of document From Bhuiyan(copy of land record etc),General,Khasara Document Type,drop down,Alfa Numeric,4,1
+27,Request for Nakal of document From Bhuiyan(copy of land record etc),General,Khasara No,text,Alfa Numeric,5,1
+27,Request for Nakal of document From Bhuiyan(copy of land record etc),General,Details,textarea,Alfa Numeric,6,1
+28,Registration for Job-Seekers,,,,,,
+29,New Permanent Driving License for Motor Vehicle,General,Type of vehicle for which license to be Issue,drop down,Charactar,1,1
+29,New Permanent Driving License for Motor Vehicle,General,Full Name,text,Charactar,1,2
+29,New Permanent Driving License for Motor Vehicle,General,Son or Wife or Daughter of,text,Charactar,2,1
+29,New Permanent Driving License for Motor Vehicle,General,Permanent Address,textarea,Alfa Numeric,2,2
+29,New Permanent Driving License for Motor Vehicle,General,Temporary address or governmental Address If Any,textarea,Alfa Numeric,3,1
+29,New Permanent Driving License for Motor Vehicle,General,Duration of stay at the present address,text,Charactar,3,2
+29,New Permanent Driving License for Motor Vehicle,General,Date of Birth,date,Date,4,1
+29,New Permanent Driving License for Motor Vehicle,General,If place of birth out side India when migrated to India,date,Date,4,2
+29,New Permanent Driving License for Motor Vehicle,General,Educational Qualification,Data List,Search,5,1
+29,New Permanent Driving License for Motor Vehicle,General,Identification mark,Data List,Charactar,5,2
+29,New Permanent Driving License for Motor Vehicle,General,Blood Group,text,Alfa Numeric,6,1
+29,New Permanent Driving License for Motor Vehicle,General,Have you previously held driving licence,text,Charactar,6,2
+29,New Permanent Driving License for Motor Vehicle,General,Details of Conviction,fieldset,Alfa Numeric,7,1
+29,New Permanent Driving License for Motor Vehicle,General,Do you hold a driving license or learners license or is disqualified for obtaining,drop down,Charactar,8,1
+29,New Permanent Driving License for Motor Vehicle,General,Details of Test Driving,fieldset,Alfa Numeric,9,1
+30,New Learner License,Information Provided by the applicant posts,Full Name,text,Charactar,2,1
+30,New Learner License,Information Provided by the applicant posts,Father or Husband name,text,Charactar,2,2
+30,New Learner License,Information Provided by the applicant posts,Permanent Address,textarea,Alfa Numeric,3,1
+30,New Learner License,Information Provided by the applicant posts,Temporary address or governmental Address If Any,textarea,Alfa Numeric,3,2
+30,New Learner License,Information Provided by the applicant posts,Date of Birth,date,Date,4,1
+30,New Learner License,Information Provided by the applicant posts,Educational Qualification,Data List,Search,4,2
+30,New Learner License,Information Provided by the applicant posts,Identification mark,Data List,Charactar,5,1
+30,New Learner License,Information Provided by the applicant posts,Blood group and RH factor If Required,drop down,Alfa Numeric,5,2
+30,New Learner License,Information Provided by the applicant posts,I am the holder of effective driving license to run the vehicle,drop down,Charactar,6,1
+30,New Learner License,Information Provided by the applicant posts,Particulars of any driving license held by the applicant before it was canceled If so,drop down,Charactar,6,2
+30,New Learner License,Information Provided by the applicant posts,If yes then for some reason,text,Charactar,7,1
+30,New Learner License,Information Provided by the applicant posts,Describe the vehicle in respect of which the applicant previously held a learner license particulars of the applicant,text,Charactar,7,2
+30,New Learner License,Information Provided by the applicant posts,Do you hold a driving license or learners license or is disqualified for obtaining,drop down,Charactar,8,1
+31,Application for Fitment Certificate (Vehicle),General,Registration mark of Vehicle,text,Charactar,1,1
+31,Application for Fitment Certificate (Vehicle),General,Name of Owner,text,Charactar,2,1
+31,Application for Fitment Certificate (Vehicle),General,Address of Owner,textarea,Alfa Numeric,3,1
+31,Application for Fitment Certificate (Vehicle),General,Place where the vehicle is ordinarily kept,text,Charactar,4,1
+31,Application for Fitment Certificate (Vehicle),General,Name of manufacturer of vehicle,text,Charactar,5,1
+31,Application for Fitment Certificate (Vehicle),General,Manufacturers model or if not known wheel base,text,Alfa Numeric,6,1
+31,Application for Fitment Certificate (Vehicle),General,Type of Vehicle,drop down,Charactar,7,1
+31,Application for Fitment Certificate (Vehicle),General,Engine number,text,Number,8,1
+31,Application for Fitment Certificate (Vehicle),General,Chassis number,text,Number,9,1
+31,Application for Fitment Certificate (Vehicle),General,Particulars of any previous certificate of fitness granted in respect of the Vehicle,text,Alfa Numeric,10,1
+31,Application for Fitment Certificate (Vehicle),General,प्राधिकारी जिसके द्वारा स्वीकृति दी गई,text,Charactar,11,1
+31,Application for Fitment Certificate (Vehicle),General,Authority by which granted,text,Charactar,11,1
+31,Application for Fitment Certificate (Vehicle),General,Date when certificate ceased to be valid,date,Date,12,1
+31,Application for Fitment Certificate (Vehicle),General,Reasons for cessation of validity,textarea,Alfa Numeric,13,1
+31,Application for Fitment Certificate (Vehicle),General,Reasons for not producing certificate of fitness,textarea,Alfa Numeric,14,1
+32,Application for Indira Gandhi Disability Pension Yojana,General,Father or Husband name,text,Charactar,1,1
+32,Application for Indira Gandhi Disability Pension Yojana,General,Name of Successor,text,Charactar,1,2
+32,Application for Indira Gandhi Disability Pension Yojana,Address of the Applicant,Street or Neighborhood Name,text,Charactar,3,1
+32,Application for Indira Gandhi Disability Pension Yojana,Address of the Applicant,Ward no and Ward name,text,Alfa Numeric,3,2
+32,Application for Indira Gandhi Disability Pension Yojana,Address of the Applicant,House No or Village,text,Alfa Numeric,4,1
+32,Application for Indira Gandhi Disability Pension Yojana,Address of the Applicant,Street or Post Office,text,Charactar,4,2
+32,Application for Indira Gandhi Disability Pension Yojana,Address of the Applicant,District,drop down,Charactar,5,1
+32,Application for Indira Gandhi Disability Pension Yojana,Address of the Applicant,PIN Code,text,Number,5,2
+32,Application for Indira Gandhi Disability Pension Yojana,BPL Details,Survey Year,date,Date,7,1
+32,Application for Indira Gandhi Disability Pension Yojana,BPL Details,Block  Or Municipal,text,Charactar,7,2
+32,Application for Indira Gandhi Disability Pension Yojana,BPL Details,Family Identification Survey No,text,Number,8,1
+32,Application for Indira Gandhi Disability Pension Yojana,BPL Details,Identification No,text,Number,8,2
+32,Application for Indira Gandhi Disability Pension Yojana,BPL Details,Disability,drop down,Charactar,9,1
+32,Application for Indira Gandhi Disability Pension Yojana,BPL Details,Gender,drop down,Charactar,9,2
+32,Application for Indira Gandhi Disability Pension Yojana,BPL Details,Date of Birth,date,Date,10,1
+32,Application for Indira Gandhi Disability Pension Yojana,BPL Details,Age,text,Number,10,2
+32,Application for Indira Gandhi Disability Pension Yojana,BPL Details,Caste Category,drop down,Charactar,11,1
+32,Application for Indira Gandhi Disability Pension Yojana,BPL Details,Minority,drop down,Charactar,11,2
+32,Application for Indira Gandhi Disability Pension Yojana,BPL Details,Either the Applicant is Handicapped,drop down,Charactar,12,1
+32,Application for Indira Gandhi Disability Pension Yojana,BPL Details,Type of Disability 1,drop down,Charactar,13,1
+32,Application for Indira Gandhi Disability Pension Yojana,BPL Details,Percentage of Disability 1,number,Number,13,2
+32,Application for Indira Gandhi Disability Pension Yojana,BPL Details,Type of Disability 2,drop down,Charactar,14,1
+32,Application for Indira Gandhi Disability Pension Yojana,BPL Details,Percentage of Disability 2,number,Number,14,2
+32,Application for Indira Gandhi Disability Pension Yojana,BPL Details,EPIC Number,text,Number,15,1
+32,Application for Indira Gandhi Disability Pension Yojana,BPL Details,Enrollment Number of Aadhaar,text,Alfa Numeric,15,2
+32,Application for Indira Gandhi Disability Pension Yojana,Payment Details,Aadhaar Card No,text,Number,18,1
+32,Application for Indira Gandhi Disability Pension Yojana,Payment Details,Name of Bank or Post Office,text,Charactar,18,2
+32,Application for Indira Gandhi Disability Pension Yojana,Payment Details,Name of the Branch,text,Charactar,19,1
+32,Application for Indira Gandhi Disability Pension Yojana,Payment Details,Account No,text,Number,19,2
+32,Application for Indira Gandhi Disability Pension Yojana,Payment Details,IFSC code,text,Alfa Numeric,20,1
+33,Food Registration(Application for Hawker Stall),,,,,,
+34,,,,,,,
+35,Revenue Services (Agricultural Land/Diverted Demarcation),Applicant Details,Account Holder Name,text,Charactar,4,1
+35,Revenue Services (Agricultural Land/Diverted Demarcation),Applicant Details,Father or Husband name,text,Charactar,4,2
+35,Revenue Services (Agricultural Land/Diverted Demarcation),Applicant Details,Address Of Applicant,textarea,Alfa Numeric,5,1
+35,Revenue Services (Agricultural Land/Diverted Demarcation),Applicant Details,Village,text,Charactar,5,2
+35,Revenue Services (Agricultural Land/Diverted Demarcation),Applicant Details,Patwari Halka Number,text,Number,6,1
+35,Revenue Services (Agricultural Land/Diverted Demarcation),Applicant Details,Khasara No,text,Alfa Numeric,6,2
+36,Revenue Services (Nazul Land Patta Renewal),Applicant Details,Account Holder Name,text,Charactar,3,1
+36,Revenue Services (Nazul Land Patta Renewal),Applicant Details,Father or Husband name,text,Charactar,4,2
+36,Revenue Services (Nazul Land Patta Renewal),Applicant Details,Address Of Applicant,textarea,Alfa Numeric,5,1
+36,Revenue Services (Nazul Land Patta Renewal),Applicant Details,Village,text,Charactar,8,2
+36,Revenue Services (Nazul Land Patta Renewal),Applicant Details,Patwari Halka Number,text,Number,9,1
+36,Revenue Services (Nazul Land Patta Renewal),Applicant Details,Khasara No,text,Alfa Numeric,10,2
+36,Revenue Services (Nazul Land Patta Renewal),Applicant Details,Plot Number,text,Charactar,11,1
+36,Revenue Services (Nazul Land Patta Renewal),Applicant Details,Sheet Number,text,Charactar,12,1
+37,Revenue Services (Nazul Land Patta NOC),Applicant Details,Account Holder Name,text,Charactar,3,1
+37,Revenue Services (Nazul Land Patta NOC),Applicant Details,Father or Husband name,text,Charactar,4,2
+37,Revenue Services (Nazul Land Patta NOC),Applicant Details,Address Of Applicant,textarea,Alfa Numeric,5,1
+37,Revenue Services (Nazul Land Patta NOC),Applicant Details,Village,text,Charactar,8,2
+37,Revenue Services (Nazul Land Patta NOC),Applicant Details,Patwari Halka Number,text,Number,9,1
+37,Revenue Services (Nazul Land Patta NOC),Applicant Details,Khasara No,text,Alfa Numeric,10,2
+37,Revenue Services (Nazul Land Patta NOC),Applicant Details,Plot Number,text,Charactar,11,1
+37,Revenue Services (Nazul Land Patta NOC),Applicant Details,Sheet Number,text,Charactar,12,1
+38,Revenue Service (Solvency Between 5Lac To 25Lac),Applicant Details,Account Holder Name,text,Charactar,4,1
+38,Revenue Service (Solvency Between 5Lac To 25Lac),Applicant Details,Father or Husband name,text,Charactar,4,2
+38,Revenue Service (Solvency Between 5Lac To 25Lac),Applicant Details,Address Of Applicant,textarea,Alfa Numeric,5,1
+38,Revenue Service (Solvency Between 5Lac To 25Lac),Applicant Details,Village,text,Charactar,5,2
+38,Revenue Service (Solvency Between 5Lac To 25Lac),Applicant Details,Patwari Halka Number,text,Number,6,1
+38,Revenue Service (Solvency Between 5Lac To 25Lac),Applicant Details,Khasara No,text,Alfa Numeric,6,2
+39,,,,,,,
+40,Land Use Information,General,Name,text,Charactar,1,1
+40,Land Use Information,General,Fathers name,text,Charactar,2,1
+40,Land Use Information,General,Name of Village,Data List,Number,3,1
+40,Land Use Information,General,Patwari Halka Number,text,Number,4,1
+40,Land Use Information,General,Khasara No,Data List,Number,5,1
+40,Land Use Information,General,Is applicant applying for his/her own land,drop down,Charactar,6,1
