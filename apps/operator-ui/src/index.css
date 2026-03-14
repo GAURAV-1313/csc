@@ -49,9 +49,9 @@ textarea {
 }
 
 .shell {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 16px 20px;
 }
 
 .card {
@@ -152,6 +152,13 @@ textarea {
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  min-height: 220px;
 }
 
 .service-card:hover {
@@ -175,18 +182,21 @@ textarea {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 6px;
+  overflow-wrap: anywhere;
 }
 
 .service-meta {
   color: #64748b;
   font-size: 13px;
   margin-bottom: 16px;
+  overflow-wrap: anywhere;
 }
 
 .service-desc {
   color: #475569;
   font-size: 13px;
   margin-bottom: 14px;
+  overflow-wrap: anywhere;
 }
 
 .service-action {
@@ -199,6 +209,7 @@ textarea {
   font-weight: 600;
   background: #fff7ed;
   color: #c2410c;
+  margin-top: auto;
 }
 
 .header {
