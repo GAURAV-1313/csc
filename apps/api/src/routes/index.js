@@ -11,6 +11,7 @@ const {
   getRejectionAnalytics,
   recommendSchemes,
   explainRisk,
+  chatAssistant,
   listApplications,
   uploadApplicationDocument
 } = require("./handlers");
@@ -31,6 +32,7 @@ function registerRoutes(app, upload) {
   app.get("/analytics/rejections", getRejectionAnalytics);
   app.post("/recommend-schemes", recommendSchemes);
   app.post("/explain", explainRisk);
+  app.post("/chat", chatAssistant);
 
   // WhatsApp chatbot routes
   app.post("/whatsapp/webhook", whatsappWebhook);
