@@ -5,8 +5,61 @@ import DynamicForm from "../components/DynamicForm";
 import DocumentUploader from "../components/DocumentUploader";
 import ValidationPanel from "../components/ValidationPanel";
 
+const incomeCertificateSchema: ServiceSchema = {
+  service_id: "income_certificate",
+  service_name: "Income Certificate",
+  service_type: "income_certificate",
+  sections: [
+    {
+      name: "Beneficiary Details",
+      fields: [
+        { key: "gender", type: "text", required: true },
+        { key: "age_of_beneficiary", type: "number", required: true },
+        { key: "beneficiary_guardian_type", type: "text", required: true },
+        { key: "beneficiary_guardian_name", type: "text", required: true },
+        { key: "relation_with_applicant", type: "text", required: true },
+        { key: "beneficiary_relative_name", type: "text", required: true },
+        { key: "caste", type: "text", required: true },
+        { key: "type", type: "text", required: true },
+        { key: "class_number", type: "text", required: true }
+      ]
+    },
+    {
+      name: "Address Details",
+      fields: [
+        { key: "address", type: "textarea", required: true },
+        { key: "pin_code", type: "text", required: true },
+        { key: "district", type: "text", required: true }
+      ]
+    },
+    {
+      name: "Income Details",
+      fields: [
+        { key: "business_or_service_details", type: "textarea", required: true },
+        { key: "reason_for_application", type: "textarea", required: true },
+        { key: "annual_income", type: "number", required: true },
+        { key: "average_income_last_3_years", type: "number", required: true }
+      ]
+    },
+    {
+      name: "Declaration",
+      fields: [
+        { key: "date", type: "date", required: true },
+        { key: "place", type: "text", required: true },
+        { key: "applicant_name", type: "text", required: true },
+        { key: "signature", type: "text", required: true }
+      ]
+    }
+  ],
+  required_documents: {
+    mandatory: ["affidavit", "income_proof"],
+    optional: []
+  }
+};
+
 export default function ApplicationForm() {
   const { serviceType } = useParams<{ serviceType: string }>();
+  const isIncomeCertificate = serviceType === "income_certificate";
   const navigate = useNavigate();
   const [schema, setSchema] = useState<ServiceSchema | null>(null);
   const [applicationId, setApplicationId] = useState<string | null>(null);
@@ -24,7 +77,14 @@ export default function ApplicationForm() {
         if (!serviceType) return;
         const service = await api.getServiceSchema(serviceType);
         if (!mounted) return;
-        setSchema(service.service);
+        setSchema(
+          isIncomeCertificate
+            ? {
+                ...incomeCertificateSchema,
+                service_name: service.service?.service_name || incomeCertificateSchema.service_name
+              }
+            : service.service
+        );
 
         const draft = await api.createApplicationDraft({ serviceType, citizenData: {} });
         if (!mounted) return;
@@ -40,7 +100,7 @@ export default function ApplicationForm() {
     return () => {
       mounted = false;
     };
-  }, [serviceType]);
+  }, [serviceType, isIncomeCertificate]);
 
   const handleChange = (key: string, value: string | number | boolean) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
@@ -126,24 +186,27 @@ export default function ApplicationForm() {
         {loading ? (
           <div className="card">Loading schema...</div>
         ) : (
-          <div className="layout csc-form-layout">
+          <div className={`layout csc-form-layout ${isIncomeCertificate ? "no-panel" : ""}`}>
             <div className="grid csc-form-grid">
               <DynamicForm schema={schema} formData={formData} onChange={handleChange} />
               <DocumentUploader
                 applicationId={applicationId}
                 requiredDocuments={requiredDocuments}
+                documentLabels={{ income_proof: "income proof (category)" }}
                 onUploaded={handleUploaded}
               />
               <div className="card csc-submit-card">
-                <button className="btn" onClick={validateApplication} disabled={validating}>
-                  {validating ? "Validating..." : "Validate Application"}
-                </button>
+                {!isIncomeCertificate && (
+                  <button className="btn" onClick={validateApplication} disabled={validating}>
+                    {validating ? "Validating..." : "Validate Application"}
+                  </button>
+                )}
                 <button className="btn secondary" onClick={submitApplication}>
                   Submit to eDistrict
                 </button>
               </div>
             </div>
-            <ValidationPanel validationResult={validationResult} />
+            {!isIncomeCertificate && <ValidationPanel validationResult={validationResult} />}
           </div>
         )}
       </div>
