@@ -56,6 +56,17 @@ export default function RiskSummary() {
     ? prediction.main_contributing_factors
     : [];
 
+  const rejectedDisplay = useMemo(() => {
+    const value = prediction.rejected_prediction;
+    if (value == null) return "N/A";
+    if (typeof value === "number") return value > 0 ? "1" : "0";
+    if (typeof value === "boolean") return value ? "1" : "0";
+    const normalized = String(value).trim().toLowerCase();
+    if (normalized === "1" || normalized === "true" || normalized === "yes") return "1";
+    if (normalized === "0" || normalized === "false" || normalized === "no") return "0";
+    return normalized;
+  }, [prediction.rejected_prediction]);
+
   const handleFinalSubmit = async () => {
     if (!state.applicationId) {
       navigate("/dashboard");
@@ -115,7 +126,7 @@ export default function RiskSummary() {
             </div>
             <div className="csc-risk-item">
               <span className="csc-risk-label">rejected_prediction</span>
-              <strong>{prediction.rejected_prediction == null ? "N/A" : String(Boolean(prediction.rejected_prediction))}</strong>
+              <strong>{rejectedDisplay}</strong>
             </div>
             <div className="csc-risk-item">
               <span className="csc-risk-label">threshold_used</span>

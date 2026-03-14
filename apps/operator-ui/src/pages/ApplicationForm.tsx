@@ -611,11 +611,33 @@ export default function ApplicationForm() {
     if (!applicationId) return;
     try {
       if (isCustomCertificate && serviceType) {
+        const documentsForRisk = uploadedDocs.map((doc) => ({
+          documentType: (doc.document_type as string) || (doc.documentType as string),
+          filePath: (doc.file_path as string) || (doc.filePath as string)
+        }));
+
+        const ocrResultsForRisk = uploadedDocs
+          .map((doc) => {
+            const fields: Record<string, unknown> = {};
+            const parsed = (doc.document_fields as Array<{ field_name?: string; field_value?: unknown }>) || [];
+            parsed.forEach((entry) => {
+              if (!entry?.field_name) return;
+              fields[entry.field_name] = entry.field_value;
+            });
+            if (Object.keys(fields).length === 0) {
+              return null;
+            }
+            return { fields };
+          })
+          .filter(Boolean);
+
         const prediction = await api.predictRisk({
           features: formData,
           serviceType,
           application_id: applicationId,
-          citizenData: formData
+          citizenData: formData,
+          documents: documentsForRisk,
+          ocrResults: ocrResultsForRisk
         });
         navigate(`/service/${serviceType}/risk-summary`, {
           state: {
