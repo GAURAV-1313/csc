@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api, type ServiceSchema, type WhatsappLaunchConfig } from "../services/api";
 import ServiceCard from "../components/ServiceCard";
+import WhatsAppWidget from "../components/WhatsAppWidget";
 import digitalSevaLogo from "../assets/digital-seva-logo.png";
 
 export default function Dashboard() {
@@ -156,6 +157,8 @@ export default function Dashboard() {
           </div>
         )}
       </div>
+
+      <WhatsAppWidget />
     </div>
   );
 }
