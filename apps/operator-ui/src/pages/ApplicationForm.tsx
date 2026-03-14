@@ -611,7 +611,12 @@ export default function ApplicationForm() {
     if (!applicationId) return;
     try {
       if (isCustomCertificate && serviceType) {
-        const prediction = await api.predictRisk({ features: formData });
+        const prediction = await api.predictRisk({
+          features: formData,
+          serviceType,
+          application_id: applicationId,
+          citizenData: formData
+        });
         navigate(`/service/${serviceType}/risk-summary`, {
           state: {
             prediction,
