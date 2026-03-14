@@ -1,0 +1,69 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "Raipur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[81.45, 21.10], [81.95, 21.10], [81.95, 21.55], [81.45, 21.55], [81.45, 21.10]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Durg" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[81.05, 21.20], [81.45, 21.20], [81.45, 21.60], [81.05, 21.60], [81.05, 21.20]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Bilaspur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[82.00, 22.05], [82.50, 22.05], [82.50, 22.45], [82.00, 22.45], [82.00, 22.05]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Raigarh" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[82.75, 21.90], [83.25, 21.90], [83.25, 22.35], [82.75, 22.35], [82.75, 21.90]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Bastar" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[81.60, 18.65], [82.30, 18.65], [82.30, 19.35], [81.60, 19.35], [81.60, 18.65]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Korba" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[82.45, 22.40], [82.90, 22.40], [82.90, 22.90], [82.45, 22.90], [82.45, 22.40]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Janjgir Champa" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[82.25, 21.55], [82.80, 21.55], [82.80, 22.00], [82.25, 22.00], [82.25, 21.55]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Kanker" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[81.85, 20.05], [82.35, 20.05], [82.35, 20.55], [81.85, 20.55], [81.85, 20.05]]]
+      }
+    }
+  ]
+}

@@ -11,6 +11,7 @@ const { saveApplication, loadApplications, updateApplicationStatus, createDraftA
 const { saveBufferToFile, saveBase64ToFile } = require("../modules/documents/storage");
 const { verifyDocuments } = require("../modules/documents/documentVerifier");
 const { createOperator } = require("../modules/operators/operatorsStore");
+const { loadJson } = require("../utils/dataLoader");
 
 function buildCitizenData(application) {
   if (!application) return {};
@@ -392,6 +393,19 @@ async function explainRisk(req, res) {
   res.json({ explanation: result });
 }
 
+async function getRejectionAnalytics(req, res) {
+  const rawRange = String((req.query && req.query.range) || "this_month").toLowerCase();
+  const normalizedRange = rawRange.replace(/\s+/g, "_");
+
+  const source = loadJson("analytics/rejections.json");
+  const dataset = source[normalizedRange] || source.this_month || { districts: [] };
+
+  res.json({
+    range: normalizedRange,
+    districts: Array.isArray(dataset.districts) ? dataset.districts : []
+  });
+}
+
 module.exports = {
   getServices,
   getServiceSchema,
@@ -403,6 +417,7 @@ module.exports = {
   validateApplication,
   listApplications,
   predictRisk,
+  getRejectionAnalytics,
   recommendSchemes,
   explainRisk,
   uploadApplicationDocument

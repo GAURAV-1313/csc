@@ -5,6 +5,7 @@ import ServiceCard from "../components/ServiceCard";
 import WhatsAppWidget from "../components/WhatsAppWidget";
 import digitalSevaLogo from "../assets/digital-seva-logo.png";
 import { serviceSummaryMap } from "../data/serviceSummaries";
+import HeatmapDashboard from "../components/HeatmapDashboard";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -173,6 +174,8 @@ export default function Dashboard() {
             )}
           </div>
         </div>
+
+        <HeatmapDashboard />
 
         {loading ? (
           <div className="card">{t.loading}</div>

@@ -952,6 +952,294 @@ textarea {
   color: #166534;
 }
 
+.heatmap-dashboard {
+  margin: 10px 0 14px;
+  padding: 12px;
+  border-radius: 18px;
+  border: 1px solid #ecd8bf;
+  border-top: 3px solid #f97316;
+  background: linear-gradient(160deg, #fffefc 0%, #fff8f0 70%, #fff3e6 100%);
+  box-shadow: 0 8px 22px rgba(120, 53, 15, 0.08);
+}
+
+.heatmap-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.heatmap-header h2 {
+  font-size: 20px;
+  margin: 0;
+  color: #0f172a;
+  letter-spacing: 0.01em;
+}
+
+.heatmap-header p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.heatmap-filter {
+  display: grid;
+  gap: 6px;
+  min-width: 170px;
+}
+
+.heatmap-filter label {
+  font-size: 12px;
+  color: #9a3412;
+  font-weight: 600;
+}
+
+.heatmap-filter select {
+  border: 1px solid #f0c8a2;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: linear-gradient(180deg, #ffffff 0%, #fff7ed 100%);
+  color: #7c2d12;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(124, 45, 18, 0.08);
+}
+
+.heatmap-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+}
+
+.heatmap-map-wrap {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #ecd8bf;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+
+.heatmap-map-wrap .leaflet-control-zoom a {
+  border-color: #f0c8a2;
+  color: #9a3412;
+  background: #fff7ed;
+}
+
+.heatmap-map-wrap .leaflet-control-zoom a:hover {
+  background: #ffedd5;
+}
+
+.chhattisgarh-only-map {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(250, 204, 21, 0.28) 0%, rgba(250, 204, 21, 0) 34%),
+    radial-gradient(circle at 82% 24%, rgba(45, 212, 191, 0.26) 0%, rgba(45, 212, 191, 0) 36%),
+    radial-gradient(circle at 50% 85%, rgba(251, 113, 133, 0.22) 0%, rgba(251, 113, 133, 0) 40%),
+    linear-gradient(155deg, #fffdf9 0%, #f7f1e8 100%);
+  border: 1px solid #ecdcc7;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.chhattisgarh-only-map .leaflet-interactive {
+  transition: fill 160ms ease, fill-opacity 160ms ease, stroke 160ms ease, stroke-width 160ms ease;
+}
+
+.chhattisgarh-only-map .district-label {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(30, 41, 59, 0.18);
+  border-radius: 6px;
+  color: #0f172a;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.12);
+}
+
+.chhattisgarh-only-map .leaflet-tooltip-top:before,
+.chhattisgarh-only-map .leaflet-tooltip-bottom:before,
+.chhattisgarh-only-map .leaflet-tooltip-left:before,
+.chhattisgarh-only-map .leaflet-tooltip-right:before {
+  display: none;
+}
+
+.district-hover-tooltip .leaflet-popup-content-wrapper {
+  border-radius: 10px;
+  border: 1px solid #dbe4f5;
+  background: #f8fbff;
+}
+
+.district-hover-tooltip .leaflet-popup-content {
+  margin: 10px 12px;
+  color: #1e293b;
+  font-size: 12px;
+}
+
+.district-hover-tooltip .leaflet-popup-tip-container {
+  display: none;
+}
+
+.heatmap-loading {
+  min-height: 250px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed #d1c1a9;
+  border-radius: 14px;
+  background: #fff;
+  color: #6b7280;
+}
+
+.heatmap-legend {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  background: rgba(255, 250, 242, 0.92);
+  border: 1px solid #f0c8a2;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 11px;
+  display: grid;
+  gap: 3px;
+  z-index: 500;
+  backdrop-filter: blur(4px);
+}
+
+.heatmap-legend h4 {
+  margin: 0 0 4px;
+  font-size: 12px;
+  color: #9a3412;
+}
+
+.heatmap-legend div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.heatmap-legend span {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.heatmap-refresh-badge {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  z-index: 520;
+  background: rgba(15, 23, 42, 0.86);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.heatmap-panel {
+  border: 1px solid #ecd8bf;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #ffffff 0%, #fffaf4 100%);
+  padding: 10px;
+  display: grid;
+  gap: 8px;
+  box-shadow: 0 8px 20px rgba(120, 53, 15, 0.06);
+}
+
+.heatmap-panel-title {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c2410c;
+  font-weight: 700;
+}
+
+.heatmap-panel h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+.heatmap-summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.heatmap-kpi-label {
+  margin: 0;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.heatmap-kpi-value {
+  margin: 2px 0 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.heatmap-section h4 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #111827;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #f1ddc4;
+}
+
+.heatmap-chart-wrap {
+  height: 110px;
+}
+
+.heatmap-reasons-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+
+.heatmap-reasons-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.heatmap-reasons-list li strong {
+  color: #9a3412;
+}
+
+.heatmap-insight-box {
+  border: 1px solid #f2c48f;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #fff8ee 0%, #ffedd8 100%);
+  padding: 10px;
+}
+
+.heatmap-insight-box h4 {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: #9a3412;
+}
+
+.heatmap-insight-box p {
+  margin: 0;
+  font-size: 13px;
+  color: #7c2d12;
+  line-height: 1.4;
+}
+
+@media (max-width: 1100px) {
+  .heatmap-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .heatmap-legend {
+    position: static;
+    margin-top: 10px;
+  }
+}
+
 @media (max-width: 980px) {
   .csc-form-navbar-inner,
   .csc-form-topstrip-inner {
