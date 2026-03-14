@@ -31,16 +31,17 @@ export default function DocumentUploader({ applicationId, requiredDocuments, onU
   const optional = requiredDocuments?.optional || [];
 
   return (
-    <div className="card">
-      <h3 style={{ fontSize: "18px", marginBottom: "12px" }}>Required Documents</h3>
-      <div className="grid" style={{ gap: "12px" }}>
+    <div className="card csc-section-card">
+      <h3 className="csc-section-title">Required Documents</h3>
+      <div className="grid csc-doc-list">
         {[...mandatory, ...optional].map((doc) => (
           <div key={doc} className="doc-item">
             <div>
               <strong>{doc.replace(/_/g, " ")}</strong>
-              <small style={{ display: "block" }}>{mandatory.includes(doc) ? "Mandatory" : "Optional"}</small>
+              <small className="csc-doc-meta">{mandatory.includes(doc) ? "Mandatory" : "Optional"}</small>
             </div>
             <input
+              className="csc-file-input"
               type="file"
               onChange={(event) => handleUpload(doc, event.target.files?.[0])}
               disabled={uploading[doc]}

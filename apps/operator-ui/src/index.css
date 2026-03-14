@@ -445,6 +445,259 @@ textarea {
   color: var(--nav-blue);
 }
 
+.csc-form-page {
+  background: #f5f2ed;
+  color: #13213b;
+  font-family: "Sora", "Space Grotesk", sans-serif;
+}
+
+.csc-form-topstrip {
+  background: #ff762f;
+  color: #fff;
+}
+
+.csc-form-topstrip-inner {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.csc-top-cta {
+  opacity: 0.95;
+}
+
+.csc-form-navbar {
+  background: #fff;
+  border-bottom: 1px solid #ece4d9;
+}
+
+.csc-form-navbar-inner {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.csc-form-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.csc-form-brand-logo {
+  width: 56px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid #d5deea;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #234f98;
+  background: #f5f8ff;
+}
+
+.csc-form-brand-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.csc-form-brand-subtitle {
+  margin-top: 2px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.csc-form-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.csc-form-shell {
+  padding-top: 24px;
+  padding-bottom: 28px;
+}
+
+.csc-form-header {
+  background: #fff;
+  border: 1px solid #ece4d9;
+  border-radius: 16px;
+  padding: 16px 18px;
+}
+
+.csc-form-header .title {
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.csc-form-layout {
+  grid-template-columns: minmax(0, 1fr) 350px;
+  align-items: start;
+}
+
+.csc-form-grid {
+  gap: 18px;
+}
+
+.csc-section-card {
+  border-radius: 16px;
+  border: 1px solid #ebe2d5;
+  box-shadow: 0 8px 24px rgba(20, 33, 59, 0.06);
+}
+
+.csc-section-title {
+  font-size: 27px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  color: #13213b;
+  letter-spacing: -0.01em;
+}
+
+.csc-form-page .form-row label {
+  color: #13213b;
+  font-weight: 600;
+}
+
+.csc-form-page .form-row input,
+.csc-form-page .form-row select,
+.csc-form-page .form-row textarea {
+  border-radius: 12px;
+  border: 1px solid #d9e1ec;
+  padding: 11px 12px;
+  background: #fff;
+}
+
+.csc-form-page .form-row input:focus,
+.csc-form-page .form-row select:focus,
+.csc-form-page .form-row textarea:focus {
+  outline: 2px solid rgba(255, 118, 47, 0.25);
+  border-color: #ff762f;
+}
+
+.csc-doc-list {
+  gap: 10px;
+}
+
+.csc-doc-meta {
+  display: block;
+  margin-top: 4px;
+  color: #64748b;
+}
+
+.csc-file-input {
+  max-width: 210px;
+  font-size: 13px;
+}
+
+.csc-submit-card {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  border: 1px solid #ece2d5;
+}
+
+.csc-review-panel {
+  border-radius: 16px;
+  border: 1px solid #ebe2d5;
+  box-shadow: 0 8px 24px rgba(20, 33, 59, 0.06);
+}
+
+.csc-panel-group {
+  margin-top: 16px;
+}
+
+.csc-panel-title {
+  color: #13213b;
+}
+
+.csc-panel-list {
+  margin-top: 10px;
+  padding-left: 18px;
+}
+
+.csc-list-danger {
+  color: var(--danger);
+}
+
+.csc-list-warning {
+  color: var(--warning);
+}
+
+.csc-list-empty {
+  color: var(--muted);
+}
+
+.csc-panel-explanation {
+  margin-top: 8px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.csc-form-page .btn {
+  border-radius: 10px;
+  padding: 10px 18px;
+  box-shadow: none;
+}
+
+.csc-form-page .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(234, 88, 12, 0.18);
+}
+
+.csc-form-page .btn.secondary {
+  border-color: #f3c6aa;
+  background: #fff8f2;
+  color: #b84b12;
+}
+
+@media (max-width: 980px) {
+  .csc-form-navbar-inner,
+  .csc-form-topstrip-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    gap: 8px;
+  }
+
+  .csc-form-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .csc-form-header .title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .csc-form-brand-title {
+    font-size: 16px;
+  }
+
+  .csc-form-nav-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .csc-submit-card {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .csc-file-input {
+    max-width: 170px;
+  }
+}
+
 @media (max-width: 980px) {
   .login-grid {
     grid-template-columns: 1fr;
