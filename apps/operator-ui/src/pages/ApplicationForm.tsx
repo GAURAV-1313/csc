@@ -213,12 +213,219 @@ const scStCertificateSchema: ServiceSchema = {
   }
 };
 
+const obcCertificateSchema: ServiceSchema = {
+  service_id: "obc_certificate",
+  service_name: "OBC Certificate",
+  service_type: "obc_certificate",
+  sections: [
+    {
+      name: "General Details",
+      fields: [
+        { key: "beneficiary_guardian_type", type: "text", required: true },
+        { key: "beneficiary_guardian_name", type: "text", required: true },
+        { key: "guardian_type_english", type: "text", required: true },
+        { key: "guardian_name_english", type: "text", required: true },
+        { key: "gender", type: "text", required: true },
+        { key: "marital_status", type: "text", required: true },
+        { key: "date_of_birth", type: "date", required: true },
+        { key: "relation_to_applicant", type: "text", required: true },
+        { key: "caste_obc", type: "text", required: true },
+        { key: "category", type: "text", required: true },
+        { key: "caste_english", type: "text", required: true },
+        { key: "category_english", type: "text", required: true },
+        { key: "category_number", type: "text", required: true },
+        { key: "beneficiary_name_english", type: "text", required: true }
+      ]
+    },
+    {
+      name: "Present Address",
+      fields: [
+        { key: "address", type: "textarea", required: true },
+        { key: "pin_code", type: "text", required: true },
+        { key: "post_box_number", type: "text", required: true },
+        { key: "district", type: "text", required: true },
+        { key: "address_english", type: "textarea", required: true },
+        { key: "present_permanent_same", type: "boolean", required: true }
+      ]
+    },
+    {
+      name: "Permanent Address",
+      fields: [
+        { key: "permanent_address", type: "textarea", required: true },
+        { key: "permanent_pin_code", type: "text", required: true },
+        { key: "permanent_district", type: "text", required: true },
+        { key: "permanent_post_box_number", type: "text", required: true },
+        { key: "police_station", type: "text", required: true }
+      ]
+    },
+    {
+      name: "Historical Address",
+      fields: [
+        { key: "village_or_town", type: "text", required: true },
+        { key: "patwari_halka_number", type: "text", required: true },
+        { key: "tehsil", type: "text", required: true },
+        { key: "historical_district", type: "text", required: true },
+        { key: "head_of_family_name", type: "text", required: true },
+        { key: "relation_to_head_of_family", type: "text", required: true }
+      ]
+    },
+    {
+      name: "Residence Since 1984",
+      fields: [
+        { key: "guardian_residence_since_1984", type: "textarea", required: true },
+        { key: "guardian_address_details", type: "textarea", required: true }
+      ]
+    },
+    {
+      name: "Declaration",
+      fields: [
+        { key: "date", type: "date", required: true },
+        { key: "place", type: "text", required: true },
+        { key: "applicant_name", type: "text", required: true }
+      ]
+    }
+  ],
+  required_documents: {
+    mandatory: ["affidavit", "income_proof", "obc_proof", "signature"],
+    optional: ["vanshavali", "gram_sabha_proposal"],
+    accepted_groups: {
+      income_proof: [
+        "patwari_certificate",
+        "sarpanch_certificate",
+        "employer_income_certificate",
+        "form16"
+      ],
+      obc_proof: [
+        "obc_certificate_of_father",
+        "educational_certificate",
+        "school_transfer_certificate",
+        "jamabandi",
+        "census_register"
+      ]
+    }
+  }
+};
+
+const landUseInformationSchema: ServiceSchema = {
+  service_id: "land_use_information",
+  service_name: "Land Use Information",
+  service_type: "land_use_information",
+  sections: [
+    {
+      name: "Applicant Details",
+      fields: [
+        { key: "applicant_name", type: "text", required: true },
+        { key: "father_name", type: "text", required: true }
+      ]
+    },
+    {
+      name: "Land Details",
+      fields: [
+        { key: "village_name", type: "text", required: true },
+        { key: "patwari_halka_number", type: "text", required: true },
+        { key: "khasra_number", type: "text", required: true },
+        { key: "is_applicant_owner", type: "boolean", required: true }
+      ]
+    },
+    {
+      name: "Declaration",
+      fields: [
+        { key: "date", type: "date", required: true },
+        { key: "place", type: "text", required: true },
+        { key: "declaration_applicant_name", type: "text", required: true }
+      ]
+    }
+  ],
+  required_documents: {
+    mandatory: ["khasra", "naksha", "challan_copy", "signature"],
+    optional: []
+  }
+};
+
+const birthCertificateCorrectionSchema: ServiceSchema = {
+  service_id: "birth_certificate_correction",
+  service_name: "Birth Certificate Correction",
+  service_type: "birth_certificate_correction",
+  sections: [
+    {
+      name: "Application Info",
+      fields: [{ key: "application_number", type: "text", required: true }]
+    },
+    {
+      name: "Place of Birth",
+      fields: [
+        { key: "birth_place_type", type: "text", required: true },
+        { key: "hospital_or_institute_name", type: "text", required: true },
+        { key: "birth_place_local_language", type: "textarea", required: true },
+        { key: "birth_place_english", type: "textarea", required: true }
+      ]
+    },
+    {
+      name: "Child Birth Registration",
+      fields: [
+        { key: "date_of_birth", type: "date", required: true },
+        { key: "gender", type: "text", required: true },
+        { key: "child_name_local_language", type: "text", required: true },
+        { key: "child_name_english", type: "text", required: true },
+        { key: "registration_number", type: "text", required: true },
+        { key: "registration_date", type: "date", required: true }
+      ]
+    },
+    {
+      name: "Father Details",
+      fields: [
+        { key: "father_name_local_language", type: "text", required: true },
+        { key: "father_name_english", type: "text", required: true },
+        { key: "father_aadhaar_number", type: "text", required: true }
+      ]
+    },
+    {
+      name: "Guardian Address",
+      fields: [
+        { key: "address_at_time_of_birth_local_language", type: "textarea", required: true },
+        { key: "address_at_time_of_birth_english", type: "textarea", required: true },
+        { key: "permanent_address_local_language", type: "textarea", required: true },
+        { key: "permanent_address_english", type: "textarea", required: true }
+      ]
+    },
+    {
+      name: "Mother Details",
+      fields: [
+        { key: "mother_name_local_language", type: "text", required: true },
+        { key: "mother_name_english", type: "text", required: true },
+        { key: "mother_aadhaar_number", type: "text", required: true }
+      ]
+    },
+    {
+      name: "Declaration",
+      fields: [
+        { key: "date", type: "date", required: true },
+        { key: "place", type: "text", required: true },
+        { key: "applicant_name", type: "text", required: true }
+      ]
+    }
+  ],
+  required_documents: {
+    mandatory: ["existing_birth_certificate", "supporting_correction_proof", "signature"],
+    optional: ["hospital_record", "school_record"]
+  }
+};
+
 export default function ApplicationForm() {
   const { serviceType } = useParams<{ serviceType: string }>();
   const isIncomeCertificate = serviceType === "income_certificate";
   const isDomicileCertificate = serviceType === "domicile_certificate";
   const isScStCertificate = serviceType === "sc_st_certificate";
-  const isCustomCertificate = isIncomeCertificate || isDomicileCertificate || isScStCertificate;
+  const isObcCertificate = serviceType === "obc_certificate";
+  const isLandUseInformation = serviceType === "land_use_information";
+  const isBirthCertificateCorrection = serviceType === "birth_certificate_correction";
+  const isCustomCertificate =
+    isIncomeCertificate ||
+    isDomicileCertificate ||
+    isScStCertificate ||
+    isObcCertificate ||
+    isLandUseInformation ||
+    isBirthCertificateCorrection;
   const navigate = useNavigate();
   const [schema, setSchema] = useState<ServiceSchema | null>(null);
   const [applicationId, setApplicationId] = useState<string | null>(null);
@@ -252,6 +459,22 @@ export default function ApplicationForm() {
                     ...scStCertificateSchema,
                     service_name: service.service?.service_name || scStCertificateSchema.service_name
                   }
+                : isObcCertificate
+                  ? {
+                      ...obcCertificateSchema,
+                      service_name: service.service?.service_name || obcCertificateSchema.service_name
+                    }
+                  : isLandUseInformation
+                    ? {
+                        ...landUseInformationSchema,
+                        service_name: service.service?.service_name || landUseInformationSchema.service_name
+                      }
+                    : isBirthCertificateCorrection
+                      ? {
+                          ...birthCertificateCorrectionSchema,
+                          service_name:
+                            service.service?.service_name || birthCertificateCorrectionSchema.service_name
+                        }
               : service.service
         );
 
@@ -269,7 +492,15 @@ export default function ApplicationForm() {
     return () => {
       mounted = false;
     };
-  }, [serviceType, isIncomeCertificate, isDomicileCertificate, isScStCertificate]);
+  }, [
+    serviceType,
+    isIncomeCertificate,
+    isDomicileCertificate,
+    isScStCertificate,
+    isObcCertificate,
+    isLandUseInformation,
+    isBirthCertificateCorrection
+  ]);
 
   const handleChange = (key: string, value: string | number | boolean) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
@@ -373,7 +604,11 @@ export default function ApplicationForm() {
               <DocumentUploader
                 applicationId={applicationId}
                 requiredDocuments={requiredDocuments}
-                documentLabels={{ income_proof: "income proof (category)", caste_proof: "caste proof" }}
+                documentLabels={{
+                  income_proof: isIncomeCertificate ? "income proof (category)" : "income proof",
+                  caste_proof: "caste proof",
+                  obc_proof: "obc proof"
+                }}
                 onUploaded={handleUploaded}
               />
               <div className="card csc-submit-card">
