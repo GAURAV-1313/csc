@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect x="8" y="8" width="112" height="112" rx="18" fill="#ffe4e6" stroke="#e11d48" stroke-width="4"/>
+  <circle cx="64" cy="54" r="16" fill="#fecdd3" stroke="#e11d48" stroke-width="3"/>
+  <path d="M44 92 H84" stroke="#e11d48" stroke-width="6"/>
+  <path d="M64 80 V104" stroke="#e11d48" stroke-width="6"/>
+  <text x="50%" y="116" text-anchor="middle" font-size="12" font-family="Arial" fill="#9f1239">Birth</text>
+</svg>
