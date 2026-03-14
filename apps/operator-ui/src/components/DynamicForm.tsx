@@ -11,10 +11,10 @@ export default function DynamicForm({ schema, formData, onChange }: DynamicFormP
   if (!schema) return null;
 
   return (
-    <div className="grid" style={{ gap: "24px" }}>
+    <div className="grid csc-form-grid">
       {(schema.sections || []).map((section) => (
-        <div key={section.name} className="card">
-          <h3 style={{ fontSize: "18px", marginBottom: "12px" }}>{section.name}</h3>
+        <div key={section.name} className="card csc-section-card">
+          <h3 className="csc-section-title">{section.name}</h3>
           {(section.fields || []).map((field) => (
             <div className="form-row" key={`${section.name}-${field.key}`}>
               <label>
