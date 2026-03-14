@@ -189,6 +189,60 @@ async function whatsappReportLookup(req, res) {
 }
 
 /**
+ * POST /whatsapp-integration/store-precheck
+ *
+ * Allows the external WhatsApp pre-check bot to push a completed pre-check
+ * record into the CSC API's local store so operators can retrieve it by
+ * Reference ID without needing the bot to be reachable.
+ *
+ * Authentication: Bearer token via the Authorization header.
+ * The token must match the CSC_API_BEARER_TOKEN environment variable.
+ *
+ * Required body fields: reference_id, phone_number, service_type, precheck_data
+ */
+async function storePrecheck(req, res) {
+  const token = process.env.CSC_API_BEARER_TOKEN;
+  if (token) {
+    const authHeader = req.headers["authorization"] || "";
+    const provided = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : "";
+    if (provided !== token) {
+      res.status(401).json({ error: "Unauthorized" });
+      return;
+    }
+  }
+
+  const body = req.body || {};
+  const { reference_id, phone_number, service_type, precheck_data } = body;
+
+  if (!reference_id || !phone_number || !service_type || !precheck_data ||
+      typeof precheck_data !== "object" || Array.isArray(precheck_data)) {
+    res.status(400).json({
+      error: "Missing required fields: reference_id, phone_number, service_type, precheck_data (must be an object)"
+    });
+    return;
+  }
+
+  try {
+    const record = {
+      reference_id,
+      phone_number,
+      service_type,
+      precheck_data,
+      required_documents: body.required_documents || [],
+      eligibility_status: body.eligibility_status || "",
+      eligibility_message: body.eligibility_message || "",
+      status: body.status || "completed"
+    };
+
+    await savePrecheckRecord(record);
+    res.status(201).json({ success: true, reference_id });
+  } catch (err) {
+    console.error("storePrecheck error:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+}
+
+/**
  * GET /whatsapp/bot-status
  *
  * Returns the current integration status of the external WhatsApp pre-check bot.
@@ -226,5 +280,6 @@ module.exports = {
   precheckStatus,
   whatsappReport,
   whatsappReportLookup,
-  botStatus
+  botStatus,
+  storePrecheck
 };
