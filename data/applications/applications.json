@@ -2900,5 +2900,681 @@
     "citizen_data": {},
     "application_status": "draft",
     "created_at": "2026-03-14T20:58:03.356Z"
+  },
+  {
+    "application_id": "app_1773525025029",
+    "service_type": "revenue_service_solvency_between_5lac_to_25lac",
+    "operator_id": "khbfihabob",
+    "citizen_data": {},
+    "application_status": "validated",
+    "created_at": "2026-03-14T21:50:55.285Z",
+    "service_name": "Revenue Service (Solvency Between 5Lac To 25Lac)",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing documents: Khasara, Naksha, B1, Affidavit Of Account Holder, Application Form Along With Fee, Valuation Certificate Of Property, Ikrarnama With Photograph"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Khasara",
+        "Naksha",
+        "B1",
+        "Affidavit Of Account Holder",
+        "Application Form Along With Fee",
+        "Valuation Certificate Of Property",
+        "Ikrarnama With Photograph"
+      ],
+      "schemaErrors": [],
+      "documentStatus": {
+        "missing": [
+          "Khasara",
+          "Naksha",
+          "B1",
+          "Affidavit Of Account Holder",
+          "Application Form Along With Fee",
+          "Valuation Certificate Of Property",
+          "Ikrarnama With Photograph"
+        ],
+        "optional": [
+          "No Dues From Bank",
+          "Affidavit",
+          "Form C",
+          "House",
+          "Land & House",
+          "Other Document 1"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 1,
+      "risk_score": 1,
+      "risk_level": "VERY_HIGH",
+      "score_percent": 100,
+      "rejected_prediction": true,
+      "threshold_used": 0.5,
+      "main_contributing_factors": [
+        "missing_documents",
+        "Missing mandatory documents"
+      ],
+      "debug_summary": {
+        "service_type": "revenue_service_solvency_between_5lac_to_25lac",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Khasara",
+          "Naksha",
+          "B1",
+          "Affidavit Of Account Holder",
+          "Application Form Along With Fee",
+          "Valuation Certificate Of Property",
+          "Ikrarnama With Photograph"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 7,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Khasara",
+          "Naksha",
+          "B1",
+          "Affidavit Of Account Holder",
+          "Application Form Along With Fee",
+          "Valuation Certificate Of Property",
+          "Ikrarnama With Photograph"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773525071127",
+    "service_type": "revenue_service_solvency_between_5lac_to_25lac",
+    "operator_id": "khbfihabob",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T21:51:11.127Z"
+  },
+  {
+    "application_id": "app_1773525083950",
+    "service_type": "sc_st_certificate",
+    "operator_id": "khbfihabob",
+    "citizen_data": {},
+    "application_status": "validated",
+    "created_at": "2026-03-14T21:52:06.752Z",
+    "service_name": "SC/ST Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing documents: Caste Proof"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Caste Proof"
+      ],
+      "schemaErrors": [],
+      "documentStatus": {
+        "missing": [
+          "Caste Proof"
+        ],
+        "optional": [
+          "Residential Proof",
+          "Electricity Bill",
+          "Ration Card",
+          "Telephone Bill",
+          "Birth Certificate",
+          "Voters Identity Card",
+          "Bpl Certificate",
+          "Land And House Document",
+          "Driving License",
+          "Other Documents",
+          "Certificate From Ward Member, Local Mla/Mp",
+          "Photo Identity Card",
+          "Service Certificate Of Father / Guardian",
+          "Order Of Involuntary Migration",
+          "Domicile Certificate",
+          "Sc/St Certificate From Sarpanch / Parshad / Mla / Mp",
+          "Transfer Certificate From Any Recognized School Or Any School Countersigned By Deo",
+          "Father/Guardians Service Certificate/Identity Card",
+          "Educational Certificate",
+          "Caste Certificate Issued Earlier To The Applicant Or Any Member Of His Family",
+          "Primary School Certificate",
+          "Birth Information Form",
+          "Misal",
+          "Adhikar Abhilekh",
+          "Jamabandi",
+          "Census Register Of 1931",
+          "Citizen Register Of 1959",
+          "Dakhil / Kharij Panji",
+          "Disability / Unavailability Proof",
+          "Affidavit",
+          "Vanshavali",
+          "Vanshavali 1",
+          "Vanshavali 2",
+          "Vanshavali 3",
+          "Vanshavali 4",
+          "Gram Sabha Proposal (Resident Of Rural Areas People)",
+          "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "document_quality",
+        "missing_documents",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 0,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "document_quality",
+        "missing_documents"
+      ],
+      "debug_summary": {
+        "service_type": "sc_st_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Caste Proof"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 1,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Caste Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773525135927",
+    "service_type": "domicile_certificate",
+    "operator_id": "khbfihabob",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T21:52:15.927Z"
+  },
+  {
+    "application_id": "app_1773525176968",
+    "service_type": "domicile_certificate",
+    "operator_id": "khbfihabob",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T21:52:56.968Z"
+  },
+  {
+    "application_id": "app_1773525993882",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "khbfihabob",
+    "citizen_data": {},
+    "application_status": "validated",
+    "created_at": "2026-03-14T22:06:43.348Z",
+    "service_name": "Marriage Registration & Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing documents: Affidavit, At The Time Of Marriage Combined Photograph Of Groom And Bride(2a Size), Birth Certificate Of Groom, Birth Certificate Of Bride, Document Signed By The Bride And Groom (First Page), Document Signed By The Bride And Groom (Second Page), Copy Of Challan, Marriage Invitation Card"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Affidavit",
+        "At The Time Of Marriage Combined Photograph Of Groom And Bride(2a Size)",
+        "Birth Certificate Of Groom",
+        "Birth Certificate Of Bride",
+        "Document Signed By The Bride And Groom (First Page)",
+        "Document Signed By The Bride And Groom (Second Page)",
+        "Copy Of Challan",
+        "Marriage Invitation Card"
+      ],
+      "schemaErrors": [],
+      "documentStatus": {
+        "missing": [
+          "Affidavit",
+          "At The Time Of Marriage Combined Photograph Of Groom And Bride(2a Size)",
+          "Birth Certificate Of Groom",
+          "Birth Certificate Of Bride",
+          "Document Signed By The Bride And Groom (First Page)",
+          "Document Signed By The Bride And Groom (Second Page)",
+          "Copy Of Challan",
+          "Marriage Invitation Card"
+        ],
+        "optional": [
+          "Declaration Letter From Guardian Of Married Couple",
+          "Other",
+          "Necessary Documents",
+          "Divorce Certifcate",
+          "Widow Certificate",
+          "Inter Religion Marriage Certificate"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "document_quality",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "document_quality"
+      ],
+      "debug_summary": {
+        "service_type": "marriage_registration_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Affidavit",
+          "At The Time Of Marriage Combined Photograph Of Groom And Bride(2a Size)",
+          "Birth Certificate Of Groom",
+          "Birth Certificate Of Bride",
+          "Document Signed By The Bride And Groom (First Page)",
+          "Document Signed By The Bride And Groom (Second Page)",
+          "Copy Of Challan",
+          "Marriage Invitation Card"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 8,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Affidavit",
+          "At The Time Of Marriage Combined Photograph Of Groom And Bride(2a Size)",
+          "Birth Certificate Of Groom",
+          "Birth Certificate Of Bride",
+          "Document Signed By The Bride And Groom (First Page)",
+          "Document Signed By The Bride And Groom (Second Page)",
+          "Copy Of Challan",
+          "Marriage Invitation Card"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773526082313",
+    "service_type": "rti_filling_at_district_collectorate",
+    "operator_id": "khbfihabob",
+    "citizen_data": {},
+    "application_status": "validated",
+    "created_at": "2026-03-14T22:08:28.444Z",
+    "service_name": "RTI filling at District Collectorate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing documents: Bpl Proof"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Bpl Proof"
+      ],
+      "schemaErrors": [],
+      "documentStatus": {
+        "missing": [
+          "Bpl Proof"
+        ],
+        "optional": [
+          "Identity Proof",
+          "Certificate/Document",
+          "Other Documents"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "document_quality",
+        "missing_documents",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 0,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "document_quality",
+        "missing_documents"
+      ],
+      "debug_summary": {
+        "service_type": "rti_filling_at_district_collectorate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Bpl Proof"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 1,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Bpl Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773526404067",
+    "service_type": "rti_filling_at_district_collectorate",
+    "operator_id": "khbfihabob",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T22:13:24.067Z"
+  },
+  {
+    "application_id": "app_1773527773370",
+    "service_type": "food_registration_application_for_small_cottage",
+    "operator_id": "diya",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T22:36:13.370Z"
+  },
+  {
+    "application_id": "app_1773527797931",
+    "service_type": "rti_filling_at_municipalities_panchayat",
+    "operator_id": "diya",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T22:36:37.931Z"
+  },
+  {
+    "application_id": "app_1773527832874",
+    "service_type": "issuance_of_trade_license",
+    "operator_id": "diya",
+    "citizen_data": {
+      "person_or_firm_or_organization_address": "Vikram Shila Garden, chesire hpome road, ranchiVikram Shila Garden is located on Cheshire Home Road in Ranchi, offering a pleasant environment for visitors to enjoy."
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-14T22:39:36.686Z",
+    "service_name": "Issuance of Trade License",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing documents: Photo Id Proof, Lease Deed/Legal Occupancy, Challan Copy"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Photo Id Proof",
+        "Lease Deed/Legal Occupancy",
+        "Challan Copy"
+      ],
+      "schemaErrors": [],
+      "documentStatus": {
+        "missing": [
+          "Photo Id Proof",
+          "Lease Deed/Legal Occupancy",
+          "Challan Copy"
+        ],
+        "optional": [
+          "Passport",
+          "Pancard",
+          "Voter Id"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "document_quality",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "document_quality"
+      ],
+      "debug_summary": {
+        "service_type": "issuance_of_trade_license",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Photo Id Proof",
+          "Lease Deed/Legal Occupancy",
+          "Challan Copy"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 3,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Photo Id Proof",
+          "Lease Deed/Legal Occupancy",
+          "Challan Copy"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773528105017",
+    "service_type": "birth_certificate_correction",
+    "operator_id": "ygisgc",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T22:41:45.017Z"
+  },
+  {
+    "application_id": "app_1773528210642",
+    "service_type": "rti_filling_at_district_collectorate",
+    "operator_id": "ygisgc",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T22:43:30.642Z"
+  },
+  {
+    "application_id": "app_1773528632251",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "ygisgc",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T22:50:32.251Z"
+  },
+  {
+    "application_id": "app_1773529450141",
+    "service_type": "sc_st_certificate",
+    "operator_id": "hcd",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T23:04:10.141Z"
   }
 ]

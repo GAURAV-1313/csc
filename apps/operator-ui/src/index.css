@@ -640,8 +640,18 @@ textarea {
   object-fit: contain;
 }
 
+.service-tile .icon svg {
+  width: 38px;
+  height: 38px;
+  color: #1e293b;
+}
+
 .service-tile .label {
+  width: 100%;
   font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .service-tile .meta {
@@ -770,8 +780,9 @@ textarea {
 }
 
 .csc-form-layout {
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.85fr);
   align-items: start;
+  gap: 18px;
 }
 
 .csc-form-grid {
@@ -839,6 +850,28 @@ textarea {
   border-radius: 16px;
   border: 1px solid #ebe2d5;
   box-shadow: 0 8px 24px rgba(20, 33, 59, 0.06);
+  position: sticky;
+  top: 18px;
+}
+
+.csc-inline-risk-card {
+  margin-top: 18px;
+}
+
+.csc-inline-risk-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.csc-inline-risk-head .title {
+  font-size: 34px;
+  margin: 0;
+}
+
+.csc-inline-risk-head .subtitle {
+  margin-top: 6px;
 }
 
 .csc-panel-group {
@@ -1249,6 +1282,11 @@ textarea {
 
   .csc-form-layout {
     grid-template-columns: 1fr;
+  }
+
+  .csc-review-panel {
+    position: static;
+    top: auto;
   }
 
   .csc-form-header .title {

@@ -12,9 +12,6 @@ export default function ServiceCard({ service, onSelect, description }: ServiceC
       <div className="service-tag">eDistrict Service</div>
       <div className="service-title">{service.service_name}</div>
       {description ? <div className="service-desc">{description}</div> : null}
-      <div className="service-meta">
-        {service.category || "Certificate"} • {service.service_type}
-      </div>
       <span className="service-action">Open</span>
     </button>
   );

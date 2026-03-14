@@ -5,6 +5,78 @@ import heroHi from "../assets/hero-hi.jpg";
 import heroEn from "../assets/hero-en.jpg";
 import digitalSevaLogo from "../assets/digital-seva-logo.png";
 
+function resolveServiceIcon(service: ServiceSchema) {
+  const text = `${service.service_type || ""} ${service.service_name || ""}`.toLowerCase();
+  if (text.includes("birth") || text.includes("death") || text.includes("marriage")) return "document";
+  if (text.includes("income") || text.includes("pension") || text.includes("solvency")) return "wallet";
+  if (text.includes("domicile") || text.includes("land") || text.includes("residential")) return "home";
+  if (text.includes("certificate") || text.includes("caste") || text.includes("obc") || text.includes("sc_st")) return "badge";
+  if (text.includes("rti") || text.includes("grievance")) return "message";
+  if (text.includes("license") || text.includes("registration") || text.includes("trade")) return "briefcase";
+  return "grid";
+}
+
+function ServiceIcon({ kind }: { kind: string }) {
+  if (kind === "document") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M7 3h7l5 5v13H7z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+        <path d="M14 3v5h5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+        <path d="M10 12h6M10 16h6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+  if (kind === "wallet") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" strokeWidth="1.8" />
+        <path d="M3 10h18" fill="none" stroke="currentColor" strokeWidth="1.8" />
+        <circle cx="16" cy="14" r="1.4" fill="currentColor" />
+      </svg>
+    );
+  }
+  if (kind === "home") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M4 11.5 12 5l8 6.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M6.5 10.5V19h11v-8.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+  if (kind === "badge") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 3 5.5 6v5.5c0 4.1 2.8 7.9 6.5 9.5 3.7-1.6 6.5-5.4 6.5-9.5V6z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+        <path d="m9.4 12.2 1.8 1.8 3.6-3.7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+  if (kind === "message") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M5 6.5h14v9H11l-4.5 3v-3H5z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+        <path d="M8 10h8M8 13h5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+  if (kind === "briefcase") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <rect x="4" y="7" width="16" height="12" rx="2" fill="none" stroke="currentColor" strokeWidth="1.8" />
+        <path d="M9 7V5h6v2M4 12h16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <rect x="4" y="4" width="7" height="7" rx="1.2" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <rect x="13" y="4" width="7" height="7" rx="1.2" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <rect x="4" y="13" width="7" height="7" rx="1.2" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <rect x="13" y="13" width="7" height="7" rx="1.2" fill="none" stroke="currentColor" strokeWidth="1.8" />
+    </svg>
+  );
+}
+
 export default function Login() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -106,6 +178,11 @@ export default function Login() {
   };
 
   const showcaseServices = services
+    .filter((service) => {
+      const title = String(service.service_name || "").trim();
+      const type = String(service.service_type || "").trim();
+      return title.length > 0 && type.length > 0;
+    })
     .filter((service) => {
       if (activeTab === "b2c") {
         return serviceGroup(service) === "other";
@@ -233,9 +310,6 @@ export default function Login() {
               <button className="btn" type="submit" disabled={loading} style={{ width: "100%" }}>
                 {loading ? "Signing in..." : t.loginBtn}
               </button>
-              <button className="btn secondary" type="button" style={{ width: "100%", marginTop: "10px" }}>
-                {t.citizenLogin}
-              </button>
             </form>
           </div>
         </div>
@@ -286,13 +360,13 @@ export default function Login() {
             )}
             {showcaseServices.map((item, index) => {
               const serviceKey = `${item.service_id || "svc"}_${item.service_type || "unknown"}_${index}`;
+              const iconKind = resolveServiceIcon(item);
               return (
               <div className="service-tile" key={serviceKey}>
                 <div className="icon">
-                  <span>{String(item.service_name || "S").charAt(0)}</span>
+                  <ServiceIcon kind={iconKind} />
                 </div>
                 <div className="label">{item.service_name}</div>
-                <div className="meta">{item.service_type}</div>
               </div>
             );})}
           </div>

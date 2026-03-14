@@ -1,6 +1,12 @@
 import { useEffect, useMemo, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { api, type ServiceSchema, type ValidationResult, type CitizenReport } from "../services/api";
+import {
+  api,
+  type ServiceSchema,
+  type ValidationResult,
+  type CitizenReport,
+  type RiskPredictionResult
+} from "../services/api";
 import DynamicForm from "../components/DynamicForm";
 import DocumentUploader from "../components/DocumentUploader";
 import ValidationPanel from "../components/ValidationPanel";
@@ -50,6 +56,22 @@ function mapCitizenDataToForm(
     }
   }
   return mapped;
+}
+
+function normalizeRiskLevel(level?: string) {
+  const value = (level || "").toLowerCase();
+  if (value.includes("high")) return "high";
+  if (value.includes("med")) return "medium";
+  if (value.includes("low") || value.includes("safe")) return "low";
+  return "unknown";
+}
+
+function getDisplayRiskLevel(level?: string) {
+  const normalized = normalizeRiskLevel(level);
+  if (normalized === "medium") return "MED";
+  if (normalized === "low") return "LOW";
+  if (normalized === "high") return "HIGH";
+  return "UNKNOWN";
 }
 
 const incomeCertificateSchema: ServiceSchema = {
@@ -473,8 +495,11 @@ export default function ApplicationForm() {
   const [formData, setFormData] = useState<Record<string, string | number | boolean>>({});
   const [uploadedDocs, setUploadedDocs] = useState<Array<Record<string, unknown>>>([]);
   const [validationResult, setValidationResult] = useState<ValidationResult | null>(null);
+  const [riskPrediction, setRiskPrediction] = useState<RiskPredictionResult | null>(null);
   const [loading, setLoading] = useState(true);
   const [validating, setValidating] = useState(false);
+  const [predictingRisk, setPredictingRisk] = useState(false);
+  const [submittingFinal, setSubmittingFinal] = useState(false);
   const [autoValidating, setAutoValidating] = useState(false);
   const [chatAutoOpen, setChatAutoOpen] = useState(false);
   const [viewMode, setViewMode] = useState<"intro" | "form">("intro");
@@ -548,6 +573,17 @@ export default function ApplicationForm() {
   } as const;
 
   const t = copy[lang];
+
+  const rejectedDisplay = useMemo(() => {
+    const value = riskPrediction?.rejected_prediction;
+    if (value == null) return "No";
+    if (typeof value === "number") return value > 0 ? "Yes" : "No";
+    if (typeof value === "boolean") return value ? "Yes" : "No";
+    const normalized = String(value).trim().toLowerCase();
+    if (normalized === "1" || normalized === "true" || normalized === "yes") return "Yes";
+    if (normalized === "0" || normalized === "false" || normalized === "no") return "No";
+    return "No";
+  }, [riskPrediction?.rejected_prediction]);
 
   useEffect(() => {
     let mounted = true;
@@ -692,22 +728,33 @@ export default function ApplicationForm() {
     if (!applicationId) return;
     try {
       if (!serviceType) return;
+      setPredictingRisk(true);
       const prediction = await api.predictRisk({
         features: formData,
         serviceType,
         application_id: applicationId,
         citizenData: formData
       });
-      navigate(`/service/${serviceType}/risk-summary`, {
-        state: {
-          prediction,
-          applicationId,
-          serviceType
-        }
-      });
+      setRiskPrediction(prediction);
     } catch (error) {
       console.error(error);
       alert(error.message);
+    } finally {
+      setPredictingRisk(false);
+    }
+  };
+
+  const handleFinalSubmit = async () => {
+    if (!applicationId) return;
+    setSubmittingFinal(true);
+    try {
+      await api.submitApplication(applicationId);
+      window.location.href = "https://edistrict.cgstate.gov.in";
+    } catch (error) {
+      console.error(error);
+      alert((error as Error).message);
+    } finally {
+      setSubmittingFinal(false);
     }
   };
 
@@ -942,13 +989,38 @@ export default function ApplicationForm() {
                   <button className="btn" onClick={validateApplication} disabled={validating}>
                     {validating ? t.validating : t.validate}
                   </button>
-                  <button className="btn secondary" onClick={submitApplication}>
+                  <button className="btn secondary" onClick={submitApplication} disabled={predictingRisk}>
                     {t.continue}
                   </button>
                 </div>
               </div>
               <ValidationPanel validationResult={validationResult} />
             </div>
+
+            {riskPrediction && (
+              <div className="card csc-risk-card csc-inline-risk-card">
+                <div className="csc-inline-risk-head">
+                  <div>
+                    <h2 className="title">Risk Prediction Summary</h2>
+                    <p className="subtitle">Service: {serviceType || "income_certificate"}</p>
+                  </div>
+                  <button className="btn" onClick={handleFinalSubmit} disabled={submittingFinal}>
+                    {submittingFinal ? "Submitting..." : t.submit}
+                  </button>
+                </div>
+
+                <div className="csc-risk-grid">
+                  <div className={`csc-risk-item csc-risk-level-${normalizeRiskLevel(riskPrediction.risk_level)}`}>
+                    <span className="csc-risk-label">risk_level</span>
+                    <strong>{getDisplayRiskLevel(riskPrediction.risk_level)}</strong>
+                  </div>
+                  <div className="csc-risk-item">
+                    <span className="csc-risk-label">rejected_prediction</span>
+                    <strong>{rejectedDisplay}</strong>
+                  </div>
+                </div>
+              </div>
+            )}
           </>
         )}
       </div>
