@@ -6,5 +6,21 @@
     "citizen_data": {},
     "application_status": "draft",
     "created_at": "2026-03-14T12:08:04.737Z"
+  },
+  {
+    "application_id": "app_1773502578217",
+    "service_type": "sc_st_certificate",
+    "operator_id": "dng",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T15:36:18.217Z"
+  },
+  {
+    "application_id": "app_1773502580213",
+    "service_type": "sc_st_certificate",
+    "operator_id": "dng",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T15:36:20.213Z"
   }
 ]
