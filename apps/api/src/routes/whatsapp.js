@@ -102,11 +102,23 @@ async function precheckStatus(req, res) {
     }
   }
 
+  let requiredDocuments = record.required_documents;
+  if (typeof requiredDocuments === "string") {
+    try {
+      requiredDocuments = JSON.parse(requiredDocuments);
+    } catch (_) {
+      requiredDocuments = [];
+    }
+  }
+
   res.json({
     reference_id: record.reference_id,
     phone_number: record.phone_number,
     service_type: record.service_type,
     precheck_data: precheckData,
+    required_documents: requiredDocuments || [],
+    eligibility_status: record.eligibility_status || "approved",
+    eligibility_message: record.eligibility_message || "",
     status: record.status,
     created_at: record.created_at,
     updated_at: record.updated_at
