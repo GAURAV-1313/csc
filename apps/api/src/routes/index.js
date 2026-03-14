@@ -14,6 +14,7 @@ const {
   uploadApplicationDocument
 } = require("./handlers");
 const { whatsappWebhook, whatsappLaunchConfig, precheckStatus, whatsappReport, whatsappReportLookup } = require("./whatsapp");
+const { initiatePrecheck } = require("./whatsappIntegration");
 
 function registerRoutes(app, upload) {
   app.get("/services", getServices);
@@ -34,6 +35,9 @@ function registerRoutes(app, upload) {
   app.post("/whatsapp/webhook", whatsappWebhook);
   app.get("/public/whatsapp-launch-config", whatsappLaunchConfig);
   app.get("/whatsapp/precheck-status/:referenceId", precheckStatus);
+
+  // WhatsApp integration: operator UI → CSC API → bot bridge
+  app.post("/whatsapp-integration/initiate-precheck", initiatePrecheck);
 
   // External WhatsApp bot proxy routes (requires BOT_API_BASE_URL + BOT_API_TOKEN)
   app.get("/whatsapp-report/:referenceId", whatsappReport);

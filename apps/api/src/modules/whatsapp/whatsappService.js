@@ -109,7 +109,7 @@ function parseMetaWebhook(body) {
  */
 function getLaunchConfig() {
   const phoneNumber = (process.env.TWILIO_WHATSAPP_NUMBER || process.env.WHATSAPP_BUSINESS_NUMBER || "").replace(/\D/g, "");
-  const greeting = encodeURIComponent("Hi! I would like to start a pre-check for a CSC service.");
+  const greeting = encodeURIComponent("hii");
   const whatsappUrl = phoneNumber ? `https://wa.me/${phoneNumber}?text=${greeting}` : null;
 
   return {
@@ -117,7 +117,7 @@ function getLaunchConfig() {
     whatsapp_url: whatsappUrl,
     phone_number: phoneNumber || null,
     greeting_message: decodeURIComponent(greeting),
-    instructions: "Click the link above to open WhatsApp and begin your pre-check conversation."
+    instructions: "Click the link above to open WhatsApp and send the message to begin your pre-check conversation."
   };
 }
 
