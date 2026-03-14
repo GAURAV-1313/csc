@@ -1,0 +1,25 @@
+{
+  "aadhaar_sample": {
+    "documentType": "aadhaar",
+    "fields": {
+      "name": "Ravi Kumar",
+      "dob": "1964-02-10",
+      "address": "Patna, Bihar"
+    }
+  },
+  "income_sample": {
+    "documentType": "income_proof",
+    "fields": {
+      "name": "Ravi Kumar",
+      "income": "120000",
+      "address": "Patna, Bihar"
+    }
+  },
+  "age_proof_sample": {
+    "documentType": "age_proof",
+    "fields": {
+      "name": "Ravi Kumar",
+      "dob": "1964-02-10"
+    }
+  }
+}

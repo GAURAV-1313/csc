@@ -1,0 +1,24 @@
+{
+  "income_certificate": [
+    {
+      "id": "income_numeric",
+      "field": "annual_income",
+      "op": "numeric",
+      "value": true,
+      "message": "Annual income must be a number."
+    }
+  ],
+  "domicile_certificate": [
+    {
+      "id": "residence_years_numeric",
+      "field": "living_in_state_years",
+      "op": "numeric",
+      "value": true,
+      "message": "Living in state years must be a number."
+    }
+  ],
+  "sc_st_certificate": [],
+  "obc_certificate": [],
+  "land_use_information": [],
+  "birth_certificate_correction": []
+}

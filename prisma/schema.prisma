@@ -1,0 +1,155 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./app.db"
+}
+
+model Operator {
+  operator_id String @id
+  name        String?
+  email       String?
+  phone       String?
+  district    String?
+  center_id   String?
+  created_at  DateTime @default(now())
+
+  applications Application[]
+
+  @@map("operators")
+}
+
+model Service {
+  service_id   String @id
+  service_name String?
+  category     String?
+  created_at   DateTime @default(now())
+
+  schemas              ServiceSchema[]
+  applications         Application[]
+  document_requirements DocumentRequirement[]
+
+  @@map("services")
+}
+
+model ServiceSchema {
+  schema_id   String @id
+  service_id  String
+  schema_json String
+  created_at  DateTime @default(now())
+
+  service Service @relation(fields: [service_id], references: [service_id])
+
+  @@map("service_schemas")
+}
+
+model Application {
+  application_id     String @id
+  service_id         String
+  operator_id        String
+  citizen_name       String?
+  district           String?
+  application_status String?
+  created_at         DateTime @default(now())
+  updated_at         DateTime?
+
+  service    Service  @relation(fields: [service_id], references: [service_id])
+  operator   Operator @relation(fields: [operator_id], references: [operator_id])
+  fields     ApplicationField[]
+  documents  Document[]
+  validations ValidationLog[]
+  predictions MlPrediction[]
+  recommendations SchemeRecommendation[]
+
+  @@map("applications")
+}
+
+model ApplicationField {
+  field_id       String @id
+  application_id String
+  field_name     String
+  field_value    String?
+
+  application Application @relation(fields: [application_id], references: [application_id])
+
+  @@map("application_fields")
+}
+
+model Document {
+  document_id     String @id
+  application_id  String
+  document_type   String
+  file_path       String?
+  ocr_text         String?
+  document_status String?
+  created_at       DateTime @default(now())
+
+  application Application @relation(fields: [application_id], references: [application_id])
+  fields      DocumentField[]
+
+  @@map("documents")
+}
+
+model ValidationLog {
+  validation_id  String @id
+  application_id String
+  validation_type String?
+  message        String?
+  severity       String?
+  created_at     DateTime @default(now())
+
+  application Application @relation(fields: [application_id], references: [application_id])
+
+  @@map("validation_logs")
+}
+
+model MlPrediction {
+  prediction_id  String @id
+  application_id String
+  risk_score     Float?
+  risk_level     String?
+  model_version  String?
+  created_at     DateTime @default(now())
+
+  application Application @relation(fields: [application_id], references: [application_id])
+
+  @@map("ml_predictions")
+}
+
+model SchemeRecommendation {
+  recommendation_id String @id
+  application_id    String
+  scheme_name       String?
+  reason            String?
+  created_at        DateTime @default(now())
+
+  application Application @relation(fields: [application_id], references: [application_id])
+
+  @@map("scheme_recommendations")
+}
+
+model DocumentRequirement {
+  requirement_id String @id
+  service_id     String
+  document_name  String
+  mandatory      Int
+  accepted_types String?
+
+  service Service @relation(fields: [service_id], references: [service_id])
+
+  @@map("document_requirements")
+}
+
+model DocumentField {
+  field_id     String @id
+  document_id  String
+  field_name   String
+  field_value  String?
+  created_at   DateTime @default(now())
+
+  document Document @relation(fields: [document_id], references: [document_id])
+
+  @@map("document_fields")
+}
