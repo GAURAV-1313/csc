@@ -1,144 +1,350 @@
 [
   {
-    "service_id": "svc_income_certificate",
-    "service_name": "Income Certificate",
-    "service_type": "income_certificate",
+    "service_id": "svc_birth_certificate_correction",
+    "service_name": "Birth Registration & Certificate",
+    "service_type": "birth_certificate_correction",
+    "category": "service",
     "sections": [
       {
-        "name": "Beneficiary Details",
+        "name": "General Details",
         "fields": [
-          { "key": "gender", "type": "string", "required": true },
-          { "key": "age_of_beneficiary", "type": "number", "required": true },
-          { "key": "beneficiary_guardian_type", "type": "string", "required": true },
-          { "key": "beneficiary_guardian_name", "type": "string", "required": true },
-          { "key": "relation_with_applicant", "type": "string", "required": true },
-          { "key": "beneficiary_relative_name", "type": "string", "required": true },
-          { "key": "caste", "type": "string", "required": true },
-          { "key": "type", "type": "string", "required": true },
-          { "key": "class_number", "type": "string", "required": true }
-        ]
-      },
-      {
-        "name": "Address Details",
-        "fields": [
-          { "key": "address", "type": "string", "required": true },
-          { "key": "pin_code", "type": "string", "required": true },
-          { "key": "district", "type": "string", "required": true }
-        ]
-      },
-      {
-        "name": "Income Details",
-        "fields": [
-          { "key": "business_or_service_details", "type": "string", "required": true },
-          { "key": "reason_for_application", "type": "string", "required": true },
-          { "key": "annual_income", "type": "number", "required": true },
-          { "key": "average_income_last_3_years", "type": "number", "required": true }
-        ]
-      },
-      {
-        "name": "Declaration",
-        "fields": [
-          { "key": "date", "type": "date", "required": true },
-          { "key": "place", "type": "string", "required": true },
-          { "key": "applicant_name", "type": "string", "required": true },
-          { "key": "signature", "type": "string", "required": true }
+          {
+            "key": "field",
+            "type": "string",
+            "required": false
+          }
         ]
       }
     ],
     "required_documents": {
-      "mandatory": ["affidavit", "income_proof"],
-      "optional": [],
+      "mandatory": [
+        "Birth Information Form",
+        "Order"
+      ],
+      "optional": [
+        "Affidavit",
+        "Additional",
+        "Additional Document"
+      ],
       "accepted_groups": {
-        "income_proof": [
-          "certificate_from_patwari",
-          "certificate_from_sarpanch",
-          "employer_income_certificate",
-          "form16",
-          "land_income_proof",
-          "income_of_family_members"
+        "Affidavit": [
+          "Affidavit"
+        ],
+        "Birth Information Form": [
+          "Birth Information Form"
+        ],
+        "Order": [
+          "Order Of A Magistrate Of First Class Or An Executive Magistrate"
+        ],
+        "Additional": [
+          "Additional Document"
         ]
       }
     }
   },
   {
-    "service_id": "svc_domicile_certificate",
-    "service_name": "Domicile Certificate",
-    "service_type": "domicile_certificate",
+    "service_id": "svc_death_registration_certificate",
+    "service_name": "Death Registration & Certificate",
+    "service_type": "death_registration_certificate",
+    "category": "service",
     "sections": [
       {
         "name": "General Details",
         "fields": [
-          { "key": "beneficiary_guardian_type", "type": "string", "required": true },
-          { "key": "beneficiary_guardian_name", "type": "string", "required": true },
-          { "key": "guardian_occupation", "type": "string", "required": true },
-          { "key": "place_of_birth", "type": "string", "required": true },
-          { "key": "gender", "type": "string", "required": true },
-          { "key": "date_of_birth", "type": "date", "required": true }
-        ]
-      },
-      {
-        "name": "Address Details",
-        "fields": [
-          { "key": "address", "type": "string", "required": true },
-          { "key": "pin_code", "type": "string", "required": true },
-          { "key": "district", "type": "string", "required": true }
-        ]
-      },
-      {
-        "name": "Residence Details",
-        "fields": [
-          { "key": "particulars_of_stay_after_birth", "type": "string", "required": true }
-        ]
-      },
-      {
-        "name": "Business Details",
-        "fields": [
-          { "key": "beneficiary_business_or_service_details", "type": "string", "required": true }
-        ]
-      },
-      {
-        "name": "Education Details",
-        "fields": [
-          { "key": "beneficiary_education_level", "type": "string", "required": true }
-        ]
-      },
-      {
-        "name": "Other Details",
-        "fields": [
-          { "key": "voter_id_available", "type": "boolean", "required": true },
-          { "key": "district_name_of_beneficiary", "type": "string", "required": true },
-          { "key": "living_in_state_years", "type": "number", "required": true },
-          { "key": "reason_for_domicile_application", "type": "string", "required": true },
-          { "key": "other_details", "type": "string", "required": true }
-        ]
-      },
-      {
-        "name": "Declaration",
-        "fields": [
-          { "key": "date", "type": "date", "required": true },
-          { "key": "signature", "type": "string", "required": true }
+          {
+            "key": "field",
+            "type": "string",
+            "required": false
+          }
         ]
       }
     ],
     "required_documents": {
-      "mandatory": ["affidavit", "proof_of_15_years_residence", "educational_certificate"],
-      "optional": ["proof_of_5_years_residence"],
+      "mandatory": [
+        "Order",
+        "Certificate/Document",
+        "Permission Form",
+        "Death Information Form",
+        "Self Attested Shapat Patra"
+      ],
+      "optional": [
+        "Affidavit",
+        "Additional Document",
+        "Other Documents",
+        "Form",
+        "Form 4"
+      ],
       "accepted_groups": {
-        "proof_of_15_years_residence": [
-          "birth_certificate",
-          "voter_id",
-          "ration_card",
-          "electricity_bill",
-          "land_house_document",
-          "ward_member_certificate"
+        "Affidavit": [
+          "Affidavit"
         ],
-        "proof_of_5_years_residence": [
-          "birth_certificate",
-          "voter_id",
-          "ration_card",
-          "electricity_bill",
-          "land_house_document",
-          "ward_member_certificate"
+        "Order": [
+          "Order Of A Magistrate Of First Class Or An Executive Magistrate"
+        ],
+        "Certificate/Document": [
+          "Doctors Certificate/Document Given By Cremation Ground"
+        ],
+        "Additional Document": [
+          "Certificate Issued By Ward Member Or Doctor"
+        ],
+        "Permission Form": [
+          "Permission Form"
+        ],
+        "Death Information Form": [
+          "Death Information Form"
+        ],
+        "Form": [
+          "Form 4a"
+        ],
+        "Self Attested Shapat Patra": [
+          "Self Attested Shapat Patra"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_marriage_registration_certificate",
+    "service_name": "Marriage Registration & Certificate",
+    "service_type": "marriage_registration_certificate",
+    "category": "service",
+    "sections": [
+      {
+        "name": "Marriage Details",
+        "fields": [
+          {
+            "key": "date_of_marriage",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "place_of_marriage",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "type_of_marriage",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "is_marriage_registered",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "registration_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "other_details",
+            "type": "textarea",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Groom Details",
+        "fields": [
+          {
+            "key": "name_of_groom_in_local_language",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_groom_in_english",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "date_of_birth_of_groom",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "age_at_time_of_marriage",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "father_name_in_local_language",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "father_name_in_english",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "marital_status_of_groom",
+            "type": "select",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Address Of Groom",
+        "fields": [
+          {
+            "key": "present_address_of_groom_in_local_language",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "present_address_of_groom_in_english",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "permanent_address_of_groom_in_local_language",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "permanent_address_of_groom_in_english",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "witness_details_of_groom_side",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Bride Details",
+        "fields": [
+          {
+            "key": "name_of_bride_in_local_language",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_bride_in_english",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "date_of_birth_of_bride",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "bride_age_at_time_of_marriage",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "fathers_name_of_bride_in_local_language",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "fathers_name_of_bride_in_english",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "marital_status_of_bride",
+            "type": "select",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Address Of Bride",
+        "fields": [
+          {
+            "key": "present_address_of_bride_in_local_language",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "present_address_of_bride_in_english",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "permanent_address_of_bride_in_local_language",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "permanent_address_of_bride_in_english",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "witness_details_of_bride_side",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Affidavit",
+        "At The Time Of Marriage Combined Photograph Of Groom And Bride(2a Size)",
+        "Birth Certificate Of Groom",
+        "Birth Certificate Of Bride",
+        "Document Signed By The Bride And Groom (First Page)",
+        "Document Signed By The Bride And Groom (Second Page)",
+        "Copy Of Challan",
+        "Marriage Invitation Card"
+      ],
+      "optional": [
+        "Declaration Letter From Guardian Of Married Couple",
+        "Other",
+        "Necessary Documents",
+        "Divorce Certifcate",
+        "Widow Certificate",
+        "Inter Religion Marriage Certificate"
+      ],
+      "accepted_groups": {
+        "Affidavit": [
+          "Affidavit"
+        ],
+        "At The Time Of Marriage Combined Photograph Of Groom And Bride(2a Size)": [
+          "At The Time Of Marriage Combined Photograph Of Groom And Bride"
+        ],
+        "Declaration Letter From Guardian Of Married Couple": [
+          "Declaration Letter From Guardian Of Married Couple"
+        ],
+        "Other": [
+          "Other"
+        ],
+        "Necessary Documents": [
+          "Necessary Documents"
+        ],
+        "Birth Certificate Of Groom": [
+          "Birth Certificate Of Groom"
+        ],
+        "Birth Certificate Of Bride": [
+          "Birth Certificate Of Bride"
+        ],
+        "Document Signed By The Bride And Groom (First Page)": [
+          "Document Signed By The Bride And Groom"
+        ],
+        "Document Signed By The Bride And Groom (Second Page)": [
+          "Document Signed By The Bride And Groom"
+        ],
+        "Copy Of Challan": [
+          "Copy Of Challan"
+        ],
+        "Marriage Invitation Card": [
+          "Marriage Invitation Card"
+        ],
+        "Divorce Certifcate": [
+          "Divorce Certificate"
+        ],
+        "Widow Certificate": [
+          "Widow Certificate"
+        ],
+        "Inter Religion Marriage Certificate": [
+          "Inter Religion Marriage Certificate"
         ]
       }
     }
@@ -147,95 +353,275 @@
     "service_id": "svc_sc_st_certificate",
     "service_name": "SC/ST Certificate",
     "service_type": "sc_st_certificate",
+    "category": "service",
     "sections": [
       {
         "name": "General Details",
         "fields": [
-          { "key": "beneficiary_guardian_type", "type": "string", "required": true },
-          { "key": "beneficiary_guardian_name", "type": "string", "required": true },
-          { "key": "guardian_type_english", "type": "string", "required": true },
-          { "key": "guardian_name_english", "type": "string", "required": true },
-          { "key": "gender", "type": "string", "required": true },
-          { "key": "marital_status", "type": "string", "required": true },
-          { "key": "date_of_birth", "type": "date", "required": true },
-          { "key": "relation_to_applicant", "type": "string", "required": true },
-          { "key": "caste", "type": "string", "required": true },
-          { "key": "category", "type": "string", "required": true },
-          { "key": "caste_english", "type": "string", "required": true },
-          { "key": "category_english", "type": "string", "required": true },
-          { "key": "category_number", "type": "string", "required": true },
-          { "key": "beneficiary_name_english", "type": "string", "required": true }
+          {
+            "key": "beneficiary_guardian_type",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "beneficiary_guardian_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "beneficiary_guardian_type_in_english",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "beneficiary_guardian_name_in_english",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "gender",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "marital_status",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "date_of_birth",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "relation_to_applicant",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "caste_stsc",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "category",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "caste_in_english",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "category_in_english",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "category_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "beneficiary_name_in_english",
+            "type": "string",
+            "required": false
+          }
         ]
       },
       {
-        "name": "Present Address",
+        "name": "Present Address of Applicant",
         "fields": [
-          { "key": "address", "type": "string", "required": true },
-          { "key": "pin_code", "type": "string", "required": true },
-          { "key": "post_box_number", "type": "string", "required": true },
-          { "key": "district", "type": "string", "required": true },
-          { "key": "address_english", "type": "string", "required": true },
-          { "key": "present_permanent_same", "type": "boolean", "required": true }
+          {
+            "key": "address",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "pin_code",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "post_box_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "district",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "address_in_english",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "is_present_address_and_permanent_address_is_same",
+            "type": "select",
+            "required": false
+          }
         ]
       },
       {
-        "name": "Permanent Address",
+        "name": "Permanent Address of Applicant",
         "fields": [
-          { "key": "address", "type": "string", "required": true },
-          { "key": "pin_code", "type": "string", "required": true },
-          { "key": "district", "type": "string", "required": true },
-          { "key": "post_box_number", "type": "string", "required": true },
-          { "key": "police_station", "type": "string", "required": true }
+          {
+            "key": "address",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "pin_code",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "district",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "post_box_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "police_station",
+            "type": "string",
+            "required": false
+          }
         ]
       },
       {
-        "name": "Permanent Address Before 1950",
+        "name": "Permanent Address on or Before Date 10 August 1950",
         "fields": [
-          { "key": "village_or_town", "type": "string", "required": true },
-          { "key": "patwari_halka_number", "type": "string", "required": true },
-          { "key": "tehsil", "type": "string", "required": true },
-          { "key": "district", "type": "string", "required": true },
-          { "key": "head_of_family_name", "type": "string", "required": true },
-          { "key": "relation_to_head_of_family", "type": "string", "required": true }
+          {
+            "key": "village_or_town",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "patwari_halka_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "tehsil",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "district",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_head_of_family_on_this_date",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "applicant_relation_to_head_of_family",
+            "type": "select",
+            "required": false
+          }
         ]
       },
       {
-        "name": "Residence Since 1950",
+        "name": "Address Details of Year 10 August 1950 SC or 06 September 1950 ST to till Date Applicant or his Father or Mother or Guardian",
         "fields": [
-          { "key": "guardian_residence_since_1950", "type": "string", "required": true },
-          { "key": "guardian_address_details", "type": "string", "required": true }
+          {
+            "key": "is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "address_details_of_applicants_guardian",
+            "type": "string",
+            "required": false
+          }
         ]
       },
       {
         "name": "Other Details",
         "fields": [
-          { "key": "previous_scst_certificate", "type": "string", "required": true },
-          { "key": "document_proof_for_scst", "type": "string", "required": true }
-        ]
-      },
-      {
-        "name": "Declaration",
-        "fields": [
-          { "key": "date", "type": "date", "required": true },
-          { "key": "place", "type": "string", "required": true },
-          { "key": "applicant_name", "type": "string", "required": true },
-          { "key": "signature", "type": "string", "required": true }
+          {
+            "key": "have_applicant_issued_scst_certificate_before",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "details_of_document_to_proof_that_beneficiary_belongs_to_sc_st",
+            "type": "textarea",
+            "required": false
+          }
         ]
       }
     ],
     "required_documents": {
-      "mandatory": ["caste_proof"],
-      "optional": ["affidavit", "vanshavali", "gram_sabha_proposal"],
+      "mandatory": [
+        "Caste Proof"
+      ],
+      "optional": [
+        "Residential Proof",
+        "Electricity Bill",
+        "Ration Card",
+        "Telephone Bill",
+        "Birth Certificate",
+        "Voters Identity Card",
+        "Bpl Certificate",
+        "Land And House Document",
+        "Driving License",
+        "Other Documents",
+        "Certificate From Ward Member, Local Mla/Mp",
+        "Photo Identity Card",
+        "Service Certificate Of Father / Guardian",
+        "Order Of Involuntary Migration",
+        "Domicile Certificate",
+        "Sc/St Certificate From Sarpanch / Parshad / Mla / Mp",
+        "Transfer Certificate From Any Recognized School Or Any School Countersigned By Deo",
+        "Father/Guardians Service Certificate/Identity Card",
+        "Educational Certificate",
+        "Caste Certificate Issued Earlier To The Applicant Or Any Member Of His Family",
+        "Primary School Certificate",
+        "Birth Information Form",
+        "Misal",
+        "Adhikar Abhilekh",
+        "Jamabandi",
+        "Census Register Of 1931",
+        "Citizen Register Of 1959",
+        "Dakhil / Kharij Panji",
+        "Disability / Unavailability Proof",
+        "Affidavit",
+        "Vanshavali",
+        "Vanshavali 1",
+        "Vanshavali 2",
+        "Vanshavali 3",
+        "Vanshavali 4",
+        "Gram Sabha Proposal (Resident Of Rural Areas People)",
+        "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof"
+      ],
       "accepted_groups": {
-        "caste_proof": [
-          "caste_certificate_other_state",
-          "certificate_from_sarpanch",
-          "school_transfer_certificate",
-          "father_service_certificate",
-          "educational_certificate",
-          "census_register",
-          "citizen_register",
-          "jamabandi"
+        "Residential Proof": [
+          "Domicile Certificate"
+        ],
+        "Caste Proof": [
+          "Sc/St Certificate Of Other State"
+        ],
+        "Affidavit": [
+          "Affidavit"
+        ],
+        "Vanshavali": [
+          "Vanshavali"
+        ],
+        "Gram Sabha Proposal (Resident Of Rural Areas People)": [
+          "Gram Sabha Proposal"
+        ],
+        "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof": [
+          "Madhya Pradesh Reorganization Act 2000  Proof"
         ]
       }
     }
@@ -244,195 +630,1754 @@
     "service_id": "svc_obc_certificate",
     "service_name": "OBC Certificate",
     "service_type": "obc_certificate",
+    "category": "service",
     "sections": [
       {
         "name": "General Details",
         "fields": [
-          { "key": "beneficiary_guardian_type", "type": "string", "required": true },
-          { "key": "beneficiary_guardian_name", "type": "string", "required": true },
-          { "key": "guardian_type_english", "type": "string", "required": true },
-          { "key": "guardian_name_english", "type": "string", "required": true },
-          { "key": "gender", "type": "string", "required": true },
-          { "key": "marital_status", "type": "string", "required": true },
-          { "key": "date_of_birth", "type": "date", "required": true },
-          { "key": "relation_to_applicant", "type": "string", "required": true },
-          { "key": "caste_obc", "type": "string", "required": true },
-          { "key": "category", "type": "string", "required": true },
-          { "key": "caste_english", "type": "string", "required": true },
-          { "key": "category_english", "type": "string", "required": true },
-          { "key": "category_number", "type": "string", "required": true },
-          { "key": "beneficiary_name_english", "type": "string", "required": true }
+          {
+            "key": "beneficiary_guardian_type",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "beneficiary_guardian_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "beneficiary_guardian_type_in_english",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "beneficiary_guardian_name_in_english",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "gender",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "marital_status",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "date_of_birth",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "relation_to_applicant",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "caste_obc",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "category",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "caste_in_english",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "category_in_english",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "category_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "beneficiary_name_in_english",
+            "type": "string",
+            "required": false
+          }
         ]
       },
       {
-        "name": "Present Address",
+        "name": "Present Address of Applicant",
         "fields": [
-          { "key": "address", "type": "string", "required": true },
-          { "key": "pin_code", "type": "string", "required": true },
-          { "key": "post_box_number", "type": "string", "required": true },
-          { "key": "district", "type": "string", "required": true },
-          { "key": "address_english", "type": "string", "required": true },
-          { "key": "present_permanent_same", "type": "boolean", "required": true }
+          {
+            "key": "address",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "pin_code",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "post_box_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "district",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "address_in_english",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "is_present_address_and_permanent_address_is_same",
+            "type": "select",
+            "required": false
+          }
         ]
       },
       {
-        "name": "Permanent Address",
+        "name": "Permanent Address of Applicant",
         "fields": [
-          { "key": "address", "type": "string", "required": true },
-          { "key": "pin_code", "type": "string", "required": true },
-          { "key": "district", "type": "string", "required": true },
-          { "key": "post_box_number", "type": "string", "required": true },
-          { "key": "police_station", "type": "string", "required": true }
+          {
+            "key": "address",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "pin_code",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "post_box_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "district",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "police_station",
+            "type": "string",
+            "required": false
+          }
         ]
       },
       {
-        "name": "Historical Address",
+        "name": "Address Before or on Date 26/12/1984",
         "fields": [
-          { "key": "village_or_town", "type": "string", "required": true },
-          { "key": "patwari_halka_number", "type": "string", "required": true },
-          { "key": "tehsil", "type": "string", "required": true },
-          { "key": "district", "type": "string", "required": true },
-          { "key": "head_of_family_name", "type": "string", "required": true },
-          { "key": "relation_to_head_of_family", "type": "string", "required": true }
+          {
+            "key": "village_or_town",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "patwari_halka_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "tehsil",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "district",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_head_of_family_on_this_date",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "applicant_relation_to_head_of_family",
+            "type": "select",
+            "required": false
+          }
         ]
       },
       {
-        "name": "Residence Since 1984",
+        "name": "Address Details of Applicant/his Father / Mother/ Guardian from Year 26/12/1984 to till Date",
         "fields": [
-          { "key": "guardian_residence_since_1984", "type": "string", "required": true },
-          { "key": "guardian_address_details", "type": "string", "required": true }
-        ]
-      },
-      {
-        "name": "Declaration",
-        "fields": [
-          { "key": "date", "type": "date", "required": true },
-          { "key": "place", "type": "string", "required": true },
-          { "key": "applicant_name", "type": "string", "required": true },
-          { "key": "signature", "type": "string", "required": true }
+          {
+            "key": "address_details_of_applicants_guardian",
+            "type": "string",
+            "required": false
+          }
         ]
       }
     ],
     "required_documents": {
-      "mandatory": ["affidavit", "income_proof", "obc_proof"],
-      "optional": ["vanshavali", "gram_sabha_proposal"],
+      "mandatory": [
+        "Affidavit",
+        "Income Proof",
+        "Obc Proof"
+      ],
+      "optional": [
+        "Residential Proof",
+        "Land And House Document",
+        "Ration Card",
+        "Electricity Bill",
+        "Domicile Certificate",
+        "Birth Certificate",
+        "Birth Information Form",
+        "Service Certificate / Identity Card Of Father / Guardian",
+        "Order Of Involuntary Migration",
+        "Income Certificate Employer/Form 16",
+        "Income From Land/House",
+        "Other Documents",
+        "Application Form",
+        "Transfer Certificate Of Primary School Education",
+        "Obc Certificate Of Father",
+        "Obc Certificate From Sarpanch / Parshad",
+        "Father/Guardians Service Certificate/Identity Card",
+        "Misal",
+        "Adhikar Abhilekh",
+        "Jamabandi",
+        "Census Register Of 1931",
+        "Citizen Register Of 1959",
+        "Dakhil / Kharij Panji",
+        "Disability / Unavailability Proof",
+        "Vanshavali",
+        "Vanshavali 1",
+        "Vanshavali 2",
+        "Vanshavali 3",
+        "Vanshavali 4",
+        "Gram Sabha Proposal (Resident Of Rural Areas People)",
+        "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof"
+      ],
       "accepted_groups": {
-        "income_proof": [
-          "patwari_certificate",
-          "sarpanch_certificate",
-          "employer_income_certificate",
-          "form16"
+        "Residential Proof": [
+          "Certificate From Ward Member, Local Mla/Mp"
         ],
-        "obc_proof": [
-          "obc_certificate_of_father",
-          "educational_certificate",
-          "school_transfer_certificate",
-          "jamabandi",
-          "census_register"
+        "Affidavit": [
+          "Affidavit"
+        ],
+        "Income Proof": [
+          "Certificate From Patwari/Sarpanch/Parshad"
+        ],
+        "Obc Proof": [
+          "Educational Certificate"
+        ],
+        "Vanshavali": [
+          "Vanshavali"
+        ],
+        "Gram Sabha Proposal (Resident Of Rural Areas People)": [
+          "Gram Sabha Proposal"
+        ],
+        "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof": [
+          "Madhya Pradesh Reorganization Act 2000  Proof"
         ]
       }
     }
   },
   {
-    "service_id": "svc_land_use_information",
-    "service_name": "Land Use Information",
-    "service_type": "land_use_information",
+    "service_id": "svc_income_certificate",
+    "service_name": "Income Certificate",
+    "service_type": "income_certificate",
+    "category": "service",
     "sections": [
       {
-        "name": "Applicant Details",
+        "name": "Beneficiary Details",
         "fields": [
-          { "key": "applicant_name", "type": "string", "required": true },
-          { "key": "father_name", "type": "string", "required": true }
+          {
+            "key": "gender",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "age_of_beneficiary",
+            "type": "number",
+            "required": false
+          },
+          {
+            "key": "beneficiary_guardian_type",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "beneficiary_guardian_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "relation_with_applicant",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "son_or_daughter_or_wife_name_of_beneficiary",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "caste",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "type",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "class_number",
+            "type": "string",
+            "required": false
+          }
         ]
       },
       {
-        "name": "Land Details",
+        "name": "Address Details",
         "fields": [
-          { "key": "village_name", "type": "string", "required": true },
-          { "key": "patwari_halka_number", "type": "string", "required": true },
-          { "key": "khasra_number", "type": "string", "required": true },
-          { "key": "is_applicant_owner", "type": "boolean", "required": true }
+          {
+            "key": "address",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "pin_code",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "district",
+            "type": "select",
+            "required": false
+          }
         ]
       },
       {
-        "name": "Declaration",
+        "name": "Income Details",
         "fields": [
-          { "key": "date", "type": "date", "required": true },
-          { "key": "place", "type": "string", "required": true },
-          { "key": "applicant_name", "type": "string", "required": true },
-          { "key": "signature", "type": "string", "required": true }
+          {
+            "key": "details_of_business_or_service",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "reason_for_application",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "annual_income",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "average_income_for_last_3_years",
+            "type": "string",
+            "required": false
+          }
         ]
       }
     ],
     "required_documents": {
-      "mandatory": ["khasra", "naksha", "challan_copy"],
-      "optional": [],
-      "accepted_groups": {}
+      "mandatory": [
+        "Affidavit",
+        "Income Proof"
+      ],
+      "optional": [
+        "Income Certificate Employer/Form 16",
+        "Income From Land/House",
+        "Other Documents",
+        "Application Form",
+        "Form 16",
+        "Income Of Other Members Of The Family"
+      ],
+      "accepted_groups": {
+        "Affidavit": [
+          "Affidavit"
+        ],
+        "Income Proof": [
+          "Certificate From Patwari/Sarpanch/Parshad"
+        ]
+      }
     }
   },
   {
-    "service_id": "svc_birth_certificate_correction",
-    "service_name": "Birth Certificate Correction",
-    "service_type": "birth_certificate_correction",
+    "service_id": "svc_domicile_certificate",
+    "service_name": "Domicile Certificate",
+    "service_type": "domicile_certificate",
+    "category": "service",
     "sections": [
       {
-        "name": "Application Info",
+        "name": "General Details",
         "fields": [
-          { "key": "application_number", "type": "string", "required": true }
+          {
+            "key": "beneficiary_guardian_type",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "beneficiary_guardian_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "guardians_occupation_of_beneficiary",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "beneficiary_place_of_birth",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "gender",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "date_of_birth",
+            "type": "date",
+            "required": false
+          }
         ]
       },
       {
-        "name": "Place of Birth",
+        "name": "Address Details",
         "fields": [
-          { "key": "birth_place_type", "type": "string", "required": true },
-          { "key": "hospital_or_institute_name", "type": "string", "required": true },
-          { "key": "birth_place_local_language", "type": "string", "required": true },
-          { "key": "birth_place_english", "type": "string", "required": true }
+          {
+            "key": "address",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "pin_code",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "district",
+            "type": "select",
+            "required": false
+          }
         ]
       },
       {
-        "name": "Child Birth Registration",
+        "name": "Particulars of stay After Birth of Beneficiary",
         "fields": [
-          { "key": "date_of_birth", "type": "date", "required": true },
-          { "key": "gender", "type": "string", "required": true },
-          { "key": "child_name_local_language", "type": "string", "required": true },
-          { "key": "child_name_english", "type": "string", "required": true },
-          { "key": "registration_number", "type": "string", "required": true },
-          { "key": "registration_date", "type": "date", "required": true }
+          {
+            "key": "particulars_of_stay_after_birth_of_beneficiary",
+            "type": "string",
+            "required": false
+          }
         ]
       },
       {
-        "name": "Father Details",
+        "name": "Beneficiary Details of Business or Service",
         "fields": [
-          { "key": "father_name_local_language", "type": "string", "required": true },
-          { "key": "father_name_english", "type": "string", "required": true },
-          { "key": "father_aadhaar_number", "type": "string", "required": true }
+          {
+            "key": "beneficiary_details_of_business_or_service",
+            "type": "string",
+            "required": false
+          }
         ]
       },
       {
-        "name": "Guardian Address",
+        "name": "Beneficiary Education Level",
         "fields": [
-          { "key": "address_at_time_of_birth_local_language", "type": "string", "required": true },
-          { "key": "address_at_time_of_birth_english", "type": "string", "required": true },
-          { "key": "permanent_address_local_language", "type": "string", "required": true },
-          { "key": "permanent_address_english", "type": "string", "required": true }
+          {
+            "key": "beneficiary_education_level",
+            "type": "string",
+            "required": false
+          }
         ]
       },
       {
-        "name": "Mother Details",
+        "name": "Other Details",
         "fields": [
-          { "key": "mother_name_local_language", "type": "string", "required": true },
-          { "key": "mother_name_english", "type": "string", "required": true },
-          { "key": "mother_aadhaar_number", "type": "string", "required": true }
+          {
+            "key": "have_beneficiary_voter_id",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "district_name_of_beneficiary",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "living_from_in_years",
+            "type": "number",
+            "required": false
+          },
+          {
+            "key": "reason_for_application_domicile",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "any_other_detail",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Affidavit",
+        "Proof Of At Least 15 Years Stay",
+        "Educational Certificate"
+      ],
+      "optional": [
+        "Other",
+        "Father/ Guardian Service Certificate",
+        "Job Service Certificate / Identity Card",
+        "Voters Identity Card",
+        "Land And House Document",
+        "Birth Information Form",
+        "Certificate From Ward Member, Local Mla/Mp",
+        "Ration Card",
+        "Electricity Bill",
+        "Primary School Certificate - 5th Standard",
+        "High School Certificate",
+        "Higher Secondary School Certificate",
+        "M.Phil/D.Lit./Ph.D. Certificate",
+        "School Certificate",
+        "Post Graduation Certificate",
+        "Certificate In Technical Subjects",
+        "Proof Of At Least 5 Years Stay",
+        "Persons Service Book."
+      ],
+      "accepted_groups": {
+        "Affidavit": [
+          "Affidavit"
+        ],
+        "Other": [
+          "Other Documents"
+        ],
+        "Proof Of At Least 15 Years Stay": [
+          "Birth Certificate"
+        ],
+        "Educational Certificate": [
+          "Middle School Certificate - 8th Standard"
+        ],
+        "Proof Of At Least 5 Years Stay": [
+          "Land And House Document"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_rti_filling_at_district_collectorate",
+    "service_name": "RTI filling at District Collectorate",
+    "service_type": "rti_filling_at_district_collectorate",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General",
+        "fields": [
+          {
+            "key": "nationality",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "is_applicant_comes_under_bpl",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "mode_of_receiving_information",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "subject",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "detail_of_required_information",
+            "type": "textarea",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Bpl Proof"
+      ],
+      "optional": [
+        "Identity Proof",
+        "Certificate/Document",
+        "Other Documents"
+      ],
+      "accepted_groups": {
+        "Identity Proof": [
+          "Identity Proof"
+        ],
+        "Bpl Proof": [
+          "Bpl Proof"
+        ],
+        "Certificate/Document": [
+          "Fee Payment Receipt"
+        ],
+        "Other Documents": [
+          "Other Documents"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_rti_filling_at_municipalities_panchayat",
+    "service_name": "RTI filling at Municipalities/Panchayat",
+    "service_type": "rti_filling_at_municipalities_panchayat",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General",
+        "fields": [
+          {
+            "key": "nationality",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "is_applicant_comes_under_bpl",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "mode_of_receiving_information",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "subject",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "detail_of_required_information",
+            "type": "textarea",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Bpl Proof",
+        "Affidavit"
+      ],
+      "optional": [
+        "Certificate/Document",
+        "Other Documents",
+        "Application Related Document"
+      ],
+      "accepted_groups": {
+        "Bpl Proof": [
+          "Bpl Certificate"
+        ],
+        "Affidavit": [
+          "Affidavit"
+        ],
+        "Certificate/Document": [
+          "Fee Payment Receipt"
+        ],
+        "Other Documents": [
+          "Other Documents"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_public_grievance_municipal_corporation_municipality_town_panchayat",
+    "service_name": "Public Grievance Municipal Corporation/Municipality/Town Panchayat",
+    "service_type": "public_grievance_municipal_corporation_municipality_town_panchayat",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General",
+        "fields": [
+          {
+            "key": "grievance_category",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "related_departmental_section",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "related_departmental_sub_section",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "detail_of_grievance",
+            "type": "textarea",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [],
+      "optional": [
+        "Affidavit",
+        "Additional Document"
+      ],
+      "accepted_groups": {
+        "Affidavit": [
+          "Affidavit"
+        ],
+        "Additional Document": [
+          "Application Related Document"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_public_grievance_collectorate",
+    "service_name": "Public Grievance Collectorate",
+    "service_type": "public_grievance_collectorate",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General",
+        "fields": [
+          {
+            "key": "grievance_category",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "related_departmental_section",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "related_departmental_sub_section",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "detail_of_grievance",
+            "type": "textarea",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [],
+      "optional": [
+        "Affidavit"
+      ],
+      "accepted_groups": {
+        "Affidavit": [
+          "Affidavit"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_application_for_inclusion_in_indira_gandhi_old_age_pension",
+    "service_name": "Application for inclusion in Indira Gandhi old age Pension",
+    "service_type": "application_for_inclusion_in_indira_gandhi_old_age_pension",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General",
+        "fields": [
+          {
+            "key": "father_or_husband_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_successor",
+            "type": "string",
+            "required": false
+          }
         ]
       },
       {
-        "name": "Declaration",
+        "name": "Address of the Applicant",
         "fields": [
-          { "key": "date", "type": "date", "required": true },
-          { "key": "place", "type": "string", "required": true },
-          { "key": "applicant_name", "type": "string", "required": true },
-          { "key": "signature", "type": "string", "required": true }
+          {
+            "key": "street_or_neighborhood_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "ward_no_and_ward_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "house_no_or_village",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "street_or_post_office",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "district",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "pin_code",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "BPL Details",
+        "fields": [
+          {
+            "key": "survey_year",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "block_or_municipal",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "family_identification_survey_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "identification_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "gender",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "date_of_birth",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "age",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "caste_category",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "minority",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "epic_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "enrollment_number_of_aadhaar",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Payment Details",
+        "fields": [
+          {
+            "key": "aadhaar_card_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_bank_or_post_office",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_the_branch",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "account_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "ifsc_code",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Domicile Certificate",
+        "Age Proof Document",
+        "Below Poverty Line Related Document"
+      ],
+      "optional": [
+        "Issued By Councillor",
+        "Administrator",
+        "Officer Authorized By The President",
+        "Birth Registration Certificate",
+        "Doctors Certificate",
+        "School Certificate",
+        "Other Documents",
+        "Bank/Post Office Account Passbook"
+      ],
+      "accepted_groups": {
+        "Domicile Certificate": [
+          "Issued By Gazetted Officer Or Ombudsman"
+        ],
+        "Age Proof Document": [
+          "Sarpanch Or In Case Of Urban Area Mayor"
+        ],
+        "Other Documents": [
+          "Other Documents"
+        ],
+        "Below Poverty Line Related Document": [
+          "Bpl Certificate"
+        ],
+        "Bank/Post Office Account Passbook": [
+          "Bank/Post Office Account Passbook"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_application_for_inclusion_in_samajik_suraksha_pension_yojana",
+    "service_name": "Application for inclusion in Samajik Suraksha Pension Yojana",
+    "service_type": "application_for_inclusion_in_samajik_suraksha_pension_yojana",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General",
+        "fields": [
+          {
+            "key": "father_or_husband_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_successor",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "disable_or_dwarf",
+            "type": "select",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Address of the Applicant",
+        "fields": [
+          {
+            "key": "street_or_neighborhood_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "ward_no_and_ward_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "house_no_or_village",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "street_or_post_office",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "district",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "pin_code",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "BPL Details",
+        "fields": [
+          {
+            "key": "year",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "block_or_municipal",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "family_identification_survey_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "identification_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "gender",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "date_of_birth",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "age",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "caste_category",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "minority",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "type_of_disability_1",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "percentage_of_disability_1",
+            "type": "number",
+            "required": false
+          },
+          {
+            "key": "type_of_disability_2",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "percentage_of_disability_2",
+            "type": "number",
+            "required": false
+          },
+          {
+            "key": "epic_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "enrollment_number_of_aadhaar",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Payment Details",
+        "fields": [
+          {
+            "key": "aadhaar_card_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_bank_or_post_office",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_the_branch",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "account_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "ifsc_code",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Domicile Certificate",
+        "Age Proof Document",
+        "Disability Certificate",
+        "School Going Certificate For Age Group 6-14 Disable Students",
+        "Dwarf Certificate",
+        "Below Poverty Line Related Document"
+      ],
+      "optional": [
+        "Issued By Councillor",
+        "Administrator",
+        "Officer Authorized By The President",
+        "Birth Registration Certificate",
+        "Doctors Certificate",
+        "School Certificate",
+        "Issued By The Principal",
+        "Other Documents",
+        "Bank/Post Office Account Passbook"
+      ],
+      "accepted_groups": {
+        "Domicile Certificate": [
+          "Issued By Gazetted Officer Or Ombudsman"
+        ],
+        "Age Proof Document": [
+          "Sarpanch Or In Case Of Urban Area Mayor"
+        ],
+        "Disability Certificate": [
+          "Certificate Issued Pursuant To The Provisions Of The Persons With Disabilities Act -1995"
+        ],
+        "School Going Certificate For Age Group 6-14 Disable Students": [
+          "Respective School Principal"
+        ],
+        "Dwarf Certificate": [
+          "Issued By Authorized Physician"
+        ],
+        "Other Documents": [
+          "Other Documents"
+        ],
+        "Below Poverty Line Related Document": [
+          "Bpl Certificate"
+        ],
+        "Bank/Post Office Account Passbook": [
+          "Bank/Post Office Account Passbook"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_application_for_inclusion_in_sukhad_sahara_yojana",
+    "service_name": "Application for inclusion in Sukhad Sahara Yojana",
+    "service_type": "application_for_inclusion_in_sukhad_sahara_yojana",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General",
+        "fields": [
+          {
+            "key": "father_or_husband_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_successor",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "widow_or_segregation",
+            "type": "select",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Address of the Applicant",
+        "fields": [
+          {
+            "key": "street_or_neighborhood_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "ward_no_and_ward_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "house_no_or_village",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "street_or_post_office",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "district",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "pin_code",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "BPL Details",
+        "fields": [
+          {
+            "key": "year",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "block_or_municipal",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "family_identification_survey_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "identification_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "date_of_birth",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "age",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "caste_category",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "minority",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "epic_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "enrollment_number_of_aadhaar",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Payment Details",
+        "fields": [
+          {
+            "key": "aadhaar_card_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_bank_or_post_office",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_the_branch",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "account_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "ifsc_code",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Domicile Certificate",
+        "Age Proof Document",
+        "Death Certificate",
+        "Divorcee Related Certificate",
+        "Below Poverty Line Related Document"
+      ],
+      "optional": [
+        "Issued By Councillor",
+        "Administrator",
+        "Officer Authorized By The President",
+        "Birth Registration Certificate",
+        "Doctors Certificate",
+        "School Certificate",
+        "Ward Arbitrator Of Urban Bodies",
+        "Certified By Councillor",
+        "Other Documents",
+        "Bank/Post Office Account Passbook"
+      ],
+      "accepted_groups": {
+        "Domicile Certificate": [
+          "Issued By Gazetted Officer Or Ombudsman"
+        ],
+        "Age Proof Document": [
+          "Sarpanch Or In Case Of Urban Area Mayor"
+        ],
+        "Death Certificate": [
+          "Related Village"
+        ],
+        "Divorcee Related Certificate": [
+          "Related Village"
+        ],
+        "Other Documents": [
+          "Other Documents"
+        ],
+        "Below Poverty Line Related Document": [
+          "Bpl Certificate"
+        ],
+        "Bank/Post Office Account Passbook": [
+          "Bank/Post Office Account Passbook"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_application_for_inclusion_in_widow_pension",
+    "service_name": "Application for inclusion in Widow Pension",
+    "service_type": "application_for_inclusion_in_widow_pension",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General",
+        "fields": [
+          {
+            "key": "father_or_husband_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_successor",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Address of the Applicant",
+        "fields": [
+          {
+            "key": "street_or_neighborhood_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "ward_no_and_ward_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "house_no_or_village",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "street_or_post_office",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "district",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "pin_code",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "BPL Details",
+        "fields": [
+          {
+            "key": "year",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "block_or_municipal",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "family_identification_survey_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "identification_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "date_of_birth",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "age",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "caste_category",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "minority",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "epic_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "enrollment_number_of_aadhaar",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Payment Details",
+        "fields": [
+          {
+            "key": "aadhaar_card_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_bank_or_post_office",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_the_branch",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "account_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "ifsc_code",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Domicile Certificate",
+        "Age Proof Document",
+        "Death Certificate",
+        "Below Poverty Line Related Document"
+      ],
+      "optional": [
+        "Issued By Councillor",
+        "Administrator",
+        "Officer Authorized By The President",
+        "Birth Registration Certificate",
+        "Doctors Certificate",
+        "School Certificate",
+        "Ward Arbitrator Of Urban Bodies",
+        "Certified By Councillor",
+        "Other Documents",
+        "Bank/Post Office Account Passbook"
+      ],
+      "accepted_groups": {
+        "Domicile Certificate": [
+          "Issued By Gazetted Officer Or Ombudsman"
+        ],
+        "Age Proof Document": [
+          "Sarpanch Or In Case Of Urban Area Mayor"
+        ],
+        "Death Certificate": [
+          "Related Village"
+        ],
+        "Other Documents": [
+          "Other Documents"
+        ],
+        "Below Poverty Line Related Document": [
+          "Bpl Certificate"
+        ],
+        "Bank/Post Office Account Passbook": [
+          "Bank/Post Office Account Passbook"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_application_for_case_listing_revenue_court",
+    "service_name": "Application for Case listing (Revenue Court)",
+    "service_type": "application_for_case_listing_revenue_court",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General",
+        "fields": [
+          {
+            "key": "filing_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "filling_date",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "sequence",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "head",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "financial_year",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "case_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "type_of_case",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "name_of_revenue_court",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "petitioner",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "respondent",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Residential Proof"
+      ],
+      "optional": [
+        "Ration Card",
+        "Electricity Bill",
+        "Land And House Document",
+        "Certificate From Ward Member, Local Mla/Mp",
+        "Other Documents"
+      ],
+      "accepted_groups": {
+        "Residential Proof": [
+          "Domicile Certificate"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_court_order_certificate_revenue_court",
+    "service_name": "Court Order Certificate (Revenue Court)",
+    "service_type": "court_order_certificate_revenue_court",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General",
+        "fields": [
+          {
+            "key": "name_of_applicant",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "proof_of_identity_of_applicant",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "case_number_written_in_pink_or_yellow_slip",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "type_of_case",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "date_of_court_order",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "details_of_desired_court_order",
+            "type": "textarea",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Residential Proof",
+        "Identity Proof"
+      ],
+      "optional": [
+        "Ration Card",
+        "Electricity Bill",
+        "Land And House Document",
+        "Certificate From Ward Member, Local Mla/Mp",
+        "Other Documents",
+        "Driving License",
+        "Passport",
+        "Defence Id Card",
+        "Pan Card",
+        "Aadhaar Card"
+      ],
+      "accepted_groups": {
+        "Residential Proof": [
+          "Domicile Certificate"
+        ],
+        "Identity Proof": [
+          "Voters Identity Card"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_issuance_of_ration_card",
+    "service_name": "Issuance of Ration card",
+    "service_type": "issuance_of_ration_card",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General Details",
+        "fields": [
+          {
+            "key": "field",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Residential Proof",
+        "Income Proof"
+      ],
+      "optional": [
+        "Electricity Bill",
+        "Other Documents",
+        "Land And House Document",
+        "Certificate From Ward Member, Local Mla/Mp",
+        "Affidavit",
+        "Certificate From Patwari/Sarpanch/Parshad",
+        "Income From Land/House",
+        "Application Form",
+        "Form 16",
+        "Income Of Other Members Of The Family"
+      ],
+      "accepted_groups": {
+        "Residential Proof": [
+          "Domicile Certificate"
+        ],
+        "Affidavit": [
+          "Affidavit"
+        ],
+        "Income Proof": [
+          "Income Certificate Employer/Form 16"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_",
+    "service_name": "",
+    "service_type": "",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General Details",
+        "fields": [
+          {
+            "key": "field",
+            "type": "string",
+            "required": false
+          }
         ]
       }
     ],
@@ -440,6 +2385,2111 @@
       "mandatory": [],
       "optional": [],
       "accepted_groups": {}
+    }
+  },
+  {
+    "service_id": "svc_",
+    "service_name": "",
+    "service_type": "",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General Details",
+        "fields": [
+          {
+            "key": "field",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [],
+      "optional": [],
+      "accepted_groups": {}
+    }
+  },
+  {
+    "service_id": "svc_issuance_of_trade_license",
+    "service_name": "Issuance of Trade License",
+    "service_type": "issuance_of_trade_license",
+    "category": "service",
+    "sections": [
+      {
+        "name": "Details",
+        "fields": [
+          {
+            "key": "is_trade_license_has_already_been_issued",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "previous_licence_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "old_reference_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "previous_licence_date",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "person_or_firm_or_organization_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "person_or_firm_or_organization_address",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "under_rule_12_b_name_and_address_of_director_or_manager_mention_in_rule_50_1_b",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Shop Address",
+        "fields": [
+          {
+            "key": "colony",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "ward_no_and_ward_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "shop_postal_address",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "pin_code",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "property_id_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "food_item_and_other_business_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "shop_varieties",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "trade_licence_fees",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "shop_starting_date",
+            "type": "date",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Photo Id Proof",
+        "Lease Deed/Legal Occupancy",
+        "Challan Copy"
+      ],
+      "optional": [
+        "Passport",
+        "Pancard",
+        "Voter Id"
+      ],
+      "accepted_groups": {
+        "Photo Id Proof": [
+          "Driving Licence"
+        ],
+        "Lease Deed/Legal Occupancy": [
+          "Lease Deed/Legal Occupancy"
+        ],
+        "Challan Copy": [
+          "Challan Copy"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_shop_and_establishment_registration",
+    "service_name": "Shop and Establishment Registration",
+    "service_type": "shop_and_establishment_registration",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General Details",
+        "fields": [
+          {
+            "key": "date_of_establishment",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "type_of_establishment",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "name_of_establishment",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Establishment Address",
+        "fields": [
+          {
+            "key": "shop_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "property_id_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "address",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "pin_code",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Other Details",
+        "fields": [
+          {
+            "key": "nature_of_business",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "detail_of_other_premises_related_to_establishment_like_godown_or_workshop_or_office_etc",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_owner",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "permanent_address_of_owner",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "detail_of_person_who_will_maintain_accounts_or_other_secret_information",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Owners Details",
+        "fields": [
+          {
+            "key": "owners_details",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "is_owners_family_member_involve_in_establishment",
+            "type": "select",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Detail of Involve Family Member in Ownership",
+        "fields": [
+          {
+            "key": "detail_of_involve_family_member_in_ownership",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Detail of Employees",
+        "fields": [
+          {
+            "key": "no_of_male_employee",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "no_of_female_employee",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "total_no_of_employee",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "day_of_weekly_off",
+            "type": "select",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Photo Id Proof"
+      ],
+      "optional": [
+        "Voter Id",
+        "Driving Licence",
+        "Passport",
+        "Challan(In Offline Mode)"
+      ],
+      "accepted_groups": {
+        "Photo Id Proof": [
+          "Pancard"
+        ],
+        "Challan(In Offline Mode)": [
+          "Challan"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_food_registration_application_for_small_cottage",
+    "service_name": "Food Registration(Application for Small Cottage)",
+    "service_type": "food_registration_application_for_small_cottage",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General Details",
+        "fields": [
+          {
+            "key": "field",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Affidavit",
+        "Necessary Documents",
+        "Photo",
+        "Tax Reciept"
+      ],
+      "optional": [
+        "Certificate/Document",
+        "Additional Document",
+        "Receipt/Challan Of Registration Fee",
+        "Address Proof",
+        "Vender Card",
+        "Trade License"
+      ],
+      "accepted_groups": {
+        "Affidavit": [
+          "Affidavit"
+        ],
+        "Certificate/Document": [
+          "Copy Of Partnership Records"
+        ],
+        "Additional Document": [
+          "Additional Document"
+        ],
+        "Necessary Documents": [
+          "Identity Proof"
+        ],
+        "Photo": [
+          "Applicant Photo"
+        ],
+        "Tax Reciept": [
+          "Tax Receipt"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_application_for_water_tap_connection",
+    "service_name": "Application for Water Tap Connection",
+    "service_type": "application_for_water_tap_connection",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General",
+        "fields": [
+          {
+            "key": "fathers_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "address",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "house_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "ward",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "annual_rent",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "bpl_no",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Details of Land Lord",
+        "fields": [
+          {
+            "key": "land_lords_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "land_lords_father_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "land_lords_address",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "property_id_no",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Detail of Water Tap Connection",
+        "fields": [
+          {
+            "key": "connection_type",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "permanent_connection_required",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "old_water_tap_connection",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "details_of_old_water_tap_connection",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "purpose_of_new_water_connection",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "details_of_other_purpose_of_new_water_connection",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Residential Proof",
+        "Tax Reciept"
+      ],
+      "optional": [
+        "Ration Card",
+        "Electricity Bill",
+        "Other Documents",
+        "Land And House Document",
+        "Certificate From Ward Member, Local Mla/Mp",
+        "Bpl Proof",
+        "Cosent Form"
+      ],
+      "accepted_groups": {
+        "Residential Proof": [
+          "Domicile Certificate"
+        ],
+        "Bpl Proof": [
+          "Bpl Certificate"
+        ],
+        "Tax Reciept": [
+          "Tax Receipt"
+        ],
+        "Cosent Form": [
+          "Cosent Form"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_noc_for_building_plan_construction",
+    "service_name": "NOC for Building (Plan) Construction",
+    "service_type": "noc_for_building_plan_construction",
+    "category": "service",
+    "sections": [
+      {
+        "name": "Beneficiary Details",
+        "fields": [
+          {
+            "key": "fathers_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "permanent_address",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "ward_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "the_name_of_the_area_where_the_work_is_proposed_to_be",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "plot_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "house_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "plot_length",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "plot_width",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "plot_area",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "noc_proof_nazul_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "noc_proof_nazul_date",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "expected_expense_for_change_in_type_of_construction_or_further_construction_in_an_existing_building",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Architect Details",
+        "fields": [
+          {
+            "key": "name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "license_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "license_given_by_municipal",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "to_date",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "nature_of_construction",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "code_for_the_construction",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "type_of_construction",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "total_plinth_area_in_sq_m",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "the_total_floor_area_in_square_meters_including_the_entire_basement_floors",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "No and type of dwelling units in Construction",
+        "fields": [
+          {
+            "key": "no_and_type_of_dwelling_units_in_construction",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "estimate_construction_cost",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "number_of_issue_of_authorization_certificate",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "date_of_issue_of_authorization_certificate",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "date_of_commencement_of_construction",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "date_of_completion_of_construction",
+            "type": "date",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [],
+      "optional": [
+        "Additional Document",
+        "Other Documents",
+        "Application Form"
+      ],
+      "accepted_groups": {
+        "Additional Document": [
+          "Other Documents"
+        ],
+        "Application Form": [
+          "Application Form"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_name_transfer_mutation_of_property_municipal_area",
+    "service_name": "Name transfer (Mutation) of Property Municipal area",
+    "service_type": "name_transfer_mutation_of_property_municipal_area",
+    "category": "service",
+    "sections": [
+      {
+        "name": "Transferor Details",
+        "fields": [
+          {
+            "key": "name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "fathers_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "address",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "the_name_of_the_person_whose_name_is_registered_in_the_relevant_land_or_buildings_to_municipal",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Transferee Details",
+        "fields": [
+          {
+            "key": "name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "fathers_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "address",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "property_type",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "ward_no_and_ward_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "building_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "tax_is_imposed_on_him_by_the_municipal_corporation",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "name_of_tax_payee",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "mode_of_title_transfer",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "property_rate",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "date_of_registration",
+            "type": "date",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "The individual portion of the land or buildings or land building the value of the rights contained in the event of",
+        "fields": [
+          {
+            "key": "name_of_dead_person",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_heir",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "father_name_of_heir",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "address_of_heir",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "title_acquisition_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "title_acquisition_type",
+            "type": "select",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Identity Proof",
+        "Copy Of Sale Deed Of Property",
+        "House Map",
+        "Last Paid Property Tax Receipt",
+        "Abedan Form"
+      ],
+      "optional": [],
+      "accepted_groups": {
+        "Identity Proof": [
+          "Identity Proof"
+        ],
+        "Copy Of Sale Deed Of Property": [
+          "Copy Of Sale Deed Of Property"
+        ],
+        "House Map": [
+          "House Map"
+        ],
+        "Last Paid Property Tax Receipt": [
+          "Last Paid Property Tax Receipt"
+        ],
+        "Abedan Form": [
+          "Abedan Form"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_request_for_nakal_of_document_from_bhuiyan_copy_of_land_record_etc",
+    "service_name": "Request for Nakal of document From Bhuiyan(copy of land record etc)",
+    "service_type": "request_for_nakal_of_document_from_bhuiyan_copy_of_land_record_etc",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General",
+        "fields": [
+          {
+            "key": "district",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "tehsil",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "village",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "khasara_document_type",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "khasara_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "details",
+            "type": "textarea",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [],
+      "optional": [],
+      "accepted_groups": {}
+    }
+  },
+  {
+    "service_id": "svc_registration_for_job_seekers",
+    "service_name": "Registration for Job-Seekers",
+    "service_type": "registration_for_job_seekers",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General Details",
+        "fields": [
+          {
+            "key": "field",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [],
+      "optional": [],
+      "accepted_groups": {}
+    }
+  },
+  {
+    "service_id": "svc_new_permanent_driving_license_for_motor_vehicle",
+    "service_name": "New Permanent Driving License for Motor Vehicle",
+    "service_type": "new_permanent_driving_license_for_motor_vehicle",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General",
+        "fields": [
+          {
+            "key": "type_of_vehicle_for_which_license_to_be_issue",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "full_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "son_or_wife_or_daughter_of",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "permanent_address",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "temporary_address_or_governmental_address_if_any",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "duration_of_stay_at_the_present_address",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "date_of_birth",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "if_place_of_birth_out_side_india_when_migrated_to_india",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "educational_qualification",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "identification_mark",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "blood_group",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "have_you_previously_held_driving_licence",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "details_of_conviction",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "do_you_hold_a_driving_license_or_learners_license_or_is_disqualified_for_obtaining",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "details_of_test_driving",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Residential Proof",
+        "Birth Proof",
+        "Affidavit",
+        "Original Learner Licence",
+        "Certificate Of Competence To Drive Vehicle"
+      ],
+      "optional": [
+        "Ration Card",
+        "Electricity Bill",
+        "Other Documents",
+        "Land And House Document",
+        "Certificate From Ward Member, Local Mla/Mp",
+        "School Certificate",
+        "High School Certificate"
+      ],
+      "accepted_groups": {
+        "Residential Proof": [
+          "Domicile Certificate"
+        ],
+        "Birth Proof": [
+          "Birth Certificate"
+        ],
+        "Affidavit": [
+          "Affidavit"
+        ],
+        "Original Learner Licence": [
+          "Original Learner Licence"
+        ],
+        "Certificate Of Competence To Drive Vehicle": [
+          "Certificate Of Competence To Drive Vehicle"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_new_learner_license",
+    "service_name": "New Learner License",
+    "service_type": "new_learner_license",
+    "category": "service",
+    "sections": [
+      {
+        "name": "Information Provided by the applicant posts",
+        "fields": [
+          {
+            "key": "full_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "father_or_husband_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "permanent_address",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "temporary_address_or_governmental_address_if_any",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "date_of_birth",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "educational_qualification",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "identification_mark",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "blood_group_and_rh_factor_if_required",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "i_am_the_holder_of_effective_driving_license_to_run_the_vehicle",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "particulars_of_any_driving_license_held_by_the_applicant_before_it_was_canceled_if_so",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "if_yes_then_for_some_reason",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "describe_the_vehicle_in_respect_of_which_the_applicant_previously_held_a_learner_license_particulars_of_the_applicant",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "do_you_hold_a_driving_license_or_learners_license_or_is_disqualified_for_obtaining",
+            "type": "select",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Residential Proof",
+        "Birth Proof",
+        "Form 1",
+        "Form 1a [Medical Certificates As Issued By Any M.B.B.S. Doctor]"
+      ],
+      "optional": [
+        "Ration Card",
+        "Electricity Bill",
+        "Other Documents",
+        "Land And House Document",
+        "Certificate From Ward Member, Local Mla/Mp",
+        "School Certificate",
+        "High School Certificate",
+        "Photo"
+      ],
+      "accepted_groups": {
+        "Residential Proof": [
+          "Domicile Certificate"
+        ],
+        "Birth Proof": [
+          "Birth Certificate"
+        ],
+        "Photo": [
+          "Photograph"
+        ],
+        "Form 1": [
+          "Form 1"
+        ],
+        "Form 1a [Medical Certificates As Issued By Any M.B.B.S. Doctor]": [
+          "Form 1a [Medical Certificates As Issued By Any M.B.B.S. Doctor]"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_application_for_fitment_certificate_vehicle",
+    "service_name": "Application for Fitment Certificate (Vehicle)",
+    "service_type": "application_for_fitment_certificate_vehicle",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General",
+        "fields": [
+          {
+            "key": "registration_mark_of_vehicle",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_owner",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "address_of_owner",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "place_where_the_vehicle_is_ordinarily_kept",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_manufacturer_of_vehicle",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "manufacturers_model_or_if_not_known_wheel_base",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "type_of_vehicle",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "engine_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "chassis_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "particulars_of_any_previous_certificate_of_fitness_granted_in_respect_of_the_vehicle",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "field",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "authority_by_which_granted",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "date_when_certificate_ceased_to_be_valid",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "reasons_for_cessation_of_validity",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "reasons_for_not_producing_certificate_of_fitness",
+            "type": "textarea",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Residential Proof",
+        "Birth Proof",
+        "Affidavit",
+        "Application Form 20",
+        "Sales Certification Form 21",
+        "Valid Insurance Certificate"
+      ],
+      "optional": [
+        "Ration Card",
+        "Land And House Document",
+        "Electricity Bill",
+        "Other Documents",
+        "Certificate From Ward Member, Local Mla/Mp",
+        "School Certificate",
+        "High School Certificate",
+        "Loi From S.T.A. ( For Commercial Passenger Vehicles)"
+      ],
+      "accepted_groups": {
+        "Residential Proof": [
+          "Domicile Certificate"
+        ],
+        "Birth Proof": [
+          "Birth Certificate"
+        ],
+        "Affidavit": [
+          "Affidavit"
+        ],
+        "Application Form 20": [
+          "Application Form 20"
+        ],
+        "Sales Certification Form 21": [
+          "Sales Certification Form 21"
+        ],
+        "Valid Insurance Certificate": [
+          "Valid Insurance Certificate"
+        ],
+        "Loi From S.T.A. ( For Commercial Passenger Vehicles)": [
+          "Loi From S.T.A."
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_application_for_indira_gandhi_disability_pension_yojana",
+    "service_name": "Application for Indira Gandhi Disability Pension Yojana",
+    "service_type": "application_for_indira_gandhi_disability_pension_yojana",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General",
+        "fields": [
+          {
+            "key": "father_or_husband_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_successor",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Address of the Applicant",
+        "fields": [
+          {
+            "key": "street_or_neighborhood_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "ward_no_and_ward_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "house_no_or_village",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "street_or_post_office",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "district",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "pin_code",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "BPL Details",
+        "fields": [
+          {
+            "key": "survey_year",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "block_or_municipal",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "family_identification_survey_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "identification_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "disability",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "gender",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "date_of_birth",
+            "type": "date",
+            "required": false
+          },
+          {
+            "key": "age",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "caste_category",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "minority",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "either_the_applicant_is_handicapped",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "type_of_disability_1",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "percentage_of_disability_1",
+            "type": "number",
+            "required": false
+          },
+          {
+            "key": "type_of_disability_2",
+            "type": "select",
+            "required": false
+          },
+          {
+            "key": "percentage_of_disability_2",
+            "type": "number",
+            "required": false
+          },
+          {
+            "key": "epic_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "enrollment_number_of_aadhaar",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "Payment Details",
+        "fields": [
+          {
+            "key": "aadhaar_card_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_bank_or_post_office",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_the_branch",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "account_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "ifsc_code",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Domicile Certificate",
+        "Age Proof Document",
+        "Disability Certificate",
+        "Below Poverty Line Related Document"
+      ],
+      "optional": [
+        "Issued By Councillor",
+        "Administrator",
+        "Officer Authorized By The President",
+        "Birth Registration Certificate",
+        "Doctors Certificate",
+        "School Certificate",
+        "Bank/Post Office Account Passbook"
+      ],
+      "accepted_groups": {
+        "Domicile Certificate": [
+          "Issued By Gazetted Officer Or Ombudsman"
+        ],
+        "Age Proof Document": [
+          "Sarpanch Or In Case Of Urban Area Mayor"
+        ],
+        "Disability Certificate": [
+          "Certificate Issued Pursuant To The Provisions Of The Persons With Disabilities Act -1995"
+        ],
+        "Below Poverty Line Related Document": [
+          "Bpl Certificate"
+        ],
+        "Bank/Post Office Account Passbook": [
+          "Bank/Post Office Account Passbook"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_food_registration_application_for_hawker_stall",
+    "service_name": "Food Registration(Application for Hawker Stall)",
+    "service_type": "food_registration_application_for_hawker_stall",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General Details",
+        "fields": [
+          {
+            "key": "field",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Affidavit",
+        "Necessary Documents",
+        "Photo"
+      ],
+      "optional": [
+        "Certificate/Document",
+        "Tax Receipt",
+        "Receipt/Challan Of Registration Fee",
+        "Address Proof"
+      ],
+      "accepted_groups": {
+        "Affidavit": [
+          "Affidavit"
+        ],
+        "Certificate/Document": [
+          "Copy Of Partnership Records"
+        ],
+        "Necessary Documents": [
+          "Identity Proof"
+        ],
+        "Photo": [
+          "Applicant Photo"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_",
+    "service_name": "",
+    "service_type": "",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General Details",
+        "fields": [
+          {
+            "key": "field",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [],
+      "optional": [],
+      "accepted_groups": {}
+    }
+  },
+  {
+    "service_id": "svc_revenue_services_agricultural_land_diverted_demarcation",
+    "service_name": "Revenue Services (Agricultural Land/Diverted Demarcation)",
+    "service_type": "revenue_services_agricultural_land_diverted_demarcation",
+    "category": "service",
+    "sections": [
+      {
+        "name": "Applicant Details",
+        "fields": [
+          {
+            "key": "account_holder_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "father_or_husband_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "address_of_applicant",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "village",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "patwari_halka_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "khasara_no",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Address Proof",
+        "Khasara",
+        "Naksha",
+        "Challanfees Per Khasra",
+        "Copy Of Fir",
+        "Affidavit",
+        "Affidavit Of Account Holder",
+        "Advertisement Fees",
+        "Talbana",
+        "Department Fees",
+        "Demarcation Related Other Documents",
+        "Application Form Along With Fee",
+        "Property Details",
+        "Valuation Certificate Of Property",
+        "Power Of Attorney/Vakaltnama"
+      ],
+      "optional": [
+        "Khasara",
+        "No Dues From Bank",
+        "Form C",
+        "Driving License",
+        "Voter Id",
+        "Fauti(Death Certificate)",
+        "House",
+        "Land & House",
+        "Vakaltnama",
+        "Other Documents (Photograph Of Damaged Property)",
+        "Other Document 1"
+      ],
+      "accepted_groups": {
+        "Address Proof": [
+          "Address Proof"
+        ],
+        "Khasara": [
+          "B1"
+        ],
+        "Naksha": [
+          "Naksha"
+        ],
+        "Challanfees Per Khasra": [
+          "Challanfees Per Khasra"
+        ],
+        "Copy Of Fir": [
+          "Copy Of Fir"
+        ],
+        "No Dues From Bank": [
+          "No Dues From Bank"
+        ],
+        "Affidavit": [
+          "Affidavit"
+        ],
+        "Affidavit Of Account Holder": [
+          "Affidavit Of Account Holder"
+        ],
+        "Form C": [
+          "Aadhaar"
+        ],
+        "Fauti(Death Certificate)": [
+          "Fauti"
+        ],
+        "Advertisement Fees": [
+          "Advertisement Fees"
+        ],
+        "Talbana": [
+          "Talbana"
+        ],
+        "Department Fees": [
+          "Department Fees"
+        ],
+        "Demarcation Related Other Documents": [
+          "VAASUDEVA"
+        ],
+        "Application Form Along With Fee": [
+          "Application Form Along With Fee"
+        ],
+        "Property Details": [
+          "Property Details"
+        ],
+        "Valuation Certificate Of Property": [
+          "Land"
+        ],
+        "Power Of Attorney/Vakaltnama": [
+          "Power Of Attorney"
+        ],
+        "Other Documents (Photograph Of Damaged Property)": [
+          "Other Documents"
+        ],
+        "Other Document 1": [
+          "Other Document 1"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_revenue_services_nazul_land_patta_renewal",
+    "service_name": "Revenue Services (Nazul Land Patta Renewal)",
+    "service_type": "revenue_services_nazul_land_patta_renewal",
+    "category": "service",
+    "sections": [
+      {
+        "name": "Applicant Details",
+        "fields": [
+          {
+            "key": "account_holder_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "father_or_husband_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "address_of_applicant",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "village",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "patwari_halka_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "khasara_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "plot_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "sheet_number",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Earnest Money, Hibbanama, Dastbardaranama, Pattanama, For Accommodation And Junk",
+        "For Succession",
+        "Transformation, Ownership And Division",
+        "Fakarahan",
+        "Fakpatta",
+        "Khasara",
+        "Naksha",
+        "Affidavit Of Account Holder",
+        "Advertisement Fees",
+        "Talbana",
+        "Application Form Along With Fee",
+        "Power Of Attorney/Vakaltnama",
+        "Proof Of Mutation"
+      ],
+      "optional": [
+        "Birth Proof",
+        "Copy Of Registered Will",
+        "Affidavit",
+        "Numberdar Of Your Village",
+        "Death Proof",
+        "Affidavit Regarding Inheritance",
+        "Demarcation Related Other Documents",
+        "Original Nazul Patta Copy",
+        "Vakaltnama",
+        "Land Related Document",
+        "Vasiyat/Hibanama",
+        "Sales Letter",
+        "Registered Gift Deed",
+        "Other Document 1"
+      ],
+      "accepted_groups": {
+        "Birth Proof": [
+          "Bpl Certificate"
+        ],
+        "Earnest Money, Hibbanama, Dastbardaranama, Pattanama, For Accommodation And Junk": [
+          "Presence Between The Person Giving The Land And The Person Receiving The Land Or A Special Power Of Attorney Appointed By Him"
+        ],
+        "For Succession": [
+          "In Case Of Succession, Testimony Is Given By The Heir"
+        ],
+        "Transformation, Ownership And Division": [
+          "Copy Of Court Order Or Attested Copy Of Mutual Decision"
+        ],
+        "Fakarahan": [
+          "Attested Copy Of Mutual Decision"
+        ],
+        "Fakpatta": [
+          "Copy Of First Lease And Proof Of Lease Expiry Date"
+        ],
+        "Khasara": [
+          "Khasara"
+        ],
+        "Naksha": [
+          "Naksha"
+        ],
+        "Affidavit Of Account Holder": [
+          "Affidavit Of Account Holder"
+        ],
+        "Advertisement Fees": [
+          "Advertisement Fees"
+        ],
+        "Talbana": [
+          "Talbana"
+        ],
+        "Demarcation Related Other Documents": [
+          "Demarcation Related Other Documents"
+        ],
+        "Application Form Along With Fee": [
+          "Application Form Along With Fee"
+        ],
+        "Original Nazul Patta Copy": [
+          "Original Nazul Patta Copy"
+        ],
+        "Power Of Attorney/Vakaltnama": [
+          "Power Of Attorney"
+        ],
+        "Land Related Document": [
+          "Registry Copy"
+        ],
+        "Proof Of Mutation": [
+          "Others"
+        ],
+        "Other Document 1": [
+          "Other Documents"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_revenue_services_nazul_land_patta_noc",
+    "service_name": "Revenue Services (Nazul Land Patta NOC)",
+    "service_type": "revenue_services_nazul_land_patta_noc",
+    "category": "service",
+    "sections": [
+      {
+        "name": "Applicant Details",
+        "fields": [
+          {
+            "key": "account_holder_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "father_or_husband_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "address_of_applicant",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "village",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "patwari_halka_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "khasara_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "plot_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "sheet_number",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Khasara",
+        "Naksha",
+        "Affidavit Of Account Holder",
+        "Advertisement Fees",
+        "Talbana",
+        "Application Form Along With Fee",
+        "Power Of Attorney/Vakaltnama",
+        "Proof Of Mutation"
+      ],
+      "optional": [
+        "Demarcation Related Other Documents",
+        "Original Nazul Patta Copy",
+        "Vakaltnama",
+        "Land Related Document",
+        "Vasiyat/Hibanama",
+        "Sales Letter",
+        "Registered Gift Deed",
+        "Other Document 1"
+      ],
+      "accepted_groups": {
+        "Khasara": [
+          "Khasara"
+        ],
+        "Naksha": [
+          "Naksha"
+        ],
+        "Affidavit Of Account Holder": [
+          "Affidavit Of Account Holder"
+        ],
+        "Advertisement Fees": [
+          "Advertisement Fees"
+        ],
+        "Talbana": [
+          "Talbana"
+        ],
+        "Demarcation Related Other Documents": [
+          "Demarcation Related Other Documents"
+        ],
+        "Application Form Along With Fee": [
+          "Application Form Along With Fee"
+        ],
+        "Original Nazul Patta Copy": [
+          "Original Nazul Patta Copy"
+        ],
+        "Power Of Attorney/Vakaltnama": [
+          "Power Of Attorney"
+        ],
+        "Land Related Document": [
+          "Registry Copy"
+        ],
+        "Proof Of Mutation": [
+          "Others"
+        ],
+        "Other Document 1": [
+          "Other Documents"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_revenue_service_solvency_between_5lac_to_25lac",
+    "service_name": "Revenue Service (Solvency Between 5Lac To 25Lac)",
+    "service_type": "revenue_service_solvency_between_5lac_to_25lac",
+    "category": "service",
+    "sections": [
+      {
+        "name": "Applicant Details",
+        "fields": [
+          {
+            "key": "account_holder_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "father_or_husband_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "address_of_applicant",
+            "type": "textarea",
+            "required": false
+          },
+          {
+            "key": "village",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "patwari_halka_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "khasara_no",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Khasara",
+        "Naksha",
+        "B1",
+        "Affidavit Of Account Holder",
+        "Application Form Along With Fee",
+        "Valuation Certificate Of Property",
+        "Ikrarnama With Photograph"
+      ],
+      "optional": [
+        "No Dues From Bank",
+        "Affidavit",
+        "Form C",
+        "House",
+        "Land & House",
+        "Other Document 1"
+      ],
+      "accepted_groups": {
+        "Khasara": [
+          "Khasara"
+        ],
+        "Naksha": [
+          "Naksha"
+        ],
+        "B1": [
+          "B1"
+        ],
+        "No Dues From Bank": [
+          "No Dues From Bank"
+        ],
+        "Affidavit": [
+          "Affidavit"
+        ],
+        "Affidavit Of Account Holder": [
+          "Affidavit Of Account Holder"
+        ],
+        "Form C": [
+          "Form C"
+        ],
+        "Application Form Along With Fee": [
+          "Application Form Along With Fee"
+        ],
+        "Valuation Certificate Of Property": [
+          "Land"
+        ],
+        "Other Document 1": [
+          "Other Documents"
+        ],
+        "Ikrarnama With Photograph": [
+          "Ikrarnama With Photograph"
+        ]
+      }
+    }
+  },
+  {
+    "service_id": "svc_",
+    "service_name": "",
+    "service_type": "",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General Details",
+        "fields": [
+          {
+            "key": "field",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [],
+      "optional": [],
+      "accepted_groups": {}
+    }
+  },
+  {
+    "service_id": "svc_land_use_information",
+    "service_name": "Land Use Information",
+    "service_type": "land_use_information",
+    "category": "service",
+    "sections": [
+      {
+        "name": "General",
+        "fields": [
+          {
+            "key": "name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "fathers_name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "name_of_village",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "patwari_halka_number",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "khasara_no",
+            "type": "string",
+            "required": false
+          },
+          {
+            "key": "is_applicant_applying_for_his_her_own_land",
+            "type": "select",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "required_documents": {
+      "mandatory": [
+        "Khasara",
+        "Naksha",
+        "Challan Copy"
+      ],
+      "optional": [
+        "B1"
+      ],
+      "accepted_groups": {
+        "Khasara": [
+          "Khasara"
+        ],
+        "Naksha": [
+          "Naksha"
+        ],
+        "Challan Copy": [
+          "Challan Copy"
+        ]
+      }
     }
   }
 ]

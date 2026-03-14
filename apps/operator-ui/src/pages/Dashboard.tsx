@@ -4,15 +4,18 @@ import { api, type ServiceSchema, type WhatsappLaunchConfig } from "../services/
 import ServiceCard from "../components/ServiceCard";
 import WhatsAppWidget from "../components/WhatsAppWidget";
 import digitalSevaLogo from "../assets/digital-seva-logo.png";
+import { serviceSummaryMap } from "../data/serviceSummaries";
 
 export default function Dashboard() {
   const navigate = useNavigate();
   const [services, setServices] = useState<ServiceSchema[]>([]);
   const [loading, setLoading] = useState(true);
+  const [servicesError, setServicesError] = useState<string | null>(null);
   const [lang, setLang] = useState<"hi" | "en">(
     (localStorage.getItem("ui_lang") as "hi" | "en") || "hi"
   );
   const [waConfig, setWaConfig] = useState<WhatsappLaunchConfig | null>(null);
+  const apiBase = import.meta.env.VITE_API_BASE_URL || "http://localhost:4000";
   const operatorName = localStorage.getItem("operator_name") || "Operator";
   const district = localStorage.getItem("operator_district") || "Chhattisgarh";
 
@@ -21,9 +24,18 @@ export default function Dashboard() {
     api
       .getServices()
       .then((data) => {
-        if (mounted) setServices(data.services || []);
+        if (mounted) {
+          setServices(data.services || []);
+          setServicesError(null);
+        }
       })
-      .catch((error) => console.error(error))
+      .catch((error) => {
+        console.error(error);
+        if (mounted) {
+          setServices([]);
+          setServicesError(error instanceof Error ? error.message : "Unable to load services");
+        }
+      })
       .finally(() => mounted && setLoading(false));
 
     api
@@ -45,11 +57,19 @@ export default function Dashboard() {
       topRight: "डिजिटल भारत के साथ जारी रखें",
       navTitle: "कॉमन सर्विस सेंटर",
       navSubtitle: "Digital Seva Portal",
-      navLinks: ["होम", "CSC Locator", "जानकारी सुविधा", "संपर्क"],
+      navLinks: [
+        { label: "होम", href: "#" },
+        { label: "CSC Locator", href: "https://locator.csccloud.in/" },
+        { label: "जानकारी सुविधा", href: "https://jaankari.csccloud.in/" },
+        { label: "संपर्क", href: "#" }
+      ],
       welcome: "स्वागत है",
       district: "जिला",
       badge: "AI प्री-स्क्रीनिंग डेस्क",
       loading: "सेवाएँ लोड हो रही हैं...",
+      loadErrorTitle: "सेवाएँ लोड नहीं हो सकीं",
+      loadErrorHint: "API चालू है या नहीं जांचें।",
+      noServices: "अभी कोई सेवा उपलब्ध नहीं है।",
       waButton: "WhatsApp पर शुरू करें",
       waHint: "नागरिक को WhatsApp पर प्री-चेक शुरू करने के लिए भेजें"
     },
@@ -57,11 +77,19 @@ export default function Dashboard() {
       topRight: "Continue with Digital India",
       navTitle: "Common Service Center",
       navSubtitle: "Digital Seva Portal",
-      navLinks: ["Home", "CSC Locator", "Jaankari Suvidha", "Contact"],
+      navLinks: [
+        { label: "Home", href: "#" },
+        { label: "CSC Locator", href: "https://locator.csccloud.in/" },
+        { label: "Jaankari Suvidha", href: "https://jaankari.csccloud.in/" },
+        { label: "Contact", href: "#" }
+      ],
       welcome: "Welcome",
       district: "District",
       badge: "AI Pre-Submission Desk",
       loading: "Loading services...",
+      loadErrorTitle: "Could not load services",
+      loadErrorHint: "Check whether the API server is running.",
+      noServices: "No services are available right now.",
       waButton: "Start on WhatsApp",
       waHint: "Send to citizen to begin WhatsApp pre-check"
     }
@@ -103,13 +131,12 @@ export default function Dashboard() {
           </div>
           <div className="nav-links">
             {t.navLinks.map((link) => (
-              <span key={link}>{link}</span>
+              <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
+                {link.label}
+              </a>
             ))}
           </div>
           <div className="nav-actions">
-            <button className="btn secondary" type="button">
-              Join Us as a VLE
-            </button>
             <button className="btn" type="button">
               Login
             </button>
@@ -149,11 +176,30 @@ export default function Dashboard() {
 
         {loading ? (
           <div className="card">{t.loading}</div>
+        ) : servicesError ? (
+          <div className="card" style={{ borderColor: "#fca5a5", background: "#fff1f2" }}>
+            <h3 style={{ marginBottom: "8px", color: "#b91c1c", fontSize: "16px" }}>{t.loadErrorTitle}</h3>
+            <p style={{ marginBottom: "8px", color: "#9f1239" }}>{t.loadErrorHint}</p>
+            <p style={{ marginBottom: "6px", color: "#9f1239", fontSize: "13px" }}>API: {apiBase}</p>
+            <p style={{ color: "#9f1239", fontSize: "13px", wordBreak: "break-word" }}>Error: {servicesError}</p>
+          </div>
+        ) : services.length === 0 ? (
+          <div className="card">{t.noServices}</div>
         ) : (
           <div className="services-grid">
-            {services.map((service) => (
-              <ServiceCard key={service.service_id} service={service} onSelect={handleSelect} />
-            ))}
+            {services.map((service) => {
+              const summary = serviceSummaryMap[service.service_type];
+              const description =
+                (summary && summary[lang]) || summary?.en || "AI-assisted pre-validation service.";
+              return (
+                <ServiceCard
+                  key={service.service_id}
+                  service={service}
+                  onSelect={handleSelect}
+                  description={description}
+                />
+              );
+            })}
           </div>
         )}
       </div>
