@@ -6,6 +6,7 @@ type DocumentUploaderProps = {
   requiredDocuments?: {
     mandatory?: string[];
     optional?: string[];
+    accepted_groups?: Record<string, string[]>;
   };
   documentLabels?: Record<string, string>;
   onUploaded: (result: { document?: Record<string, unknown> }) => void;
@@ -30,6 +31,7 @@ export default function DocumentUploader({ applicationId, requiredDocuments, doc
 
   const mandatory = requiredDocuments?.mandatory || [];
   const optional = requiredDocuments?.optional || [];
+  const acceptedGroups = requiredDocuments?.accepted_groups || {};
 
   return (
     <div className="card csc-section-card">
@@ -40,6 +42,11 @@ export default function DocumentUploader({ applicationId, requiredDocuments, doc
             <div>
               <strong>{documentLabels?.[doc] || doc.replace(/_/g, " ")}</strong>
               <small className="csc-doc-meta">{mandatory.includes(doc) ? "Mandatory" : "Optional"}</small>
+              {Array.isArray(acceptedGroups[doc]) && acceptedGroups[doc].length > 0 && (
+                <small className="csc-doc-meta">
+                  Accepted: {acceptedGroups[doc].map((item) => item.replace(/_/g, " ")).join(", ")}
+                </small>
+              )}
             </div>
             <input
               className="csc-file-input"

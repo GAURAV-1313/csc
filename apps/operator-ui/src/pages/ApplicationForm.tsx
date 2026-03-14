@@ -116,11 +116,109 @@ const domicileCertificateSchema: ServiceSchema = {
   }
 };
 
+const scStCertificateSchema: ServiceSchema = {
+  service_id: "sc_st_certificate",
+  service_name: "SC/ST Certificate",
+  service_type: "sc_st_certificate",
+  sections: [
+    {
+      name: "General Details",
+      fields: [
+        { key: "beneficiary_guardian_type", type: "text", required: true },
+        { key: "beneficiary_guardian_name", type: "text", required: true },
+        { key: "guardian_type_english", type: "text", required: true },
+        { key: "guardian_name_english", type: "text", required: true },
+        { key: "gender", type: "text", required: true },
+        { key: "marital_status", type: "text", required: true },
+        { key: "date_of_birth", type: "date", required: true },
+        { key: "relation_to_applicant", type: "text", required: true },
+        { key: "caste", type: "text", required: true },
+        { key: "category", type: "text", required: true },
+        { key: "caste_english", type: "text", required: true },
+        { key: "category_english", type: "text", required: true },
+        { key: "category_number", type: "text", required: true },
+        { key: "beneficiary_name_english", type: "text", required: true }
+      ]
+    },
+    {
+      name: "Present Address",
+      fields: [
+        { key: "address", type: "textarea", required: true },
+        { key: "pin_code", type: "text", required: true },
+        { key: "post_box_number", type: "text", required: true },
+        { key: "district", type: "text", required: true },
+        { key: "address_english", type: "textarea", required: true },
+        { key: "present_permanent_same", type: "boolean", required: true }
+      ]
+    },
+    {
+      name: "Permanent Address",
+      fields: [
+        { key: "permanent_address", type: "textarea", required: true },
+        { key: "permanent_pin_code", type: "text", required: true },
+        { key: "permanent_district", type: "text", required: true },
+        { key: "permanent_post_box_number", type: "text", required: true },
+        { key: "police_station", type: "text", required: true }
+      ]
+    },
+    {
+      name: "Permanent Address Before 1950",
+      fields: [
+        { key: "village_or_town", type: "text", required: true },
+        { key: "patwari_halka_number", type: "text", required: true },
+        { key: "tehsil", type: "text", required: true },
+        { key: "district_before_1950", type: "text", required: true },
+        { key: "head_of_family_name", type: "text", required: true },
+        { key: "relation_to_head_of_family", type: "text", required: true }
+      ]
+    },
+    {
+      name: "Residence Since 1950",
+      fields: [
+        { key: "guardian_residence_since_1950", type: "textarea", required: true },
+        { key: "guardian_address_details", type: "textarea", required: true }
+      ]
+    },
+    {
+      name: "Other Details",
+      fields: [
+        { key: "previous_scst_certificate", type: "boolean", required: true },
+        { key: "document_proof_for_scst", type: "text", required: true }
+      ]
+    },
+    {
+      name: "Declaration",
+      fields: [
+        { key: "date", type: "date", required: true },
+        { key: "place", type: "text", required: true },
+        { key: "applicant_name", type: "text", required: true }
+      ]
+    }
+  ],
+  required_documents: {
+    mandatory: ["caste_proof", "signature"],
+    optional: ["affidavit", "vanshavali", "gram_sabha_proposal"],
+    accepted_groups: {
+      caste_proof: [
+        "caste_certificate_other_state",
+        "certificate_from_sarpanch",
+        "school_transfer_certificate",
+        "father_service_certificate",
+        "educational_certificate",
+        "census_register",
+        "citizen_register",
+        "jamabandi"
+      ]
+    }
+  }
+};
+
 export default function ApplicationForm() {
   const { serviceType } = useParams<{ serviceType: string }>();
   const isIncomeCertificate = serviceType === "income_certificate";
   const isDomicileCertificate = serviceType === "domicile_certificate";
-  const isCustomCertificate = isIncomeCertificate || isDomicileCertificate;
+  const isScStCertificate = serviceType === "sc_st_certificate";
+  const isCustomCertificate = isIncomeCertificate || isDomicileCertificate || isScStCertificate;
   const navigate = useNavigate();
   const [schema, setSchema] = useState<ServiceSchema | null>(null);
   const [applicationId, setApplicationId] = useState<string | null>(null);
@@ -149,6 +247,11 @@ export default function ApplicationForm() {
                   ...domicileCertificateSchema,
                   service_name: service.service?.service_name || domicileCertificateSchema.service_name
                 }
+              : isScStCertificate
+                ? {
+                    ...scStCertificateSchema,
+                    service_name: service.service?.service_name || scStCertificateSchema.service_name
+                  }
               : service.service
         );
 
@@ -166,7 +269,7 @@ export default function ApplicationForm() {
     return () => {
       mounted = false;
     };
-  }, [serviceType, isIncomeCertificate, isDomicileCertificate]);
+  }, [serviceType, isIncomeCertificate, isDomicileCertificate, isScStCertificate]);
 
   const handleChange = (key: string, value: string | number | boolean) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
@@ -270,7 +373,7 @@ export default function ApplicationForm() {
               <DocumentUploader
                 applicationId={applicationId}
                 requiredDocuments={requiredDocuments}
-                documentLabels={{ income_proof: "income proof (category)" }}
+                documentLabels={{ income_proof: "income proof (category)", caste_proof: "caste proof" }}
                 onUploaded={handleUploaded}
               />
               <div className="card csc-submit-card">
