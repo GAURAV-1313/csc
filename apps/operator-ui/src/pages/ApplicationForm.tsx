@@ -49,6 +49,40 @@ function mapCitizenDataToForm(
   return mapped;
 }
 
+const GENDER_OPTIONS = ["Male", "Female", "Other"];
+
+function applyUiFieldRules(baseSchema: ServiceSchema | null): ServiceSchema | null {
+  if (!baseSchema) return baseSchema;
+
+  return {
+    ...baseSchema,
+    sections: (baseSchema.sections || []).map((section) => ({
+      ...section,
+      fields: (section.fields || []).map((field) => {
+        const key = String(field.key || "").toLowerCase();
+
+        if (key === "gender") {
+          return {
+            ...field,
+            type: "select",
+            options: GENDER_OPTIONS
+          };
+        }
+
+        if (key.includes("pin_code")) {
+          return {
+            ...field,
+            type: "text",
+            maxLength: 6
+          };
+        }
+
+        return field;
+      })
+    }))
+  };
+}
+
 const incomeCertificateSchema: ServiceSchema = {
   service_id: "income_certificate",
   service_name: "Income Certificate",
@@ -493,7 +527,7 @@ export default function ApplicationForm() {
         if (!serviceType) return;
         const service = await api.getServiceSchema(serviceType);
         if (!mounted) return;
-        setSchema(
+        const selectedSchema =
           isIncomeCertificate
             ? {
                 ...incomeCertificateSchema,
@@ -525,8 +559,9 @@ export default function ApplicationForm() {
                           service_name:
                             service.service?.service_name || birthCertificateCorrectionSchema.service_name
                         }
-              : service.service
-        );
+              : service.service;
+
+        setSchema(applyUiFieldRules(selectedSchema));
 
         const draft = await api.createApplicationDraft({ serviceType, citizenData: {} });
         if (!mounted) return;

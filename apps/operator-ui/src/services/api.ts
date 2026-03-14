@@ -12,6 +12,7 @@ export type ServiceSchema = {
       type: string;
       required?: boolean;
       options?: string[];
+      maxLength?: number;
     }>;
   }>;
   required_documents?: {
