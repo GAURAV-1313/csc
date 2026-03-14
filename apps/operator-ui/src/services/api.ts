@@ -34,6 +34,7 @@ export type ValidationResult = {
   risk?: {
     risk_score?: number;
     risk_level?: string;
+    rejected_prediction?: boolean | number;
   };
   explanation?: string;
 };
@@ -42,7 +43,7 @@ export type RiskPredictionResult = {
   risk_probability?: number;
   risk_score?: number;
   risk_level?: string;
-  rejected_prediction?: boolean;
+  rejected_prediction?: boolean | number;
   threshold_used?: number;
   main_contributing_factors?: string[];
   [key: string]: unknown;

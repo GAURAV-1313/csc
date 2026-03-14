@@ -29,42 +29,17 @@ export default function RiskSummary() {
   const location = useLocation();
   const state = (location.state || {}) as RiskSummaryState;
   const prediction = state.prediction || {};
-
-  const scorePercent = useMemo(() => {
-    const score = Number(prediction.risk_score ?? 0);
-    if (Number.isNaN(score)) return "-";
-    if (score > 1) return `${Math.round(score)}%`;
-    return `${Math.round(score * 100)}%`;
-  }, [prediction.risk_score]);
-
-  const probabilityPercent = useMemo(() => {
-    const prob = Number(prediction.risk_probability ?? prediction.risk_score ?? 0);
-    if (Number.isNaN(prob)) return "-";
-    if (prob > 1) return `${Math.round(prob)}%`;
-    return `${Math.round(prob * 100)}%`;
-  }, [prediction.risk_probability, prediction.risk_score]);
-
-  const thresholdValue = useMemo(() => {
-    const threshold = prediction.threshold_used;
-    if (threshold == null) return "N/A";
-    const num = Number(threshold);
-    if (Number.isNaN(num)) return String(threshold);
-    return num > 1 ? String(num) : num.toFixed(2);
-  }, [prediction.threshold_used]);
-
-  const contributingFactors = Array.isArray(prediction.main_contributing_factors)
-    ? prediction.main_contributing_factors
-    : [];
+  const levelTone = normalizeLevel(prediction.risk_level);
 
   const rejectedDisplay = useMemo(() => {
     const value = prediction.rejected_prediction;
-    if (value == null) return "N/A";
-    if (typeof value === "number") return value > 0 ? "1" : "0";
-    if (typeof value === "boolean") return value ? "1" : "0";
+    if (value == null) return "No";
+    if (typeof value === "number") return value > 0 ? "Yes" : "No";
+    if (typeof value === "boolean") return value ? "Yes" : "No";
     const normalized = String(value).trim().toLowerCase();
-    if (normalized === "1" || normalized === "true" || normalized === "yes") return "1";
-    if (normalized === "0" || normalized === "false" || normalized === "no") return "0";
-    return normalized;
+    if (normalized === "1" || normalized === "true" || normalized === "yes") return "Yes";
+    if (normalized === "0" || normalized === "false" || normalized === "no") return "No";
+    return "No";
   }, [prediction.rejected_prediction]);
 
   const handleFinalSubmit = async () => {
@@ -112,15 +87,7 @@ export default function RiskSummary() {
           <p className="subtitle">Service: {state.serviceType || "income_certificate"}</p>
 
           <div className="csc-risk-grid">
-            <div className="csc-risk-item">
-              <span className="csc-risk-label">risk_probability</span>
-              <strong>{probabilityPercent}</strong>
-            </div>
-            <div className="csc-risk-item">
-              <span className="csc-risk-label">risk_score</span>
-              <strong>{scorePercent}</strong>
-            </div>
-            <div className="csc-risk-item">
+            <div className={`csc-risk-item csc-risk-level-${levelTone}`}>
               <span className="csc-risk-label">risk_level</span>
               <strong>{getDisplayLevel(prediction.risk_level)}</strong>
             </div>
@@ -128,20 +95,6 @@ export default function RiskSummary() {
               <span className="csc-risk-label">rejected_prediction</span>
               <strong>{rejectedDisplay}</strong>
             </div>
-            <div className="csc-risk-item">
-              <span className="csc-risk-label">threshold_used</span>
-              <strong>{thresholdValue}</strong>
-            </div>
-          </div>
-
-          <div className="csc-panel-group">
-            <strong className="csc-panel-title">main_contributing_factors</strong>
-            <ul className="csc-panel-list">
-              {contributingFactors.length === 0 && <li className="csc-list-empty">No factors returned by model.</li>}
-              {contributingFactors.map((factor, idx) => (
-                <li key={`${factor}-${idx}`}>{factor}</li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>
