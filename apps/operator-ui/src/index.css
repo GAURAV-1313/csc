@@ -661,6 +661,38 @@ textarea {
   color: #b84b12;
 }
 
+.csc-risk-card {
+  border-radius: 16px;
+  border: 1px solid #ebe2d5;
+  box-shadow: 0 8px 24px rgba(20, 33, 59, 0.06);
+}
+
+.csc-risk-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.csc-risk-item {
+  border: 1px solid #eadfce;
+  border-radius: 12px;
+  background: #fffcf8;
+  padding: 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.csc-risk-label {
+  color: #64748b;
+  font-size: 12px;
+  text-transform: lowercase;
+}
+
+.csc-risk-item strong {
+  font-size: 18px;
+}
+
 @media (max-width: 980px) {
   .csc-form-navbar-inner,
   .csc-form-topstrip-inner {

@@ -37,6 +37,16 @@ export type ValidationResult = {
   explanation?: string;
 };
 
+export type RiskPredictionResult = {
+  risk_probability?: number;
+  risk_score?: number;
+  risk_level?: string;
+  rejected_prediction?: boolean;
+  threshold_used?: number;
+  main_contributing_factors?: string[];
+  [key: string]: unknown;
+};
+
 function getOperatorId() {
   return localStorage.getItem("operator_id") || "operator_demo";
 }
@@ -70,6 +80,8 @@ export const api = {
     request("/applications", { method: "POST", body: JSON.stringify(payload) }),
   validateApplication: (payload: Record<string, unknown>): Promise<ValidationResult> =>
     request("/validate-application", { method: "POST", body: JSON.stringify(payload) }),
+  predictRisk: (payload: Record<string, unknown>): Promise<RiskPredictionResult> =>
+    request("/predict-risk", { method: "POST", body: JSON.stringify(payload) }),
   submitApplication: (applicationId: string): Promise<{ application_id: string; status: string }> =>
     request(`/applications/${applicationId}/submit`, { method: "POST" }),
   uploadDocument: async (applicationId: string, documentType: string, file: File) => {

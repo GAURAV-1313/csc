@@ -139,6 +139,18 @@ export default function ApplicationForm() {
   const submitApplication = async () => {
     if (!applicationId) return;
     try {
+      if (isIncomeCertificate && serviceType) {
+        const prediction = await api.predictRisk({ features: formData });
+        navigate(`/service/${serviceType}/risk-summary`, {
+          state: {
+            prediction,
+            applicationId,
+            serviceType
+          }
+        });
+        return;
+      }
+
       await api.submitApplication(applicationId);
       window.location.href = "https://edistrict.cgstate.gov.in";
     } catch (error) {
@@ -202,7 +214,7 @@ export default function ApplicationForm() {
                   </button>
                 )}
                 <button className="btn secondary" onClick={submitApplication}>
-                  Submit to eDistrict
+                  {isIncomeCertificate ? "Continue to Risk Summary" : "Submit to eDistrict"}
                 </button>
               </div>
             </div>
