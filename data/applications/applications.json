@@ -2767,14 +2767,14 @@
     "created_at": "2026-03-14T20:58:38.329Z"
   },
   {
-    "application_id": "app_1773521918330",
+    "application_id": "app_1773521883344",
     "service_type": "marriage_registration_certificate",
     "operator_id": "saf",
     "citizen_data": {
       "place_of_marriage": "afsdaf"
     },
     "application_status": "validated",
-    "created_at": "2026-03-14T20:58:54.820Z",
+    "created_at": "2026-03-14T20:58:29.243Z",
     "service_name": "Marriage Registration & Certificate",
     "documents": [],
     "ocr_results": [],
@@ -2822,21 +2822,15 @@
       "document_quality_score": 0
     },
     "risk": {
-      "risk_probability": 0.75,
-      "risk_score": 0.75,
-      "risk_level": "HIGH",
+      "risk_probability": 1,
+      "risk_score": 1,
+      "risk_level": "VERY_HIGH",
+      "score_percent": 100,
       "rejected_prediction": true,
-      "threshold_used": 0.4517,
+      "threshold_used": 0.5,
       "main_contributing_factors": [
         "missing_documents",
-        "document_quality",
         "Missing mandatory documents"
-      ],
-      "rejectedPrediction": 1,
-      "thresholdUsed": 0.4517,
-      "mainContributingFactors": [
-        "missing_documents",
-        "document_quality"
       ],
       "debug_summary": {
         "service_type": "marriage_registration_certificate",
@@ -2898,5 +2892,13 @@
         ]
       }
     ]
+  },
+  {
+    "application_id": "app_1773521883356",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "saf",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T20:58:03.356Z"
   }
 ]
