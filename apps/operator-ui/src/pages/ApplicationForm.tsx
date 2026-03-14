@@ -64,6 +64,7 @@ const domicileCertificateSchema: ServiceSchema = {
     {
       name: "General Details",
       fields: [
+        { key: "applicant_name", type: "text", required: true },
         { key: "beneficiary_guardian_type", type: "text", required: true },
         { key: "beneficiary_guardian_name", type: "text", required: true },
         { key: "guardian_occupation", type: "text", required: true },
@@ -105,13 +106,12 @@ const domicileCertificateSchema: ServiceSchema = {
     {
       name: "Declaration",
       fields: [
-        { key: "date", type: "date", required: true },
-        { key: "signature", type: "text", required: true }
+        { key: "date", type: "date", required: true }
       ]
     }
   ],
   required_documents: {
-    mandatory: ["affidavit", "proof_of_15_years_residence", "educational_certificate"],
+    mandatory: ["affidavit", "proof_of_15_years_residence", "educational_certificate", "signature"],
     optional: []
   }
 };
