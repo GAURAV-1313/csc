@@ -13,6 +13,21 @@
 
 const PROVIDER = (process.env.WHATSAPP_PROVIDER || "twilio").toLowerCase();
 
+function normalizeTwilioFromNumber(value) {
+  return (value || "")
+    .replace(/^whatsapp:/i, "")
+    .replace(/\D/g, "");
+}
+
+function getConfiguredWhatsAppNumber() {
+  return normalizeTwilioFromNumber(
+    process.env.TWILIO_WHATSAPP_NUMBER ||
+      process.env.TWILIO_WHATSAPP_FROM ||
+      process.env.WHATSAPP_BUSINESS_NUMBER ||
+      ""
+  );
+}
+
 /**
  * Format an outgoing message as a Twilio TwiML XML string.
  */
@@ -39,7 +54,7 @@ async function sendMessage(toNumber, messageBody) {
   if (PROVIDER === "twilio") {
     const accountSid = process.env.TWILIO_ACCOUNT_SID;
     const authToken = process.env.TWILIO_AUTH_TOKEN;
-    const fromNumber = process.env.TWILIO_WHATSAPP_NUMBER;
+    const fromNumber = getConfiguredWhatsAppNumber();
 
     if (!accountSid || !authToken || !fromNumber) {
       throw new Error("Twilio credentials are not configured (TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_WHATSAPP_NUMBER)");
@@ -108,7 +123,7 @@ function parseMetaWebhook(body) {
  * Returns the WhatsApp deep-link URL and display metadata.
  */
 function getLaunchConfig() {
-  const phoneNumber = (process.env.TWILIO_WHATSAPP_NUMBER || process.env.WHATSAPP_BUSINESS_NUMBER || "").replace(/\D/g, "");
+  const phoneNumber = getConfiguredWhatsAppNumber();
   const greeting = encodeURIComponent("Hi! I would like to start a pre-check for a CSC service.");
   const whatsappUrl = phoneNumber ? `https://wa.me/${phoneNumber}?text=${greeting}` : null;
 

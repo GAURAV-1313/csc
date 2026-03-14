@@ -830,5 +830,85 @@
     "citizen_data": {},
     "application_status": "draft",
     "created_at": "2026-03-14T17:50:34.528Z"
+  },
+  {
+    "application_id": "app_1773511470471",
+    "service_type": "domicile_certificate",
+    "operator_id": "saf",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T18:04:30.471Z"
+  },
+  {
+    "application_id": "app_1773511476679",
+    "service_type": "domicile_certificate",
+    "operator_id": "saf",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T18:04:36.679Z"
+  },
+  {
+    "application_id": "app_1773511540065",
+    "service_type": "shop_and_establishment_registration",
+    "operator_id": "asf",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T18:05:40.065Z"
+  },
+  {
+    "application_id": "app_1773511958800",
+    "service_type": "death_registration_certificate",
+    "operator_id": "hello",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T18:12:38.800Z"
+  },
+  {
+    "application_id": "app_1773511990733",
+    "service_type": "sc_st_certificate",
+    "operator_id": "hello",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T18:13:10.733Z"
+  },
+  {
+    "application_id": "app_1773512423840",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "gaurav",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T18:20:23.840Z"
+  },
+  {
+    "application_id": "app_1773512427739",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "gaurav",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T18:20:27.739Z"
+  },
+  {
+    "application_id": "app_1773512643681",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "gaurav",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T18:24:03.681Z"
+  },
+  {
+    "application_id": "app_1773512652530",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "gaurav",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T18:24:12.530Z"
+  },
+  {
+    "application_id": "app_1773513218210",
+    "service_type": "birth_certificate_correction",
+    "operator_id": "gaurav",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T18:33:38.210Z"
   }
 ]
