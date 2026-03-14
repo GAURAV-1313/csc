@@ -106,6 +106,10 @@ export type CitizenReport = {
   view_url?: string;
 };
 
+export type ChatResponse = {
+  reply: string;
+};
+
 function getOperatorId() {
   return localStorage.getItem("operator_id") || "operator_demo";
 }
@@ -187,5 +191,8 @@ export const api = {
     request("/whatsapp-report/lookup", {
       method: "POST",
       body: JSON.stringify({ reference_id: referenceId.toUpperCase() })
-    })
+    }),
+
+  chatAssistant: (payload: Record<string, unknown>): Promise<ChatResponse> =>
+    request("/chat", { method: "POST", body: JSON.stringify(payload) })
 };

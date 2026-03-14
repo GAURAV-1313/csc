@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { api, type ServiceSchema, type ValidationResult, type CitizenReport } from "../services/api";
 import DynamicForm from "../components/DynamicForm";
 import DocumentUploader from "../components/DocumentUploader";
 import ValidationPanel from "../components/ValidationPanel";
 import WhatsAppWidget from "../components/WhatsAppWidget";
+import ChatWidget from "../components/ChatWidget";
 import { serviceIntroMap } from "../data/serviceIntro";
 import digitalSevaLogo from "../assets/digital-seva-logo.png";
 
@@ -465,13 +466,6 @@ export default function ApplicationForm() {
   const isObcCertificate = serviceType === "obc_certificate";
   const isLandUseInformation = serviceType === "land_use_information";
   const isBirthCertificateCorrection = serviceType === "birth_certificate_correction";
-  const isCustomCertificate =
-    isIncomeCertificate ||
-    isDomicileCertificate ||
-    isScStCertificate ||
-    isObcCertificate ||
-    isLandUseInformation ||
-    isBirthCertificateCorrection;
   const intro = serviceType ? serviceIntroMap[serviceType] : undefined;
   const navigate = useNavigate();
   const [schema, setSchema] = useState<ServiceSchema | null>(null);
@@ -481,6 +475,8 @@ export default function ApplicationForm() {
   const [validationResult, setValidationResult] = useState<ValidationResult | null>(null);
   const [loading, setLoading] = useState(true);
   const [validating, setValidating] = useState(false);
+  const [autoValidating, setAutoValidating] = useState(false);
+  const [chatAutoOpen, setChatAutoOpen] = useState(false);
   const [viewMode, setViewMode] = useState<"intro" | "form">("intro");
   const [lang, setLang] = useState<"hi" | "en">(
     (localStorage.getItem("ui_lang") as "hi" | "en") || "hi"
@@ -593,10 +589,60 @@ export default function ApplicationForm() {
 
   const requiredDocuments = useMemo(() => schema?.required_documents, [schema]);
 
+  const autoValidateTimer = useRef<number | null>(null);
+  const lastAutoPayload = useRef<string>("");
+
   const handleUploaded = (result: { document?: Record<string, unknown> }) => {
     if (!result?.document) return;
     setUploadedDocs((prev) => [...prev, result.document]);
   };
+
+  useEffect(() => {
+    if (viewMode !== "form") return;
+    if (!schema || !serviceType || !applicationId) return;
+    if (Object.keys(formData).length === 0 && uploadedDocs.length === 0) return;
+
+    const payload = {
+      serviceType,
+      citizenData: formData,
+      documents: uploadedDocs.map((doc) => ({
+        documentType: (doc.document_type as string) || (doc.documentType as string),
+        filePath: (doc.file_path as string) || (doc.filePath as string),
+        ocrData: doc.ocrData as Record<string, unknown> | undefined,
+        sampleId: doc.sampleId as string | undefined
+      })),
+      application_id: applicationId
+    };
+
+    const payloadKey = JSON.stringify(payload);
+    if (payloadKey === lastAutoPayload.current) return;
+    lastAutoPayload.current = payloadKey;
+
+    if (autoValidateTimer.current) {
+      window.clearTimeout(autoValidateTimer.current);
+    }
+
+    autoValidateTimer.current = window.setTimeout(async () => {
+      setAutoValidating(true);
+      try {
+        const result = await api.validateApplication(payload);
+        setValidationResult(result);
+        if (!chatAutoOpen) {
+          setChatAutoOpen(true);
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setAutoValidating(false);
+      }
+    }, 900);
+
+    return () => {
+      if (autoValidateTimer.current) {
+        window.clearTimeout(autoValidateTimer.current);
+      }
+    };
+  }, [formData, uploadedDocs, schema, serviceType, applicationId, viewMode]);
 
   /** Lookup citizen report from the bot and pre-fill form */
   const handleWhatsappLookup = async () => {
@@ -645,25 +691,20 @@ export default function ApplicationForm() {
   const submitApplication = async () => {
     if (!applicationId) return;
     try {
-      if (isCustomCertificate && serviceType) {
-        const prediction = await api.predictRisk({
-          features: formData,
-          serviceType,
-          application_id: applicationId,
-          citizenData: formData
-        });
-        navigate(`/service/${serviceType}/risk-summary`, {
-          state: {
-            prediction,
-            applicationId,
-            serviceType
-          }
-        });
-        return;
-      }
-
-      await api.submitApplication(applicationId);
-      window.location.href = "https://edistrict.cgstate.gov.in";
+      if (!serviceType) return;
+      const prediction = await api.predictRisk({
+        features: formData,
+        serviceType,
+        application_id: applicationId,
+        citizenData: formData
+      });
+      navigate(`/service/${serviceType}/risk-summary`, {
+        state: {
+          prediction,
+          applicationId,
+          serviceType
+        }
+      });
     } catch (error) {
       console.error(error);
       alert(error.message);
@@ -882,7 +923,7 @@ export default function ApplicationForm() {
               )}
             </div>
 
-            <div className={`layout csc-form-layout ${isCustomCertificate ? "no-panel" : ""}`}>
+            <div className="layout csc-form-layout">
               <div className="grid csc-form-grid">
                 <DynamicForm schema={schema} formData={formData} onChange={handleChange} />
                 <DocumentUploader
@@ -896,23 +937,34 @@ export default function ApplicationForm() {
                   onUploaded={handleUploaded}
                 />
                 <div className="card csc-submit-card">
-                  {!isCustomCertificate && (
-                    <button className="btn" onClick={validateApplication} disabled={validating}>
-                      {validating ? t.validating : t.validate}
-                    </button>
-                  )}
+                  <button className="btn" onClick={validateApplication} disabled={validating}>
+                    {validating ? t.validating : t.validate}
+                  </button>
                   <button className="btn secondary" onClick={submitApplication}>
-                    {isCustomCertificate ? t.continue : t.submit}
+                    {t.continue}
                   </button>
                 </div>
               </div>
-              {!isCustomCertificate && <ValidationPanel validationResult={validationResult} />}
+              <ValidationPanel validationResult={validationResult} />
             </div>
           </>
         )}
       </div>
 
       <WhatsAppWidget />
+      <ChatWidget
+        page="form"
+        serviceType={serviceType}
+        applicationId={applicationId}
+        context={{
+          serviceIntro: intro,
+          schema,
+          validation: validationResult,
+          documents: uploadedDocs,
+          citizenData: formData,
+          autoOpen: chatAutoOpen
+        }}
+      />
     </div>
   );
 }

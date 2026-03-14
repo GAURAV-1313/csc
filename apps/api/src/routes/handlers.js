@@ -6,6 +6,7 @@ const { callMlApi } = require("../modules/risk/mlClient");
 const { buildRiskFeatures } = require("../modules/risk/featureEngineering");
 const { recommend } = require("../modules/schemes/recommendSchemes");
 const { explain } = require("../modules/llm/explain");
+const { chatWithAssistant } = require("../modules/llm/chatAssistant");
 const { buildApplication } = require("../modules/applications/applicationBuilder");
 const { saveApplication, loadApplications, updateApplicationStatus, createDraftApplication, getApplicationById, addDocument } = require("../modules/applications/applicationStore");
 const { saveBufferToFile, saveBase64ToFile } = require("../modules/documents/storage");
@@ -88,7 +89,7 @@ async function extractDocument(req, res) {
     filePath = saveBufferToFile({ buffer: req.file.buffer, originalname: req.file.originalname });
   }
 
-  const result = runOcrExtraction({ sampleId, documentType });
+  const result = await runOcrExtraction({ sampleId, documentType, filePath });
   res.json({ ...result, filePath });
 }
 
@@ -101,7 +102,7 @@ async function uploadApplicationDocument(req, res) {
     filePath = saveBufferToFile({ buffer: req.file.buffer, originalname: req.file.originalname });
   }
 
-  const ocrResult = runOcrExtraction({ sampleId, documentType });
+  const ocrResult = await runOcrExtraction({ sampleId, documentType, filePath });
   const application = await getApplicationById(applicationId);
   if (!application) {
     res.status(404).json({ error: "Application not found" });
@@ -151,12 +152,12 @@ async function validateApplication(req, res) {
 
   const persistedDocs = persistInlineDocuments(documents);
 
-  const ocrResults = (persistedDocs || []).map((doc) => {
+  const ocrResults = await Promise.all((persistedDocs || []).map((doc) => {
     if (doc.ocrData) {
       return doc.ocrData;
     }
-    return runOcrExtraction({ sampleId: doc.sampleId, documentType: doc.documentType });
-  });
+    return runOcrExtraction({ sampleId: doc.sampleId, documentType: doc.documentType, filePath: doc.filePath });
+  }));
 
   const service = await getServiceByType(serviceType);
   const validation = runValidation({ serviceType, citizenData, documents: persistedDocs, service });
@@ -406,6 +407,50 @@ async function getRejectionAnalytics(req, res) {
   });
 }
 
+async function chatAssistant(req, res) {
+  const payload = req.body || {};
+  const message = (payload.message || "").trim();
+  if (!message) {
+    res.status(400).json({ error: "message is required" });
+    return;
+  }
+
+  const language = payload.language || "en";
+  const page = payload.page || "dashboard";
+  const serviceType = payload.serviceType || payload.service_type;
+  const applicationId = payload.applicationId || payload.application_id;
+  const context = payload.context || {};
+
+  const service = serviceType ? await getServiceByType(serviceType) : null;
+  const application = applicationId ? await getApplicationById(applicationId) : null;
+  const citizenData = buildCitizenData(application);
+
+  const response = await chatWithAssistant({
+    message,
+    language,
+    page,
+    serviceType,
+    applicationId,
+    context: {
+      ...context,
+      service,
+      application: application
+        ? {
+            application_id: application.application_id,
+            service_type: application.service_type,
+            application_status: application.application_status,
+            citizen_data: application.citizen_data,
+            documents: application.documents,
+            fields: application.fields
+          }
+        : null,
+      citizenData
+    }
+  });
+
+  res.json({ reply: response });
+}
+
 module.exports = {
   getServices,
   getServiceSchema,
@@ -420,5 +465,6 @@ module.exports = {
   getRejectionAnalytics,
   recommendSchemes,
   explainRisk,
-  uploadApplicationDocument
+  uploadApplicationDocument,
+  chatAssistant
 };

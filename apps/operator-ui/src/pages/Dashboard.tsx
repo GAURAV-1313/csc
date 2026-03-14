@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { api, type ServiceSchema, type WhatsappLaunchConfig } from "../services/api";
 import ServiceCard from "../components/ServiceCard";
 import WhatsAppWidget from "../components/WhatsAppWidget";
+import ChatWidget from "../components/ChatWidget";
 import digitalSevaLogo from "../assets/digital-seva-logo.png";
 import { serviceSummaryMap } from "../data/serviceSummaries";
 import HeatmapDashboard from "../components/HeatmapDashboard";
@@ -208,6 +209,17 @@ export default function Dashboard() {
       </div>
 
       <WhatsAppWidget />
+      <ChatWidget
+        page="dashboard"
+        context={{
+          operator: { name: operatorName, district },
+          services: services.map((svc) => ({
+            service_name: svc.service_name,
+            service_type: svc.service_type,
+            category: svc.category
+          }))
+        }}
+      />
     </div>
   );
 }
