@@ -46,13 +46,12 @@ const incomeCertificateSchema: ServiceSchema = {
       fields: [
         { key: "date", type: "date", required: true },
         { key: "place", type: "text", required: true },
-        { key: "applicant_name", type: "text", required: true },
-        { key: "signature", type: "text", required: true }
+        { key: "applicant_name", type: "text", required: true }
       ]
     }
   ],
   required_documents: {
-    mandatory: ["affidavit", "income_proof"],
+    mandatory: ["affidavit", "income_proof", "signature"],
     optional: []
   }
 };
