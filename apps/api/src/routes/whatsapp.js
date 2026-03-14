@@ -1,56 +1,13 @@
 const { processMessage } = require("../modules/whatsapp/conversationFlow");
 const { getConversation, saveConversation, savePrecheckRecord, getPrecheckByReferenceId } = require("../modules/whatsapp/whatsappStore");
-const { formatTwilioReply, parseTwilioWebhook, parseMetaWebhook, verifyMetaWebhook, getLaunchConfig, PROVIDER, sendMessage } = require("../modules/whatsapp/whatsappService");
-
-// Simple in-memory rate limiter for the webhook verification endpoint.
-// Allows at most VERIFY_MAX_REQUESTS attempts per VERIFY_WINDOW_MS per IP.
-const VERIFY_WINDOW_MS = 60 * 1000; // 1 minute
-const VERIFY_MAX_REQUESTS = 10;
-const verifyAttempts = new Map();
-
-function verifyRateLimit(req, res, next) {
-  const ip = req.ip || req.connection.remoteAddress || "unknown";
-  const now = Date.now();
-  const record = verifyAttempts.get(ip) || { count: 0, windowStart: now };
-
-  if (now - record.windowStart > VERIFY_WINDOW_MS) {
-    record.count = 0;
-    record.windowStart = now;
-  }
-
-  record.count += 1;
-  verifyAttempts.set(ip, record);
-
-  if (record.count > VERIFY_MAX_REQUESTS) {
-    res.status(429).json({ error: "Too many requests. Please try again later." });
-    return;
-  }
-
-  next();
-}
-
-/**
- * GET /whatsapp/webhook
- *
- * Meta (Facebook) Cloud API webhook verification.
- * Meta sends hub.mode, hub.verify_token, and hub.challenge as query parameters.
- * This endpoint must echo hub.challenge back with a 200 response to confirm ownership.
- */
-function whatsappWebhookVerify(req, res) {
-  const { verified, challenge } = verifyMetaWebhook(req.query);
-  if (verified) {
-    res.status(200).send(challenge);
-  } else {
-    res.status(403).json({ error: "Webhook verification failed. Check META_VERIFY_TOKEN." });
-  }
-}
+const { formatTwilioReply, parseTwilioWebhook, parseMetaWebhook, getLaunchConfig, PROVIDER } = require("../modules/whatsapp/whatsappService");
+const { getCitizenReport, lookupCitizenReport, getBotLaunchConfig, isBotConfigured } = require("../modules/whatsapp/botClient");
 
 /**
  * POST /whatsapp/webhook
  *
  * Handles incoming WhatsApp messages from Twilio or Meta Cloud API.
- * Twilio expects a TwiML XML response; Meta webhooks expect 200 OK with an
- * empty body (replies are sent via the Messaging API separately).
+ * Twilio expects a TwiML XML response; other providers receive a JSON reply.
  */
 async function whatsappWebhook(req, res) {
   try {
@@ -88,18 +45,7 @@ async function whatsappWebhook(req, res) {
       return;
     }
 
-    if (PROVIDER === "meta") {
-      // Meta expects a 200 OK with an empty body; the reply is sent via the Messaging API.
-      res.sendStatus(200);
-      try {
-        await sendMessage(phoneNumber, reply);
-      } catch (sendErr) {
-        console.error("Meta send error for", phoneNumber, sendErr);
-      }
-      return;
-    }
-
-    // For mock provider return JSON (useful for testing)
+    // For Meta / mock providers return JSON
     res.json({ reply });
   } catch (err) {
     console.error("WhatsApp webhook error:", err);
@@ -111,9 +57,20 @@ async function whatsappWebhook(req, res) {
  * GET /public/whatsapp-launch-config
  *
  * Returns the WhatsApp launch configuration for the website button.
+ * When BOT_API_BASE_URL is configured, proxies the bot's launch config
+ * (which includes deep_link).  Falls back to locally generated config.
  * This endpoint is public (no authentication required).
  */
-function whatsappLaunchConfig(req, res) {
+async function whatsappLaunchConfig(req, res) {
+  try {
+    const botConfig = await getBotLaunchConfig();
+    if (botConfig) {
+      res.json(botConfig);
+      return;
+    }
+  } catch (_) {
+    // fall through to local config
+  }
   res.json(getLaunchConfig());
 }
 
@@ -156,10 +113,73 @@ async function precheckStatus(req, res) {
   });
 }
 
+/**
+ * GET /whatsapp-report/:referenceId
+ *
+ * Proxies a citizen pre-check report from the external WhatsApp bot API.
+ * Requires BOT_API_BASE_URL and BOT_API_TOKEN to be configured.
+ *
+ * The operator UI calls this endpoint with the Reference ID the citizen
+ * received from the bot (format: PC-XXXXXX).
+ */
+async function whatsappReport(req, res) {
+  const { referenceId } = req.params;
+  if (!referenceId) {
+    res.status(400).json({ error: "referenceId is required" });
+    return;
+  }
+
+  if (!isBotConfigured()) {
+    res.status(503).json({
+      error: "Bot API is not configured. Set BOT_API_BASE_URL and BOT_API_TOKEN in the environment."
+    });
+    return;
+  }
+
+  try {
+    const report = await getCitizenReport(referenceId);
+    res.json(report);
+  } catch (err) {
+    const status = err.status || 500;
+    res.status(status).json({ error: err.message || "Bot API error" });
+  }
+}
+
+/**
+ * POST /whatsapp-report/lookup
+ *
+ * Same as GET /whatsapp-report/:referenceId but accepts the Reference ID
+ * in the request body.  Useful when the operator submits a lookup form.
+ *
+ * Body: { "reference_id": "PC-0VLTMA" }
+ */
+async function whatsappReportLookup(req, res) {
+  const { reference_id: referenceId } = req.body || {};
+  if (!referenceId) {
+    res.status(400).json({ error: "reference_id is required in the request body" });
+    return;
+  }
+
+  if (!isBotConfigured()) {
+    res.status(503).json({
+      error: "Bot API is not configured. Set BOT_API_BASE_URL and BOT_API_TOKEN in the environment."
+    });
+    return;
+  }
+
+  try {
+    const report = await lookupCitizenReport(referenceId);
+    res.json(report);
+  } catch (err) {
+    const status = err.status || 500;
+    res.status(status).json({ error: err.message || "Bot API error" });
+  }
+}
+
 module.exports = {
-  verifyRateLimit,
-  whatsappWebhookVerify,
   whatsappWebhook,
   whatsappLaunchConfig,
-  precheckStatus
+  precheckStatus,
+  whatsappReport,
+  whatsappReportLookup
 };
