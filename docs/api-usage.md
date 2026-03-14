@@ -113,6 +113,3 @@ Example body:
 
 GET /applications/:applicationId
 
-## 10) List Applications
-
-GET /applications

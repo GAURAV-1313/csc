@@ -7,6 +7,7 @@ Single-backend Express API that implements the full AI pre-submission flow:
 - ML risk prediction integration
 - Scheme recommendation
 - LLM explanation
+- WhatsApp chatbot pre-check flow
 
 ## Storage
 
@@ -28,7 +29,3 @@ DATABASE_URL=file:/Users/gaurav/csc/prisma/app.db
 ```
 
 ## SQLite artifacts
-
-- Migration SQL: `/Users/gaurav/csc/db/migrations/001_init.sql`
-- Prisma schema: `/Users/gaurav/csc/prisma/schema.prisma`
-- Seed data: `/Users/gaurav/csc/db/seed/services.sql`
