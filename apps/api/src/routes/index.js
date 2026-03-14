@@ -8,6 +8,7 @@ const {
   validateApplication,
   extractDocument,
   predictRisk,
+  getRejectionAnalytics,
   recommendSchemes,
   explainRisk,
   listApplications,
@@ -27,6 +28,7 @@ function registerRoutes(app, upload) {
   app.post("/extract-document", upload.single("file"), extractDocument);
   app.post("/validate-application", validateApplication);
   app.post("/predict-risk", predictRisk);
+  app.get("/analytics/rejections", getRejectionAnalytics);
   app.post("/recommend-schemes", recommendSchemes);
   app.post("/explain", explainRisk);
 

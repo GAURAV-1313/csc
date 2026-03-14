@@ -7,6 +7,7 @@ export default function WhatsAppWidget() {
   const [showPopup, setShowPopup] = useState(false);
   const [hovered, setHovered] = useState(false);
   const lang = (localStorage.getItem("ui_lang") as "hi" | "en") || "hi";
+  const fallbackWaLink = import.meta.env.VITE_WHATSAPP_FALLBACK_URL || "https://wa.me/";
 
   const label = lang === "hi" ? "WhatsApp पर प्री-चेक शुरू करें" : "Start Pre-Check on WhatsApp";
 
@@ -17,9 +18,7 @@ export default function WhatsAppWidget() {
       .catch(() => null);
   }, []);
 
-  const waLink = config?.deep_link || config?.whatsapp_url || config?.fallback_link;
-
-  if (!waLink) return null;
+  const waLink = config?.deep_link || config?.whatsapp_url || config?.fallback_link || fallbackWaLink;
 
   return (
     <>

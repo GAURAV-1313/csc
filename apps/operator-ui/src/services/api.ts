@@ -22,6 +22,29 @@ export type ServiceSchema = {
   };
 };
 
+export type DistrictRejectionReason = {
+  reason: string;
+  count: number;
+};
+
+export type DistrictServiceRejection = {
+  serviceName: string;
+  rejected: number;
+  reasons: DistrictRejectionReason[];
+};
+
+export type DistrictRejectionAnalytics = {
+  name: string;
+  totalApplications: number;
+  totalRejected: number;
+  services: DistrictServiceRejection[];
+};
+
+export type RejectionAnalyticsResponse = {
+  range: string;
+  districts: DistrictRejectionAnalytics[];
+};
+
 export type ValidationResult = {
   application_id: string;
   warnings: string[];
@@ -111,6 +134,8 @@ export const api = {
   createOperator: (payload: Record<string, unknown>) =>
     request("/operators", { method: "POST", body: JSON.stringify(payload) }),
   getServices: (): Promise<{ services: ServiceSchema[] }> => request("/services"),
+  getRejectionAnalytics: (range: string): Promise<RejectionAnalyticsResponse> =>
+    request(`/analytics/rejections?range=${encodeURIComponent(range)}`),
   getServiceSchema: (serviceType: string): Promise<{ service: ServiceSchema }> => request(`/services/${serviceType}`),
   createApplicationDraft: (payload: Record<string, unknown>): Promise<{ application_id: string }> =>
     request("/applications", { method: "POST", body: JSON.stringify(payload) }),

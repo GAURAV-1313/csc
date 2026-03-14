@@ -1,20 +1,9 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { api } from "../services/api";
+import { api, type ServiceSchema } from "../services/api";
 import heroHi from "../assets/hero-hi.jpg";
 import heroEn from "../assets/hero-en.jpg";
 import digitalSevaLogo from "../assets/digital-seva-logo.png";
-import aadhaarIcon from "../assets/services/Aadhaar.webp";
-import ayushmanIcon from "../assets/services/AYUSHMAN-BHARAT.webp";
-import jeevanIcon from "../assets/services/JEEVAN-PRAMAAN.webp";
-import passportIcon from "../assets/services/Passport.webp";
-import panIcon from "../assets/services/pan-card.svg";
-import incomeIcon from "../assets/services/income.svg";
-import domicileIcon from "../assets/services/domicile.svg";
-import scstIcon from "../assets/services/scst.svg";
-import obcIcon from "../assets/services/obc.svg";
-import landIcon from "../assets/services/land.svg";
-import birthIcon from "../assets/services/birth.svg";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -28,6 +17,7 @@ export default function Login() {
     (localStorage.getItem("ui_lang") as "hi" | "en") || "hi"
   );
   const [heroIndex, setHeroIndex] = useState(0);
+  const [services, setServices] = useState<ServiceSchema[]>([]);
 
   const copy = {
     hi: {
@@ -80,7 +70,7 @@ export default function Login() {
   const t = copy[lang];
   const heroImages = lang === "hi" ? [heroHi] : [heroEn];
   const [activeTab, setActiveTab] = useState<"g2c" | "b2c">("g2c");
-  const [activeFilter, setActiveFilter] = useState<"central" | "state" | "other">("central");
+  const [activeFilter, setActiveFilter] = useState<"all" | "central" | "state" | "other">("all");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -88,6 +78,43 @@ export default function Login() {
     }, 5000);
     return () => clearInterval(timer);
   }, [heroImages.length]);
+
+  useEffect(() => {
+    let mounted = true;
+    api
+      .getServices()
+      .then((data) => {
+        if (!mounted) return;
+        setServices(data.services || []);
+      })
+      .catch((error) => {
+        console.error(error);
+        if (!mounted) return;
+        setServices([]);
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  const serviceGroup = (service: ServiceSchema): "central" | "state" | "other" => {
+    const category = String(service.category || "").toLowerCase();
+    if (category.includes("central")) return "central";
+    if (category.includes("state") || category.includes("certificate") || category.includes("land")) return "state";
+    return "other";
+  };
+
+  const showcaseServices = services
+    .filter((service) => {
+      if (activeTab === "b2c") {
+        return serviceGroup(service) === "other";
+      }
+
+      if (activeFilter === "all") return true;
+      return serviceGroup(service) === activeFilter;
+    })
+    .slice(0, 40);
 
   const handleChange = (key: string, value: string) => {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -236,6 +263,7 @@ export default function Login() {
           </div>
           <div className="services-filters">
             {[
+              { key: "all", label: "All Services" },
               { key: "central", label: "Central Government Services" },
               { key: "state", label: "State Government Services" },
               { key: "other", label: "Other Government Services" }
@@ -243,7 +271,7 @@ export default function Login() {
               <button
                 key={filter.key}
                 className={`services-filter ${activeFilter === filter.key ? "active" : ""}`}
-                onClick={() => setActiveFilter(filter.key as "central" | "state" | "other")}
+                onClick={() => setActiveFilter(filter.key as "all" | "central" | "state" | "other")}
                 type="button"
               >
                 {filter.label}
@@ -251,94 +279,20 @@ export default function Login() {
             ))}
           </div>
           <div className="services-grid-digital">
-            {[
-              {
-                label: "Income Certificate",
-                meta: "income_certificate",
-                group: "state",
-                icon: incomeIcon
-              },
-              {
-                label: "Domicile Certificate",
-                meta: "domicile_certificate",
-                group: "state",
-                icon: domicileIcon
-              },
-              {
-                label: "SC/ST Certificate",
-                meta: "sc_st_certificate",
-                group: "state",
-                icon: scstIcon
-              },
-              {
-                label: "OBC Certificate",
-                meta: "obc_certificate",
-                group: "state",
-                icon: obcIcon
-              },
-              {
-                label: "Land Use Information",
-                meta: "land_use_information",
-                group: "state",
-                icon: landIcon
-              },
-              {
-                label: "Birth Certificate Correction",
-                meta: "birth_certificate_correction",
-                group: "state",
-                icon: birthIcon
-              },
-              {
-                label: "Aadhaar",
-                meta: "aadhaar_service",
-                group: "central",
-                icon: aadhaarIcon
-              },
-              {
-                label: "Ayushman Bharat",
-                meta: "ayushman",
-                group: "central",
-                icon: ayushmanIcon
-              },
-              {
-                label: "PAN",
-                meta: "pan_service",
-                group: "central",
-                icon: panIcon
-              },
-              {
-                label: "Passport",
-                meta: "passport_service",
-                group: "central",
-                icon: passportIcon
-              },
-              {
-                label: "Udyam Services",
-                meta: "udyam_service",
-                group: "other",
-                icon: null
-              },
-              {
-                label: "PM-SVANidhi",
-                meta: "pmsvanidhi",
-                group: "other",
-                icon: null
-              }
-            ]
-              .filter((item) => activeFilter === item.group)
-              .map((item) => (
-                <div className="service-tile" key={item.meta}>
-                  <div className="icon">
-                    {item.icon ? (
-                      <img src={item.icon} alt={item.label} />
-                    ) : (
-                      <span>{item.label.split(" ")[0]}</span>
-                    )}
-                  </div>
-                  <div className="label">{item.label}</div>
-                  <div className="meta">{item.meta}</div>
+            {showcaseServices.length === 0 && (
+              <div className="card" style={{ gridColumn: "1 / -1" }}>
+                No services found for this filter.
+              </div>
+            )}
+            {showcaseServices.map((item) => (
+              <div className="service-tile" key={item.service_id || item.service_type}>
+                <div className="icon">
+                  <span>{String(item.service_name || "S").charAt(0)}</span>
                 </div>
-              ))}
+                <div className="label">{item.service_name}</div>
+                <div className="meta">{item.service_type}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
