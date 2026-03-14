@@ -14,7 +14,7 @@ const {
   listApplications,
   uploadApplicationDocument
 } = require("./handlers");
-const { whatsappWebhook, whatsappLaunchConfig, precheckStatus, whatsappReport, whatsappReportLookup, botStatus } = require("./whatsapp");
+const { whatsappWebhook, whatsappLaunchConfig, precheckStatus, whatsappReport, whatsappReportLookup, botStatus, storePrecheck } = require("./whatsapp");
 
 function registerRoutes(app, upload) {
   app.get("/services", getServices);
@@ -41,6 +41,9 @@ function registerRoutes(app, upload) {
   // External WhatsApp bot proxy routes (requires BOT_API_BASE_URL + BOT_API_TOKEN)
   app.get("/whatsapp-report/:referenceId", whatsappReport);
   app.post("/whatsapp-report/lookup", whatsappReportLookup);
+
+  // Endpoint for the external bot to push completed pre-check records
+  app.post("/whatsapp-integration/store-precheck", storePrecheck);
 }
 
 module.exports = { registerRoutes };

@@ -213,3 +213,39 @@ GET /whatsapp/precheck-status/:referenceId
 Retrieves a pre-check record from the CSC API's local store (populated when the embedded
 WhatsApp webhook flow is used instead of an external bot).
 
+### 15) Store Pre-check Record (bot push)
+
+POST /whatsapp-integration/store-precheck
+
+Allows the external WhatsApp pre-check bot to push a completed pre-check record into the
+CSC API's local store. Once stored, operators can retrieve it with
+`GET /whatsapp/precheck-status/:referenceId` without the bot needing to be reachable.
+
+Authentication: `Authorization: Bearer <CSC_API_BEARER_TOKEN>` (required when
+`CSC_API_BEARER_TOKEN` is set in the environment).
+
+Required body fields: `reference_id`, `phone_number`, `service_type`, `precheck_data`
+
+Body:
+```json
+{
+  "reference_id": "PC-0VLTMA",
+  "phone_number": "+919876543210",
+  "service_type": "income-certificate",
+  "precheck_data": {
+    "district": "Raipur",
+    "annual_income": "120000",
+    "purpose": "Scholarship",
+    "category": "OBC"
+  },
+  "required_documents": ["Aadhaar Card", "Ration Card"],
+  "eligibility_status": "approved",
+  "eligibility_message": "",
+  "status": "completed"
+}
+```
+
+Example response (201 Created):
+```json
+{ "success": true, "reference_id": "PC-0VLTMA" }
+```
