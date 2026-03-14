@@ -2,9 +2,8 @@
  * WhatsApp Service
  *
  * Abstracts the underlying WhatsApp provider (Twilio or whatsapp-web.js).
- * In webhook mode (Twilio / Meta Cloud API) the provider only needs to
- * format outgoing reply payloads — actual sending is handled by the webhook
- * route returning TwiML or a JSON reply.
+ * In webhook mode (Twilio) the provider only needs to format outgoing reply
+ * payloads — actual sending is handled by the webhook route returning TwiML.
  *
  * Supported providers (WHATSAPP_PROVIDER env var):
  *   - "twilio"         : Twilio WhatsApp API (default)
