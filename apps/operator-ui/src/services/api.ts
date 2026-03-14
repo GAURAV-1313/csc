@@ -150,5 +150,16 @@ export const api = {
    * Reference IDs are in the format PC-XXXXXX.
    */
   getWhatsappReport: (referenceId: string): Promise<CitizenReport> =>
-    request(`/whatsapp-report/${encodeURIComponent(referenceId.toUpperCase())}`)
+    request(`/whatsapp-report/${encodeURIComponent(referenceId.toUpperCase())}`),
+
+  /**
+   * Same as getWhatsappReport but uses a POST body lookup.
+   * Useful as a fallback when the Reference ID contains characters that
+   * need special handling in URL path segments.
+   */
+  lookupWhatsappReport: (referenceId: string): Promise<CitizenReport> =>
+    request("/whatsapp-report/lookup", {
+      method: "POST",
+      body: JSON.stringify({ reference_id: referenceId.toUpperCase() })
+    })
 };
