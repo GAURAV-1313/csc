@@ -542,6 +542,10 @@ textarea {
   align-items: start;
 }
 
+.csc-form-layout.no-panel {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .csc-form-grid {
   gap: 18px;
 }

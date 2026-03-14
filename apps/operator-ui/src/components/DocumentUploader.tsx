@@ -7,10 +7,11 @@ type DocumentUploaderProps = {
     mandatory?: string[];
     optional?: string[];
   };
+  documentLabels?: Record<string, string>;
   onUploaded: (result: { document?: Record<string, unknown> }) => void;
 };
 
-export default function DocumentUploader({ applicationId, requiredDocuments, onUploaded }: DocumentUploaderProps) {
+export default function DocumentUploader({ applicationId, requiredDocuments, documentLabels, onUploaded }: DocumentUploaderProps) {
   const [uploading, setUploading] = useState<Record<string, boolean>>({});
 
   const handleUpload = async (documentType: string, file?: File) => {
@@ -37,7 +38,7 @@ export default function DocumentUploader({ applicationId, requiredDocuments, onU
         {[...mandatory, ...optional].map((doc) => (
           <div key={doc} className="doc-item">
             <div>
-              <strong>{doc.replace(/_/g, " ")}</strong>
+              <strong>{documentLabels?.[doc] || doc.replace(/_/g, " ")}</strong>
               <small className="csc-doc-meta">{mandatory.includes(doc) ? "Mandatory" : "Optional"}</small>
             </div>
             <input
