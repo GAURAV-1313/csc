@@ -188,10 +188,43 @@ async function whatsappReportLookup(req, res) {
   }
 }
 
+/**
+ * GET /whatsapp/bot-status
+ *
+ * Returns the current integration status of the external WhatsApp pre-check bot.
+ * Indicates whether the bot API is configured and reachable.
+ * This endpoint is public (no authentication required).
+ */
+async function botStatus(req, res) {
+  const configured = isBotConfigured();
+
+  if (!configured) {
+    res.json({
+      configured: false,
+      reachable: false,
+      message: "Bot API is not configured. Set BOT_API_BASE_URL and BOT_API_TOKEN in the environment."
+    });
+    return;
+  }
+
+  const launchConfig = await getBotLaunchConfig();
+  const reachable = launchConfig !== null;
+
+  res.json({
+    configured: true,
+    reachable,
+    bot_url: (process.env.BOT_API_BASE_URL || "").replace(/\/$/, "") || null,
+    message: reachable
+      ? "Bot API is configured and reachable."
+      : "Bot API is configured but could not be reached. Check BOT_API_BASE_URL."
+  });
+}
+
 module.exports = {
   whatsappWebhook,
   whatsappLaunchConfig,
   precheckStatus,
   whatsappReport,
-  whatsappReportLookup
+  whatsappReportLookup,
+  botStatus
 };
