@@ -2,6 +2,7 @@ type Field = {
   key: string;
   type: string;
   options?: string[];
+  maxLength?: number;
 };
 
 type FieldRendererProps = {
@@ -11,9 +12,21 @@ type FieldRendererProps = {
 };
 
 export default function FieldRenderer({ field, value, onChange }: FieldRendererProps) {
+  const isPinCodeField = String(field.key || "").toLowerCase().includes("pin_code");
+
   const commonProps = {
     value: value ?? "",
-    onChange: (event) => onChange(field.key, event.target.value)
+    onChange: (event) => {
+      let nextValue = event.target.value;
+
+      if (isPinCodeField) {
+        nextValue = String(nextValue).replace(/\D/g, "").slice(0, 6);
+      } else if (field.maxLength && typeof nextValue === "string") {
+        nextValue = nextValue.slice(0, field.maxLength);
+      }
+
+      onChange(field.key, nextValue);
+    }
   };
 
   if (field.type === "number") {
@@ -51,5 +64,5 @@ export default function FieldRenderer({ field, value, onChange }: FieldRendererP
     );
   }
 
-  return <input type="text" {...commonProps} />;
+  return <input type="text" {...commonProps} maxLength={field.maxLength} inputMode={isPinCodeField ? "numeric" : undefined} />;
 }
