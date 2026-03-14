@@ -142,6 +142,27 @@ textarea {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
+  position: relative;
+  isolation: isolate;
+  padding: 8px;
+}
+
+.services-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("./assets/india-map-solid.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: min(620px, 82%);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.services-grid > * {
+  position: relative;
+  z-index: 1;
 }
 
 .service-card {
@@ -543,6 +564,53 @@ textarea {
   gap: 12px;
   color: var(--muted);
   font-size: 14px;
+}
+
+.wa-inline-banner {
+  margin-top: 14px;
+  background: linear-gradient(140deg, #e9fff2 0%, #f4fff8 100%);
+  border: 1px solid #bcecd0;
+  border-radius: 18px;
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.wa-inline-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #25D366;
+  color: #fff;
+}
+
+.wa-inline-copy strong {
+  display: block;
+  font-size: 14px;
+  color: #14532d;
+}
+
+.wa-inline-copy p {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #166534;
+}
+
+.btn.wa-inline-btn {
+  background: #25D366;
+  border: none;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn.wa-inline-btn:hover,
+.btn.wa-inline-btn:focus {
+  background: #1ebe57;
 }
 
 .services-showcase {
@@ -1335,6 +1403,18 @@ textarea {
   }
   .panel {
     position: static;
+  }
+}
+
+@media (max-width: 720px) {
+  .wa-inline-banner {
+    grid-template-columns: auto 1fr;
+  }
+
+  .btn.wa-inline-btn {
+    grid-column: 1 / -1;
+    width: 100%;
+    text-align: center;
   }
 }
 
