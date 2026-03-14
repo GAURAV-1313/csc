@@ -4,6 +4,7 @@ import { api, type ServiceSchema, type WhatsappLaunchConfig } from "../services/
 import ServiceCard from "../components/ServiceCard";
 import WhatsAppWidget from "../components/WhatsAppWidget";
 import digitalSevaLogo from "../assets/digital-seva-logo.png";
+import { serviceSummaryMap } from "../data/serviceSummaries";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -56,7 +57,12 @@ export default function Dashboard() {
       topRight: "डिजिटल भारत के साथ जारी रखें",
       navTitle: "कॉमन सर्विस सेंटर",
       navSubtitle: "Digital Seva Portal",
-      navLinks: ["होम", "CSC Locator", "जानकारी सुविधा", "संपर्क"],
+      navLinks: [
+        { label: "होम", href: "#" },
+        { label: "CSC Locator", href: "https://locator.csccloud.in/" },
+        { label: "जानकारी सुविधा", href: "https://jaankari.csccloud.in/" },
+        { label: "संपर्क", href: "#" }
+      ],
       welcome: "स्वागत है",
       district: "जिला",
       badge: "AI प्री-स्क्रीनिंग डेस्क",
@@ -71,7 +77,12 @@ export default function Dashboard() {
       topRight: "Continue with Digital India",
       navTitle: "Common Service Center",
       navSubtitle: "Digital Seva Portal",
-      navLinks: ["Home", "CSC Locator", "Jaankari Suvidha", "Contact"],
+      navLinks: [
+        { label: "Home", href: "#" },
+        { label: "CSC Locator", href: "https://locator.csccloud.in/" },
+        { label: "Jaankari Suvidha", href: "https://jaankari.csccloud.in/" },
+        { label: "Contact", href: "#" }
+      ],
       welcome: "Welcome",
       district: "District",
       badge: "AI Pre-Submission Desk",
@@ -120,13 +131,12 @@ export default function Dashboard() {
           </div>
           <div className="nav-links">
             {t.navLinks.map((link) => (
-              <span key={link}>{link}</span>
+              <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
+                {link.label}
+              </a>
             ))}
           </div>
           <div className="nav-actions">
-            <button className="btn secondary" type="button">
-              Join Us as a VLE
-            </button>
             <button className="btn" type="button">
               Login
             </button>
@@ -177,9 +187,19 @@ export default function Dashboard() {
           <div className="card">{t.noServices}</div>
         ) : (
           <div className="services-grid">
-            {services.map((service) => (
-              <ServiceCard key={service.service_id} service={service} onSelect={handleSelect} />
-            ))}
+            {services.map((service) => {
+              const summary = serviceSummaryMap[service.service_type];
+              const description =
+                (summary && summary[lang]) || summary?.en || "AI-assisted pre-validation service.";
+              return (
+                <ServiceCard
+                  key={service.service_id}
+                  service={service}
+                  onSelect={handleSelect}
+                  description={description}
+                />
+              );
+            })}
           </div>
         )}
       </div>

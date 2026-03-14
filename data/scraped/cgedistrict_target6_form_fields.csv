@@ -1,0 +1,107 @@
+serviceId,serviceName,section,fieldLabel,inputType,dataType,row,col
+4,SC/ST Certificate,General Details,Beneficiary Guardian Type,drop down,Charactar,2,1
+4,SC/ST Certificate,General Details,Beneficiary Guardian name,text,Charactar,2,2
+4,SC/ST Certificate,General Details,Beneficiary Guardian Type in English,drop down,Charactar,3,1
+4,SC/ST Certificate,General Details,Beneficiary Guardian name in English,text,Charactar,3,2
+4,SC/ST Certificate,General Details,Gender,drop down,Charactar,4,1
+4,SC/ST Certificate,General Details,Marital Status,drop down,Charactar,4,2
+4,SC/ST Certificate,General Details,Date of Birth,date,Date,5,1
+4,SC/ST Certificate,General Details,Relation to Applicant,drop down,Charactar,5,2
+4,SC/ST Certificate,General Details,Caste STSC,search,Search,6,1
+4,SC/ST Certificate,General Details,Category,text,Charactar,6,2
+4,SC/ST Certificate,General Details,Caste In English,text,Charactar,7,1
+4,SC/ST Certificate,General Details,Category In English,text,Charactar,7,2
+4,SC/ST Certificate,General Details,Category Number,text,Charactar,8,1
+4,SC/ST Certificate,General Details,Beneficiary name in English,text,Charactar,8,2
+4,SC/ST Certificate,Present Address of Applicant,Address,textarea,Alfa Numeric,10,1
+4,SC/ST Certificate,Present Address of Applicant,PIN Code,text,Number,10,2
+4,SC/ST Certificate,Present Address of Applicant,Post Box Number,text,Alfa Numeric,11,1
+4,SC/ST Certificate,Present Address of Applicant,District,drop down,Charactar,11,2
+4,SC/ST Certificate,Present Address of Applicant,Address In English,textarea,Alfa Numeric,12,1
+4,SC/ST Certificate,Present Address of Applicant,Is Present Address and Permanent Address is same,drop down,Charactar,12,2
+4,SC/ST Certificate,Permanent Address of Applicant,Address,textarea,Alfa Numeric,14,1
+4,SC/ST Certificate,Permanent Address of Applicant,PIN Code,text,Number,14,2
+4,SC/ST Certificate,Permanent Address of Applicant,District,drop down,Charactar,15,1
+4,SC/ST Certificate,Permanent Address of Applicant,Post Box Number,text,Alfa Numeric,15,1
+4,SC/ST Certificate,Permanent Address of Applicant,Police Station,search,Search,16,2
+4,SC/ST Certificate,Permanent Address on or Before Date 10 August 1950,Village or Town,text,Charactar,18,1
+4,SC/ST Certificate,Permanent Address on or Before Date 10 August 1950,Patwari Halka Number,text,Number,18,2
+4,SC/ST Certificate,Permanent Address on or Before Date 10 August 1950,Tehsil,text,Charactar,19,1
+4,SC/ST Certificate,Permanent Address on or Before Date 10 August 1950,District,Data List,Charactar,19,2
+4,SC/ST Certificate,Permanent Address on or Before Date 10 August 1950,Name of Head Of Family on This Date,text,Charactar,20,1
+4,SC/ST Certificate,Permanent Address on or Before Date 10 August 1950,Applicant Relation to Head of Family,drop down,Charactar,20,2
+4,SC/ST Certificate,Address Details of Year 10 August 1950 SC or 06 September 1950 ST to till Date Applicant or his Father or Mother or Guardian,Is Applicant or his Father or Mother or Guardian Year 1950 to till Date live in Chhattisgarh,drop down,Number,22,1
+4,SC/ST Certificate,Address Details of Year 10 August 1950 SC or 06 September 1950 ST to till Date Applicant or his Father or Mother or Guardian,Address Details of Applicants Guardian,fieldset,Alfa Numeric,23,1
+4,SC/ST Certificate,Other Details,Have Applicant issued scst certificate before,drop down,Charactar,25,1
+4,SC/ST Certificate,Other Details,Details of document to proof that Beneficiary belongs to SC ST,textarea,Charactar,25,2
+5,OBC Certificate,General Details,Beneficiary Guardian Type,drop down,Charactar,2,1
+5,OBC Certificate,General Details,Beneficiary Guardian name,text,Charactar,2,2
+5,OBC Certificate,General Details,Beneficiary Guardian Type in English,drop down,Charactar,3,1
+5,OBC Certificate,General Details,Beneficiary Guardian name in English,text,Charactar,3,2
+5,OBC Certificate,General Details,Gender,drop down,Charactar,4,1
+5,OBC Certificate,General Details,Marital Status,drop down,Charactar,4,2
+5,OBC Certificate,General Details,Date of Birth,date,Date,5,1
+5,OBC Certificate,General Details,Relation to Applicant,drop down,Charactar,5,2
+5,OBC Certificate,General Details,Caste OBC,search,Search,6,1
+5,OBC Certificate,General Details,Category,text,Charactar,6,2
+5,OBC Certificate,General Details,Caste In English,text,Charactar,7,1
+5,OBC Certificate,General Details,Category In English,text,Charactar,7,2
+5,OBC Certificate,General Details,Category Number,text,Charactar,8,1
+5,OBC Certificate,General Details,Beneficiary name in English,text,Charactar,8,2
+5,OBC Certificate,Present Address of Applicant,Address,textarea,Alfa Numeric,10,1
+5,OBC Certificate,Present Address of Applicant,PIN Code,text,Number,10,2
+5,OBC Certificate,Present Address of Applicant,Post Box Number,text,Alfa Numeric,11,1
+5,OBC Certificate,Present Address of Applicant,District,drop down,Charactar,11,2
+5,OBC Certificate,Present Address of Applicant,Address In English,textarea,Alfa Numeric,12,1
+5,OBC Certificate,Present Address of Applicant,Is Present Address and Permanent Address is same,drop down,Charactar,12,2
+5,OBC Certificate,Permanent Address of Applicant,Address,textarea,Alfa Numeric,14,1
+5,OBC Certificate,Permanent Address of Applicant,PIN Code,text,Number,14,2
+5,OBC Certificate,Permanent Address of Applicant,Post Box Number,text,Alfa Numeric,15,1
+5,OBC Certificate,Permanent Address of Applicant,District,drop down,Charactar,15,2
+5,OBC Certificate,Permanent Address of Applicant,Police Station,search,Search,16,1
+5,OBC Certificate,Address Before or on Date 26/12/1984,Village or Town,text,Charactar,18,1
+5,OBC Certificate,Address Before or on Date 26/12/1984,Patwari Halka Number,text,Number,18,2
+5,OBC Certificate,Address Before or on Date 26/12/1984,Tehsil,text,Charactar,19,1
+5,OBC Certificate,Address Before or on Date 26/12/1984,District,Data List,Charactar,19,2
+5,OBC Certificate,Address Before or on Date 26/12/1984,Name of Head Of Family on This Date,text,Charactar,20,1
+5,OBC Certificate,Address Before or on Date 26/12/1984,Applicant Relation to Head of Family,drop down,Charactar,20,2
+5,OBC Certificate,Address Details of Applicant/his Father / Mother/ Guardian from Year 26/12/1984 to till Date,Address Details of Applicants Guardian,fieldset,Alfa Numeric,22,1
+6,Income Certificate,Beneficiary Details,Gender,drop down,Charactar,2,1
+6,Income Certificate,Beneficiary Details,Age of Beneficiary,number,Number,2,2
+6,Income Certificate,Beneficiary Details,Beneficiary Guardian Type,drop down,Charactar,3,1
+6,Income Certificate,Beneficiary Details,Beneficiary Guardian name,text,Charactar,3,2
+6,Income Certificate,Beneficiary Details,Relation with Applicant,drop down,Alfa Numeric,4,1
+6,Income Certificate,Beneficiary Details,Son or Daughter or Wife Name of Beneficiary,text,Number,4,2
+6,Income Certificate,Beneficiary Details,Caste,search,Search,5,1
+6,Income Certificate,Beneficiary Details,Type,text,Charactar,5,2
+6,Income Certificate,Beneficiary Details,Class Number,text,Charactar,6,1
+6,Income Certificate,Address Details,Address,textarea,Alfa Numeric,8,1
+6,Income Certificate,Address Details,PIN Code,text,Number,8,2
+6,Income Certificate,Address Details,District,drop down,Charactar,9,1
+6,Income Certificate,Income Details,Details of Business or service,search,Search,11,1
+6,Income Certificate,Income Details,Reason for application,Data List,Charactar,11,2
+6,Income Certificate,Income Details,Annual Income,text,Charactar,12,1
+6,Income Certificate,Income Details,Average Income For Last 3 Years,text,Charactar,12,2
+7,Domicile Certificate,General Details,Beneficiary Guardian Type,drop down,Charactar,2,1
+7,Domicile Certificate,General Details,Beneficiary Guardian name,text,Charactar,2,2
+7,Domicile Certificate,General Details,Guardians Occupation of Beneficiary,search,Search,3,1
+7,Domicile Certificate,General Details,Beneficiary place of Birth,text,Charactar,3,2
+7,Domicile Certificate,General Details,Gender,drop down,Charactar,4,1
+7,Domicile Certificate,General Details,Date of Birth,date,Date,4,2
+7,Domicile Certificate,Address Details,Address,textarea,Alfa Numeric,6,1
+7,Domicile Certificate,Address Details,PIN Code,text,Number,6,2
+7,Domicile Certificate,Address Details,District,drop down,Charactar,7,1
+7,Domicile Certificate,Particulars of stay After Birth of Beneficiary,Particulars of stay After Birth of Beneficiary,fieldset,Alfa Numeric,9,1
+7,Domicile Certificate,Beneficiary Details of Business or Service,Beneficiary Details of Business or service,fieldset,Alfa Numeric,11,1
+7,Domicile Certificate,Beneficiary Education Level,Beneficiary Education Level,fieldset,Alfa Numeric,13,1
+7,Domicile Certificate,Other Details,Have Beneficiary Voter Id,drop down,Charactar,15,1
+7,Domicile Certificate,Other Details,District Name of Beneficiary,drop down,Charactar,15,2
+7,Domicile Certificate,Other Details,Living From in Years,number,Date,16,1
+7,Domicile Certificate,Other Details,Reason for application Domicile,text,Charactar,16,2
+7,Domicile Certificate,Other Details,Any other detail,text,Charactar,17,1
+40,Land Use Information,General,Name,text,Charactar,1,1
+40,Land Use Information,General,Fathers name,text,Charactar,2,1
+40,Land Use Information,General,Name of Village,Data List,Number,3,1
+40,Land Use Information,General,Patwari Halka Number,text,Number,4,1
+40,Land Use Information,General,Khasara No,Data List,Number,5,1
+40,Land Use Information,General,Is applicant applying for his/her own land,drop down,Charactar,6,1

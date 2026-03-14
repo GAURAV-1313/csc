@@ -35,7 +35,12 @@ export default function Login() {
       topRight: "डिजिटल भारत के साथ जारी रखें",
       navTitle: "कॉमन सर्विस सेंटर",
       navSubtitle: "Digital Seva Portal",
-      navLinks: ["होम", "CSC Locator", "जानकारी सुविधा", "संपर्क"],
+      navLinks: [
+        { label: "होम", href: "#" },
+        { label: "CSC Locator", href: "https://locator.csccloud.in/" },
+        { label: "जानकारी सुविधा", href: "https://jaankari.csccloud.in/" },
+        { label: "संपर्क", href: "#" }
+      ],
       heroTitle: "लोक सेवा केंद्र • AI प्री-स्क्रीनिंग डेस्क",
       heroBody:
         "CSC ऑपरेटरों के लिए तेज़ आवेदन सत्यापन, दस्तावेज़ जांच और जोखिम विश्लेषण — सब एक जगह.",
@@ -53,7 +58,12 @@ export default function Login() {
       topRight: "Continue with Digital India",
       navTitle: "Common Service Center",
       navSubtitle: "Digital Seva Portal",
-      navLinks: ["Home", "CSC Locator", "Jaankari Suvidha", "Contact"],
+      navLinks: [
+        { label: "Home", href: "#" },
+        { label: "CSC Locator", href: "https://locator.csccloud.in/" },
+        { label: "Jaankari Suvidha", href: "https://jaankari.csccloud.in/" },
+        { label: "Contact", href: "#" }
+      ],
       heroTitle: "Lok Seva Kendra • AI Pre-Screening Desk",
       heroBody: "Fast application validation, document checks, and risk analysis for CSC operators.",
       notice: "AI Copilot performs pre-validation only. Final submission happens on eDistrict.",
@@ -137,13 +147,12 @@ export default function Login() {
           </div>
           <div className="nav-links">
             {t.navLinks.map((link) => (
-              <span key={link}>{link}</span>
+              <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
+                {link.label}
+              </a>
             ))}
           </div>
           <div className="nav-actions">
-            <button className="btn secondary" type="button">
-              Join Us as a VLE
-            </button>
             <button className="btn" type="button">
               Login
             </button>

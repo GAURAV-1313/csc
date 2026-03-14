@@ -5,6 +5,8 @@ import DynamicForm from "../components/DynamicForm";
 import DocumentUploader from "../components/DocumentUploader";
 import ValidationPanel from "../components/ValidationPanel";
 import WhatsAppWidget from "../components/WhatsAppWidget";
+import { serviceIntroMap } from "../data/serviceIntro";
+import digitalSevaLogo from "../assets/digital-seva-logo.png";
 
 /** Best-effort mapping from bot citizen_data keys to CSC form field keys. */
 const CITIZEN_DATA_FIELD_MAP: Record<string, string> = {
@@ -47,40 +49,6 @@ function mapCitizenDataToForm(
     }
   }
   return mapped;
-}
-
-const GENDER_OPTIONS = ["Male", "Female", "Other"];
-
-function applyUiFieldRules(baseSchema: ServiceSchema | null): ServiceSchema | null {
-  if (!baseSchema) return baseSchema;
-
-  return {
-    ...baseSchema,
-    sections: (baseSchema.sections || []).map((section) => ({
-      ...section,
-      fields: (section.fields || []).map((field) => {
-        const key = String(field.key || "").toLowerCase();
-
-        if (key === "gender") {
-          return {
-            ...field,
-            type: "select",
-            options: GENDER_OPTIONS
-          };
-        }
-
-        if (key.includes("pin_code")) {
-          return {
-            ...field,
-            type: "text",
-            maxLength: 6
-          };
-        }
-
-        return field;
-      })
-    }))
-  };
 }
 
 const incomeCertificateSchema: ServiceSchema = {
@@ -504,6 +472,7 @@ export default function ApplicationForm() {
     isObcCertificate ||
     isLandUseInformation ||
     isBirthCertificateCorrection;
+  const intro = serviceType ? serviceIntroMap[serviceType] : undefined;
   const navigate = useNavigate();
   const [schema, setSchema] = useState<ServiceSchema | null>(null);
   const [applicationId, setApplicationId] = useState<string | null>(null);
@@ -512,12 +481,77 @@ export default function ApplicationForm() {
   const [validationResult, setValidationResult] = useState<ValidationResult | null>(null);
   const [loading, setLoading] = useState(true);
   const [validating, setValidating] = useState(false);
+  const [viewMode, setViewMode] = useState<"intro" | "form">("intro");
+  const [lang, setLang] = useState<"hi" | "en">(
+    (localStorage.getItem("ui_lang") as "hi" | "en") || "hi"
+  );
 
   // WhatsApp pre-check lookup state
   const [referenceId, setReferenceId] = useState("");
   const [lookingUp, setLookingUp] = useState(false);
   const [citizenReport, setCitizenReport] = useState<CitizenReport | null>(null);
   const [lookupError, setLookupError] = useState<string | null>(null);
+
+  const copy = {
+    hi: {
+      selectLanguage: "भाषा चुनें",
+      topRight: "डिजिटल भारत के साथ जारी रखें",
+      brandTitle: "कॉमन सर्विस सेंटर",
+      brandSubtitle: "Digital Seva Portal",
+      back: "डैशबोर्ड पर वापस",
+      appId: "आवेदन आईडी",
+      introTitle: "परिचय",
+      viewForm: "फॉर्म देखें",
+      feeTitle: "शुल्क संबंधित जानकारी",
+      contactTitle: "संपर्क",
+      timeLimit: "समय सीमा",
+      requiredDocs: "आवश्यक दस्तावेज़",
+      slNo: "क्रमांक",
+      docType: "दस्तावेज़ प्रकार",
+      mandatory: "अनिवार्य",
+      yes: "हाँ",
+      no: "नहीं",
+      introFallback:
+        "यह सेवा नागरिकों को आवश्यक सरकारी सेवाओं तक पहुँचने में सहायता करती है। कृपया फॉर्म शुरू करने से पहले आवश्यक दस्तावेज़ और विवरण तैयार रखें।",
+      whatsappTitle: "WhatsApp प्री-चेक लुकअप",
+      whatsappHint: "नागरिक का रेफरेंस आईडी दर्ज करें (उदाहरण: PC-0VLTMA)",
+      lookupBtn: "फेच करें",
+      validating: "जाँच हो रही है...",
+      validate: "Validate Application",
+      submit: "Submit to eDistrict",
+      continue: "Risk Summary पर जाएँ"
+    },
+    en: {
+      selectLanguage: "Select Language",
+      topRight: "Continue with Digital India",
+      brandTitle: "Common Service Center",
+      brandSubtitle: "Digital Seva Portal",
+      back: "Back to Dashboard",
+      appId: "Application ID",
+      introTitle: "Introduction",
+      viewForm: "View Form",
+      feeTitle: "Fee Related Information",
+      contactTitle: "Contact",
+      timeLimit: "Time Limit",
+      requiredDocs: "Required Documents",
+      slNo: "Sl No.",
+      docType: "Document Type",
+      mandatory: "Mandatory",
+      yes: "Yes",
+      no: "No",
+      introFallback:
+        "This service helps citizens access essential public services. Please review the checklist before starting the form.",
+      whatsappTitle: "WhatsApp Pre-check Lookup",
+      whatsappHint: "Enter the citizen's Reference ID (e.g. PC-0VLTMA)",
+      lookupBtn: "Fetch & Pre-fill",
+      validating: "Validating...",
+      validate: "Validate Application",
+      submit: "Submit to eDistrict",
+      continue: "Continue to Risk Summary"
+    }
+  } as const;
+
+  const t = copy[lang];
 
   useEffect(() => {
     let mounted = true;
@@ -527,41 +561,7 @@ export default function ApplicationForm() {
         if (!serviceType) return;
         const service = await api.getServiceSchema(serviceType);
         if (!mounted) return;
-        const selectedSchema =
-          isIncomeCertificate
-            ? {
-                ...incomeCertificateSchema,
-                service_name: service.service?.service_name || incomeCertificateSchema.service_name
-              }
-            : isDomicileCertificate
-              ? {
-                  ...domicileCertificateSchema,
-                  service_name: service.service?.service_name || domicileCertificateSchema.service_name
-                }
-              : isScStCertificate
-                ? {
-                    ...scStCertificateSchema,
-                    service_name: service.service?.service_name || scStCertificateSchema.service_name
-                  }
-                : isObcCertificate
-                  ? {
-                      ...obcCertificateSchema,
-                      service_name: service.service?.service_name || obcCertificateSchema.service_name
-                    }
-                  : isLandUseInformation
-                    ? {
-                        ...landUseInformationSchema,
-                        service_name: service.service?.service_name || landUseInformationSchema.service_name
-                      }
-                    : isBirthCertificateCorrection
-                      ? {
-                          ...birthCertificateCorrectionSchema,
-                          service_name:
-                            service.service?.service_name || birthCertificateCorrectionSchema.service_name
-                        }
-              : service.service;
-
-        setSchema(applyUiFieldRules(selectedSchema));
+        setSchema(service.service);
 
         const draft = await api.createApplicationDraft({ serviceType, citizenData: {} });
         if (!mounted) return;
@@ -646,33 +646,11 @@ export default function ApplicationForm() {
     if (!applicationId) return;
     try {
       if (isCustomCertificate && serviceType) {
-        const documentsForRisk = uploadedDocs.map((doc) => ({
-          documentType: (doc.document_type as string) || (doc.documentType as string),
-          filePath: (doc.file_path as string) || (doc.filePath as string)
-        }));
-
-        const ocrResultsForRisk = uploadedDocs
-          .map((doc) => {
-            const fields: Record<string, unknown> = {};
-            const parsed = (doc.document_fields as Array<{ field_name?: string; field_value?: unknown }>) || [];
-            parsed.forEach((entry) => {
-              if (!entry?.field_name) return;
-              fields[entry.field_name] = entry.field_value;
-            });
-            if (Object.keys(fields).length === 0) {
-              return null;
-            }
-            return { fields };
-          })
-          .filter(Boolean);
-
         const prediction = await api.predictRisk({
           features: formData,
           serviceType,
           application_id: applicationId,
-          citizenData: formData,
-          documents: documentsForRisk,
-          ocrResults: ocrResultsForRisk
+          citizenData: formData
         });
         navigate(`/service/${serviceType}/risk-summary`, {
           state: {
@@ -696,23 +674,34 @@ export default function ApplicationForm() {
     <div className="page csc-form-page">
       <div className="csc-form-topstrip">
         <div className="shell csc-form-topstrip-inner">
-          <div className="csc-top-lang">Select Language</div>
-          <div className="csc-top-cta">Continue with Digital India</div>
+          <div className="lang-select">
+            <span>{t.selectLanguage}</span>
+            <select
+              value={lang}
+              onChange={(event) => {
+                const next = event.target.value as "hi" | "en";
+                setLang(next);
+                localStorage.setItem("ui_lang", next);
+              }}
+            >
+              <option value="hi">हिंदी</option>
+              <option value="en">English</option>
+            </select>
+          </div>
+          <div className="csc-top-cta">{t.topRight}</div>
         </div>
       </div>
 
-      <div className="csc-form-navbar">
-        <div className="shell csc-form-navbar-inner">
-          <div className="csc-form-brand">
-            <div className="csc-form-brand-logo">CSC</div>
+        <div className="csc-form-navbar">
+          <div className="shell csc-form-navbar-inner">
+            <div className="csc-form-brand">
+            <img src={digitalSevaLogo} alt="CSC Digital India" className="csc-form-brand-image" />
             <div>
-              <p className="csc-form-brand-title">Common Service Center</p>
-              <p className="csc-form-brand-subtitle">Digital Seva Portal</p>
+              <p className="csc-form-brand-title">{t.brandTitle}</p>
+              <p className="csc-form-brand-subtitle">{t.brandSubtitle}</p>
             </div>
           </div>
           <div className="csc-form-nav-actions">
-            <button className="btn secondary">Join Us as a VLE</button>
-            <button className="btn">Login</button>
           </div>
         </div>
       </div>
@@ -721,126 +710,205 @@ export default function ApplicationForm() {
         <div className="header csc-form-header">
           <div>
             <h1 className="title">{schema?.service_name || "Service Application"}</h1>
-            <p className="subtitle">Application ID: {applicationId || "..."}</p>
+            <p className="subtitle">
+              {t.appId}: {applicationId || "..."}
+            </p>
           </div>
           <button className="btn secondary" onClick={() => navigate("/dashboard")}>
-            Back to Dashboard
+            {t.back}
           </button>
-        </div>
-
-        {/* WhatsApp Pre-check Lookup */}
-        <div className="card" style={{ marginBottom: "24px", borderLeft: "4px solid #25D366" }}>
-          <h3 style={{ margin: "0 0 12px", fontSize: "15px", display: "flex", alignItems: "center", gap: "8px" }}>
-            <span>📱</span> WhatsApp Pre-check Lookup
-          </h3>
-          <p style={{ margin: "0 0 12px", fontSize: "13px", color: "var(--muted)" }}>
-            Enter the citizen's Reference ID (e.g.&nbsp;<strong>PC-0VLTMA</strong>) to auto-fill the form.
-          </p>
-          <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-            <input
-              type="text"
-              placeholder="PC-XXXXXX"
-              value={referenceId}
-              onChange={(e) => setReferenceId(e.target.value.toUpperCase())}
-              onKeyDown={(e) => e.key === "Enter" && handleWhatsappLookup()}
-              style={{
-                flex: "1",
-                minWidth: "160px",
-                padding: "8px 12px",
-                border: "1px solid #d1d5db",
-                borderRadius: "6px",
-                fontFamily: "monospace",
-                fontSize: "14px"
-              }}
-            />
-            <button
-              className="btn"
-              onClick={handleWhatsappLookup}
-              disabled={lookingUp || !referenceId.trim()}
-              style={{ background: "#25D366", border: "none" }}
-            >
-              {lookingUp ? "Looking up…" : "Fetch & Pre-fill"}
-            </button>
-          </div>
-
-          {lookupError && (
-            <p style={{ margin: "10px 0 0", color: "#dc2626", fontSize: "13px" }}>
-              ❌ {lookupError}
-            </p>
-          )}
-
-          {citizenReport && (
-            <div style={{ marginTop: "12px", fontSize: "13px" }}>
-              <p style={{ margin: "0 0 6px", color: "#16a34a" }}>
-                ✅ Pre-check data loaded for <strong>{citizenReport.reference_id}</strong>
-                {" — "}{citizenReport.service_type?.replace(/_/g, " ")}
-              </p>
-              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                {citizenReport.pdf_url && (
-                  <a href={citizenReport.pdf_url} target="_blank" rel="noreferrer" className="btn secondary" style={{ fontSize: "12px", padding: "4px 10px" }}>
-                    📄 Download PDF
-                  </a>
-                )}
-                {citizenReport.view_url && (
-                  <a href={citizenReport.view_url} target="_blank" rel="noreferrer" className="btn secondary" style={{ fontSize: "12px", padding: "4px 10px" }}>
-                    🔍 View Report
-                  </a>
-                )}
-              </div>
-              {citizenReport.documents && citizenReport.documents.length > 0 && (
-                <div style={{ marginTop: "8px" }}>
-                  <strong>Documents:</strong>{" "}
-                  {citizenReport.documents.map((d) => (
-                    <span
-                      key={d.type}
-                      style={{
-                        display: "inline-block",
-                        margin: "2px",
-                        padding: "2px 8px",
-                        borderRadius: "12px",
-                        fontSize: "11px",
-                        background: d.status === "available" ? "#dcfce7" : "#fee2e2",
-                        color: d.status === "available" ? "#166534" : "#991b1b"
-                      }}
-                    >
-                      {d.label} {d.status === "available" ? "✓" : "✗"}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
         </div>
 
         {loading ? (
           <div className="card">Loading schema...</div>
-        ) : (
-          <div className={`layout csc-form-layout ${isCustomCertificate ? "no-panel" : ""}`}>
-            <div className="grid csc-form-grid">
-              <DynamicForm schema={schema} formData={formData} onChange={handleChange} />
-              <DocumentUploader
-                applicationId={applicationId}
-                requiredDocuments={requiredDocuments}
-                documentLabels={{
-                  income_proof: isIncomeCertificate ? "income proof (category)" : "income proof",
-                  caste_proof: "caste proof",
-                  obc_proof: "obc proof"
-                }}
-                onUploaded={handleUploaded}
-              />
-              <div className="card csc-submit-card">
-                {!isCustomCertificate && (
-                  <button className="btn" onClick={validateApplication} disabled={validating}>
-                    {validating ? "Validating..." : "Validate Application"}
+        ) : viewMode === "intro" ? (
+          <div className="intro-layout">
+            <div className="intro-card">
+              <div className="intro-header">{t.introTitle}</div>
+              <p style={{ color: "var(--muted)", lineHeight: 1.6 }}>
+                {lang === "hi"
+                  ? intro?.introduction_hi || t.introFallback
+                  : intro?.introduction || t.introFallback}
+              </p>
+            </div>
+
+            <div className="intro-right">
+              <div className="intro-card">
+                <div className="intro-header">{t.viewForm}</div>
+                <div className="intro-action">
+                  <span className="intro-badge">Form Assistance</span>
+                  <button className="btn" onClick={() => setViewMode("form")}>
+                    {t.viewForm}
                   </button>
+                </div>
+              </div>
+              <div className="intro-card">
+                <div className="intro-header">{t.feeTitle}</div>
+                {intro?.feeInfo ? (
+                  intro.feeInfo.split("|").map((line) => (
+                    <p key={line} style={{ marginBottom: "8px" }}>
+                      {line.trim()}
+                    </p>
+                  ))
+                ) : (
+                  <>
+                    <p style={{ marginBottom: "8px" }}>Lok Seva Kendra: ₹30.0</p>
+                    <p>Online: ₹30.0</p>
+                  </>
                 )}
-                <button className="btn secondary" onClick={submitApplication}>
-                  {isCustomCertificate ? "Continue to Risk Summary" : "Submit to eDistrict"}
-                </button>
+              </div>
+              <div className="intro-card">
+                <div className="intro-header">{t.contactTitle}</div>
+                <p>{intro?.contact || "Lok Seva Kendra"}</p>
+              </div>
+              <div className="intro-card">
+                <div className="intro-header">{t.timeLimit}</div>
+                <p>{intro?.timeLimit || "7 Days"}</p>
               </div>
             </div>
-            {!isCustomCertificate && <ValidationPanel validationResult={validationResult} />}
+
+            <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
+              <div className="intro-header">{t.requiredDocs}</div>
+              <table className="intro-table">
+                <thead>
+                  <tr>
+                    <th>{t.slNo}</th>
+                    <th>{t.docType}</th>
+                    <th>{t.mandatory}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {(requiredDocuments?.mandatory || []).map((doc, idx) => (
+                    <tr key={doc}>
+                      <td>{idx + 1}</td>
+                      <td>{doc.replace(/_/g, " ")}</td>
+                      <td>{t.yes}</td>
+                    </tr>
+                  ))}
+                  {(requiredDocuments?.optional || []).map((doc, idx) => (
+                    <tr key={doc}>
+                      <td>{(requiredDocuments?.mandatory?.length || 0) + idx + 1}</td>
+                      <td>{doc.replace(/_/g, " ")}</td>
+                      <td>{t.no}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
+        ) : (
+          <>
+            {/* WhatsApp Pre-check Lookup */}
+            <div className="card" style={{ marginBottom: "24px", borderLeft: "4px solid #25D366" }}>
+              <h3 style={{ margin: "0 0 12px", fontSize: "15px", display: "flex", alignItems: "center", gap: "8px" }}>
+                <span>📱</span> {t.whatsappTitle}
+              </h3>
+              <p style={{ margin: "0 0 12px", fontSize: "13px", color: "var(--muted)" }}>
+                {t.whatsappHint}
+              </p>
+              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                <input
+                  type="text"
+                  placeholder="PC-XXXXXX"
+                  value={referenceId}
+                  onChange={(e) => setReferenceId(e.target.value.toUpperCase())}
+                  onKeyDown={(e) => e.key === "Enter" && handleWhatsappLookup()}
+                  style={{
+                    flex: "1",
+                    minWidth: "160px",
+                    padding: "8px 12px",
+                    border: "1px solid #d1d5db",
+                    borderRadius: "6px",
+                    fontFamily: "monospace",
+                    fontSize: "14px"
+                  }}
+                />
+                <button
+                  className="btn"
+                  onClick={handleWhatsappLookup}
+                  disabled={lookingUp || !referenceId.trim()}
+                  style={{ background: "#25D366", border: "none" }}
+                >
+                  {lookingUp ? "Looking up…" : t.lookupBtn}
+                </button>
+              </div>
+
+              {lookupError && (
+                <p style={{ margin: "10px 0 0", color: "#dc2626", fontSize: "13px" }}>
+                  ❌ {lookupError}
+                </p>
+              )}
+
+              {citizenReport && (
+                <div style={{ marginTop: "12px", fontSize: "13px" }}>
+                  <p style={{ margin: "0 0 6px", color: "#16a34a" }}>
+                    ✅ Pre-check data loaded for <strong>{citizenReport.reference_id}</strong>
+                    {" — "}{citizenReport.service_type?.replace(/_/g, " ")}
+                  </p>
+                  <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                    {citizenReport.pdf_url && (
+                      <a href={citizenReport.pdf_url} target="_blank" rel="noreferrer" className="btn secondary" style={{ fontSize: "12px", padding: "4px 10px" }}>
+                        📄 Download PDF
+                      </a>
+                    )}
+                    {citizenReport.view_url && (
+                      <a href={citizenReport.view_url} target="_blank" rel="noreferrer" className="btn secondary" style={{ fontSize: "12px", padding: "4px 10px" }}>
+                        🔍 View Report
+                      </a>
+                    )}
+                  </div>
+                  {citizenReport.documents && citizenReport.documents.length > 0 && (
+                    <div style={{ marginTop: "8px" }}>
+                      <strong>Documents:</strong>{" "}
+                      {citizenReport.documents.map((d) => (
+                        <span
+                          key={d.type}
+                          style={{
+                            display: "inline-block",
+                            margin: "2px",
+                            padding: "2px 8px",
+                            borderRadius: "12px",
+                            fontSize: "11px",
+                            background: d.status === "available" ? "#dcfce7" : "#fee2e2",
+                            color: d.status === "available" ? "#166534" : "#991b1b"
+                          }}
+                        >
+                          {d.label} {d.status === "available" ? "✓" : "✗"}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+
+            <div className={`layout csc-form-layout ${isCustomCertificate ? "no-panel" : ""}`}>
+              <div className="grid csc-form-grid">
+                <DynamicForm schema={schema} formData={formData} onChange={handleChange} />
+                <DocumentUploader
+                  applicationId={applicationId}
+                  requiredDocuments={requiredDocuments}
+                  documentLabels={{
+                    income_proof: isIncomeCertificate ? "income proof (category)" : "income proof",
+                    caste_proof: "caste proof",
+                    obc_proof: "obc proof"
+                  }}
+                  onUploaded={handleUploaded}
+                />
+                <div className="card csc-submit-card">
+                  {!isCustomCertificate && (
+                    <button className="btn" onClick={validateApplication} disabled={validating}>
+                      {validating ? t.validating : t.validate}
+                    </button>
+                  )}
+                  <button className="btn secondary" onClick={submitApplication}>
+                    {isCustomCertificate ? t.continue : t.submit}
+                  </button>
+                </div>
+              </div>
+              {!isCustomCertificate && <ValidationPanel validationResult={validationResult} />}
+            </div>
+          </>
         )}
       </div>
 
