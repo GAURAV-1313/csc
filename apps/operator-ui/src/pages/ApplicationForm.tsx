@@ -1,6 +1,12 @@
 import { useEffect, useMemo, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { api, type ServiceSchema, type ValidationResult, type CitizenReport } from "../services/api";
+import {
+  api,
+  type ServiceSchema,
+  type ValidationResult,
+  type CitizenReport,
+  type RiskPredictionResult
+} from "../services/api";
 import DynamicForm from "../components/DynamicForm";
 import DocumentUploader from "../components/DocumentUploader";
 import ValidationPanel from "../components/ValidationPanel";
@@ -52,18 +58,97 @@ function mapCitizenDataToForm(
   return mapped;
 }
 
-function mapOcrFieldsToForm(ocrFields: Record<string, unknown>): Record<string, string> {
-  const mapped: Record<string, string> = {};
-  if (!ocrFields) return mapped;
-  const normalize = (value: unknown) => (value === null || value === undefined ? "" : String(value));
+function normalizeRiskLevel(level?: string) {
+  const value = (level || "").toLowerCase();
+  if (value.includes("high")) return "high";
+  if (value.includes("med")) return "medium";
+  if (value.includes("low") || value.includes("safe")) return "low";
+  return "unknown";
+}
 
-  if (ocrFields.name) mapped.applicant_name = normalize(ocrFields.name);
-  if (ocrFields.dob || ocrFields.date_of_birth) mapped.date_of_birth = normalize(ocrFields.dob || ocrFields.date_of_birth);
-  if (ocrFields.aadhaar_number || ocrFields.aadhaar) mapped.aadhaar_number = normalize(ocrFields.aadhaar_number || ocrFields.aadhaar);
-  if (ocrFields.pan_number || ocrFields.pan) mapped.pan_number = normalize(ocrFields.pan_number || ocrFields.pan);
-  if (ocrFields.address) mapped.address = normalize(ocrFields.address);
+function getDisplayRiskLevel(level?: string) {
+  const normalized = normalizeRiskLevel(level);
+  if (normalized === "medium") return "MED";
+  if (normalized === "low") return "LOW";
+  if (normalized === "high") return "HIGH";
+  return "UNKNOWN";
+}
 
-  return mapped;
+function ensureSentence(text: string) {
+  const normalized = text.replace(/\s+/g, " ").trim().replace(/[;:,]+$/, "");
+  if (!normalized) return "";
+  return /[.!?]$/.test(normalized) ? normalized : `${normalized}.`;
+}
+
+function concisePointFromSentence(sentence: string) {
+  const s = sentence.toLowerCase();
+
+  if (s.includes("register") || s.includes("login") || s.includes("apply")) {
+    return "Register on the portal/CSC and submit the online application form.";
+  }
+  if (s.includes("document") || s.includes("upload") || s.includes("proof")) {
+    return "Keep required documents ready and upload valid proofs during submission.";
+  }
+  if (s.includes("acknowledgement") || s.includes("arn") || s.includes("track")) {
+    return "After submission, an acknowledgement/ARN is generated for status tracking.";
+  }
+  if (s.includes("sms") || s.includes("download") || s.includes("digitally signed") || s.includes("certificate")) {
+    return "On approval, the certificate can be downloaded from the portal.";
+  }
+  if (s.includes("day") || s.includes("timeline") || s.includes("working")) {
+    return "The application is processed within the notified service timeline.";
+  }
+  if (s.includes("fee") || s.includes("payment")) {
+    return "Pay the prescribed fee as per the selected service rules.";
+  }
+
+  const cleaned = ensureSentence(sentence);
+  if (!cleaned) return "";
+
+  // Keep complete wording (no ellipsis) by limiting to first phrase and ending with a full stop.
+  const firstClause = cleaned.split(/,| and | which | where | after /i)[0]?.trim() || cleaned;
+  return ensureSentence(firstClause);
+}
+
+function toIntroPoints(raw?: string) {
+  if (!raw) return [];
+  const text = raw.replace(/\s+/g, " ").trim();
+  if (!text) return [];
+
+  const explicitSplit = text
+    .split(/(?:\s*[|•]\s*|\s+-\s+)/)
+    .map((item) => item.trim())
+    .filter((item) => item.length > 0);
+
+  const candidates = explicitSplit.length > 1
+    ? explicitSplit
+    : text
+      .split(/(?<=[.!?])\s+/)
+      .map((item) => item.trim())
+      .filter((item) => item.length > 24);
+
+  const transformed = candidates
+    .map((line) => concisePointFromSentence(line))
+    .filter((line) => line.length > 0);
+
+  const unique = Array.from(new Set(transformed));
+  const selected = unique.slice(0, 5);
+
+  if (selected.length >= 4) return selected;
+
+  const defaults = [
+    "Register on the portal/CSC and submit the online application form.",
+    "Keep required documents ready and upload valid proofs during submission.",
+    "After submission, an acknowledgement/ARN is generated for status tracking.",
+    "On approval, the certificate can be downloaded from the portal."
+  ];
+
+  const merged = [...selected];
+  defaults.forEach((line) => {
+    if (merged.length < 4 && !merged.includes(line)) merged.push(line);
+  });
+
+  return merged;
 }
 
 const incomeCertificateSchema: ServiceSchema = {
@@ -487,8 +572,12 @@ export default function ApplicationForm() {
   const [formData, setFormData] = useState<Record<string, string | number | boolean>>({});
   const [uploadedDocs, setUploadedDocs] = useState<Array<Record<string, unknown>>>([]);
   const [validationResult, setValidationResult] = useState<ValidationResult | null>(null);
+  const [riskPrediction, setRiskPrediction] = useState<RiskPredictionResult | null>(null);
   const [loading, setLoading] = useState(true);
   const [validating, setValidating] = useState(false);
+  const [predictingRisk, setPredictingRisk] = useState(false);
+  const [submittingFinal, setSubmittingFinal] = useState(false);
+  const [autoValidating, setAutoValidating] = useState(false);
   const [chatAutoOpen, setChatAutoOpen] = useState(false);
   const [viewMode, setViewMode] = useState<"intro" | "form">("intro");
   const [lang, setLang] = useState<"hi" | "en">(
@@ -561,6 +650,23 @@ export default function ApplicationForm() {
   } as const;
 
   const t = copy[lang];
+
+  const rejectedDisplay = useMemo(() => {
+    const value = riskPrediction?.rejected_prediction;
+    if (value == null) return "No";
+    if (typeof value === "number") return value > 0 ? "Yes" : "No";
+    if (typeof value === "boolean") return value ? "Yes" : "No";
+    const normalized = String(value).trim().toLowerCase();
+    if (normalized === "1" || normalized === "true" || normalized === "yes") return "Yes";
+    if (normalized === "0" || normalized === "false" || normalized === "no") return "No";
+    return "No";
+  }, [riskPrediction?.rejected_prediction]);
+
+  const introText = lang === "hi"
+    ? intro?.introduction_hi || t.introFallback
+    : intro?.introduction || t.introFallback;
+
+  const introPoints = useMemo(() => toIntroPoints(introText), [introText]);
 
   useEffect(() => {
     let mounted = true;
@@ -636,11 +742,19 @@ export default function ApplicationForm() {
     }
 
     autoValidateTimer.current = window.setTimeout(async () => {
-      await validateApplication(true);
-      if (!chatAutoOpen) {
-        setChatAutoOpen(true);
+      setAutoValidating(true);
+      try {
+        const result = await api.validateApplication(payload);
+        setValidationResult(result);
+        if (!chatAutoOpen) {
+          setChatAutoOpen(true);
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setAutoValidating(false);
       }
-    }, 600);
+    }, 900);
 
     return () => {
       if (autoValidateTimer.current) {
@@ -670,7 +784,7 @@ export default function ApplicationForm() {
     }
   };
 
-  const validateApplication = async (silent = false) => {
+  const validateApplication = async () => {
     if (!schema || !serviceType) return;
     setValidating(true);
     try {
@@ -679,9 +793,7 @@ export default function ApplicationForm() {
         citizenData: formData,
         documents: uploadedDocs.map((doc) => ({
           documentType: (doc.document_type as string) || (doc.documentType as string),
-          filePath: (doc.file_path as string) || (doc.filePath as string),
-          ocrData: doc.ocrData as Record<string, unknown> | undefined,
-          sampleId: doc.sampleId as string | undefined
+          filePath: (doc.file_path as string) || (doc.filePath as string)
         })),
         application_id: applicationId
       };
@@ -689,9 +801,7 @@ export default function ApplicationForm() {
       setValidationResult(result);
     } catch (error) {
       console.error(error);
-      if (!silent) {
-        alert(error.message);
-      }
+      alert(error.message);
     } finally {
       setValidating(false);
     }
@@ -701,22 +811,33 @@ export default function ApplicationForm() {
     if (!applicationId) return;
     try {
       if (!serviceType) return;
+      setPredictingRisk(true);
       const prediction = await api.predictRisk({
         features: formData,
         serviceType,
         application_id: applicationId,
         citizenData: formData
       });
-      navigate(`/service/${serviceType}/risk-summary`, {
-        state: {
-          prediction,
-          applicationId,
-          serviceType
-        }
-      });
+      setRiskPrediction(prediction);
     } catch (error) {
       console.error(error);
       alert(error.message);
+    } finally {
+      setPredictingRisk(false);
+    }
+  };
+
+  const handleFinalSubmit = async () => {
+    if (!applicationId) return;
+    setSubmittingFinal(true);
+    try {
+      await api.submitApplication(applicationId);
+      window.location.href = "https://edistrict.cgstate.gov.in";
+    } catch (error) {
+      console.error(error);
+      alert((error as Error).message);
+    } finally {
+      setSubmittingFinal(false);
     }
   };
 
@@ -775,11 +896,15 @@ export default function ApplicationForm() {
           <div className="intro-layout">
             <div className="intro-card">
               <div className="intro-header">{t.introTitle}</div>
-              <p style={{ color: "var(--muted)", lineHeight: 1.6 }}>
-                {lang === "hi"
-                  ? intro?.introduction_hi || t.introFallback
-                  : intro?.introduction || t.introFallback}
-              </p>
+              {introPoints.length > 0 ? (
+                <ul className="csc-intro-points">
+                  {introPoints.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="csc-intro-fallback">{introText}</p>
+              )}
             </div>
 
             <div className="intro-right">
@@ -934,66 +1059,6 @@ export default function ApplicationForm() {
 
             <div className="layout csc-form-layout">
               <div className="grid csc-form-grid">
-                <div className="card csc-section-card">
-                  <div className="csc-section-header">
-                    <h3 className="csc-section-title">Aadhaar / PAN Upload</h3>
-                    <a href="#csc-docs" className="csc-doc-shortcut">All Documents</a>
-                  </div>
-                  <p className="csc-section-note">Upload Aadhaar or PAN once to auto-fill matching fields.</p>
-                  <div className="csc-doc-quick">
-                    <label className={`csc-doc-upload ${!applicationId ? "disabled" : ""}`}>
-                      Aadhaar Upload
-                      <input
-                        type="file"
-                        disabled={!applicationId}
-                        onChange={async (event) => {
-                          const file = event.target.files?.[0];
-                          if (!applicationId || !file) return;
-                          try {
-                            const result = await api.uploadDocument(applicationId, "aadhaar_card", file);
-                            handleUploaded(result);
-                            const ocrFields = (result.ocr && result.ocr.fields) || {};
-                            const mapped = mapOcrFieldsToForm(ocrFields);
-                            if (Object.keys(mapped).length > 0) {
-                              setFormData((prev) => ({ ...prev, ...mapped }));
-                            }
-                          } catch (error) {
-                            console.error(error);
-                            alert(error.message);
-                          } finally {
-                            event.target.value = "";
-                          }
-                        }}
-                      />
-                    </label>
-                    <label className={`csc-doc-upload ${!applicationId ? "disabled" : ""}`}>
-                      PAN Upload
-                      <input
-                        type="file"
-                        disabled={!applicationId}
-                        onChange={async (event) => {
-                          const file = event.target.files?.[0];
-                          if (!applicationId || !file) return;
-                          try {
-                            const result = await api.uploadDocument(applicationId, "pan_card", file);
-                            handleUploaded(result);
-                            const ocrFields = (result.ocr && result.ocr.fields) || {};
-                            const mapped = mapOcrFieldsToForm(ocrFields);
-                            if (Object.keys(mapped).length > 0) {
-                              setFormData((prev) => ({ ...prev, ...mapped }));
-                            }
-                          } catch (error) {
-                            console.error(error);
-                            alert(error.message);
-                          } finally {
-                            event.target.value = "";
-                          }
-                        }}
-                      />
-                    </label>
-                  </div>
-                </div>
-
                 <DynamicForm schema={schema} formData={formData} onChange={handleChange} />
                 <DocumentUploader
                   applicationId={applicationId}
@@ -1011,13 +1076,38 @@ export default function ApplicationForm() {
                   <button className="btn" onClick={validateApplication} disabled={validating}>
                     {validating ? t.validating : t.validate}
                   </button>
-                  <button className="btn secondary" onClick={submitApplication}>
+                  <button className="btn secondary" onClick={submitApplication} disabled={predictingRisk}>
                     {t.continue}
                   </button>
                 </div>
               </div>
-              <ValidationPanel validationResult={validationResult} schema={schema} formData={formData} />
+              <ValidationPanel validationResult={validationResult} />
             </div>
+
+            {riskPrediction && (
+              <div className="card csc-risk-card csc-inline-risk-card">
+                <div className="csc-inline-risk-head">
+                  <div>
+                    <h2 className="title">Risk Prediction Summary</h2>
+                    <p className="subtitle">Service: {serviceType || "income_certificate"}</p>
+                  </div>
+                  <button className="btn" onClick={handleFinalSubmit} disabled={submittingFinal}>
+                    {submittingFinal ? "Submitting..." : t.submit}
+                  </button>
+                </div>
+
+                <div className="csc-risk-grid">
+                  <div className={`csc-risk-item csc-risk-level-${normalizeRiskLevel(riskPrediction.risk_level)}`}>
+                    <span className="csc-risk-label">risk_level</span>
+                    <strong>{getDisplayRiskLevel(riskPrediction.risk_level)}</strong>
+                  </div>
+                  <div className="csc-risk-item">
+                    <span className="csc-risk-label">rejected_prediction</span>
+                    <strong>{rejectedDisplay}</strong>
+                  </div>
+                </div>
+              </div>
+            )}
           </>
         )}
       </div>
