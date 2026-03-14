@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import ApplicationForm from "./pages/ApplicationForm";
+import RiskSummary from "./pages/RiskSummary";
 
 function RequireAuth({ children }: { children: JSX.Element }) {
   const operatorId = localStorage.getItem("operator_id");
@@ -28,6 +29,14 @@ export default function App() {
         element={
           <RequireAuth>
             <ApplicationForm />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/service/:serviceType/risk-summary"
+        element={
+          <RequireAuth>
+            <RiskSummary />
           </RequireAuth>
         }
       />

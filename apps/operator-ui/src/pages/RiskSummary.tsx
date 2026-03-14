@@ -1,0 +1,139 @@
+import { useMemo } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { api, type RiskPredictionResult } from "../services/api";
+
+type RiskSummaryState = {
+  prediction?: RiskPredictionResult;
+  applicationId?: string;
+  serviceType?: string;
+};
+
+function normalizeLevel(level?: string) {
+  const value = (level || "").toLowerCase();
+  if (value.includes("high")) return "high";
+  if (value.includes("med")) return "medium";
+  if (value.includes("low") || value.includes("safe")) return "low";
+  return "unknown";
+}
+
+function getDisplayLevel(level?: string) {
+  const normalized = normalizeLevel(level);
+  if (normalized === "medium") return "MED";
+  if (normalized === "low") return "LOW";
+  if (normalized === "high") return "HIGH";
+  return "UNKNOWN";
+}
+
+export default function RiskSummary() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const state = (location.state || {}) as RiskSummaryState;
+  const prediction = state.prediction || {};
+
+  const scorePercent = useMemo(() => {
+    const score = Number(prediction.risk_score ?? 0);
+    if (Number.isNaN(score)) return "-";
+    if (score > 1) return `${Math.round(score)}%`;
+    return `${Math.round(score * 100)}%`;
+  }, [prediction.risk_score]);
+
+  const probabilityPercent = useMemo(() => {
+    const prob = Number(prediction.risk_probability ?? prediction.risk_score ?? 0);
+    if (Number.isNaN(prob)) return "-";
+    if (prob > 1) return `${Math.round(prob)}%`;
+    return `${Math.round(prob * 100)}%`;
+  }, [prediction.risk_probability, prediction.risk_score]);
+
+  const thresholdValue = useMemo(() => {
+    const threshold = prediction.threshold_used;
+    if (threshold == null) return "N/A";
+    const num = Number(threshold);
+    if (Number.isNaN(num)) return String(threshold);
+    return num > 1 ? String(num) : num.toFixed(2);
+  }, [prediction.threshold_used]);
+
+  const contributingFactors = Array.isArray(prediction.main_contributing_factors)
+    ? prediction.main_contributing_factors
+    : [];
+
+  const handleFinalSubmit = async () => {
+    if (!state.applicationId) {
+      navigate("/dashboard");
+      return;
+    }
+    try {
+      await api.submitApplication(state.applicationId);
+      window.location.href = "https://edistrict.cgstate.gov.in";
+    } catch (error) {
+      console.error(error);
+      alert((error as Error).message);
+    }
+  };
+
+  return (
+    <div className="page csc-form-page">
+      <div className="csc-form-topstrip">
+        <div className="shell csc-form-topstrip-inner">
+          <div className="csc-top-lang">Select Language</div>
+          <div className="csc-top-cta">Continue with Digital India</div>
+        </div>
+      </div>
+
+      <div className="csc-form-navbar">
+        <div className="shell csc-form-navbar-inner">
+          <div className="csc-form-brand">
+            <div className="csc-form-brand-logo">CSC</div>
+            <div>
+              <p className="csc-form-brand-title">Common Service Center</p>
+              <p className="csc-form-brand-subtitle">Digital Seva Portal</p>
+            </div>
+          </div>
+          <div className="csc-form-nav-actions">
+            <button className="btn secondary" onClick={() => navigate("/dashboard")}>Back to Dashboard</button>
+            <button className="btn" onClick={handleFinalSubmit}>Submit to eDistrict</button>
+          </div>
+        </div>
+      </div>
+
+      <div className="shell csc-form-shell">
+        <div className="card csc-risk-card">
+          <h1 className="title">Risk Prediction Summary</h1>
+          <p className="subtitle">Service: {state.serviceType || "income_certificate"}</p>
+
+          <div className="csc-risk-grid">
+            <div className="csc-risk-item">
+              <span className="csc-risk-label">risk_probability</span>
+              <strong>{probabilityPercent}</strong>
+            </div>
+            <div className="csc-risk-item">
+              <span className="csc-risk-label">risk_score</span>
+              <strong>{scorePercent}</strong>
+            </div>
+            <div className="csc-risk-item">
+              <span className="csc-risk-label">risk_level</span>
+              <strong>{getDisplayLevel(prediction.risk_level)}</strong>
+            </div>
+            <div className="csc-risk-item">
+              <span className="csc-risk-label">rejected_prediction</span>
+              <strong>{prediction.rejected_prediction == null ? "N/A" : String(Boolean(prediction.rejected_prediction))}</strong>
+            </div>
+            <div className="csc-risk-item">
+              <span className="csc-risk-label">threshold_used</span>
+              <strong>{thresholdValue}</strong>
+            </div>
+          </div>
+
+          <div className="csc-panel-group">
+            <strong className="csc-panel-title">main_contributing_factors</strong>
+            <ul className="csc-panel-list">
+              {contributingFactors.length === 0 && <li className="csc-list-empty">No factors returned by model.</li>}
+              {contributingFactors.map((factor, idx) => (
+                <li key={`${factor}-${idx}`}>{factor}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
