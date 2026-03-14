@@ -4,6 +4,17 @@ import { api } from "../services/api";
 import heroHi from "../assets/hero-hi.jpg";
 import heroEn from "../assets/hero-en.jpg";
 import digitalSevaLogo from "../assets/digital-seva-logo.png";
+import aadhaarIcon from "../assets/services/Aadhaar.webp";
+import ayushmanIcon from "../assets/services/AYUSHMAN-BHARAT.webp";
+import jeevanIcon from "../assets/services/JEEVAN-PRAMAAN.webp";
+import passportIcon from "../assets/services/Passport.webp";
+import panIcon from "../assets/services/pan-card.svg";
+import incomeIcon from "../assets/services/income.svg";
+import domicileIcon from "../assets/services/domicile.svg";
+import scstIcon from "../assets/services/scst.svg";
+import obcIcon from "../assets/services/obc.svg";
+import landIcon from "../assets/services/land.svg";
+import birthIcon from "../assets/services/birth.svg";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -58,6 +69,8 @@ export default function Login() {
 
   const t = copy[lang];
   const heroImages = lang === "hi" ? [heroHi] : [heroEn];
+  const [activeTab, setActiveTab] = useState<"g2c" | "b2c">("g2c");
+  const [activeFilter, setActiveFilter] = useState<"central" | "state" | "other">("central");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -188,6 +201,135 @@ export default function Login() {
                 {t.citizenLogin}
               </button>
             </form>
+          </div>
+        </div>
+
+        <div className="services-showcase">
+          <h2>
+            {lang === "hi" ? "हमारी सेवाएँ" : "Our Services"}{" "}
+            <span style={{ color: "#f97316" }}>{lang === "hi" ? "उपलब्ध" : "Available"}</span>
+          </h2>
+          <div className="services-tabs">
+            <button
+              className={`services-tab ${activeTab === "g2c" ? "active" : ""}`}
+              onClick={() => setActiveTab("g2c")}
+              type="button"
+            >
+              Government to Citizen Services (G2C)
+            </button>
+            <button
+              className={`services-tab ${activeTab === "b2c" ? "active" : ""}`}
+              onClick={() => setActiveTab("b2c")}
+              type="button"
+            >
+              Business to Citizen Services (B2C)
+            </button>
+          </div>
+          <div className="services-filters">
+            {[
+              { key: "central", label: "Central Government Services" },
+              { key: "state", label: "State Government Services" },
+              { key: "other", label: "Other Government Services" }
+            ].map((filter) => (
+              <button
+                key={filter.key}
+                className={`services-filter ${activeFilter === filter.key ? "active" : ""}`}
+                onClick={() => setActiveFilter(filter.key as "central" | "state" | "other")}
+                type="button"
+              >
+                {filter.label}
+              </button>
+            ))}
+          </div>
+          <div className="services-grid-digital">
+            {[
+              {
+                label: "Income Certificate",
+                meta: "income_certificate",
+                group: "state",
+                icon: incomeIcon
+              },
+              {
+                label: "Domicile Certificate",
+                meta: "domicile_certificate",
+                group: "state",
+                icon: domicileIcon
+              },
+              {
+                label: "SC/ST Certificate",
+                meta: "sc_st_certificate",
+                group: "state",
+                icon: scstIcon
+              },
+              {
+                label: "OBC Certificate",
+                meta: "obc_certificate",
+                group: "state",
+                icon: obcIcon
+              },
+              {
+                label: "Land Use Information",
+                meta: "land_use_information",
+                group: "state",
+                icon: landIcon
+              },
+              {
+                label: "Birth Certificate Correction",
+                meta: "birth_certificate_correction",
+                group: "state",
+                icon: birthIcon
+              },
+              {
+                label: "Aadhaar",
+                meta: "aadhaar_service",
+                group: "central",
+                icon: aadhaarIcon
+              },
+              {
+                label: "Ayushman Bharat",
+                meta: "ayushman",
+                group: "central",
+                icon: ayushmanIcon
+              },
+              {
+                label: "PAN",
+                meta: "pan_service",
+                group: "central",
+                icon: panIcon
+              },
+              {
+                label: "Passport",
+                meta: "passport_service",
+                group: "central",
+                icon: passportIcon
+              },
+              {
+                label: "Udyam Services",
+                meta: "udyam_service",
+                group: "other",
+                icon: null
+              },
+              {
+                label: "PM-SVANidhi",
+                meta: "pmsvanidhi",
+                group: "other",
+                icon: null
+              }
+            ]
+              .filter((item) => activeFilter === item.group)
+              .map((item) => (
+                <div className="service-tile" key={item.meta}>
+                  <div className="icon">
+                    {item.icon ? (
+                      <img src={item.icon} alt={item.label} />
+                    ) : (
+                      <span>{item.label.split(" ")[0]}</span>
+                    )}
+                  </div>
+                  <div className="label">{item.label}</div>
+                  <div className="meta">{item.meta}</div>
+                </div>
+              ))}
           </div>
         </div>
       </div>
