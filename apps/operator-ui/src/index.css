@@ -973,6 +973,25 @@ textarea {
   line-height: 1.5;
 }
 
+.csc-intro-points {
+  margin: 0;
+  padding-left: 22px;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.csc-intro-points li + li {
+  margin-top: 6px;
+}
+
+.csc-intro-fallback {
+  color: #475569;
+  line-height: 1.45;
+  font-size: 15px;
+  margin: 0;
+}
+
 .csc-form-page .btn {
   border-radius: 10px;
   padding: 10px 18px;

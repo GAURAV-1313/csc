@@ -74,6 +74,83 @@ function getDisplayRiskLevel(level?: string) {
   return "UNKNOWN";
 }
 
+function ensureSentence(text: string) {
+  const normalized = text.replace(/\s+/g, " ").trim().replace(/[;:,]+$/, "");
+  if (!normalized) return "";
+  return /[.!?]$/.test(normalized) ? normalized : `${normalized}.`;
+}
+
+function concisePointFromSentence(sentence: string) {
+  const s = sentence.toLowerCase();
+
+  if (s.includes("register") || s.includes("login") || s.includes("apply")) {
+    return "Register on the portal/CSC and submit the online application form.";
+  }
+  if (s.includes("document") || s.includes("upload") || s.includes("proof")) {
+    return "Keep required documents ready and upload valid proofs during submission.";
+  }
+  if (s.includes("acknowledgement") || s.includes("arn") || s.includes("track")) {
+    return "After submission, an acknowledgement/ARN is generated for status tracking.";
+  }
+  if (s.includes("sms") || s.includes("download") || s.includes("digitally signed") || s.includes("certificate")) {
+    return "On approval, the certificate can be downloaded from the portal.";
+  }
+  if (s.includes("day") || s.includes("timeline") || s.includes("working")) {
+    return "The application is processed within the notified service timeline.";
+  }
+  if (s.includes("fee") || s.includes("payment")) {
+    return "Pay the prescribed fee as per the selected service rules.";
+  }
+
+  const cleaned = ensureSentence(sentence);
+  if (!cleaned) return "";
+
+  // Keep complete wording (no ellipsis) by limiting to first phrase and ending with a full stop.
+  const firstClause = cleaned.split(/,| and | which | where | after /i)[0]?.trim() || cleaned;
+  return ensureSentence(firstClause);
+}
+
+function toIntroPoints(raw?: string) {
+  if (!raw) return [];
+  const text = raw.replace(/\s+/g, " ").trim();
+  if (!text) return [];
+
+  const explicitSplit = text
+    .split(/(?:\s*[|•]\s*|\s+-\s+)/)
+    .map((item) => item.trim())
+    .filter((item) => item.length > 0);
+
+  const candidates = explicitSplit.length > 1
+    ? explicitSplit
+    : text
+      .split(/(?<=[.!?])\s+/)
+      .map((item) => item.trim())
+      .filter((item) => item.length > 24);
+
+  const transformed = candidates
+    .map((line) => concisePointFromSentence(line))
+    .filter((line) => line.length > 0);
+
+  const unique = Array.from(new Set(transformed));
+  const selected = unique.slice(0, 5);
+
+  if (selected.length >= 4) return selected;
+
+  const defaults = [
+    "Register on the portal/CSC and submit the online application form.",
+    "Keep required documents ready and upload valid proofs during submission.",
+    "After submission, an acknowledgement/ARN is generated for status tracking.",
+    "On approval, the certificate can be downloaded from the portal."
+  ];
+
+  const merged = [...selected];
+  defaults.forEach((line) => {
+    if (merged.length < 4 && !merged.includes(line)) merged.push(line);
+  });
+
+  return merged;
+}
+
 const incomeCertificateSchema: ServiceSchema = {
   service_id: "income_certificate",
   service_name: "Income Certificate",
@@ -585,6 +662,12 @@ export default function ApplicationForm() {
     return "No";
   }, [riskPrediction?.rejected_prediction]);
 
+  const introText = lang === "hi"
+    ? intro?.introduction_hi || t.introFallback
+    : intro?.introduction || t.introFallback;
+
+  const introPoints = useMemo(() => toIntroPoints(introText), [introText]);
+
   useEffect(() => {
     let mounted = true;
     async function load() {
@@ -813,11 +896,15 @@ export default function ApplicationForm() {
           <div className="intro-layout">
             <div className="intro-card">
               <div className="intro-header">{t.introTitle}</div>
-              <p style={{ color: "var(--muted)", lineHeight: 1.6 }}>
-                {lang === "hi"
-                  ? intro?.introduction_hi || t.introFallback
-                  : intro?.introduction || t.introFallback}
-              </p>
+              {introPoints.length > 0 ? (
+                <ul className="csc-intro-points">
+                  {introPoints.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="csc-intro-fallback">{introText}</p>
+              )}
             </div>
 
             <div className="intro-right">
