@@ -88,9 +88,32 @@ export default function ApplicationForm() {
   };
 
   return (
-    <div className="page">
-      <div className="shell">
-        <div className="header">
+    <div className="page csc-form-page">
+      <div className="csc-form-topstrip">
+        <div className="shell csc-form-topstrip-inner">
+          <div className="csc-top-lang">Select Language</div>
+          <div className="csc-top-cta">Continue with Digital India</div>
+        </div>
+      </div>
+
+      <div className="csc-form-navbar">
+        <div className="shell csc-form-navbar-inner">
+          <div className="csc-form-brand">
+            <div className="csc-form-brand-logo">CSC</div>
+            <div>
+              <p className="csc-form-brand-title">Common Service Center</p>
+              <p className="csc-form-brand-subtitle">Digital Seva Portal</p>
+            </div>
+          </div>
+          <div className="csc-form-nav-actions">
+            <button className="btn secondary">Join Us as a VLE</button>
+            <button className="btn">Login</button>
+          </div>
+        </div>
+      </div>
+
+      <div className="shell csc-form-shell">
+        <div className="header csc-form-header">
           <div>
             <h1 className="title">{schema?.service_name || "Service Application"}</h1>
             <p className="subtitle">Application ID: {applicationId || "..."}</p>
@@ -103,15 +126,15 @@ export default function ApplicationForm() {
         {loading ? (
           <div className="card">Loading schema...</div>
         ) : (
-          <div className="layout">
-            <div className="grid" style={{ gap: "24px" }}>
+          <div className="layout csc-form-layout">
+            <div className="grid csc-form-grid">
               <DynamicForm schema={schema} formData={formData} onChange={handleChange} />
               <DocumentUploader
                 applicationId={applicationId}
                 requiredDocuments={requiredDocuments}
                 onUploaded={handleUploaded}
               />
-              <div className="card" style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+              <div className="card csc-submit-card">
                 <button className="btn" onClick={validateApplication} disabled={validating}>
                   {validating ? "Validating..." : "Validate Application"}
                 </button>
