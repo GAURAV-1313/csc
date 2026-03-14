@@ -4,6 +4,7 @@ import { api, type ServiceSchema, type ValidationResult, type CitizenReport } fr
 import DynamicForm from "../components/DynamicForm";
 import DocumentUploader from "../components/DocumentUploader";
 import ValidationPanel from "../components/ValidationPanel";
+import WhatsAppWidget from "../components/WhatsAppWidget";
 
 /** Best-effort mapping from bot citizen_data keys to CSC form field keys. */
 const CITIZEN_DATA_FIELD_MAP: Record<string, string> = {
@@ -278,6 +279,8 @@ export default function ApplicationForm() {
           </div>
         )}
       </div>
+
+      <WhatsAppWidget />
     </div>
   );
 }
