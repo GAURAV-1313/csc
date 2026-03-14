@@ -179,7 +179,11 @@ async function validateApplication(req, res) {
     };
   });
 
-  let risk = await callMlApi(features);
+  let risk = await callMlApi(features, {
+    serviceType,
+    applicationId: application_id,
+    citizenData
+  });
   if (!risk || risk.error) {
     risk = scoreRisk(features, validation);
   }
@@ -230,7 +234,11 @@ async function listApplications(req, res) {
 async function predictRisk(req, res) {
   const payload = req.body || {};
   const features = payload.features || {};
-  let risk = await callMlApi(features);
+  let risk = await callMlApi(features, {
+    serviceType: payload.serviceType,
+    applicationId: payload.application_id,
+    citizenData: payload.citizenData
+  });
   if (!risk || risk.error) {
     risk = scoreRisk(features, { warnings: [] });
   }
