@@ -284,15 +284,17 @@ export default function Login() {
                 No services found for this filter.
               </div>
             )}
-            {showcaseServices.map((item) => (
-              <div className="service-tile" key={item.service_id || item.service_type}>
+            {showcaseServices.map((item, index) => {
+              const serviceKey = `${item.service_id || "svc"}_${item.service_type || "unknown"}_${index}`;
+              return (
+              <div className="service-tile" key={serviceKey}>
                 <div className="icon">
                   <span>{String(item.service_name || "S").charAt(0)}</span>
                 </div>
                 <div className="label">{item.service_name}</div>
                 <div className="meta">{item.service_type}</div>
               </div>
-            ))}
+            );})}
           </div>
         </div>
       </div>

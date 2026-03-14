@@ -932,7 +932,9 @@ export default function ApplicationForm() {
                   documentLabels={{
                     income_proof: isIncomeCertificate ? "income proof (category)" : "income proof",
                     caste_proof: "caste proof",
-                    obc_proof: "obc proof"
+                    obc_proof: "obc proof",
+                    aadhaar_card: "Aadhaar Card",
+                    pan_card: "PAN Card"
                   }}
                   onUploaded={handleUploaded}
                 />

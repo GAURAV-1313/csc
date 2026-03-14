@@ -24,7 +24,9 @@
       "optional": [
         "Affidavit",
         "Additional",
-        "Additional Document"
+        "Additional Document",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Affidavit": [
@@ -72,7 +74,9 @@
         "Additional Document",
         "Other Documents",
         "Form",
-        "Form 4"
+        "Form 4",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Affidavit": [
@@ -301,7 +305,9 @@
         "Necessary Documents",
         "Divorce Certifcate",
         "Widow Certificate",
-        "Inter Religion Marriage Certificate"
+        "Inter Religion Marriage Certificate",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Affidavit": [
@@ -602,7 +608,9 @@
         "Vanshavali 3",
         "Vanshavali 4",
         "Gram Sabha Proposal (Resident Of Rural Areas People)",
-        "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof"
+        "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Residential Proof": [
@@ -855,7 +863,9 @@
         "Vanshavali 3",
         "Vanshavali 4",
         "Gram Sabha Proposal (Resident Of Rural Areas People)",
-        "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof"
+        "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Residential Proof": [
@@ -995,7 +1005,9 @@
         "Other Documents",
         "Application Form",
         "Form 16",
-        "Income Of Other Members Of The Family"
+        "Income Of Other Members Of The Family",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Affidavit": [
@@ -1153,7 +1165,9 @@
         "Post Graduation Certificate",
         "Certificate In Technical Subjects",
         "Proof Of At Least 5 Years Stay",
-        "Persons Service Book."
+        "Persons Service Book.",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Affidavit": [
@@ -1218,7 +1232,9 @@
       "optional": [
         "Identity Proof",
         "Certificate/Document",
-        "Other Documents"
+        "Other Documents",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Identity Proof": [
@@ -1281,7 +1297,9 @@
       "optional": [
         "Certificate/Document",
         "Other Documents",
-        "Application Related Document"
+        "Application Related Document",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Bpl Proof": [
@@ -1335,7 +1353,9 @@
       "mandatory": [],
       "optional": [
         "Affidavit",
-        "Additional Document"
+        "Additional Document",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Affidavit": [
@@ -1382,7 +1402,9 @@
     "required_documents": {
       "mandatory": [],
       "optional": [
-        "Affidavit"
+        "Affidavit",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Affidavit": [
@@ -1552,7 +1574,9 @@
         "Doctors Certificate",
         "School Certificate",
         "Other Documents",
-        "Bank/Post Office Account Passbook"
+        "Bank/Post Office Account Passbook",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Domicile Certificate": [
@@ -1763,7 +1787,9 @@
         "School Certificate",
         "Issued By The Principal",
         "Other Documents",
-        "Bank/Post Office Account Passbook"
+        "Bank/Post Office Account Passbook",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Domicile Certificate": [
@@ -1958,7 +1984,9 @@
         "Ward Arbitrator Of Urban Bodies",
         "Certified By Councillor",
         "Other Documents",
-        "Bank/Post Office Account Passbook"
+        "Bank/Post Office Account Passbook",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Domicile Certificate": [
@@ -2144,7 +2172,9 @@
         "Ward Arbitrator Of Urban Bodies",
         "Certified By Councillor",
         "Other Documents",
-        "Bank/Post Office Account Passbook"
+        "Bank/Post Office Account Passbook",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Domicile Certificate": [
@@ -2239,7 +2269,9 @@
         "Electricity Bill",
         "Land And House Document",
         "Certificate From Ward Member, Local Mla/Mp",
-        "Other Documents"
+        "Other Documents",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Residential Proof": [
@@ -2305,7 +2337,9 @@
         "Passport",
         "Defence Id Card",
         "Pan Card",
-        "Aadhaar Card"
+        "Aadhaar Card",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Residential Proof": [
@@ -2349,7 +2383,9 @@
         "Income From Land/House",
         "Application Form",
         "Form 16",
-        "Income Of Other Members Of The Family"
+        "Income Of Other Members Of The Family",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Residential Proof": [
@@ -2383,7 +2419,10 @@
     ],
     "required_documents": {
       "mandatory": [],
-      "optional": [],
+      "optional": [
+        "aadhaar_card",
+        "pan_card"
+      ],
       "accepted_groups": {}
     }
   },
@@ -2406,7 +2445,10 @@
     ],
     "required_documents": {
       "mandatory": [],
-      "optional": [],
+      "optional": [
+        "aadhaar_card",
+        "pan_card"
+      ],
       "accepted_groups": {}
     }
   },
@@ -2516,7 +2558,9 @@
       "optional": [
         "Passport",
         "Pancard",
-        "Voter Id"
+        "Voter Id",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Photo Id Proof": [
@@ -2671,7 +2715,9 @@
         "Voter Id",
         "Driving Licence",
         "Passport",
-        "Challan(In Offline Mode)"
+        "Challan(In Offline Mode)",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Photo Id Proof": [
@@ -2713,7 +2759,9 @@
         "Receipt/Challan Of Registration Fee",
         "Address Proof",
         "Vender Card",
-        "Trade License"
+        "Trade License",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Affidavit": [
@@ -2851,7 +2899,9 @@
         "Land And House Document",
         "Certificate From Ward Member, Local Mla/Mp",
         "Bpl Proof",
-        "Cosent Form"
+        "Cosent Form",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Residential Proof": [
@@ -3031,7 +3081,9 @@
       "optional": [
         "Additional Document",
         "Other Documents",
-        "Application Form"
+        "Application Form",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Additional Document": [
@@ -3178,7 +3230,10 @@
         "Last Paid Property Tax Receipt",
         "Abedan Form"
       ],
-      "optional": [],
+      "optional": [
+        "aadhaar_card",
+        "pan_card"
+      ],
       "accepted_groups": {
         "Identity Proof": [
           "Identity Proof"
@@ -3242,7 +3297,10 @@
     ],
     "required_documents": {
       "mandatory": [],
-      "optional": [],
+      "optional": [
+        "aadhaar_card",
+        "pan_card"
+      ],
       "accepted_groups": {}
     }
   },
@@ -3265,7 +3323,10 @@
     ],
     "required_documents": {
       "mandatory": [],
-      "optional": [],
+      "optional": [
+        "aadhaar_card",
+        "pan_card"
+      ],
       "accepted_groups": {}
     }
   },
@@ -3371,7 +3432,9 @@
         "Land And House Document",
         "Certificate From Ward Member, Local Mla/Mp",
         "School Certificate",
-        "High School Certificate"
+        "High School Certificate",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Residential Proof": [
@@ -3484,7 +3547,9 @@
         "Certificate From Ward Member, Local Mla/Mp",
         "School Certificate",
         "High School Certificate",
-        "Photo"
+        "Photo",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Residential Proof": [
@@ -3609,7 +3674,9 @@
         "Certificate From Ward Member, Local Mla/Mp",
         "School Certificate",
         "High School Certificate",
-        "Loi From S.T.A. ( For Commercial Passenger Vehicles)"
+        "Loi From S.T.A. ( For Commercial Passenger Vehicles)",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Residential Proof": [
@@ -3827,7 +3894,9 @@
         "Birth Registration Certificate",
         "Doctors Certificate",
         "School Certificate",
-        "Bank/Post Office Account Passbook"
+        "Bank/Post Office Account Passbook",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Domicile Certificate": [
@@ -3875,7 +3944,9 @@
         "Certificate/Document",
         "Tax Receipt",
         "Receipt/Challan Of Registration Fee",
-        "Address Proof"
+        "Address Proof",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Affidavit": [
@@ -3912,7 +3983,10 @@
     ],
     "required_documents": {
       "mandatory": [],
-      "optional": [],
+      "optional": [
+        "aadhaar_card",
+        "pan_card"
+      ],
       "accepted_groups": {}
     }
   },
@@ -3987,7 +4061,9 @@
         "Land & House",
         "Vakaltnama",
         "Other Documents (Photograph Of Damaged Property)",
-        "Other Document 1"
+        "Other Document 1",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Address Proof": [
@@ -4135,7 +4211,9 @@
         "Vasiyat/Hibanama",
         "Sales Letter",
         "Registered Gift Deed",
-        "Other Document 1"
+        "Other Document 1",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Birth Proof": [
@@ -4266,7 +4344,9 @@
         "Vasiyat/Hibanama",
         "Sales Letter",
         "Registered Gift Deed",
-        "Other Document 1"
+        "Other Document 1",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Khasara": [
@@ -4366,7 +4446,9 @@
         "Form C",
         "House",
         "Land & House",
-        "Other Document 1"
+        "Other Document 1",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Khasara": [
@@ -4424,7 +4506,10 @@
     ],
     "required_documents": {
       "mandatory": [],
-      "optional": [],
+      "optional": [
+        "aadhaar_card",
+        "pan_card"
+      ],
       "accepted_groups": {}
     }
   },
@@ -4477,7 +4562,9 @@
         "Challan Copy"
       ],
       "optional": [
-        "B1"
+        "B1",
+        "aadhaar_card",
+        "pan_card"
       ],
       "accepted_groups": {
         "Khasara": [

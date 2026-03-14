@@ -3,20 +3,23 @@ function verifyDocuments({ citizenData, ocrResults }) {
   const comparisons = [];
 
   const mappedFields = [
-    { formKey: "applicant_name", ocrKey: "name" },
-    { formKey: "beneficiary_guardian_name", ocrKey: "name" },
-    { formKey: "address", ocrKey: "address" },
-    { formKey: "annual_income", ocrKey: "income" },
-    { formKey: "date_of_birth", ocrKey: "dob" }
+    { formKey: "applicant_name", ocrKeys: ["name", "applicant_name"] },
+    { formKey: "beneficiary_guardian_name", ocrKeys: ["name", "guardian_name"] },
+    { formKey: "address", ocrKeys: ["address"] },
+    { formKey: "annual_income", ocrKeys: ["income", "annual_income"] },
+    { formKey: "date_of_birth", ocrKeys: ["dob", "date_of_birth"] },
+    { formKey: "aadhaar_number", ocrKeys: ["aadhaar_number", "aadhar_number", "aadhaar", "aadhar"] },
+    { formKey: "pan_number", ocrKeys: ["pan_number", "pan"] }
   ];
 
-  mappedFields.forEach(({ formKey, ocrKey }) => {
+  mappedFields.forEach(({ formKey, ocrKeys }) => {
     const formValue = citizenData && citizenData[formKey];
     if (!formValue) {
       return;
     }
     const matched = ocrResults.some((result) => {
-      const ocrValue = result && result.fields ? result.fields[ocrKey] : undefined;
+      if (!result || !result.fields) return false;
+      const ocrValue = findOcrValue(result.fields, ocrKeys);
       if (!ocrValue) return false;
       return isMatch(formKey, formValue, ocrValue);
     });
@@ -67,6 +70,16 @@ function normalizeDate(value) {
   return `${yyyy}-${mm}-${dd}`;
 }
 
+function findOcrValue(fields, keys) {
+  if (!fields) return undefined;
+  for (const key of keys) {
+    if (fields[key] !== undefined && fields[key] !== null && String(fields[key]).trim() !== "") {
+      return fields[key];
+    }
+  }
+  return undefined;
+}
+
 function isMatch(formKey, formValue, ocrValue) {
   const key = String(formKey || "").toLowerCase();
 
@@ -87,6 +100,18 @@ function isMatch(formKey, formValue, ocrValue) {
 
   if (key.includes("address")) {
     return tokenOverlap(formValue, ocrValue) >= 0.7;
+  }
+
+  if (key.includes("aadhaar") || key.includes("aadhar")) {
+    const a = String(formValue).replace(/\D/g, "");
+    const b = String(ocrValue).replace(/\D/g, "");
+    return a.length === 12 && b.length === 12 ? a === b : a === b;
+  }
+
+  if (key.includes("pan")) {
+    const a = String(formValue).replace(/[^A-Z0-9]/gi, "").toUpperCase();
+    const b = String(ocrValue).replace(/[^A-Z0-9]/gi, "").toUpperCase();
+    return a === b;
   }
 
   if (key.includes("name")) {

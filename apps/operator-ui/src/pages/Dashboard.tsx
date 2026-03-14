@@ -191,13 +191,14 @@ export default function Dashboard() {
           <div className="card">{t.noServices}</div>
         ) : (
           <div className="services-grid">
-            {services.map((service) => {
+            {services.map((service, index) => {
               const summary = serviceSummaryMap[service.service_type];
               const description =
                 (summary && summary[lang]) || summary?.en || "AI-assisted pre-validation service.";
+              const serviceKey = `${service.service_id || "svc"}_${service.service_type || "unknown"}_${index}`;
               return (
                 <ServiceCard
-                  key={service.service_id}
+                  key={serviceKey}
                   service={service}
                   onSelect={handleSelect}
                   description={description}
