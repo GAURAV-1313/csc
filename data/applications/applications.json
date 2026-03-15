@@ -3951,5 +3951,3271 @@
     "citizen_data": {},
     "application_status": "draft",
     "created_at": "2026-03-14T23:29:50.065Z"
+  },
+  {
+    "application_id": "app_1773531302231",
+    "service_type": "sc_st_certificate",
+    "operator_id": "rtyu",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T23:35:02.231Z"
+  },
+  {
+    "application_id": "app_1773531302245",
+    "service_type": "sc_st_certificate",
+    "operator_id": "rtyu",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T23:35:02.245Z"
+  },
+  {
+    "application_id": "app_1773532033688",
+    "service_type": "death_registration_certificate",
+    "operator_id": "afsd",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T23:47:13.688Z"
+  },
+  {
+    "application_id": "app_1773532508467",
+    "service_type": "sc_st_certificate",
+    "operator_id": "esafhlj",
+    "citizen_data": {
+      "post_box_number": "12345565959944",
+      "pin_code": "490023",
+      "address": "5A\nhouse no 377 street 5A Shanti Nagar Supela Bhilai",
+      "address_in_english": "house no 377 street 5A Shanti Nagar Supela Bhilai"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-14T23:55:49.940Z",
+    "service_name": "SC/ST Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: beneficiary_guardian_type_in_english",
+        "Missing required field: beneficiary_guardian_name_in_english",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Missing required field: date_of_birth",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: district",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: district",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st",
+        "Missing documents: Caste Proof",
+        "Document mismatch detected"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Caste Proof"
+      ],
+      "schemaErrors": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: beneficiary_guardian_type_in_english",
+        "Missing required field: beneficiary_guardian_name_in_english",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Missing required field: date_of_birth",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: district",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: district",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Caste Proof"
+        ],
+        "optional": [
+          "Residential Proof",
+          "Electricity Bill",
+          "Ration Card",
+          "Telephone Bill",
+          "Birth Certificate",
+          "Voters Identity Card",
+          "Bpl Certificate",
+          "Land And House Document",
+          "Driving License",
+          "Other Documents",
+          "Certificate From Ward Member, Local Mla/Mp",
+          "Photo Identity Card",
+          "Service Certificate Of Father / Guardian",
+          "Order Of Involuntary Migration",
+          "Domicile Certificate",
+          "Sc/St Certificate From Sarpanch / Parshad / Mla / Mp",
+          "Transfer Certificate From Any Recognized School Or Any School Countersigned By Deo",
+          "Father/Guardians Service Certificate/Identity Card",
+          "Educational Certificate",
+          "Caste Certificate Issued Earlier To The Applicant Or Any Member Of His Family",
+          "Primary School Certificate",
+          "Birth Information Form",
+          "Misal",
+          "Adhikar Abhilekh",
+          "Jamabandi",
+          "Census Register Of 1931",
+          "Citizen Register Of 1959",
+          "Dakhil / Kharij Panji",
+          "Disability / Unavailability Proof",
+          "Affidavit",
+          "Vanshavali",
+          "Vanshavali 1",
+          "Vanshavali 2",
+          "Vanshavali 3",
+          "Vanshavali 4",
+          "Gram Sabha Proposal (Resident Of Rural Areas People)",
+          "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [
+        {
+          "field": "address",
+          "reason": "mismatch"
+        }
+      ],
+      "field_mismatch_count": 1,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 1,
+      "risk_score": 1,
+      "risk_level": "VERY_HIGH",
+      "score_percent": 100,
+      "rejected_prediction": true,
+      "threshold_used": 0.5,
+      "main_contributing_factors": [
+        "missing_documents",
+        "missing_fields",
+        "field_mismatch",
+        "Missing mandatory documents"
+      ],
+      "debug_summary": {
+        "service_type": "sc_st_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Caste Proof"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "district"
+        ],
+        "missing_documents_count": 1,
+        "missing_fields_count": 3,
+        "field_mismatch_count": 1,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Caste Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773532566257",
+    "service_type": "death_registration_certificate",
+    "operator_id": "esafhlj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T23:56:06.257Z"
+  },
+  {
+    "application_id": "app_1773532662977",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "esafhlj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T23:57:42.977Z"
+  },
+  {
+    "application_id": "app_1773532719701",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "esafhlj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T23:58:39.701Z"
+  },
+  {
+    "application_id": "app_1773532720048",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "esafhlj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T23:58:40.048Z"
+  },
+  {
+    "application_id": "app_1773532791195",
+    "service_type": "death_registration_certificate",
+    "operator_id": "esafhlj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-14T23:59:51.195Z"
+  },
+  {
+    "application_id": "app_1773533149940",
+    "service_type": "death_registration_certificate",
+    "operator_id": "esafhlj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T00:05:49.940Z"
+  },
+  {
+    "application_id": "app_1773533467739",
+    "service_type": "income_certificate",
+    "operator_id": "esafhlj",
+    "citizen_data": {
+      "average_income_for_last_3_years": "waerqef4rew"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-15T00:12:01.874Z",
+    "service_name": "Income Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing required field: gender",
+        "Missing required field: age_of_beneficiary",
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: relation_with_applicant",
+        "Missing required field: son_or_daughter_or_wife_name_of_beneficiary",
+        "Missing required field: caste",
+        "Missing required field: type",
+        "Missing required field: class_number",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Annual income must be a number.",
+        "Missing documents: Affidavit, Income Proof"
+      ],
+      "failedRules": [
+        "income_numeric"
+      ],
+      "missingDocuments": [
+        "Affidavit",
+        "Income Proof"
+      ],
+      "schemaErrors": [
+        "Missing required field: gender",
+        "Missing required field: age_of_beneficiary",
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: relation_with_applicant",
+        "Missing required field: son_or_daughter_or_wife_name_of_beneficiary",
+        "Missing required field: caste",
+        "Missing required field: type",
+        "Missing required field: class_number",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "optional": [
+          "Income Certificate Employer/Form 16",
+          "Income From Land/House",
+          "Other Documents",
+          "Application Form",
+          "Form 16",
+          "Income Of Other Members Of The Family",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 1,
+      "risk_score": 1,
+      "risk_level": "VERY_HIGH",
+      "score_percent": 100,
+      "rejected_prediction": true,
+      "threshold_used": 0.5,
+      "main_contributing_factors": [
+        "missing_documents",
+        "missing_fields",
+        "Missing mandatory documents"
+      ],
+      "debug_summary": {
+        "service_type": "income_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 2,
+        "missing_fields_count": 4,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 0,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773533603802",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "esafhlj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T00:13:23.802Z"
+  },
+  {
+    "application_id": "app_1773533683459",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "esafhlj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T00:14:43.459Z"
+  },
+  {
+    "application_id": "app_1773533683463",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "esafhlj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T00:14:43.463Z"
+  },
+  {
+    "application_id": "app_1773533684235",
+    "service_type": "sc_st_certificate",
+    "operator_id": "esafhlj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T00:14:44.235Z"
+  },
+  {
+    "application_id": "app_1773533706809",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "esafhlj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T00:15:06.809Z"
+  },
+  {
+    "application_id": "app_1773533706860",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "esafhlj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T00:15:06.860Z"
+  },
+  {
+    "application_id": "app_1773533707216",
+    "service_type": "sc_st_certificate",
+    "operator_id": "esafhlj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T00:15:07.216Z"
+  },
+  {
+    "application_id": "app_1773534294356",
+    "service_type": "death_registration_certificate",
+    "operator_id": "sdfa",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T00:24:54.356Z"
+  },
+  {
+    "application_id": "app_1773534697418",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "sfa",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T00:31:37.418Z"
+  },
+  {
+    "application_id": "app_1773536036318",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "asd",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T00:53:56.318Z"
+  },
+  {
+    "application_id": "app_1773536203758",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "asd",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T00:56:43.758Z"
+  },
+  {
+    "application_id": "app_1773536205466",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "asd",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T00:56:45.466Z"
+  },
+  {
+    "application_id": "app_1773536297665",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T00:58:17.665Z"
+  },
+  {
+    "application_id": "app_1773536428689",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:00:28.689Z"
+  },
+  {
+    "application_id": "app_1773536431470",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:00:31.470Z"
+  },
+  {
+    "application_id": "app_1773537272242",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:14:32.242Z"
+  },
+  {
+    "application_id": "app_1773537288239",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:14:48.239Z"
+  },
+  {
+    "application_id": "app_1773537305225",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:15:05.225Z"
+  },
+  {
+    "application_id": "app_1773537322216",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:15:22.216Z"
+  },
+  {
+    "application_id": "app_1773537338236",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:15:38.236Z"
+  },
+  {
+    "application_id": "app_1773537357222",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:15:57.222Z"
+  },
+  {
+    "application_id": "app_1773537372219",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:16:12.219Z"
+  },
+  {
+    "application_id": "app_1773537390220",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:16:30.221Z"
+  },
+  {
+    "application_id": "app_1773537406221",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:16:46.221Z"
+  },
+  {
+    "application_id": "app_1773537422224",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:17:02.224Z"
+  },
+  {
+    "application_id": "app_1773537439217",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:17:19.217Z"
+  },
+  {
+    "application_id": "app_1773537457241",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:17:37.241Z"
+  },
+  {
+    "application_id": "app_1773537472220",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:17:52.220Z"
+  },
+  {
+    "application_id": "app_1773537489223",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:18:09.223Z"
+  },
+  {
+    "application_id": "app_1773537506222",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:18:26.222Z"
+  },
+  {
+    "application_id": "app_1773537668414",
+    "service_type": "sc_st_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:21:08.414Z"
+  },
+  {
+    "application_id": "app_1773537924245",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:25:24.245Z"
+  },
+  {
+    "application_id": "app_1773537980295",
+    "service_type": "income_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:26:20.295Z"
+  },
+  {
+    "application_id": "app_1773537989607",
+    "service_type": "death_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:26:29.607Z"
+  },
+  {
+    "application_id": "app_1773538038172",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:27:18.172Z"
+  },
+  {
+    "application_id": "app_1773538091310",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:28:11.310Z"
+  },
+  {
+    "application_id": "app_1773538092225",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:28:12.225Z"
+  },
+  {
+    "application_id": "app_1773538163763",
+    "service_type": "domicile_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {
+      "applicant_name": "gl | Sam Altman Fa=t male"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-15T01:30:05.955Z",
+    "documents": [
+      {
+        "documentType": "aadhaar_card",
+        "filePath": "/Users/gaurav/csc/data/uploads/1773538173006_download.jpeg",
+        "ocrText": "{\"name\":\"gl | Sam Altman Fa=t male\",\"raw_text\":\"gl | Sam Altman Fa=t male 22/0411985 [EIRTIE] | 456,A1 Nagar\"}",
+        "parsedFields": [
+          {
+            "field_name": "name",
+            "field_value": "gl | Sam Altman Fa=t male"
+          },
+          {
+            "field_name": "raw_text",
+            "field_value": "gl | Sam Altman Fa=t male 22/0411985 [EIRTIE] | 456,A1 Nagar"
+          }
+        ]
+      },
+      {
+        "documentType": "aadhaar_card",
+        "filePath": "/Users/gaurav/csc/data/uploads/1773538179744_download.jpeg",
+        "ocrText": "{\"name\":\"gl | Sam Altman Fa=t male\",\"raw_text\":\"gl | Sam Altman Fa=t male 22/0411985 [EIRTIE] | 456,A1 Nagar\"}",
+        "parsedFields": [
+          {
+            "field_name": "name",
+            "field_value": "gl | Sam Altman Fa=t male"
+          },
+          {
+            "field_name": "raw_text",
+            "field_value": "gl | Sam Altman Fa=t male 22/0411985 [EIRTIE] | 456,A1 Nagar"
+          }
+        ]
+      }
+    ],
+    "service_name": "Domicile Certificate",
+    "ocr_results": [
+      {
+        "documentType": "aadhaar_card",
+        "fields": {
+          "name": "gl | Sam Altman Fa=t male",
+          "raw_text": "gl | Sam Altman Fa=t male 22/0411985 [EIRTIE] | 456,A1 Nagar"
+        }
+      },
+      {
+        "documentType": "aadhaar_card",
+        "fields": {
+          "name": "gl | Sam Altman Fa=t male",
+          "raw_text": "gl | Sam Altman Fa=t male 22/0411985 [EIRTIE] | 456,A1 Nagar"
+        }
+      }
+    ],
+    "validation": {
+      "warnings": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: guardians_occupation_of_beneficiary",
+        "Missing required field: beneficiary_place_of_birth",
+        "Missing required field: gender",
+        "Missing required field: date_of_birth",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: particulars_of_stay_after_birth_of_beneficiary",
+        "Missing required field: beneficiary_details_of_business_or_service",
+        "Missing required field: beneficiary_education_level",
+        "Missing required field: have_beneficiary_voter_id",
+        "Missing required field: district_name_of_beneficiary",
+        "Missing required field: living_from_in_years",
+        "Missing required field: reason_for_application_domicile",
+        "Missing required field: any_other_detail",
+        "Living in state years must be a number.",
+        "Missing documents: Affidavit, Proof Of At Least 15 Years Stay, Educational Certificate"
+      ],
+      "failedRules": [
+        "residence_years_numeric"
+      ],
+      "missingDocuments": [
+        "Affidavit",
+        "Proof Of At Least 15 Years Stay",
+        "Educational Certificate"
+      ],
+      "schemaErrors": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: guardians_occupation_of_beneficiary",
+        "Missing required field: beneficiary_place_of_birth",
+        "Missing required field: gender",
+        "Missing required field: date_of_birth",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: particulars_of_stay_after_birth_of_beneficiary",
+        "Missing required field: beneficiary_details_of_business_or_service",
+        "Missing required field: beneficiary_education_level",
+        "Missing required field: have_beneficiary_voter_id",
+        "Missing required field: district_name_of_beneficiary",
+        "Missing required field: living_from_in_years",
+        "Missing required field: reason_for_application_domicile",
+        "Missing required field: any_other_detail"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Affidavit",
+          "Proof Of At Least 15 Years Stay",
+          "Educational Certificate"
+        ],
+        "optional": [
+          "Other",
+          "Father/ Guardian Service Certificate",
+          "Job Service Certificate / Identity Card",
+          "Voters Identity Card",
+          "Land And House Document",
+          "Birth Information Form",
+          "Certificate From Ward Member, Local Mla/Mp",
+          "Ration Card",
+          "Electricity Bill",
+          "Primary School Certificate - 5th Standard",
+          "High School Certificate",
+          "Higher Secondary School Certificate",
+          "M.Phil/D.Lit./Ph.D. Certificate",
+          "School Certificate",
+          "Post Graduation Certificate",
+          "Certificate In Technical Subjects",
+          "Proof Of At Least 5 Years Stay",
+          "Persons Service Book.",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": [
+          "aadhaar_card",
+          "aadhaar_card"
+        ]
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 1
+    },
+    "risk": {
+      "risk_probability": 1,
+      "risk_score": 1,
+      "risk_level": "VERY_HIGH",
+      "score_percent": 100,
+      "rejected_prediction": true,
+      "threshold_used": 0.5,
+      "main_contributing_factors": [
+        "missing_documents",
+        "missing_fields",
+        "Missing mandatory documents"
+      ],
+      "debug_summary": {
+        "service_type": "domicile_certificate",
+        "uploaded_documents": [
+          "aadhaar_card",
+          "aadhaar_card"
+        ],
+        "missing_mandatory_documents": [
+          "Affidavit",
+          "Proof Of At Least 15 Years Stay",
+          "Educational Certificate"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 3,
+        "missing_fields_count": 5,
+        "field_mismatch_count": 0,
+        "document_quality_score": 1,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Affidavit",
+          "Proof Of At Least 15 Years Stay",
+          "Educational Certificate"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773538230082",
+    "service_type": "domicile_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:30:30.082Z"
+  },
+  {
+    "application_id": "app_1773538230246",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:30:30.246Z"
+  },
+  {
+    "application_id": "app_1773538235177",
+    "service_type": "domicile_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:30:35.177Z"
+  },
+  {
+    "application_id": "app_1773538299878",
+    "service_type": "income_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {
+      "applicant_name": "gl | Sam Altman Fa=t male"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-15T01:33:02.717Z",
+    "documents": [
+      {
+        "documentType": "aadhaar_card",
+        "filePath": "/Users/gaurav/csc/data/uploads/1773538306065_download.jpeg",
+        "ocrText": "{\"name\":\"gl | Sam Altman Fa=t male\",\"raw_text\":\"gl | Sam Altman Fa=t male 22/0411985 [EIRTIE] | 456,A1 Nagar\"}",
+        "parsedFields": [
+          {
+            "field_name": "name",
+            "field_value": "gl | Sam Altman Fa=t male"
+          },
+          {
+            "field_name": "raw_text",
+            "field_value": "gl | Sam Altman Fa=t male 22/0411985 [EIRTIE] | 456,A1 Nagar"
+          }
+        ]
+      }
+    ],
+    "service_name": "Income Certificate",
+    "ocr_results": [
+      {
+        "documentType": "aadhaar_card",
+        "fields": {
+          "name": "gl | Sam Altman Fa=t male",
+          "raw_text": "gl | Sam Altman Fa=t male 22/0411985 [EIRTIE] | 456,A1 Nagar"
+        }
+      }
+    ],
+    "validation": {
+      "warnings": [
+        "Missing required field: gender",
+        "Missing required field: age_of_beneficiary",
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: relation_with_applicant",
+        "Missing required field: son_or_daughter_or_wife_name_of_beneficiary",
+        "Missing required field: caste",
+        "Missing required field: type",
+        "Missing required field: class_number",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years",
+        "Annual income must be a number.",
+        "Missing documents: Affidavit, Income Proof"
+      ],
+      "failedRules": [
+        "income_numeric"
+      ],
+      "missingDocuments": [
+        "Affidavit",
+        "Income Proof"
+      ],
+      "schemaErrors": [
+        "Missing required field: gender",
+        "Missing required field: age_of_beneficiary",
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: relation_with_applicant",
+        "Missing required field: son_or_daughter_or_wife_name_of_beneficiary",
+        "Missing required field: caste",
+        "Missing required field: type",
+        "Missing required field: class_number",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "optional": [
+          "Income Certificate Employer/Form 16",
+          "Income From Land/House",
+          "Other Documents",
+          "Application Form",
+          "Form 16",
+          "Income Of Other Members Of The Family",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": [
+          "aadhaar_card"
+        ]
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 1
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "age_eligible",
+        "missing_fields",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "age_eligible",
+        "missing_fields"
+      ],
+      "debug_summary": {
+        "service_type": "income_certificate",
+        "uploaded_documents": [
+          "aadhaar_card"
+        ],
+        "missing_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 2,
+        "missing_fields_count": 4,
+        "field_mismatch_count": 0,
+        "document_quality_score": 1,
+        "eligibility": {
+          "age_eligible": 0,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773538400248",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:33:20.248Z"
+  },
+  {
+    "application_id": "app_1773538401361",
+    "service_type": "birth_certificate_correction",
+    "operator_id": "dfghj",
+    "citizen_data": {
+      "applicant_name": "Sam Altman ",
+      "age": "29",
+      "gender": "male"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-15T01:34:01.034Z",
+    "documents": [
+      {
+        "documentType": "aadhaar_card",
+        "filePath": "/Users/gaurav/csc/data/uploads/1773538411628_download.jpeg",
+        "ocrText": "{\"name\":\"gl | Sam Altman Fa=t male\",\"raw_text\":\"gl | Sam Altman Fa=t male 22/0411985 [EIRTIE] | 456,A1 Nagar\"}",
+        "parsedFields": [
+          {
+            "field_name": "name",
+            "field_value": "gl | Sam Altman Fa=t male"
+          },
+          {
+            "field_name": "raw_text",
+            "field_value": "gl | Sam Altman Fa=t male 22/0411985 [EIRTIE] | 456,A1 Nagar"
+          }
+        ]
+      }
+    ],
+    "service_name": "Birth Registration & Certificate",
+    "ocr_results": [
+      {
+        "documentType": "aadhaar_card",
+        "fields": {
+          "name": "gl | Sam Altman Fa=t male",
+          "raw_text": "gl | Sam Altman Fa=t male 22/0411985 [EIRTIE] | 456,A1 Nagar"
+        }
+      }
+    ],
+    "validation": {
+      "warnings": [
+        "Missing required field: field",
+        "Missing documents: Birth Information Form, Order",
+        "Document mismatch detected"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Birth Information Form",
+        "Order"
+      ],
+      "schemaErrors": [
+        "Missing required field: field"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Birth Information Form",
+          "Order"
+        ],
+        "optional": [
+          "Affidavit",
+          "Additional",
+          "Additional Document",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": [
+          "aadhaar_card"
+        ]
+      }
+    },
+    "document_verification": {
+      "mismatches": [
+        {
+          "field": "applicant_name",
+          "reason": "mismatch"
+        }
+      ],
+      "field_mismatch_count": 1,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "document_quality",
+        "field_mismatch",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "document_quality",
+        "field_mismatch"
+      ],
+      "debug_summary": {
+        "service_type": "birth_certificate_correction",
+        "uploaded_documents": [
+          "aadhaar_card"
+        ],
+        "missing_mandatory_documents": [
+          "Birth Information Form",
+          "Order"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 2,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 1,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Birth Information Form",
+          "Order"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773538693739",
+    "service_type": "birth_certificate_correction",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:38:13.739Z"
+  },
+  {
+    "application_id": "app_1773538722907",
+    "service_type": "birth_certificate_correction",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:38:42.907Z"
+  },
+  {
+    "application_id": "app_1773538723409",
+    "service_type": "birth_certificate_correction",
+    "operator_id": "dfghj",
+    "citizen_data": {
+      "applicant_name": "",
+      "date_of_birth": "22/04/1985",
+      "age": "",
+      "gender": "other",
+      "field": ""
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-15T01:39:43.991Z",
+    "documents": [
+      {
+        "documentType": "aadhaar_card",
+        "filePath": "/Users/gaurav/csc/data/uploads/1773538729541_download.jpeg",
+        "ocrText": "{\"dob\":\"22/04/1985\",\"name\":\"4 FEAST ba a (GN gl\",\"raw_text\":\"4 FEAST ba a (GN gl | sam Altman 5 Male NE 22/04/1985 EL = | 456, 81 Nagar\"}",
+        "parsedFields": [
+          {
+            "field_name": "dob",
+            "field_value": "22/04/1985"
+          },
+          {
+            "field_name": "name",
+            "field_value": "4 FEAST ba a (GN gl"
+          },
+          {
+            "field_name": "raw_text",
+            "field_value": "4 FEAST ba a (GN gl | sam Altman 5 Male NE 22/04/1985 EL = | 456, 81 Nagar"
+          }
+        ]
+      }
+    ],
+    "service_name": "Birth Registration & Certificate",
+    "ocr_results": [
+      {
+        "documentType": "aadhaar_card",
+        "fields": {
+          "dob": "22/04/1985",
+          "name": "4 FEAST ba a (GN gl",
+          "raw_text": "4 FEAST ba a (GN gl | sam Altman 5 Male NE 22/04/1985 EL = | 456, 81 Nagar"
+        }
+      }
+    ],
+    "validation": {
+      "warnings": [
+        "Missing required field: field",
+        "Missing documents: Birth Information Form, Order"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Birth Information Form",
+        "Order"
+      ],
+      "schemaErrors": [
+        "Missing required field: field"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Birth Information Form",
+          "Order"
+        ],
+        "optional": [
+          "Affidavit",
+          "Additional",
+          "Additional Document",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": [
+          "aadhaar_card"
+        ]
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 1
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents"
+      ],
+      "debug_summary": {
+        "service_type": "birth_certificate_correction",
+        "uploaded_documents": [
+          "aadhaar_card"
+        ],
+        "missing_mandatory_documents": [
+          "Birth Information Form",
+          "Order"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 2,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 0,
+        "document_quality_score": 1,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Birth Information Form",
+          "Order"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773538943426",
+    "service_type": "birth_certificate_correction",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:42:23.426Z"
+  },
+  {
+    "application_id": "app_1773538996921",
+    "service_type": "birth_certificate_correction",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:43:16.921Z"
+  },
+  {
+    "application_id": "app_1773539022597",
+    "service_type": "birth_certificate_correction",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "validated",
+    "created_at": "2026-03-15T01:44:22.658Z",
+    "service_name": "Birth Registration & Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing required field: field",
+        "Missing documents: Birth Information Form, Order"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Birth Information Form",
+        "Order"
+      ],
+      "schemaErrors": [
+        "Missing required field: field"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Birth Information Form",
+          "Order"
+        ],
+        "optional": [
+          "Affidavit",
+          "Additional",
+          "Additional Document",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "document_quality",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "document_quality"
+      ],
+      "debug_summary": {
+        "service_type": "birth_certificate_correction",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Birth Information Form",
+          "Order"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 2,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Birth Information Form",
+          "Order"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773539167937",
+    "service_type": "birth_certificate_correction",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:46:07.937Z"
+  },
+  {
+    "application_id": "app_1773539227232",
+    "service_type": "birth_certificate_correction",
+    "operator_id": "dfghj",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:47:07.232Z"
+  },
+  {
+    "application_id": "app_1773539270172",
+    "service_type": "death_registration_certificate",
+    "operator_id": "afds",
+    "citizen_data": {},
+    "application_status": "validated",
+    "created_at": "2026-03-15T01:47:57.041Z",
+    "service_name": "Death Registration & Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing required field: field",
+        "Missing documents: Order, Certificate/Document, Permission Form, Death Information Form, Self Attested Shapat Patra"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Order",
+        "Certificate/Document",
+        "Permission Form",
+        "Death Information Form",
+        "Self Attested Shapat Patra"
+      ],
+      "schemaErrors": [
+        "Missing required field: field"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Order",
+          "Certificate/Document",
+          "Permission Form",
+          "Death Information Form",
+          "Self Attested Shapat Patra"
+        ],
+        "optional": [
+          "Affidavit",
+          "Additional Document",
+          "Other Documents",
+          "Form",
+          "Form 4",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "document_quality",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "document_quality"
+      ],
+      "debug_summary": {
+        "service_type": "death_registration_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Order",
+          "Certificate/Document",
+          "Permission Form",
+          "Death Information Form",
+          "Self Attested Shapat Patra"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 5,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Order",
+          "Certificate/Document",
+          "Permission Form",
+          "Death Information Form",
+          "Self Attested Shapat Patra"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773539300352",
+    "service_type": "death_registration_certificate",
+    "operator_id": "afds",
+    "citizen_data": {},
+    "application_status": "validated",
+    "created_at": "2026-03-15T01:48:37.404Z",
+    "service_name": "Death Registration & Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing required field: field",
+        "Missing documents: Order, Certificate/Document, Permission Form, Death Information Form, Self Attested Shapat Patra"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Order",
+        "Certificate/Document",
+        "Permission Form",
+        "Death Information Form",
+        "Self Attested Shapat Patra"
+      ],
+      "schemaErrors": [
+        "Missing required field: field"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Order",
+          "Certificate/Document",
+          "Permission Form",
+          "Death Information Form",
+          "Self Attested Shapat Patra"
+        ],
+        "optional": [
+          "Affidavit",
+          "Additional Document",
+          "Other Documents",
+          "Form",
+          "Form 4",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "document_quality",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "document_quality"
+      ],
+      "debug_summary": {
+        "service_type": "death_registration_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Order",
+          "Certificate/Document",
+          "Permission Form",
+          "Death Information Form",
+          "Self Attested Shapat Patra"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 5,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Order",
+          "Certificate/Document",
+          "Permission Form",
+          "Death Information Form",
+          "Self Attested Shapat Patra"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773539523800",
+    "service_type": "sc_st_certificate",
+    "operator_id": "afds",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:52:03.800Z"
+  },
+  {
+    "application_id": "app_1773539539566",
+    "service_type": "sc_st_certificate",
+    "operator_id": "afds",
+    "citizen_data": {},
+    "application_status": "validated",
+    "created_at": "2026-03-15T01:52:32.388Z",
+    "service_name": "SC/ST Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: beneficiary_guardian_type_in_english",
+        "Missing required field: beneficiary_guardian_name_in_english",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Missing required field: date_of_birth",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: post_box_number",
+        "Missing required field: district",
+        "Missing required field: address_in_english",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: post_box_number",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st",
+        "Missing documents: Caste Proof"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Caste Proof"
+      ],
+      "schemaErrors": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: beneficiary_guardian_type_in_english",
+        "Missing required field: beneficiary_guardian_name_in_english",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Missing required field: date_of_birth",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: post_box_number",
+        "Missing required field: district",
+        "Missing required field: address_in_english",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: post_box_number",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Caste Proof"
+        ],
+        "optional": [
+          "Residential Proof",
+          "Electricity Bill",
+          "Ration Card",
+          "Telephone Bill",
+          "Birth Certificate",
+          "Voters Identity Card",
+          "Bpl Certificate",
+          "Land And House Document",
+          "Driving License",
+          "Other Documents",
+          "Certificate From Ward Member, Local Mla/Mp",
+          "Photo Identity Card",
+          "Service Certificate Of Father / Guardian",
+          "Order Of Involuntary Migration",
+          "Domicile Certificate",
+          "Sc/St Certificate From Sarpanch / Parshad / Mla / Mp",
+          "Transfer Certificate From Any Recognized School Or Any School Countersigned By Deo",
+          "Father/Guardians Service Certificate/Identity Card",
+          "Educational Certificate",
+          "Caste Certificate Issued Earlier To The Applicant Or Any Member Of His Family",
+          "Primary School Certificate",
+          "Birth Information Form",
+          "Misal",
+          "Adhikar Abhilekh",
+          "Jamabandi",
+          "Census Register Of 1931",
+          "Citizen Register Of 1959",
+          "Dakhil / Kharij Panji",
+          "Disability / Unavailability Proof",
+          "Affidavit",
+          "Vanshavali",
+          "Vanshavali 1",
+          "Vanshavali 2",
+          "Vanshavali 3",
+          "Vanshavali 4",
+          "Gram Sabha Proposal (Resident Of Rural Areas People)",
+          "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "document_quality",
+        "missing_documents",
+        "missing_fields",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "document_quality",
+        "missing_documents",
+        "missing_fields"
+      ],
+      "debug_summary": {
+        "service_type": "sc_st_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Caste Proof"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 1,
+        "missing_fields_count": 5,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Caste Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773539685970",
+    "service_type": "sc_st_certificate",
+    "operator_id": "hello",
+    "citizen_data": {
+      "applicant_name": "gaura"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-15T01:54:53.345Z",
+    "service_name": "SC/ST Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: beneficiary_guardian_type_in_english",
+        "Missing required field: beneficiary_guardian_name_in_english",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Missing required field: date_of_birth",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: post_box_number",
+        "Missing required field: district",
+        "Missing required field: address_in_english",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: post_box_number",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st",
+        "Missing documents: Caste Proof",
+        "Document mismatch detected"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Caste Proof"
+      ],
+      "schemaErrors": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: beneficiary_guardian_type_in_english",
+        "Missing required field: beneficiary_guardian_name_in_english",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Missing required field: date_of_birth",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: post_box_number",
+        "Missing required field: district",
+        "Missing required field: address_in_english",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: post_box_number",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Caste Proof"
+        ],
+        "optional": [
+          "Residential Proof",
+          "Electricity Bill",
+          "Ration Card",
+          "Telephone Bill",
+          "Birth Certificate",
+          "Voters Identity Card",
+          "Bpl Certificate",
+          "Land And House Document",
+          "Driving License",
+          "Other Documents",
+          "Certificate From Ward Member, Local Mla/Mp",
+          "Photo Identity Card",
+          "Service Certificate Of Father / Guardian",
+          "Order Of Involuntary Migration",
+          "Domicile Certificate",
+          "Sc/St Certificate From Sarpanch / Parshad / Mla / Mp",
+          "Transfer Certificate From Any Recognized School Or Any School Countersigned By Deo",
+          "Father/Guardians Service Certificate/Identity Card",
+          "Educational Certificate",
+          "Caste Certificate Issued Earlier To The Applicant Or Any Member Of His Family",
+          "Primary School Certificate",
+          "Birth Information Form",
+          "Misal",
+          "Adhikar Abhilekh",
+          "Jamabandi",
+          "Census Register Of 1931",
+          "Citizen Register Of 1959",
+          "Dakhil / Kharij Panji",
+          "Disability / Unavailability Proof",
+          "Affidavit",
+          "Vanshavali",
+          "Vanshavali 1",
+          "Vanshavali 2",
+          "Vanshavali 3",
+          "Vanshavali 4",
+          "Gram Sabha Proposal (Resident Of Rural Areas People)",
+          "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [
+        {
+          "field": "applicant_name",
+          "reason": "mismatch"
+        }
+      ],
+      "field_mismatch_count": 1,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "document_quality",
+        "missing_documents",
+        "missing_fields",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "document_quality",
+        "missing_documents",
+        "missing_fields"
+      ],
+      "debug_summary": {
+        "service_type": "sc_st_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Caste Proof"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 1,
+        "missing_fields_count": 5,
+        "field_mismatch_count": 1,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Caste Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773539698833",
+    "service_type": "sc_st_certificate",
+    "operator_id": "hello",
+    "citizen_data": {
+      "applicant_name": "ag"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-15T01:55:04.120Z",
+    "service_name": "SC/ST Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: beneficiary_guardian_type_in_english",
+        "Missing required field: beneficiary_guardian_name_in_english",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Missing required field: date_of_birth",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: post_box_number",
+        "Missing required field: district",
+        "Missing required field: address_in_english",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: post_box_number",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st",
+        "Missing documents: Caste Proof",
+        "Document mismatch detected"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Caste Proof"
+      ],
+      "schemaErrors": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: beneficiary_guardian_type_in_english",
+        "Missing required field: beneficiary_guardian_name_in_english",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Missing required field: date_of_birth",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: post_box_number",
+        "Missing required field: district",
+        "Missing required field: address_in_english",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: post_box_number",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Caste Proof"
+        ],
+        "optional": [
+          "Residential Proof",
+          "Electricity Bill",
+          "Ration Card",
+          "Telephone Bill",
+          "Birth Certificate",
+          "Voters Identity Card",
+          "Bpl Certificate",
+          "Land And House Document",
+          "Driving License",
+          "Other Documents",
+          "Certificate From Ward Member, Local Mla/Mp",
+          "Photo Identity Card",
+          "Service Certificate Of Father / Guardian",
+          "Order Of Involuntary Migration",
+          "Domicile Certificate",
+          "Sc/St Certificate From Sarpanch / Parshad / Mla / Mp",
+          "Transfer Certificate From Any Recognized School Or Any School Countersigned By Deo",
+          "Father/Guardians Service Certificate/Identity Card",
+          "Educational Certificate",
+          "Caste Certificate Issued Earlier To The Applicant Or Any Member Of His Family",
+          "Primary School Certificate",
+          "Birth Information Form",
+          "Misal",
+          "Adhikar Abhilekh",
+          "Jamabandi",
+          "Census Register Of 1931",
+          "Citizen Register Of 1959",
+          "Dakhil / Kharij Panji",
+          "Disability / Unavailability Proof",
+          "Affidavit",
+          "Vanshavali",
+          "Vanshavali 1",
+          "Vanshavali 2",
+          "Vanshavali 3",
+          "Vanshavali 4",
+          "Gram Sabha Proposal (Resident Of Rural Areas People)",
+          "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [
+        {
+          "field": "applicant_name",
+          "reason": "mismatch"
+        }
+      ],
+      "field_mismatch_count": 1,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "document_quality",
+        "missing_documents",
+        "missing_fields",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "document_quality",
+        "missing_documents",
+        "missing_fields"
+      ],
+      "debug_summary": {
+        "service_type": "sc_st_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Caste Proof"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 1,
+        "missing_fields_count": 5,
+        "field_mismatch_count": 1,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Caste Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773539730722",
+    "service_type": "marriage_registration_certificate",
+    "operator_id": "hello",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:55:30.722Z"
+  },
+  {
+    "application_id": "app_1773539810102",
+    "service_type": "sc_st_certificate",
+    "operator_id": "gs",
+    "citizen_data": {
+      "applicant_name": "4 FEAST ba a (GN gl",
+      "date_of_birth": "22/04/1985"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-15T01:57:12.455Z",
+    "documents": [
+      {
+        "documentType": "aadhaar_card",
+        "filePath": "/Users/gaurav/csc/data/uploads/1773539830594_download.jpeg",
+        "ocrText": "{\"dob\":\"22/04/1985\",\"name\":\"4 FEAST ba a (GN gl\",\"raw_text\":\"4 FEAST ba a (GN gl | sam Altman 5 Male NE 22/04/1985 EL = | 456, 81 Nagar\"}",
+        "parsedFields": [
+          {
+            "field_name": "dob",
+            "field_value": "22/04/1985"
+          },
+          {
+            "field_name": "name",
+            "field_value": "4 FEAST ba a (GN gl"
+          },
+          {
+            "field_name": "raw_text",
+            "field_value": "4 FEAST ba a (GN gl | sam Altman 5 Male NE 22/04/1985 EL = | 456, 81 Nagar"
+          }
+        ]
+      }
+    ],
+    "service_name": "SC/ST Certificate",
+    "ocr_results": [
+      {
+        "documentType": "aadhaar_card",
+        "fields": {
+          "dob": "22/04/1985",
+          "name": "4 FEAST ba a (GN gl",
+          "raw_text": "4 FEAST ba a (GN gl | sam Altman 5 Male NE 22/04/1985 EL = | 456, 81 Nagar"
+        }
+      }
+    ],
+    "validation": {
+      "warnings": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: beneficiary_guardian_type_in_english",
+        "Missing required field: beneficiary_guardian_name_in_english",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Invalid type for date_of_birth. Expected date.",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: post_box_number",
+        "Missing required field: district",
+        "Missing required field: address_in_english",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: post_box_number",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st",
+        "Missing documents: Caste Proof"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Caste Proof"
+      ],
+      "schemaErrors": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: beneficiary_guardian_type_in_english",
+        "Missing required field: beneficiary_guardian_name_in_english",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Invalid type for date_of_birth. Expected date.",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: post_box_number",
+        "Missing required field: district",
+        "Missing required field: address_in_english",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: post_box_number",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Caste Proof"
+        ],
+        "optional": [
+          "Residential Proof",
+          "Electricity Bill",
+          "Ration Card",
+          "Telephone Bill",
+          "Birth Certificate",
+          "Voters Identity Card",
+          "Bpl Certificate",
+          "Land And House Document",
+          "Driving License",
+          "Other Documents",
+          "Certificate From Ward Member, Local Mla/Mp",
+          "Photo Identity Card",
+          "Service Certificate Of Father / Guardian",
+          "Order Of Involuntary Migration",
+          "Domicile Certificate",
+          "Sc/St Certificate From Sarpanch / Parshad / Mla / Mp",
+          "Transfer Certificate From Any Recognized School Or Any School Countersigned By Deo",
+          "Father/Guardians Service Certificate/Identity Card",
+          "Educational Certificate",
+          "Caste Certificate Issued Earlier To The Applicant Or Any Member Of His Family",
+          "Primary School Certificate",
+          "Birth Information Form",
+          "Misal",
+          "Adhikar Abhilekh",
+          "Jamabandi",
+          "Census Register Of 1931",
+          "Citizen Register Of 1959",
+          "Dakhil / Kharij Panji",
+          "Disability / Unavailability Proof",
+          "Affidavit",
+          "Vanshavali",
+          "Vanshavali 1",
+          "Vanshavali 2",
+          "Vanshavali 3",
+          "Vanshavali 4",
+          "Gram Sabha Proposal (Resident Of Rural Areas People)",
+          "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": [
+          "aadhaar_card"
+        ]
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 1
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "missing_fields",
+        "district_valid",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "missing_fields",
+        "district_valid"
+      ],
+      "debug_summary": {
+        "service_type": "sc_st_certificate",
+        "uploaded_documents": [
+          "aadhaar_card"
+        ],
+        "missing_mandatory_documents": [
+          "Caste Proof"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 1,
+        "missing_fields_count": 4,
+        "field_mismatch_count": 0,
+        "document_quality_score": 1,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Caste Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773539898267",
+    "service_type": "sc_st_certificate",
+    "operator_id": "gs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T01:58:18.267Z"
+  },
+  {
+    "application_id": "app_1773540005276",
+    "service_type": "sc_st_certificate",
+    "operator_id": "gs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T02:00:05.276Z"
+  },
+  {
+    "application_id": "app_1773540060833",
+    "service_type": "sc_st_certificate",
+    "operator_id": "gs",
+    "citizen_data": {
+      "applicant_name": "4 FEAST ba a (GN gl",
+      "beneficiary_guardian_type": "GAUR",
+      "beneficiary_guardian_type_in_english": "ASFDF",
+      "beneficiary_guardian_name_in_english": "SDFDS",
+      "age": "15",
+      "date_of_birth": "1985-04-22"
+    },
+    "application_status": "submitted",
+    "created_at": "2026-03-15T02:02:43.542Z",
+    "service_name": "SC/ST Certificate",
+    "documents": [
+      {
+        "documentType": "aadhaar_card",
+        "filePath": "/Users/gaurav/csc/data/uploads/1773540161194_download.jpeg",
+        "ocrText": "{\"dob\":\"22/04/1985\",\"name\":\"4 FEAST ba a (GN gl\",\"raw_text\":\"4 FEAST ba a (GN gl | sam Altman 5 Male NE 22/04/1985 EL = | 456, 81 Nagar\"}",
+        "parsedFields": [
+          {
+            "field_name": "dob",
+            "field_value": "22/04/1985"
+          },
+          {
+            "field_name": "name",
+            "field_value": "4 FEAST ba a (GN gl"
+          },
+          {
+            "field_name": "raw_text",
+            "field_value": "4 FEAST ba a (GN gl | sam Altman 5 Male NE 22/04/1985 EL = | 456, 81 Nagar"
+          }
+        ]
+      }
+    ],
+    "ocr_results": [
+      {
+        "documentType": "aadhaar_card",
+        "fields": {
+          "dob": "22/04/1985",
+          "name": "4 FEAST ba a (GN gl",
+          "raw_text": "4 FEAST ba a (GN gl | sam Altman 5 Male NE 22/04/1985 EL = | 456, 81 Nagar"
+        }
+      }
+    ],
+    "validation": {
+      "warnings": [
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: post_box_number",
+        "Missing required field: district",
+        "Missing required field: address_in_english",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: post_box_number",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st",
+        "Missing documents: Caste Proof",
+        "Document mismatch detected"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Caste Proof"
+      ],
+      "schemaErrors": [
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: post_box_number",
+        "Missing required field: district",
+        "Missing required field: address_in_english",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: post_box_number",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Caste Proof"
+        ],
+        "optional": [
+          "Residential Proof",
+          "Electricity Bill",
+          "Ration Card",
+          "Telephone Bill",
+          "Birth Certificate",
+          "Voters Identity Card",
+          "Bpl Certificate",
+          "Land And House Document",
+          "Driving License",
+          "Other Documents",
+          "Certificate From Ward Member, Local Mla/Mp",
+          "Photo Identity Card",
+          "Service Certificate Of Father / Guardian",
+          "Order Of Involuntary Migration",
+          "Domicile Certificate",
+          "Sc/St Certificate From Sarpanch / Parshad / Mla / Mp",
+          "Transfer Certificate From Any Recognized School Or Any School Countersigned By Deo",
+          "Father/Guardians Service Certificate/Identity Card",
+          "Educational Certificate",
+          "Caste Certificate Issued Earlier To The Applicant Or Any Member Of His Family",
+          "Primary School Certificate",
+          "Birth Information Form",
+          "Misal",
+          "Adhikar Abhilekh",
+          "Jamabandi",
+          "Census Register Of 1931",
+          "Citizen Register Of 1959",
+          "Dakhil / Kharij Panji",
+          "Disability / Unavailability Proof",
+          "Affidavit",
+          "Vanshavali",
+          "Vanshavali 1",
+          "Vanshavali 2",
+          "Vanshavali 3",
+          "Vanshavali 4",
+          "Gram Sabha Proposal (Resident Of Rural Areas People)",
+          "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": [
+          "aadhaar_card"
+        ]
+      }
+    },
+    "document_verification": {
+      "mismatches": [
+        {
+          "field": "date_of_birth",
+          "reason": "mismatch"
+        }
+      ],
+      "field_mismatch_count": 1,
+      "document_quality_score": 0.5
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "missing_fields",
+        "document_quality",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "missing_fields",
+        "document_quality"
+      ],
+      "debug_summary": {
+        "service_type": "sc_st_certificate",
+        "uploaded_documents": [
+          "aadhaar_card"
+        ],
+        "missing_mandatory_documents": [
+          "Caste Proof"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 1,
+        "missing_fields_count": 4,
+        "field_mismatch_count": 1,
+        "document_quality_score": 0.5,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Caste Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773540195595",
+    "service_type": "sc_st_certificate",
+    "operator_id": "gs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T02:03:15.595Z"
+  },
+  {
+    "application_id": "app_1773540367254",
+    "service_type": "income_certificate",
+    "operator_id": "GS",
+    "citizen_data": {
+      "applicant_name": "GAURAV SINGH",
+      "beneficiary_guardian_type": "SANJAY SINGH",
+      "beneficiary_guardian_name": ""
+    },
+    "application_status": "submitted",
+    "created_at": "2026-03-15T02:07:32.699Z",
+    "service_name": "Income Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing required field: gender",
+        "Missing required field: age_of_beneficiary",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: relation_with_applicant",
+        "Missing required field: son_or_daughter_or_wife_name_of_beneficiary",
+        "Missing required field: caste",
+        "Missing required field: type",
+        "Missing required field: class_number",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years",
+        "Annual income must be a number.",
+        "Missing documents: Affidavit, Income Proof",
+        "Document mismatch detected"
+      ],
+      "failedRules": [
+        "income_numeric"
+      ],
+      "missingDocuments": [
+        "Affidavit",
+        "Income Proof"
+      ],
+      "schemaErrors": [
+        "Missing required field: gender",
+        "Missing required field: age_of_beneficiary",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: relation_with_applicant",
+        "Missing required field: son_or_daughter_or_wife_name_of_beneficiary",
+        "Missing required field: caste",
+        "Missing required field: type",
+        "Missing required field: class_number",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "optional": [
+          "Income Certificate Employer/Form 16",
+          "Income From Land/House",
+          "Other Documents",
+          "Application Form",
+          "Form 16",
+          "Income Of Other Members Of The Family",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [
+        {
+          "field": "applicant_name",
+          "reason": "mismatch"
+        }
+      ],
+      "field_mismatch_count": 1,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "document_quality",
+        "age_eligible",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "document_quality",
+        "age_eligible"
+      ],
+      "debug_summary": {
+        "service_type": "income_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 2,
+        "missing_fields_count": 4,
+        "field_mismatch_count": 1,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 0,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773540488392",
+    "service_type": "income_certificate",
+    "operator_id": "GS",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T02:08:08.392Z"
+  },
+  {
+    "application_id": "app_1773541146648",
+    "service_type": "income_certificate",
+    "operator_id": "GS",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T02:19:06.648Z"
+  },
+  {
+    "application_id": "app_1773541189999",
+    "service_type": "income_certificate",
+    "operator_id": "GS",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T02:19:49.999Z"
+  },
+  {
+    "application_id": "app_1773541212084",
+    "service_type": "income_certificate",
+    "operator_id": "GS",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T02:20:12.084Z"
   }
 ]

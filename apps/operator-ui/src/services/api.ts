@@ -180,7 +180,7 @@ export const api = {
    * Reference IDs are in the format PC-XXXXXX.
    */
   getWhatsappReport: (referenceId: string): Promise<CitizenReport> =>
-    request(`/whatsapp-report/${encodeURIComponent(referenceId.toUpperCase())}`),
+    request(`/citizen-report/${encodeURIComponent(referenceId.toUpperCase())}`),
 
   /**
    * Same as getWhatsappReport but uses a POST body lookup.
@@ -188,10 +188,13 @@ export const api = {
    * need special handling in URL path segments.
    */
   lookupWhatsappReport: (referenceId: string): Promise<CitizenReport> =>
-    request("/whatsapp-report/lookup", {
+    request("/citizen-report/lookup", {
       method: "POST",
       body: JSON.stringify({ reference_id: referenceId.toUpperCase() })
     }),
+
+  getPrecheckPdfUrl: (referenceId: string): string =>
+    `${API_BASE}/precheck/${encodeURIComponent(referenceId.toUpperCase())}/pdf`,
 
   chatAssistant: (payload: Record<string, unknown>): Promise<ChatResponse> =>
     request("/chat", { method: "POST", body: JSON.stringify(payload) })

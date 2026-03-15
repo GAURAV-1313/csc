@@ -390,7 +390,7 @@ async function recommendSchemes(req, res) {
 
 async function explainRisk(req, res) {
   const payload = req.body || {};
-  const result = explain(payload);
+  const result = await explain(payload);
   res.json({ explanation: result });
 }
 

@@ -20,7 +20,14 @@ async function runOcrExtraction({ sampleId, documentType, filePath }) {
     return { documentType, fields: {} };
   }
 
-  return runOcrOnFile({ filePath, documentType });
+  try {
+    return await runOcrOnFile({ filePath, documentType });
+  } catch (err) {
+    if (process.env.NODE_ENV !== "production") {
+      console.warn("[ocr] Extraction failed, returning empty OCR fields:", err.message || err);
+    }
+    return { documentType, fields: {} };
+  }
 }
 
 module.exports = { runOcrExtraction };

@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS whatsapp_conversations (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  phone_number TEXT UNIQUE NOT NULL,
+  step TEXT NOT NULL,
+  service_type TEXT,
+  collected_data TEXT NOT NULL DEFAULT '{}',
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS whatsapp_prechecks (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  reference_id TEXT UNIQUE NOT NULL,
+  phone_number TEXT NOT NULL,
+  service_type TEXT NOT NULL,
+  precheck_data TEXT NOT NULL DEFAULT '{}',
+  pdf_url TEXT DEFAULT '',
+  view_url TEXT DEFAULT '',
+  status TEXT NOT NULL DEFAULT 'completed',
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

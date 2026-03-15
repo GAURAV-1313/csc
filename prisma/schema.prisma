@@ -173,6 +173,8 @@ model WhatsAppPrecheck {
   phone_number String
   service_type String
   precheck_data String  @default("{}")
+  pdf_url      String?  @default("")
+  view_url     String?  @default("")
   status       String   @default("completed")
   created_at   DateTime @default(now())
   updated_at   DateTime @default(now())

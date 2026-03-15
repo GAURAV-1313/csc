@@ -138,6 +138,15 @@ textarea {
   font-weight: 600;
 }
 
+.services-search-input {
+  border: 1px solid #f1e4d4;
+  border-radius: 999px;
+  padding: 8px 14px;
+  min-width: 240px;
+  background: #fff;
+  font-size: 13px;
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -222,7 +231,7 @@ textarea {
 
 .title {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .subtitle {
@@ -270,6 +279,7 @@ textarea {
   font-size: 18px;
   margin-bottom: 12px;
   color: #7c3f00;
+  font-weight: 500;
 }
 
 .csc-subsection {
@@ -286,6 +296,7 @@ textarea {
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  font-weight: 500;
 }
 
 .layout {
@@ -545,6 +556,10 @@ textarea {
   font-size: 14px;
 }
 
+.login-primary-column > .notice:first-child {
+  margin-top: 0;
+}
+
 .wa-banner {
   display: flex;
   align-items: center;
@@ -692,13 +707,27 @@ textarea {
   object-fit: contain;
 }
 
+.service-icon-fallback {
+  width: 58px;
+  height: 58px;
+}
+
+.service-icon-fallback svg {
+  width: 100%;
+  height: 100%;
+}
+
 .service-tile .label {
   font-weight: 700;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .service-tile .meta {
   font-size: 12px;
   color: var(--muted);
+  white-space: normal;
+  word-break: break-word;
 }
 
 .service-tile .desc {
@@ -819,11 +848,16 @@ textarea {
   font-size: 40px;
   line-height: 1.1;
   letter-spacing: -0.01em;
+  font-weight: 500;
 }
 
 .csc-form-layout {
   grid-template-columns: minmax(0, 1fr);
   align-items: start;
+}
+
+.csc-form-layout.two-column {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.25fr);
 }
 
 .csc-form-grid {
@@ -839,7 +873,7 @@ textarea {
 .csc-section-title {
   font-size: 27px;
   margin-bottom: 16px;
-  font-weight: 700;
+  font-weight: 500;
   color: #13213b;
   letter-spacing: -0.01em;
 }
@@ -918,9 +952,39 @@ textarea {
   font-size: 13px;
 }
 
+.csc-doc-previews {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.csc-doc-preview {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 8px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.csc-doc-preview span {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.csc-doc-preview img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
 .csc-form-page .form-row label {
   color: #13213b;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .csc-form-page .form-row input,

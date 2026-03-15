@@ -4,6 +4,17 @@ import { api, type ServiceSchema } from "../services/api";
 import heroHi from "../assets/hero-hi.jpg";
 import heroEn from "../assets/hero-en.jpg";
 import digitalSevaLogo from "../assets/digital-seva-logo.png";
+import aadhaarIcon from "../assets/services/Aadhaar.webp";
+import ayushmanIcon from "../assets/services/AYUSHMAN-BHARAT.webp";
+import jeevanIcon from "../assets/services/JEEVAN-PRAMAAN.webp";
+import passportIcon from "../assets/services/Passport.webp";
+import panIcon from "../assets/services/pan-card.svg";
+import incomeIcon from "../assets/services/income.svg";
+import domicileIcon from "../assets/services/domicile.svg";
+import scstIcon from "../assets/services/scst.svg";
+import obcIcon from "../assets/services/obc.svg";
+import landIcon from "../assets/services/land.svg";
+import birthIcon from "../assets/services/birth.svg";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -119,6 +130,7 @@ export default function Login() {
   };
 
   const showcaseServices = services
+    .filter((service) => String(service.service_name || "").trim().length > 0)
     .filter((service) => {
       if (activeTab === "b2c") {
         return serviceGroup(service) === "other";
@@ -128,6 +140,112 @@ export default function Login() {
       return serviceGroup(service) === activeFilter;
     })
     .slice(0, 40);
+
+  const serviceIcons: Record<string, string> = {
+    aadhaar: aadhaarIcon,
+    ayushman: ayushmanIcon,
+    "jeevan pramaan": jeevanIcon,
+    passport: passportIcon,
+    pan: panIcon,
+    income_certificate: incomeIcon,
+    domicile_certificate: domicileIcon,
+    sc_st_certificate: scstIcon,
+    obc_certificate: obcIcon,
+    land_use_information: landIcon,
+    birth_certificate_correction: birthIcon
+  };
+
+  const getServiceIcon = (service: ServiceSchema) => {
+    const typeKey = String(service.service_type || "").toLowerCase();
+    if (serviceIcons[typeKey]) return serviceIcons[typeKey];
+    const nameKey = String(service.service_name || "").toLowerCase();
+    const matchKey = Object.keys(serviceIcons).find((key) => nameKey.includes(key));
+    return matchKey ? serviceIcons[matchKey] : "";
+  };
+
+  const getIconKind = (service: ServiceSchema) => {
+    const name = String(service.service_name || "").toLowerCase();
+    const type = String(service.service_type || "").toLowerCase();
+    if (name.includes("certificate") || type.includes("certificate")) return "certificate";
+    if (name.includes("license") || name.includes("licence") || type.includes("license")) return "license";
+    if (name.includes("registration") || type.includes("registration")) return "registration";
+    if (name.includes("pension")) return "pension";
+    if (name.includes("land") || name.includes("mutation")) return "land";
+    if (name.includes("water") || name.includes("tap")) return "water";
+    if (name.includes("grievance")) return "grievance";
+    return "service";
+  };
+
+  const renderFallbackIcon = (kind: string) => {
+    switch (kind) {
+      case "certificate":
+        return (
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect x="10" y="10" width="44" height="44" rx="8" fill="#FFF7ED" stroke="#FDBA74" />
+            <rect x="18" y="22" width="28" height="4" rx="2" fill="#FB923C" />
+            <rect x="18" y="30" width="20" height="4" rx="2" fill="#FDBA74" />
+            <circle cx="46" cy="42" r="6" fill="#F97316" />
+          </svg>
+        );
+      case "license":
+        return (
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect x="10" y="14" width="44" height="36" rx="6" fill="#EEF2FF" stroke="#A5B4FC" />
+            <rect x="16" y="22" width="18" height="16" rx="4" fill="#6366F1" />
+            <rect x="38" y="24" width="14" height="4" rx="2" fill="#94A3B8" />
+            <rect x="38" y="32" width="10" height="4" rx="2" fill="#CBD5F5" />
+          </svg>
+        );
+      case "registration":
+        return (
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect x="14" y="10" width="36" height="44" rx="8" fill="#ECFCCB" stroke="#A3E635" />
+            <rect x="20" y="20" width="24" height="4" rx="2" fill="#65A30D" />
+            <rect x="20" y="28" width="18" height="4" rx="2" fill="#84CC16" />
+            <circle cx="44" cy="42" r="6" fill="#4D7C0F" />
+          </svg>
+        );
+      case "pension":
+        return (
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect x="12" y="14" width="40" height="36" rx="10" fill="#FEF3C7" stroke="#FDE68A" />
+            <circle cx="32" cy="32" r="10" fill="#F59E0B" />
+            <rect x="30" y="22" width="4" height="20" rx="2" fill="#92400E" />
+          </svg>
+        );
+      case "land":
+        return (
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect x="12" y="12" width="40" height="40" rx="8" fill="#DCFCE7" stroke="#86EFAC" />
+            <path d="M20 40c6-8 18-8 24 0" fill="#22C55E" />
+            <circle cx="24" cy="26" r="6" fill="#16A34A" />
+          </svg>
+        );
+      case "water":
+        return (
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect x="14" y="10" width="36" height="44" rx="8" fill="#E0F2FE" stroke="#7DD3FC" />
+            <path d="M32 20c6 8 8 12 8 16a8 8 0 1 1-16 0c0-4 2-8 8-16z" fill="#38BDF8" />
+          </svg>
+        );
+      case "grievance":
+        return (
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect x="12" y="12" width="40" height="40" rx="8" fill="#FFE4E6" stroke="#FDA4AF" />
+            <path d="M32 20v16" stroke="#F43F5E" strokeWidth="4" strokeLinecap="round" />
+            <circle cx="32" cy="42" r="3" fill="#F43F5E" />
+          </svg>
+        );
+      default:
+        return (
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect x="12" y="12" width="40" height="40" rx="8" fill="#F3F4F6" stroke="#CBD5E1" />
+            <path d="M22 34h20" stroke="#94A3B8" strokeWidth="4" strokeLinecap="round" />
+            <path d="M22 26h14" stroke="#CBD5E1" strokeWidth="4" strokeLinecap="round" />
+          </svg>
+        );
+    }
+  };
 
   const handleChange = (key: string, value: string) => {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -202,7 +320,7 @@ export default function Login() {
 
       <div className="shell">
         <div className="login-grid">
-          <div>
+          <div className="login-primary-column">
             <div className="notice" style={{ fontWeight: 700 }}>
               {lang === "hi"
                 ? "यह केवल फ़ॉर्म सहायता के लिए है, वास्तविक सबमिशन मुख्य पोर्टल पर ही होगा।"
@@ -270,9 +388,6 @@ export default function Login() {
               <button className="btn" type="submit" disabled={loading} style={{ width: "100%" }}>
                 {loading ? "Signing in..." : t.loginBtn}
               </button>
-              <button className="btn secondary" type="button" style={{ width: "100%", marginTop: "10px" }}>
-                {t.citizenLogin}
-              </button>
             </form>
           </div>
         </div>
@@ -323,13 +438,18 @@ export default function Login() {
             )}
             {showcaseServices.map((item, index) => {
               const serviceKey = `${item.service_id || "svc"}_${item.service_type || "unknown"}_${index}`;
+              const icon = getServiceIcon(item);
+              const fallbackKind = getIconKind(item);
               return (
               <div className="service-tile" key={serviceKey}>
                 <div className="icon">
-                  <span>{String(item.service_name || "S").charAt(0)}</span>
+                  {icon ? (
+                    <img src={icon} alt={item.service_name} />
+                  ) : (
+                    <div className="service-icon-fallback">{renderFallbackIcon(fallbackKind)}</div>
+                  )}
                 </div>
                 <div className="label">{item.service_name}</div>
-                <div className="meta">{item.service_type}</div>
               </div>
             );})}
           </div>

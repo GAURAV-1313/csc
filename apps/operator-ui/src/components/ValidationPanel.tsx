@@ -29,7 +29,7 @@ export default function ValidationPanel({ validationResult, schema, formData }: 
     .filter((warning) => warning.toLowerCase().startsWith("missing required field:"))
     .map((warning) => warning.split(":").slice(1).join(":").trim());
   const frontendMissingFields = computeMissingFields(schema, formData);
-  const missingFields = backendMissingFields.length > 0 ? backendMissingFields : frontendMissingFields;
+  const missingFields = Array.from(new Set([...frontendMissingFields, ...backendMissingFields]));
   const otherWarnings = warnings.filter(
     (warning) => !warning.toLowerCase().startsWith("missing required field:")
   );
@@ -77,7 +77,11 @@ export default function ValidationPanel({ validationResult, schema, formData }: 
       <div className="csc-panel-group">
         <strong className="csc-panel-title">AI Explanation</strong>
         <p className="csc-panel-explanation">
-          {validationResult?.explanation || "Run validation to see AI reasoning."}
+          {typeof validationResult?.explanation === "string"
+            ? validationResult?.explanation
+            : validationResult?.explanation
+              ? JSON.stringify(validationResult?.explanation)
+              : "Run validation to see AI reasoning."}
         </p>
       </div>
     </div>

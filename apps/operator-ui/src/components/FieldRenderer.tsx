@@ -15,9 +15,29 @@ type FieldRendererProps = {
 export default function FieldRenderer({ field, value, onChange, error }: FieldRendererProps) {
   const isPinCodeField = String(field.key || "").toLowerCase().includes("pin_code");
   const errorClass = error ? "input-error" : "";
+  const normalizedDateValue = (() => {
+    if (field.type !== "date") return value ?? "";
+    if (!value) return "";
+    const raw = String(value).trim();
+    if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw;
+    const match = raw.match(/^(\d{2})[\/\-](\d{2})[\/\-](\d{4})$/);
+    if (match) {
+      const [, dd, mm, yyyy] = match;
+      return `${yyyy}-${mm}-${dd}`;
+    }
+    const parsed = Date.parse(raw);
+    if (!Number.isNaN(parsed)) {
+      const dt = new Date(parsed);
+      const yyyy = String(dt.getFullYear()).padStart(4, "0");
+      const mm = String(dt.getMonth() + 1).padStart(2, "0");
+      const dd = String(dt.getDate()).padStart(2, "0");
+      return `${yyyy}-${mm}-${dd}`;
+    }
+    return "";
+  })();
 
   const commonProps = {
-    value: value ?? "",
+    value: field.type === "date" ? normalizedDateValue : (value ?? ""),
     onChange: (event) => {
       let nextValue = event.target.value;
 

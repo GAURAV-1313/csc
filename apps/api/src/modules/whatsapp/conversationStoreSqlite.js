@@ -33,6 +33,8 @@ async function savePrecheckRecord(record) {
       phone_number: record.phone_number,
       service_type: record.service_type,
       precheck_data: JSON.stringify(record.precheck_data || {}),
+      pdf_url: record.pdf_url || "",
+      view_url: record.view_url || "",
       status: record.status || "completed",
       updated_at: new Date()
     },
@@ -41,6 +43,8 @@ async function savePrecheckRecord(record) {
       phone_number: record.phone_number,
       service_type: record.service_type,
       precheck_data: JSON.stringify(record.precheck_data || {}),
+      pdf_url: record.pdf_url || "",
+      view_url: record.view_url || "",
       status: record.status || "completed"
     }
   });

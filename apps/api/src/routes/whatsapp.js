@@ -1,7 +1,7 @@
 const { processMessage } = require("../modules/whatsapp/conversationFlow");
 const { getConversation, saveConversation, savePrecheckRecord, getPrecheckByReferenceId } = require("../modules/whatsapp/whatsappStore");
 const { formatTwilioReply, parseTwilioWebhook, parseMetaWebhook, getLaunchConfig, PROVIDER } = require("../modules/whatsapp/whatsappService");
-const { getCitizenReport, lookupCitizenReport, getBotLaunchConfig, isBotConfigured } = require("../modules/whatsapp/botClient");
+const { getCitizenReport, lookupCitizenReport, getPrecheckPdf, getBotLaunchConfig, isBotConfigured } = require("../modules/whatsapp/botClient");
 
 /**
  * POST /whatsapp/webhook
@@ -117,6 +117,8 @@ async function precheckStatus(req, res) {
     service_type: record.service_type,
     precheck_data: precheckData,
     required_documents: requiredDocuments || [],
+    pdf_url: record.pdf_url || "",
+    view_url: record.view_url || "",
     eligibility_status: record.eligibility_status || "approved",
     eligibility_message: record.eligibility_message || "",
     status: record.status,
@@ -189,6 +191,41 @@ async function whatsappReportLookup(req, res) {
 }
 
 /**
+ * GET /precheck/:id/pdf
+ *
+ * Returns the PDF report for a Reference ID by proxying the bot API
+ * or redirecting to stored PDF URL if available locally.
+ */
+async function precheckPdf(req, res) {
+  const { id } = req.params;
+  if (!id) {
+    res.status(400).json({ error: "id is required" });
+    return;
+  }
+
+  if (isBotConfigured()) {
+    try {
+      const pdf = await getPrecheckPdf(id);
+      res.setHeader("Content-Type", pdf.contentType || "application/pdf");
+      res.send(pdf.buffer);
+      return;
+    } catch (err) {
+      const status = err.status || 500;
+      res.status(status).json({ error: err.message || "Bot API error" });
+      return;
+    }
+  }
+
+  const record = await getPrecheckByReferenceId(String(id).toUpperCase());
+  if (record && record.pdf_url) {
+    res.redirect(record.pdf_url);
+    return;
+  }
+
+  res.status(404).json({ error: "PDF not found" });
+}
+
+/**
  * POST /whatsapp-integration/store-precheck
  *
  * Allows the external WhatsApp pre-check bot to push a completed pre-check
@@ -229,6 +266,8 @@ async function storePrecheck(req, res) {
       service_type,
       precheck_data,
       required_documents: body.required_documents || [],
+      pdf_url: body.pdf_url || body.pdfUrl || "",
+      view_url: body.view_url || body.viewUrl || "",
       eligibility_status: body.eligibility_status || "",
       eligibility_message: body.eligibility_message || "",
       status: body.status || "completed"
@@ -281,5 +320,6 @@ module.exports = {
   whatsappReport,
   whatsappReportLookup,
   botStatus,
-  storePrecheck
+  storePrecheck,
+  precheckPdf
 };

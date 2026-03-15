@@ -9,7 +9,13 @@
       "purpose": "Scholarship",
       "category": "OBC"
     },
-    "required_documents": ["Aadhaar Card", "Ration Card", "Income Affidavit", "Residence Proof", "Passport Size Photo"],
+    "required_documents": [
+      "Aadhaar Card",
+      "Ration Card",
+      "Income Affidavit",
+      "Residence Proof",
+      "Passport Size Photo"
+    ],
     "eligibility_status": "approved",
     "eligibility_message": "",
     "status": "completed",
@@ -26,7 +32,13 @@
       "purpose": "Government scheme",
       "category": "General"
     },
-    "required_documents": ["Aadhaar Card", "Ration Card", "Income Affidavit", "Residence Proof", "Passport Size Photo"],
+    "required_documents": [
+      "Aadhaar Card",
+      "Ration Card",
+      "Income Affidavit",
+      "Residence Proof",
+      "Passport Size Photo"
+    ],
     "eligibility_status": "approved",
     "eligibility_message": "",
     "status": "completed",
@@ -43,7 +55,12 @@
       "years_at_address": "12",
       "applicant_type": "Adult"
     },
-    "required_documents": ["Aadhaar Card", "Residence Proof", "Ration Card or Voter ID", "Passport Size Photo"],
+    "required_documents": [
+      "Aadhaar Card",
+      "Residence Proof",
+      "Ration Card or Voter ID",
+      "Passport Size Photo"
+    ],
     "eligibility_status": "approved",
     "eligibility_message": "",
     "status": "completed",
@@ -59,7 +76,12 @@
       "category": "SC",
       "prior_certificate": "No"
     },
-    "required_documents": ["Aadhaar Card", "Caste Affidavit", "Ration Card", "Passport Size Photo"],
+    "required_documents": [
+      "Aadhaar Card",
+      "Caste Affidavit",
+      "Ration Card",
+      "Passport Size Photo"
+    ],
     "eligibility_status": "approved",
     "eligibility_message": "",
     "status": "completed",
@@ -76,7 +98,11 @@
       "relation_to_land": "Owner",
       "recent_transfer": "No"
     },
-    "required_documents": ["Aadhaar Card", "Land Records / Khasra-Khatauni", "Residence Proof"],
+    "required_documents": [
+      "Aadhaar Card",
+      "Land Records / Khasra-Khatauni",
+      "Residence Proof"
+    ],
     "eligibility_status": "approved",
     "eligibility_message": "",
     "status": "completed",
@@ -93,7 +119,12 @@
       "annual_income": "350000",
       "general_category": "No"
     },
-    "required_documents": ["Aadhaar Card", "Income Affidavit", "Ration Card", "Passport Size Photo"],
+    "required_documents": [
+      "Aadhaar Card",
+      "Income Affidavit",
+      "Ration Card",
+      "Passport Size Photo"
+    ],
     "eligibility_status": "approved",
     "eligibility_message": "",
     "status": "completed",
@@ -109,11 +140,40 @@
       "correction_type": "Date of Birth",
       "for_whom": "Minor child"
     },
-    "required_documents": ["Original Birth Certificate", "Aadhaar Card", "Correction Affidavit", "Hospital Records"],
+    "required_documents": [
+      "Original Birth Certificate",
+      "Aadhaar Card",
+      "Correction Affidavit",
+      "Hospital Records"
+    ],
     "eligibility_status": "approved",
     "eligibility_message": "",
     "status": "completed",
     "created_at": "2026-03-14T11:20:00.000Z",
     "updated_at": "2026-03-14T11:20:00.000Z"
+  },
+  {
+    "reference_id": "PC-DEMO01",
+    "phone_number": "+919999999999",
+    "service_type": "income_certificate",
+    "precheck_data": {
+      "applicant_name": "Demo Citizen",
+      "aadhaar_number": "123412341234",
+      "pan_number": "ABCDE1234F",
+      "date_of_birth": "1995-01-01",
+      "address": "Raipur",
+      "district": "raipur"
+    },
+    "required_documents": [
+      "Affidavit",
+      "Income Proof"
+    ],
+    "pdf_url": "https://example.com/demo-precheck.pdf",
+    "view_url": "https://example.com/demo-precheck",
+    "eligibility_status": "approved",
+    "eligibility_message": "Eligible for pre-check",
+    "status": "completed",
+    "created_at": "2026-03-15T00:23:38.835Z",
+    "updated_at": "2026-03-15T00:23:38.838Z"
   }
 ]

@@ -1,6 +1,6 @@
-function explain({ serviceType, citizenData, validation, risk, schemes }) {
+async function explain({ serviceType, citizenData, validation, risk, schemes }) {
   if (process.env.LLM_MODE !== "mock") {
-    return "LLM integration placeholder. Set LLM_MODE=mock for demo text.";
+    return "AI explanation disabled. Set LLM_MODE=mock to enable demo text.";
   }
 
   const warnings = (validation && validation.warnings) || [];

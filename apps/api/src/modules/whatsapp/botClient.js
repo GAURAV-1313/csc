@@ -119,9 +119,37 @@ async function getBotLaunchConfig() {
   }
 }
 
+/**
+ * Fetch a precheck PDF file from the bot API.
+ * Returns { buffer, contentType }.
+ */
+async function getPrecheckPdf(referenceId) {
+  if (!isBotConfigured()) {
+    throw httpError("Bot API is not configured. Set BOT_API_BASE_URL and BOT_API_TOKEN.", 503);
+  }
+
+  const id = String(referenceId).toUpperCase();
+  const url = `${botBaseUrl()}/precheck/${encodeURIComponent(id)}/pdf`;
+
+  const response = await fetch(url, { headers: botHeaders() });
+
+  if (response.status === 401) throw httpError("Bot API: Unauthorized. Check BOT_API_TOKEN.", 401);
+  if (response.status === 404) throw httpError(`Reference ID ${id} not found`, 404);
+
+  if (!response.ok) {
+    const text = await response.text();
+    throw httpError(`Bot API error ${response.status}: ${text}`, response.status);
+  }
+
+  const buffer = Buffer.from(await response.arrayBuffer());
+  const contentType = response.headers.get("content-type") || "application/pdf";
+  return { buffer, contentType };
+}
+
 module.exports = {
   getCitizenReport,
   lookupCitizenReport,
+  getPrecheckPdf,
   getBotLaunchConfig,
   isBotConfigured
 };

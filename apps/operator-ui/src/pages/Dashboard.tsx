@@ -13,6 +13,7 @@ export default function Dashboard() {
   const [services, setServices] = useState<ServiceSchema[]>([]);
   const [loading, setLoading] = useState(true);
   const [servicesError, setServicesError] = useState<string | null>(null);
+  const [search, setSearch] = useState("");
   const [lang, setLang] = useState<"hi" | "en">(
     (localStorage.getItem("ui_lang") as "hi" | "en") || "hi"
   );
@@ -73,7 +74,8 @@ export default function Dashboard() {
       loadErrorHint: "API चालू है या नहीं जांचें।",
       noServices: "अभी कोई सेवा उपलब्ध नहीं है।",
       waButton: "WhatsApp पर शुरू करें",
-      waHint: "नागरिक को WhatsApp पर प्री-चेक शुरू करने के लिए भेजें"
+      waHint: "नागरिक को WhatsApp पर प्री-चेक शुरू करने के लिए भेजें",
+      searchPlaceholder: "सेवा खोजें (नाम/टाइप)..."
     },
     en: {
       topRight: "Continue with Digital India",
@@ -93,7 +95,8 @@ export default function Dashboard() {
       loadErrorHint: "Check whether the API server is running.",
       noServices: "No services are available right now.",
       waButton: "Start on WhatsApp",
-      waHint: "Send to citizen to begin WhatsApp pre-check"
+      waHint: "Send to citizen to begin WhatsApp pre-check",
+      searchPlaceholder: "Search services (name/type)..."
     }
   } as const;
 
@@ -138,11 +141,7 @@ export default function Dashboard() {
               </a>
             ))}
           </div>
-          <div className="nav-actions">
-            <button className="btn" type="button">
-              Login
-            </button>
-          </div>
+          <div className="nav-actions" />
         </div>
       </div>
 
@@ -157,6 +156,13 @@ export default function Dashboard() {
             </p>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+            <input
+              className="services-search-input"
+              type="text"
+              value={search}
+              placeholder={t.searchPlaceholder}
+              onChange={(event) => setSearch(event.target.value)}
+            />
             <span className="services-badge">{t.badge}</span>
             {waLink && (
               <a
@@ -191,7 +197,16 @@ export default function Dashboard() {
           <div className="card">{t.noServices}</div>
         ) : (
           <div className="services-grid">
-            {services.map((service, index) => {
+            {services
+              .filter((service) => String(service.service_name || "").trim().length > 0)
+              .filter((service) => {
+                const q = search.trim().toLowerCase();
+                if (!q) return true;
+                const name = String(service.service_name || "").toLowerCase();
+                const type = String(service.service_type || "").toLowerCase();
+                return name.includes(q) || type.includes(q);
+              })
+              .map((service, index) => {
               const summary = serviceSummaryMap[service.service_type];
               const description =
                 (summary && summary[lang]) || summary?.en || "AI-assisted pre-validation service.";

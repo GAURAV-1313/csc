@@ -42,17 +42,17 @@ function mapCitizenDataToForm(
 
   for (const [botKey, value] of Object.entries(citizenData)) {
     if (value === null || value === undefined) continue;
-    const val = String(value);
+    let val = String(value);
 
     // Direct match — bot key is the same as a schema field key
     if (schemaKeys.has(botKey)) {
-      mapped[botKey] = val;
+      mapped[botKey] = normalizeDateValue(botKey, val);
       continue;
     }
     // Mapped match
     const cscKey = CITIZEN_DATA_FIELD_MAP[botKey];
     if (cscKey && schemaKeys.has(cscKey)) {
-      mapped[cscKey] = val;
+      mapped[cscKey] = normalizeDateValue(cscKey, val);
     }
   }
   return mapped;
@@ -72,6 +72,42 @@ function getDisplayRiskLevel(level?: string) {
   if (normalized === "low") return "LOW";
   if (normalized === "high") return "HIGH";
   return "UNKNOWN";
+}
+
+function normalizeDateValue(fieldKey: string, value: string) {
+  const key = String(fieldKey || "").toLowerCase();
+  if (!key.includes("date") && !key.includes("dob")) return value;
+  const raw = String(value).trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw;
+  const match = raw.match(/^(\d{2})[\/\-](\d{2})[\/\-](\d{4})$/);
+  if (match) {
+    const [, dd, mm, yyyy] = match;
+    return `${yyyy}-${mm}-${dd}`;
+  }
+  const parsed = Date.parse(raw);
+  if (!Number.isNaN(parsed)) {
+    const dt = new Date(parsed);
+    const yyyy = String(dt.getFullYear()).padStart(4, "0");
+    const mm = String(dt.getMonth() + 1).padStart(2, "0");
+    const dd = String(dt.getDate()).padStart(2, "0");
+    return `${yyyy}-${mm}-${dd}`;
+  }
+  return value;
+}
+
+function mapOcrFieldsToForm(ocrFields: Record<string, unknown>): Record<string, string> {
+  const mapped: Record<string, string> = {};
+  if (!ocrFields) return mapped;
+  const normalize = (value: unknown) => (value === null || value === undefined ? "" : String(value));
+
+  if (ocrFields.name) mapped.applicant_name = normalize(ocrFields.name);
+  if (ocrFields.dob || ocrFields.date_of_birth) {
+    mapped.date_of_birth = normalizeDateValue("date_of_birth", normalize(ocrFields.dob || ocrFields.date_of_birth));
+  }
+  if (ocrFields.aadhaar_number || ocrFields.aadhaar) mapped.aadhaar_number = normalize(ocrFields.aadhaar_number || ocrFields.aadhaar);
+  if (ocrFields.pan_number || ocrFields.pan) mapped.pan_number = normalize(ocrFields.pan_number || ocrFields.pan);
+  if (ocrFields.address) mapped.address = normalize(ocrFields.address);
+  return mapped;
 }
 
 function ensureSentence(text: string) {
@@ -149,6 +185,10 @@ function toIntroPoints(raw?: string) {
   });
 
   return merged;
+}
+
+function getErrorMessage(error: unknown) {
+  return error instanceof Error ? error.message : "Something went wrong";
 }
 
 const incomeCertificateSchema: ServiceSchema = {
@@ -589,6 +629,9 @@ export default function ApplicationForm() {
   const [lookingUp, setLookingUp] = useState(false);
   const [citizenReport, setCitizenReport] = useState<CitizenReport | null>(null);
   const [lookupError, setLookupError] = useState<string | null>(null);
+  const [lookupRefId, setLookupRefId] = useState<string | null>(null);
+  const [aadhaarPreview, setAadhaarPreview] = useState<string | null>(null);
+  const [panPreview, setPanPreview] = useState<string | null>(null);
 
   const copy = {
     hi: {
@@ -597,6 +640,7 @@ export default function ApplicationForm() {
       brandTitle: "कॉमन सर्विस सेंटर",
       brandSubtitle: "Digital Seva Portal",
       back: "डैशबोर्ड पर वापस",
+      clearDraft: "सेव किया गया ड्राफ्ट हटाएँ",
       appId: "आवेदन आईडी",
       introTitle: "परिचय",
       viewForm: "फॉर्म देखें",
@@ -625,6 +669,7 @@ export default function ApplicationForm() {
       brandTitle: "Common Service Center",
       brandSubtitle: "Digital Seva Portal",
       back: "Back to Dashboard",
+      clearDraft: "Clear Saved Draft",
       appId: "Application ID",
       introTitle: "Introduction",
       viewForm: "View Form",
@@ -676,14 +721,15 @@ export default function ApplicationForm() {
         if (!serviceType) return;
         const service = await api.getServiceSchema(serviceType);
         if (!mounted) return;
-        setSchema(service.service);
+        const withCommonFields = ensureCommonFields(service.service);
+        setSchema(withCommonFields);
 
         const draft = await api.createApplicationDraft({ serviceType, citizenData: {} });
         if (!mounted) return;
         setApplicationId(draft.application_id);
       } catch (error) {
         console.error(error);
-        alert(error.message);
+        alert(getErrorMessage(error));
       } finally {
         mounted && setLoading(false);
       }
@@ -702,6 +748,57 @@ export default function ApplicationForm() {
     isBirthCertificateCorrection
   ]);
 
+  useEffect(() => {
+    if (!serviceType) return;
+    const key = `csc_form_state_${serviceType}`;
+    const saved = localStorage.getItem(key);
+    if (!saved) return;
+    try {
+      const parsed = JSON.parse(saved);
+      if (parsed && typeof parsed === "object") {
+        if (parsed.formData) setFormData(parsed.formData);
+        if (Array.isArray(parsed.uploadedDocs)) setUploadedDocs(parsed.uploadedDocs);
+        if (parsed.applicationId) setApplicationId(parsed.applicationId);
+      }
+    } catch {
+      // ignore corrupted cache
+    }
+  }, [serviceType]);
+
+  useEffect(() => {
+    if (!serviceType) return;
+    const key = `csc_form_state_${serviceType}`;
+    const payload = {
+      formData,
+      uploadedDocs,
+      applicationId
+    };
+    localStorage.setItem(key, JSON.stringify(payload));
+  }, [formData, uploadedDocs, applicationId, serviceType]);
+
+  function ensureCommonFields(service: ServiceSchema): ServiceSchema {
+    if (!service || !service.sections || service.sections.length === 0) return service;
+    const keys = new Set(
+      service.sections.flatMap((section) => (section.fields || []).map((field) => field.key))
+    );
+    const commonFields = [
+      { key: "applicant_name", type: "text", required: true },
+      { key: "age", type: "number", required: true },
+      { key: "gender", type: "select", required: true, options: ["male", "female", "other"] }
+    ];
+    const missing = commonFields.filter((field) => !keys.has(field.key));
+    if (missing.length === 0) return service;
+    const [first, ...rest] = service.sections;
+    const updatedFirst = {
+      ...first,
+      fields: [...missing, ...(first.fields || [])]
+    };
+    return {
+      ...service,
+      sections: [updatedFirst, ...rest]
+    };
+  }
+
   const handleChange = (key: string, value: string | number | boolean) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
   };
@@ -712,8 +809,9 @@ export default function ApplicationForm() {
   const lastAutoPayload = useRef<string>("");
 
   const handleUploaded = (result: { document?: Record<string, unknown> }) => {
-    if (!result?.document) return;
-    setUploadedDocs((prev) => [...prev, result.document]);
+    const document = result?.document;
+    if (!document) return;
+    setUploadedDocs((prev) => [...prev, document]);
   };
 
   useEffect(() => {
@@ -773,6 +871,7 @@ export default function ApplicationForm() {
     try {
       const report = await api.getWhatsappReport(id);
       setCitizenReport(report);
+      setLookupRefId(id);
       // Pre-fill form with citizen data
       const mapped = mapCitizenDataToForm(report.citizen_data || {}, schema);
       setFormData((prev) => ({ ...prev, ...mapped }));
@@ -801,7 +900,7 @@ export default function ApplicationForm() {
       setValidationResult(result);
     } catch (error) {
       console.error(error);
-      alert(error.message);
+      alert(getErrorMessage(error));
     } finally {
       setValidating(false);
     }
@@ -821,7 +920,7 @@ export default function ApplicationForm() {
       setRiskPrediction(prediction);
     } catch (error) {
       console.error(error);
-      alert(error.message);
+      alert(getErrorMessage(error));
     } finally {
       setPredictingRisk(false);
     }
@@ -835,7 +934,7 @@ export default function ApplicationForm() {
       window.location.href = "https://edistrict.cgstate.gov.in";
     } catch (error) {
       console.error(error);
-      alert((error as Error).message);
+      alert(getErrorMessage(error));
     } finally {
       setSubmittingFinal(false);
     }
@@ -885,9 +984,23 @@ export default function ApplicationForm() {
               {t.appId}: {applicationId || "..."}
             </p>
           </div>
-          <button className="btn secondary" onClick={() => navigate("/dashboard")}>
-            {t.back}
-          </button>
+          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+            <button
+              className="btn secondary"
+              onClick={() => {
+                if (!serviceType) return;
+                const key = `csc_form_state_${serviceType}`;
+                localStorage.removeItem(key);
+                setFormData({});
+                setUploadedDocs([]);
+              }}
+            >
+              {t.clearDraft}
+            </button>
+            <button className="btn secondary" onClick={() => navigate("/dashboard")}>
+              {t.back}
+            </button>
+          </div>
         </div>
 
         {loading ? (
@@ -1021,11 +1134,17 @@ export default function ApplicationForm() {
                     {" — "}{citizenReport.service_type?.replace(/_/g, " ")}
                   </p>
                   <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                    {citizenReport.pdf_url && (
-                      <a href={citizenReport.pdf_url} target="_blank" rel="noreferrer" className="btn secondary" style={{ fontSize: "12px", padding: "4px 10px" }}>
-                        📄 Download PDF
-                      </a>
-                    )}
+                  {(citizenReport.pdf_url || lookupRefId) && (
+                    <a
+                      href={citizenReport.pdf_url || api.getPrecheckPdfUrl(lookupRefId || "")}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn secondary"
+                      style={{ fontSize: "12px", padding: "4px 10px" }}
+                    >
+                      📄 Download PDF
+                    </a>
+                  )}
                     {citizenReport.view_url && (
                       <a href={citizenReport.view_url} target="_blank" rel="noreferrer" className="btn secondary" style={{ fontSize: "12px", padding: "4px 10px" }}>
                         🔍 View Report
@@ -1057,8 +1176,95 @@ export default function ApplicationForm() {
               )}
             </div>
 
-            <div className="layout csc-form-layout">
+            <div className="layout csc-form-layout two-column">
               <div className="grid csc-form-grid">
+                <div className="card csc-section-card">
+                  <div className="csc-section-header">
+                    <h3 className="csc-section-title">Aadhaar / PAN Upload</h3>
+                    <a href="#csc-docs" className="csc-doc-shortcut">All Documents</a>
+                  </div>
+                  <p className="csc-section-note">Upload Aadhaar or PAN once to auto-fill matching fields.</p>
+                  <div className="csc-doc-quick">
+                    <label className={`csc-doc-upload ${!applicationId ? "disabled" : ""}`}>
+                      Aadhaar Upload
+                      <input
+                        type="file"
+                        accept="image/*,application/pdf"
+                        disabled={!applicationId}
+                        onChange={async (event) => {
+                          const file = event.target.files?.[0];
+                          if (!applicationId || !file) return;
+                          if (file.type.startsWith("image/")) {
+                            setAadhaarPreview(URL.createObjectURL(file));
+                          } else {
+                            setAadhaarPreview(null);
+                          }
+                          try {
+                            const result = await api.uploadDocument(applicationId, "aadhaar_card", file);
+                            handleUploaded(result);
+                            const ocrFields = (result.ocr && result.ocr.fields) || {};
+                            const mapped = mapOcrFieldsToForm(ocrFields);
+                            if (Object.keys(mapped).length > 0) {
+                              setFormData((prev) => ({ ...prev, ...mapped }));
+                            }
+                          } catch (error) {
+                            console.error(error);
+                            alert(getErrorMessage(error));
+                          } finally {
+                            event.target.value = "";
+                          }
+                        }}
+                      />
+                    </label>
+                    <label className={`csc-doc-upload ${!applicationId ? "disabled" : ""}`}>
+                      PAN Upload
+                      <input
+                        type="file"
+                        accept="image/*,application/pdf"
+                        disabled={!applicationId}
+                        onChange={async (event) => {
+                          const file = event.target.files?.[0];
+                          if (!applicationId || !file) return;
+                          if (file.type.startsWith("image/")) {
+                            setPanPreview(URL.createObjectURL(file));
+                          } else {
+                            setPanPreview(null);
+                          }
+                          try {
+                            const result = await api.uploadDocument(applicationId, "pan_card", file);
+                            handleUploaded(result);
+                            const ocrFields = (result.ocr && result.ocr.fields) || {};
+                            const mapped = mapOcrFieldsToForm(ocrFields);
+                            if (Object.keys(mapped).length > 0) {
+                              setFormData((prev) => ({ ...prev, ...mapped }));
+                            }
+                          } catch (error) {
+                            console.error(error);
+                            alert(getErrorMessage(error));
+                          } finally {
+                            event.target.value = "";
+                          }
+                        }}
+                      />
+                    </label>
+                  </div>
+                  {(aadhaarPreview || panPreview) && (
+                    <div className="csc-doc-previews">
+                      {aadhaarPreview && (
+                        <div className="csc-doc-preview">
+                          <span>Aadhaar Preview</span>
+                          <img src={aadhaarPreview} alt="Aadhaar preview" />
+                        </div>
+                      )}
+                      {panPreview && (
+                        <div className="csc-doc-preview">
+                          <span>PAN Preview</span>
+                          <img src={panPreview} alt="PAN preview" />
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
                 <DynamicForm schema={schema} formData={formData} onChange={handleChange} />
                 <DocumentUploader
                   applicationId={applicationId}
@@ -1081,7 +1287,9 @@ export default function ApplicationForm() {
                   </button>
                 </div>
               </div>
-              <ValidationPanel validationResult={validationResult} />
+              <div className="csc-review-right">
+                <ValidationPanel validationResult={validationResult} schema={schema} formData={formData} />
+              </div>
             </div>
 
             {riskPrediction && (

@@ -50,9 +50,17 @@ async function renderPdfToImages(filePath, maxPages = 3) {
   return images;
 }
 
-async function extractTextFromImage(worker, image, language = "eng") {
-  const { data } = await worker.recognize(image, language);
-  return data.text || "";
+async function extractTextFromImage(worker, image, label = "unknown") {
+  try {
+    const { data } = await worker.recognize(image);
+    return data.text || "";
+  } catch (err) {
+    // Do not crash the API for unreadable/corrupt images.
+    if (process.env.NODE_ENV !== "production") {
+      console.warn(`[ocr] Failed to read image for ${label}:`, err.message || err);
+    }
+    return "";
+  }
 }
 
 function normalizeText(text) {
@@ -116,6 +124,7 @@ async function runOcrOnFile({ filePath, documentType }) {
   }
 
   const ext = path.extname(filePath).toLowerCase();
+  const supportedImageExt = new Set([".png", ".jpg", ".jpeg", ".webp", ".bmp", ".tif", ".tiff"]);
   let text = "";
   const language = (process.env.OCR_LANGUAGES || "eng").trim() || "eng";
   const cacheKey = buildCacheKey(filePath, language);
@@ -126,11 +135,8 @@ async function runOcrOnFile({ filePath, documentType }) {
       fields: cache[cacheKey]
     };
   }
-  const worker = await createWorker();
+  const worker = await createWorker(language);
   try {
-    await worker.loadLanguage(language);
-    await worker.initialize(language);
-
     if (ext === ".pdf") {
       text = await extractTextFromPdf(filePath);
       if (!text || text.trim().length < 30) {
@@ -140,12 +146,17 @@ async function runOcrOnFile({ filePath, documentType }) {
         for (const image of images) {
           // Use OCR for scanned PDFs
           // eslint-disable-next-line no-await-in-loop
-          pageTexts.push(await extractTextFromImage(worker, image, language));
+          pageTexts.push(await extractTextFromImage(worker, image, `${filePath}#pdf_page`));
         }
         text = pageTexts.join("\n");
       }
+    } else if (supportedImageExt.has(ext)) {
+      text = await extractTextFromImage(worker, filePath, filePath);
     } else {
-      text = await extractTextFromImage(worker, filePath, language);
+      if (process.env.NODE_ENV !== "production") {
+        console.warn(`[ocr] Unsupported file type for OCR: ${ext || "unknown"} (${filePath})`);
+      }
+      text = "";
     }
   } finally {
     await worker.terminate();
