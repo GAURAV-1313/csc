@@ -145,7 +145,7 @@ async function whatsappReport(req, res) {
 
   if (!isBotConfigured()) {
     res.status(503).json({
-      error: "Bot API is not configured. Set BOT_API_BASE_URL and BOT_API_TOKEN in the environment."
+      error: "Bot API is not configured. Set BOT_API_BASE_URL (or APP_BASE_URL) in the environment."
     });
     return;
   }
@@ -176,7 +176,7 @@ async function whatsappReportLookup(req, res) {
 
   if (!isBotConfigured()) {
     res.status(503).json({
-      error: "Bot API is not configured. Set BOT_API_BASE_URL and BOT_API_TOKEN in the environment."
+      error: "Bot API is not configured. Set BOT_API_BASE_URL (or APP_BASE_URL) in the environment."
     });
     return;
   }
@@ -295,7 +295,7 @@ async function botStatus(req, res) {
     res.json({
       configured: false,
       reachable: false,
-      message: "Bot API is not configured. Set BOT_API_BASE_URL and BOT_API_TOKEN in the environment."
+      message: "Bot API is not configured. Set BOT_API_BASE_URL (or APP_BASE_URL) in the environment."
     });
     return;
   }
@@ -306,7 +306,7 @@ async function botStatus(req, res) {
   res.json({
     configured: true,
     reachable,
-    bot_url: (process.env.BOT_API_BASE_URL || "").replace(/\/$/, "") || null,
+    bot_url: (process.env.BOT_API_BASE_URL || process.env.APP_BASE_URL || "").replace(/\/$/, "") || null,
     message: reachable
       ? "Bot API is configured and reachable."
       : "Bot API is configured but could not be reached. Check BOT_API_BASE_URL."

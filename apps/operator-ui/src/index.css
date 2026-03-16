@@ -1040,6 +1040,28 @@ textarea {
   color: #64748b;
 }
 
+.csc-ai-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.csc-ai-chip.ok {
+  background: #ecfdf3;
+  color: #166534;
+  border-color: #86efac;
+}
+
+.csc-ai-chip.warn {
+  background: #fff7ed;
+  color: #9a3412;
+  border-color: #fdba74;
+}
+
 .csc-file-input {
   max-width: 210px;
   font-size: 13px;

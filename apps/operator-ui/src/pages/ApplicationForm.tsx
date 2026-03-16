@@ -99,13 +99,29 @@ function mapOcrFieldsToForm(ocrFields: Record<string, unknown>): Record<string, 
   const mapped: Record<string, string> = {};
   if (!ocrFields) return mapped;
   const normalize = (value: unknown) => (value === null || value === undefined ? "" : String(value));
+  const normalizeName = (value: unknown) => normalize(value).replace(/[^a-zA-Z\s.]/g, " ").replace(/\s+/g, " ").trim();
+  const isLikelyValidName = (value: string) => {
+    if (!value) return false;
+    const words = value.split(" ").filter(Boolean);
+    if (words.length < 2 || words.length > 4) return false;
+    if (words.some((w) => w.length < 2)) return false;
+    return /^[A-Za-z .]+$/.test(value);
+  };
+  const digitsOnly = (value: string) => value.replace(/\D/g, "");
 
-  if (ocrFields.name) mapped.applicant_name = normalize(ocrFields.name);
+  const candidateName = normalizeName(ocrFields.name);
+  if (isLikelyValidName(candidateName)) mapped.applicant_name = candidateName;
   if (ocrFields.dob || ocrFields.date_of_birth) {
     mapped.date_of_birth = normalizeDateValue("date_of_birth", normalize(ocrFields.dob || ocrFields.date_of_birth));
   }
-  if (ocrFields.aadhaar_number || ocrFields.aadhaar) mapped.aadhaar_number = normalize(ocrFields.aadhaar_number || ocrFields.aadhaar);
-  if (ocrFields.pan_number || ocrFields.pan) mapped.pan_number = normalize(ocrFields.pan_number || ocrFields.pan);
+  if (ocrFields.aadhaar_number || ocrFields.aadhaar) {
+    const aadhaar = digitsOnly(normalize(ocrFields.aadhaar_number || ocrFields.aadhaar));
+    if (aadhaar.length === 12) mapped.aadhaar_number = aadhaar;
+  }
+  if (ocrFields.pan_number || ocrFields.pan) {
+    const pan = normalize(ocrFields.pan_number || ocrFields.pan).toUpperCase().replace(/[^A-Z0-9]/g, "");
+    if (/^[A-Z]{5}\d{4}[A-Z]$/.test(pan)) mapped.pan_number = pan;
+  }
   if (ocrFields.address) mapped.address = normalize(ocrFields.address);
   return mapped;
 }
@@ -808,10 +824,13 @@ export default function ApplicationForm() {
   const autoValidateTimer = useRef<number | null>(null);
   const lastAutoPayload = useRef<string>("");
 
-  const handleUploaded = (result: { document?: Record<string, unknown> }) => {
+  const handleUploaded = (result: { document?: Record<string, unknown>; ai_document_analysis?: Record<string, unknown> }) => {
     const document = result?.document;
     if (!document) return;
-    setUploadedDocs((prev) => [...prev, document]);
+    const mergedDocument = result.ai_document_analysis
+      ? { ...document, ai_document_analysis: result.ai_document_analysis }
+      : document;
+    setUploadedDocs((prev) => [...prev, mergedDocument]);
   };
 
   useEffect(() => {
@@ -1269,6 +1288,7 @@ export default function ApplicationForm() {
                 <DocumentUploader
                   applicationId={applicationId}
                   requiredDocuments={requiredDocuments}
+                  uploadedDocs={uploadedDocs}
                   documentLabels={{
                     income_proof: isIncomeCertificate ? "income proof (category)" : "income proof",
                     caste_proof: "caste proof",

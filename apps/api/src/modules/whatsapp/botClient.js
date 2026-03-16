@@ -4,26 +4,28 @@
  * Wraps authenticated HTTP calls to the external WhatsApp pre-check bot API.
  *
  * Required environment variables:
- *   BOT_API_BASE_URL  - Base URL of the bot service (e.g. https://xxx.trycloudflare.com)
- *   BOT_API_TOKEN     - Shared Bearer token (must match CSC_API_BEARER_TOKEN on the bot)
+ *   BOT_API_BASE_URL  - Base URL of the bot service (preferred)
+ *   APP_BASE_URL      - Fallback bot base URL when BOT_API_BASE_URL is unset
+ *   BOT_API_TOKEN     - Optional shared Bearer token (must match CSC_API_BEARER_TOKEN on the bot)
  *
  * The bot issues Reference IDs in the format PC-XXXXXX.
  * All Reference IDs are normalised to upper-case before sending.
  */
 
 function botBaseUrl() {
-  return (process.env.BOT_API_BASE_URL || "").replace(/\/$/, "");
+  return (process.env.BOT_API_BASE_URL || process.env.APP_BASE_URL || "").replace(/\/$/, "");
 }
 
 function botHeaders() {
-  return {
-    Authorization: `Bearer ${process.env.BOT_API_TOKEN || ""}`,
-    "Content-Type": "application/json"
-  };
+  const headers = { "Content-Type": "application/json" };
+  if (process.env.BOT_API_TOKEN) {
+    headers.Authorization = `Bearer ${process.env.BOT_API_TOKEN}`;
+  }
+  return headers;
 }
 
 function isBotConfigured() {
-  return Boolean(process.env.BOT_API_BASE_URL && process.env.BOT_API_TOKEN);
+  return Boolean(botBaseUrl());
 }
 
 /**
@@ -46,7 +48,7 @@ function httpError(message, status) {
  */
 async function getCitizenReport(referenceId) {
   if (!isBotConfigured()) {
-    throw httpError("Bot API is not configured. Set BOT_API_BASE_URL and BOT_API_TOKEN.", 503);
+    throw httpError("Bot API is not configured. Set BOT_API_BASE_URL (or APP_BASE_URL).", 503);
   }
 
   const id = String(referenceId).toUpperCase();
@@ -76,7 +78,7 @@ async function getCitizenReport(referenceId) {
  */
 async function lookupCitizenReport(referenceId) {
   if (!isBotConfigured()) {
-    throw httpError("Bot API is not configured. Set BOT_API_BASE_URL and BOT_API_TOKEN.", 503);
+    throw httpError("Bot API is not configured. Set BOT_API_BASE_URL (or APP_BASE_URL).", 503);
   }
 
   const id = String(referenceId).toUpperCase();
@@ -125,7 +127,7 @@ async function getBotLaunchConfig() {
  */
 async function getPrecheckPdf(referenceId) {
   if (!isBotConfigured()) {
-    throw httpError("Bot API is not configured. Set BOT_API_BASE_URL and BOT_API_TOKEN.", 503);
+    throw httpError("Bot API is not configured. Set BOT_API_BASE_URL (or APP_BASE_URL).", 503);
   }
 
   const id = String(referenceId).toUpperCase();

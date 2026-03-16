@@ -9,10 +9,15 @@ type DocumentUploaderProps = {
     accepted_groups?: Record<string, string[]>;
   };
   documentLabels?: Record<string, string>;
-  onUploaded: (result: { document?: Record<string, unknown> }) => void;
+  uploadedDocs?: Array<Record<string, unknown>>;
+  onUploaded: (result: { document?: Record<string, unknown>; ai_document_analysis?: Record<string, unknown> }) => void;
 };
 
-export default function DocumentUploader({ applicationId, requiredDocuments, documentLabels, onUploaded }: DocumentUploaderProps) {
+function toErrorMessage(error: unknown) {
+  return error instanceof Error ? error.message : "Upload failed";
+}
+
+export default function DocumentUploader({ applicationId, requiredDocuments, documentLabels, uploadedDocs = [], onUploaded }: DocumentUploaderProps) {
   const [uploading, setUploading] = useState<Record<string, boolean>>({});
 
   const handleUpload = async (documentType: string, file?: File) => {
@@ -23,7 +28,7 @@ export default function DocumentUploader({ applicationId, requiredDocuments, doc
       onUploaded(result);
     } catch (error) {
       console.error(error);
-      alert(error.message);
+      alert(toErrorMessage(error));
     } finally {
       setUploading((prev) => ({ ...prev, [documentType]: false }));
     }
@@ -32,6 +37,15 @@ export default function DocumentUploader({ applicationId, requiredDocuments, doc
   const mandatory = requiredDocuments?.mandatory || [];
   const optional = requiredDocuments?.optional || [];
   const acceptedGroups = requiredDocuments?.accepted_groups || {};
+
+  const latestAnalysisByType = uploadedDocs.reduce<Record<string, Record<string, unknown>>>((acc, doc) => {
+    const type = String(doc.document_type || doc.documentType || "");
+    const analysis = doc.ai_document_analysis;
+    if (type && analysis && typeof analysis === "object") {
+      acc[type] = analysis as Record<string, unknown>;
+    }
+    return acc;
+  }, {});
 
   return (
     <div className="card csc-section-card" id="csc-docs">
@@ -47,6 +61,28 @@ export default function DocumentUploader({ applicationId, requiredDocuments, doc
                   Accepted: {acceptedGroups[doc].map((item) => item.replace(/_/g, " ")).join(", ")}
                 </small>
               )}
+              {latestAnalysisByType[doc] && (() => {
+                const analysis = latestAnalysisByType[doc];
+                const issues = Array.isArray(analysis.issues) ? analysis.issues.map(String) : [];
+                const hasAiFailure = issues.some((issue) => /manual review required|could not be parsed|analysis unavailable|request failed/i.test(issue));
+                const isReview = hasAiFailure || analysis.is_match === false || analysis.format_ok === false;
+                const confidence = typeof analysis.confidence === "number"
+                  ? Math.round(Number(analysis.confidence) * 100)
+                  : null;
+                return (
+                  <>
+                    <small className="csc-doc-meta" style={{ marginTop: "6px" }}>
+                      <span className={`csc-ai-chip ${isReview ? "warn" : "ok"}`}>
+                        {isReview ? "AI: Review" : "AI: OK"}
+                      </span>
+                      {confidence !== null ? ` ${confidence}%` : ""}
+                    </small>
+                    {issues.length > 0 && (
+                      <small className="csc-doc-meta">Why: {issues[0]}</small>
+                    )}
+                  </>
+                );
+              })()}
             </div>
             <input
               className="csc-file-input"

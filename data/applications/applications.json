@@ -7217,5 +7217,2148 @@
     "citizen_data": {},
     "application_status": "draft",
     "created_at": "2026-03-15T02:20:12.084Z"
+  },
+  {
+    "application_id": "app_1773541285306",
+    "service_type": "income_certificate",
+    "operator_id": "GS",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T02:21:25.306Z"
+  },
+  {
+    "application_id": "app_1773541362320",
+    "service_type": "income_certificate",
+    "operator_id": "GS",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T02:22:42.320Z"
+  },
+  {
+    "application_id": "app_1773546086436",
+    "service_type": "income_certificate",
+    "operator_id": "gaurav",
+    "citizen_data": {
+      "applicant_name": "hello gaurav",
+      "beneficiary_guardian_type": "bhai ji",
+      "beneficiary_guardian_name": "gaurav",
+      "age": "16",
+      "gender": "male",
+      "age_of_beneficiary": "-4",
+      "relation_with_applicant": "safs",
+      "son_or_daughter_or_wife_name_of_beneficiary": "werw",
+      "caste": "wer",
+      "type": "ae",
+      "class_number": "ae",
+      "address": "asere"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-15T03:43:51.272Z",
+    "service_name": "Income Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Invalid age for age_of_beneficiary. Expected between 0 and 120.",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years",
+        "Annual income must be a number.",
+        "Missing documents: Affidavit, Income Proof",
+        "Document mismatch detected"
+      ],
+      "failedRules": [
+        "income_numeric"
+      ],
+      "missingDocuments": [
+        "Affidavit",
+        "Income Proof"
+      ],
+      "schemaErrors": [
+        "Invalid age for age_of_beneficiary. Expected between 0 and 120.",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "optional": [
+          "Income Certificate Employer/Form 16",
+          "Income From Land/House",
+          "Other Documents",
+          "Application Form",
+          "Form 16",
+          "Income Of Other Members Of The Family",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [
+        {
+          "field": "applicant_name",
+          "reason": "mismatch"
+        },
+        {
+          "field": "beneficiary_guardian_name",
+          "reason": "mismatch"
+        },
+        {
+          "field": "address",
+          "reason": "mismatch"
+        }
+      ],
+      "field_mismatch_count": 3,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "document_quality",
+        "field_mismatch",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "document_quality",
+        "field_mismatch"
+      ],
+      "debug_summary": {
+        "service_type": "income_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "missing_required_fields": [
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 2,
+        "missing_fields_count": 2,
+        "field_mismatch_count": 3,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 0,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773546676127",
+    "service_type": "sc_st_certificate",
+    "operator_id": "girl",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T03:51:16.127Z"
+  },
+  {
+    "application_id": "app_1773547806896",
+    "service_type": "income_certificate",
+    "operator_id": "gaurav",
+    "citizen_data": {
+      "applicant_name": "hello gaurav",
+      "beneficiary_guardian_type": "bhai ji",
+      "beneficiary_guardian_name": "gaurav",
+      "age": "16",
+      "gender": "male",
+      "age_of_beneficiary": "-4",
+      "relation_with_applicant": "safs",
+      "son_or_daughter_or_wife_name_of_beneficiary": "werw",
+      "caste": "wer",
+      "type": "ae",
+      "class_number": "ae",
+      "address": "asere"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-15T04:10:32.726Z",
+    "service_name": "Income Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Invalid age for age_of_beneficiary. Expected between 0 and 120.",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years",
+        "Annual income must be a number.",
+        "Missing documents: Affidavit, Income Proof",
+        "Document mismatch detected"
+      ],
+      "failedRules": [
+        "income_numeric"
+      ],
+      "missingDocuments": [
+        "Affidavit",
+        "Income Proof"
+      ],
+      "schemaErrors": [
+        "Invalid age for age_of_beneficiary. Expected between 0 and 120.",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "optional": [
+          "Income Certificate Employer/Form 16",
+          "Income From Land/House",
+          "Other Documents",
+          "Application Form",
+          "Form 16",
+          "Income Of Other Members Of The Family",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [
+        {
+          "field": "applicant_name",
+          "reason": "mismatch"
+        },
+        {
+          "field": "beneficiary_guardian_name",
+          "reason": "mismatch"
+        },
+        {
+          "field": "address",
+          "reason": "mismatch"
+        }
+      ],
+      "field_mismatch_count": 3,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 1,
+      "risk_score": 1,
+      "risk_level": "VERY_HIGH",
+      "score_percent": 100,
+      "rejected_prediction": true,
+      "threshold_used": 0.5,
+      "main_contributing_factors": [
+        "missing_documents",
+        "missing_fields",
+        "field_mismatch",
+        "Missing mandatory documents"
+      ],
+      "debug_summary": {
+        "service_type": "income_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "missing_required_fields": [
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 2,
+        "missing_fields_count": 2,
+        "field_mismatch_count": 3,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 0,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773547806905",
+    "service_type": "sc_st_certificate",
+    "operator_id": "girl",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T04:10:06.905Z"
+  },
+  {
+    "application_id": "app_1773547905971",
+    "service_type": "income_certificate",
+    "operator_id": "gaurav",
+    "citizen_data": {
+      "applicant_name": "hello gaurav",
+      "beneficiary_guardian_type": "bhai ji",
+      "beneficiary_guardian_name": "gaurav",
+      "age": "16",
+      "gender": "male",
+      "age_of_beneficiary": "-4",
+      "relation_with_applicant": "safs",
+      "son_or_daughter_or_wife_name_of_beneficiary": "werw",
+      "caste": "wer",
+      "type": "ae",
+      "class_number": "ae",
+      "address": "asere"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-15T04:11:50.969Z",
+    "service_name": "Income Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Invalid age for age_of_beneficiary. Expected between 0 and 120.",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years",
+        "Annual income must be a number.",
+        "Missing documents: Affidavit, Income Proof",
+        "Document mismatch detected"
+      ],
+      "failedRules": [
+        "income_numeric"
+      ],
+      "missingDocuments": [
+        "Affidavit",
+        "Income Proof"
+      ],
+      "schemaErrors": [
+        "Invalid age for age_of_beneficiary. Expected between 0 and 120.",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "optional": [
+          "Income Certificate Employer/Form 16",
+          "Income From Land/House",
+          "Other Documents",
+          "Application Form",
+          "Form 16",
+          "Income Of Other Members Of The Family",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [
+        {
+          "field": "applicant_name",
+          "reason": "mismatch"
+        },
+        {
+          "field": "beneficiary_guardian_name",
+          "reason": "mismatch"
+        },
+        {
+          "field": "address",
+          "reason": "mismatch"
+        }
+      ],
+      "field_mismatch_count": 3,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "document_quality",
+        "field_mismatch",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "document_quality",
+        "field_mismatch"
+      ],
+      "debug_summary": {
+        "service_type": "income_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "missing_required_fields": [
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 2,
+        "missing_fields_count": 2,
+        "field_mismatch_count": 3,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 0,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773547905974",
+    "service_type": "sc_st_certificate",
+    "operator_id": "girl",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T04:11:45.974Z"
+  },
+  {
+    "application_id": "app_1773548115945",
+    "service_type": "sc_st_certificate",
+    "operator_id": "girl",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T04:15:15.945Z"
+  },
+  {
+    "application_id": "app_1773548215239",
+    "service_type": "sc_st_certificate",
+    "operator_id": "girl",
+    "citizen_data": {},
+    "application_status": "validated",
+    "created_at": "2026-03-15T04:18:08.789Z",
+    "documents": [
+      {
+        "documentType": "Driving License",
+        "filePath": "/Users/gaurav/csc/data/uploads/1773548277486_1b205a88-704f-43bd-af4e-cf4bb7242ecf.pdf",
+        "ocrText": "{\"name\":\"AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh\",\"raw_text\":\"AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh Infotech Promotion Society) PS 01 : AI Co-Pilot for CSC Operators Domain :AI for Citizen Services : GovTech Background A Common Service Centre operator in a district like Rajnandgaon may process 70 to 90 applications a day: pensions, certificates, licenses, corrections: on a slow portal with no real-time guidance and no tool to catch mistakes before they become rejections. She is the only human standing between the government system and the citizen. Every rejection bounces back to her desk. Problem Statement Design and build an intelligent assistant for frontline CSC operators that reduces form rejections and cuts per-application handling time without replacing the operator’s judg- ment. The system should understand the context of each service type, surface the right information at the right moment, and learn from the pattern of past errors to warn before a mistake is submitted. Your solution should work under real field constraints: intermittent connectivity, mixed literacy users on the citizen side, and operators who have no time to read a manual. Directions Worth Exploring •AI:Local NLP models that parse form fields and flag anomalies before submission even offline. •Data:Rejection pattern analysis: which form fields cause the most bouncebacks and for which service types. •Check:Pre submission eligibility inference from document metadata without stor- ing sensitive data. •Language:Operator facing voice or chat interface in Hindi or local language for contextual guidance mid form. 1 •Prediction:Application triage: predicting which submissions are likely to stall and surfacing them proactively. •Network:Graceful degradation: core intelligence available even on 2G or offline via edge cached models. Evaluation Criteria •Impact:Reduction in rejection rate and resubmission overhead. •Intelligence Depth:Quality of pre submission inference and error prediction. •Field Realism:Does it work under low bandwidth and time pressure. •UX for Operators:Zero learning curve: usable in under 60 seconds. 2\"}",
+        "parsedFields": [
+          {
+            "field_name": "name",
+            "field_value": "AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh"
+          },
+          {
+            "field_name": "raw_text",
+            "field_value": "AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh Infotech Promotion Society) PS 01 : AI Co-Pilot for CSC Operators Domain :AI for Citizen Services : GovTech Background A Common Service Centre operator in a district like Rajnandgaon may process 70 to 90 applications a day: pensions, certificates, licenses, corrections: on a slow portal with no real-time guidance and no tool to catch mistakes before they become rejections. She is the only human standing between the government system and the citizen. Every rejection bounces back to her desk. Problem Statement Design and build an intelligent assistant for frontline CSC operators that reduces form rejections and cuts per-application handling time without replacing the operator’s judg- ment. The system should understand the context of each service type, surface the right information at the right moment, and learn from the pattern of past errors to warn before a mistake is submitted. Your solution should work under real field constraints: intermittent connectivity, mixed literacy users on the citizen side, and operators who have no time to read a manual. Directions Worth Exploring •AI:Local NLP models that parse form fields and flag anomalies before submission even offline. •Data:Rejection pattern analysis: which form fields cause the most bouncebacks and for which service types. •Check:Pre submission eligibility inference from document metadata without stor- ing sensitive data. •Language:Operator facing voice or chat interface in Hindi or local language for contextual guidance mid form. 1 •Prediction:Application triage: predicting which submissions are likely to stall and surfacing them proactively. •Network:Graceful degradation: core intelligence available even on 2G or offline via edge cached models. Evaluation Criteria •Impact:Reduction in rejection rate and resubmission overhead. •Intelligence Depth:Quality of pre submission inference and error prediction. •Field Realism:Does it work under low bandwidth and time pressure. •UX for Operators:Zero learning curve: usable in under 60 seconds. 2"
+          }
+        ]
+      }
+    ],
+    "service_name": "SC/ST Certificate",
+    "ocr_results": [
+      {
+        "documentType": "Driving License",
+        "fields": {
+          "name": "AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh",
+          "raw_text": "AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh Infotech Promotion Society) PS 01 : AI Co-Pilot for CSC Operators Domain :AI for Citizen Services : GovTech Background A Common Service Centre operator in a district like Rajnandgaon may process 70 to 90 applications a day: pensions, certificates, licenses, corrections: on a slow portal with no real-time guidance and no tool to catch mistakes before they become rejections. She is the only human standing between the government system and the citizen. Every rejection bounces back to her desk. Problem Statement Design and build an intelligent assistant for frontline CSC operators that reduces form rejections and cuts per-application handling time without replacing the operator’s judg- ment. The system should understand the context of each service type, surface the right information at the right moment, and learn from the pattern of past errors to warn before a mistake is submitted. Your solution should work under real field constraints: intermittent connectivity, mixed literacy users on the citizen side, and operators who have no time to read a manual. Directions Worth Exploring •AI:Local NLP models that parse form fields and flag anomalies before submission even offline. •Data:Rejection pattern analysis: which form fields cause the most bouncebacks and for which service types. •Check:Pre submission eligibility inference from document metadata without stor- ing sensitive data. •Language:Operator facing voice or chat interface in Hindi or local language for contextual guidance mid form. 1 •Prediction:Application triage: predicting which submissions are likely to stall and surfacing them proactively. •Network:Graceful degradation: core intelligence available even on 2G or offline via edge cached models. Evaluation Criteria •Impact:Reduction in rejection rate and resubmission overhead. •Intelligence Depth:Quality of pre submission inference and error prediction. •Field Realism:Does it work under low bandwidth and time pressure. •UX for Operators:Zero learning curve: usable in under 60 seconds. 2"
+        }
+      }
+    ],
+    "validation": {
+      "warnings": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: beneficiary_guardian_type_in_english",
+        "Missing required field: beneficiary_guardian_name_in_english",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Missing required field: date_of_birth",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: post_box_number",
+        "Missing required field: district",
+        "Missing required field: address_in_english",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: post_box_number",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st",
+        "Missing documents: Caste Proof"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Caste Proof"
+      ],
+      "schemaErrors": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: beneficiary_guardian_type_in_english",
+        "Missing required field: beneficiary_guardian_name_in_english",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Missing required field: date_of_birth",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: post_box_number",
+        "Missing required field: district",
+        "Missing required field: address_in_english",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: post_box_number",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Caste Proof"
+        ],
+        "optional": [
+          "Residential Proof",
+          "Electricity Bill",
+          "Ration Card",
+          "Telephone Bill",
+          "Birth Certificate",
+          "Voters Identity Card",
+          "Bpl Certificate",
+          "Land And House Document",
+          "Driving License",
+          "Other Documents",
+          "Certificate From Ward Member, Local Mla/Mp",
+          "Photo Identity Card",
+          "Service Certificate Of Father / Guardian",
+          "Order Of Involuntary Migration",
+          "Domicile Certificate",
+          "Sc/St Certificate From Sarpanch / Parshad / Mla / Mp",
+          "Transfer Certificate From Any Recognized School Or Any School Countersigned By Deo",
+          "Father/Guardians Service Certificate/Identity Card",
+          "Educational Certificate",
+          "Caste Certificate Issued Earlier To The Applicant Or Any Member Of His Family",
+          "Primary School Certificate",
+          "Birth Information Form",
+          "Misal",
+          "Adhikar Abhilekh",
+          "Jamabandi",
+          "Census Register Of 1931",
+          "Citizen Register Of 1959",
+          "Dakhil / Kharij Panji",
+          "Disability / Unavailability Proof",
+          "Affidavit",
+          "Vanshavali",
+          "Vanshavali 1",
+          "Vanshavali 2",
+          "Vanshavali 3",
+          "Vanshavali 4",
+          "Gram Sabha Proposal (Resident Of Rural Areas People)",
+          "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": [
+          "Driving License"
+        ]
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "document_quality",
+        "missing_documents",
+        "missing_fields",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "document_quality",
+        "missing_documents",
+        "missing_fields"
+      ],
+      "debug_summary": {
+        "service_type": "sc_st_certificate",
+        "uploaded_documents": [
+          "driving license"
+        ],
+        "missing_mandatory_documents": [
+          "Caste Proof"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 1,
+        "missing_fields_count": 5,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Caste Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773548215247",
+    "service_type": "income_certificate",
+    "operator_id": "gaurav",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T04:16:55.247Z"
+  },
+  {
+    "application_id": "app_1773548434170",
+    "service_type": "domicile_certificate",
+    "operator_id": "saf",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T04:20:34.170Z"
+  },
+  {
+    "application_id": "app_1773548473221",
+    "service_type": "income_certificate",
+    "operator_id": "saf",
+    "citizen_data": {},
+    "application_status": "validated",
+    "created_at": "2026-03-15T04:21:46.894Z",
+    "documents": [
+      {
+        "documentType": "Income From Land/House",
+        "filePath": "/Users/gaurav/csc/data/uploads/1773548495896_1b205a88-704f-43bd-af4e-cf4bb7242ecf.pdf",
+        "ocrText": "{\"name\":\"AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh\",\"raw_text\":\"AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh Infotech Promotion Society) PS 01 : AI Co-Pilot for CSC Operators Domain :AI for Citizen Services : GovTech Background A Common Service Centre operator in a district like Rajnandgaon may process 70 to 90 applications a day: pensions, certificates, licenses, corrections: on a slow portal with no real-time guidance and no tool to catch mistakes before they become rejections. She is the only human standing between the government system and the citizen. Every rejection bounces back to her desk. Problem Statement Design and build an intelligent assistant for frontline CSC operators that reduces form rejections and cuts per-application handling time without replacing the operator’s judg- ment. The system should understand the context of each service type, surface the right information at the right moment, and learn from the pattern of past errors to warn before a mistake is submitted. Your solution should work under real field constraints: intermittent connectivity, mixed literacy users on the citizen side, and operators who have no time to read a manual. Directions Worth Exploring •AI:Local NLP models that parse form fields and flag anomalies before submission even offline. •Data:Rejection pattern analysis: which form fields cause the most bouncebacks and for which service types. •Check:Pre submission eligibility inference from document metadata without stor- ing sensitive data. •Language:Operator facing voice or chat interface in Hindi or local language for contextual guidance mid form. 1 •Prediction:Application triage: predicting which submissions are likely to stall and surfacing them proactively. •Network:Graceful degradation: core intelligence available even on 2G or offline via edge cached models. Evaluation Criteria •Impact:Reduction in rejection rate and resubmission overhead. •Intelligence Depth:Quality of pre submission inference and error prediction. •Field Realism:Does it work under low bandwidth and time pressure. •UX for Operators:Zero learning curve: usable in under 60 seconds. 2\"}",
+        "parsedFields": [
+          {
+            "field_name": "name",
+            "field_value": "AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh"
+          },
+          {
+            "field_name": "raw_text",
+            "field_value": "AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh Infotech Promotion Society) PS 01 : AI Co-Pilot for CSC Operators Domain :AI for Citizen Services : GovTech Background A Common Service Centre operator in a district like Rajnandgaon may process 70 to 90 applications a day: pensions, certificates, licenses, corrections: on a slow portal with no real-time guidance and no tool to catch mistakes before they become rejections. She is the only human standing between the government system and the citizen. Every rejection bounces back to her desk. Problem Statement Design and build an intelligent assistant for frontline CSC operators that reduces form rejections and cuts per-application handling time without replacing the operator’s judg- ment. The system should understand the context of each service type, surface the right information at the right moment, and learn from the pattern of past errors to warn before a mistake is submitted. Your solution should work under real field constraints: intermittent connectivity, mixed literacy users on the citizen side, and operators who have no time to read a manual. Directions Worth Exploring •AI:Local NLP models that parse form fields and flag anomalies before submission even offline. •Data:Rejection pattern analysis: which form fields cause the most bouncebacks and for which service types. •Check:Pre submission eligibility inference from document metadata without stor- ing sensitive data. •Language:Operator facing voice or chat interface in Hindi or local language for contextual guidance mid form. 1 •Prediction:Application triage: predicting which submissions are likely to stall and surfacing them proactively. •Network:Graceful degradation: core intelligence available even on 2G or offline via edge cached models. Evaluation Criteria •Impact:Reduction in rejection rate and resubmission overhead. •Intelligence Depth:Quality of pre submission inference and error prediction. •Field Realism:Does it work under low bandwidth and time pressure. •UX for Operators:Zero learning curve: usable in under 60 seconds. 2"
+          }
+        ]
+      }
+    ],
+    "service_name": "Income Certificate",
+    "ocr_results": [
+      {
+        "documentType": "Income From Land/House",
+        "fields": {
+          "name": "AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh",
+          "raw_text": "AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh Infotech Promotion Society) PS 01 : AI Co-Pilot for CSC Operators Domain :AI for Citizen Services : GovTech Background A Common Service Centre operator in a district like Rajnandgaon may process 70 to 90 applications a day: pensions, certificates, licenses, corrections: on a slow portal with no real-time guidance and no tool to catch mistakes before they become rejections. She is the only human standing between the government system and the citizen. Every rejection bounces back to her desk. Problem Statement Design and build an intelligent assistant for frontline CSC operators that reduces form rejections and cuts per-application handling time without replacing the operator’s judg- ment. The system should understand the context of each service type, surface the right information at the right moment, and learn from the pattern of past errors to warn before a mistake is submitted. Your solution should work under real field constraints: intermittent connectivity, mixed literacy users on the citizen side, and operators who have no time to read a manual. Directions Worth Exploring •AI:Local NLP models that parse form fields and flag anomalies before submission even offline. •Data:Rejection pattern analysis: which form fields cause the most bouncebacks and for which service types. •Check:Pre submission eligibility inference from document metadata without stor- ing sensitive data. •Language:Operator facing voice or chat interface in Hindi or local language for contextual guidance mid form. 1 •Prediction:Application triage: predicting which submissions are likely to stall and surfacing them proactively. •Network:Graceful degradation: core intelligence available even on 2G or offline via edge cached models. Evaluation Criteria •Impact:Reduction in rejection rate and resubmission overhead. •Intelligence Depth:Quality of pre submission inference and error prediction. •Field Realism:Does it work under low bandwidth and time pressure. •UX for Operators:Zero learning curve: usable in under 60 seconds. 2"
+        }
+      }
+    ],
+    "validation": {
+      "warnings": [
+        "Missing required field: gender",
+        "Missing required field: age_of_beneficiary",
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: relation_with_applicant",
+        "Missing required field: son_or_daughter_or_wife_name_of_beneficiary",
+        "Missing required field: caste",
+        "Missing required field: type",
+        "Missing required field: class_number",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years",
+        "Annual income must be a number.",
+        "Missing documents: Affidavit, Income Proof"
+      ],
+      "failedRules": [
+        "income_numeric"
+      ],
+      "missingDocuments": [
+        "Affidavit",
+        "Income Proof"
+      ],
+      "schemaErrors": [
+        "Missing required field: gender",
+        "Missing required field: age_of_beneficiary",
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: relation_with_applicant",
+        "Missing required field: son_or_daughter_or_wife_name_of_beneficiary",
+        "Missing required field: caste",
+        "Missing required field: type",
+        "Missing required field: class_number",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "optional": [
+          "Income Certificate Employer/Form 16",
+          "Income From Land/House",
+          "Other Documents",
+          "Application Form",
+          "Form 16",
+          "Income Of Other Members Of The Family",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": [
+          "Income From Land/House"
+        ]
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "document_quality",
+        "age_eligible",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "document_quality",
+        "age_eligible"
+      ],
+      "debug_summary": {
+        "service_type": "income_certificate",
+        "uploaded_documents": [
+          "income from land/house"
+        ],
+        "missing_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 2,
+        "missing_fields_count": 4,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 0,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773548725097",
+    "service_type": "income_certificate",
+    "operator_id": "saf",
+    "citizen_data": {
+      "applicant_name": "gaurav singh"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-15T04:25:59.657Z",
+    "service_name": "Income Certificate",
+    "documents": [
+      {
+        "documentType": "Income Certificate Employer/Form 16",
+        "filePath": "/Users/gaurav/csc/data/uploads/1773548750140_1b205a88-704f-43bd-af4e-cf4bb7242ecf.pdf",
+        "ocrText": "{\"name\":\"AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh\",\"raw_text\":\"AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh Infotech Promotion Society) PS 01 : AI Co-Pilot for CSC Operators Domain :AI for Citizen Services : GovTech Background A Common Service Centre operator in a district like Rajnandgaon may process 70 to 90 applications a day: pensions, certificates, licenses, corrections: on a slow portal with no real-time guidance and no tool to catch mistakes before they become rejections. She is the only human standing between the government system and the citizen. Every rejection bounces back to her desk. Problem Statement Design and build an intelligent assistant for frontline CSC operators that reduces form rejections and cuts per-application handling time without replacing the operator’s judg- ment. The system should understand the context of each service type, surface the right information at the right moment, and learn from the pattern of past errors to warn before a mistake is submitted. Your solution should work under real field constraints: intermittent connectivity, mixed literacy users on the citizen side, and operators who have no time to read a manual. Directions Worth Exploring •AI:Local NLP models that parse form fields and flag anomalies before submission even offline. •Data:Rejection pattern analysis: which form fields cause the most bouncebacks and for which service types. •Check:Pre submission eligibility inference from document metadata without stor- ing sensitive data. •Language:Operator facing voice or chat interface in Hindi or local language for contextual guidance mid form. 1 •Prediction:Application triage: predicting which submissions are likely to stall and surfacing them proactively. •Network:Graceful degradation: core intelligence available even on 2G or offline via edge cached models. Evaluation Criteria •Impact:Reduction in rejection rate and resubmission overhead. •Intelligence Depth:Quality of pre submission inference and error prediction. •Field Realism:Does it work under low bandwidth and time pressure. •UX for Operators:Zero learning curve: usable in under 60 seconds. 2\"}",
+        "parsedFields": [
+          {
+            "field_name": "name",
+            "field_value": "AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh"
+          },
+          {
+            "field_name": "raw_text",
+            "field_value": "AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh Infotech Promotion Society) PS 01 : AI Co-Pilot for CSC Operators Domain :AI for Citizen Services : GovTech Background A Common Service Centre operator in a district like Rajnandgaon may process 70 to 90 applications a day: pensions, certificates, licenses, corrections: on a slow portal with no real-time guidance and no tool to catch mistakes before they become rejections. She is the only human standing between the government system and the citizen. Every rejection bounces back to her desk. Problem Statement Design and build an intelligent assistant for frontline CSC operators that reduces form rejections and cuts per-application handling time without replacing the operator’s judg- ment. The system should understand the context of each service type, surface the right information at the right moment, and learn from the pattern of past errors to warn before a mistake is submitted. Your solution should work under real field constraints: intermittent connectivity, mixed literacy users on the citizen side, and operators who have no time to read a manual. Directions Worth Exploring •AI:Local NLP models that parse form fields and flag anomalies before submission even offline. •Data:Rejection pattern analysis: which form fields cause the most bouncebacks and for which service types. •Check:Pre submission eligibility inference from document metadata without stor- ing sensitive data. •Language:Operator facing voice or chat interface in Hindi or local language for contextual guidance mid form. 1 •Prediction:Application triage: predicting which submissions are likely to stall and surfacing them proactively. •Network:Graceful degradation: core intelligence available even on 2G or offline via edge cached models. Evaluation Criteria •Impact:Reduction in rejection rate and resubmission overhead. •Intelligence Depth:Quality of pre submission inference and error prediction. •Field Realism:Does it work under low bandwidth and time pressure. •UX for Operators:Zero learning curve: usable in under 60 seconds. 2"
+          }
+        ]
+      }
+    ],
+    "ocr_results": [
+      {
+        "documentType": "Income Certificate Employer/Form 16",
+        "fields": {
+          "name": "AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh",
+          "raw_text": "AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh Infotech Promotion Society) PS 01 : AI Co-Pilot for CSC Operators Domain :AI for Citizen Services : GovTech Background A Common Service Centre operator in a district like Rajnandgaon may process 70 to 90 applications a day: pensions, certificates, licenses, corrections: on a slow portal with no real-time guidance and no tool to catch mistakes before they become rejections. She is the only human standing between the government system and the citizen. Every rejection bounces back to her desk. Problem Statement Design and build an intelligent assistant for frontline CSC operators that reduces form rejections and cuts per-application handling time without replacing the operator’s judg- ment. The system should understand the context of each service type, surface the right information at the right moment, and learn from the pattern of past errors to warn before a mistake is submitted. Your solution should work under real field constraints: intermittent connectivity, mixed literacy users on the citizen side, and operators who have no time to read a manual. Directions Worth Exploring •AI:Local NLP models that parse form fields and flag anomalies before submission even offline. •Data:Rejection pattern analysis: which form fields cause the most bouncebacks and for which service types. •Check:Pre submission eligibility inference from document metadata without stor- ing sensitive data. •Language:Operator facing voice or chat interface in Hindi or local language for contextual guidance mid form. 1 •Prediction:Application triage: predicting which submissions are likely to stall and surfacing them proactively. •Network:Graceful degradation: core intelligence available even on 2G or offline via edge cached models. Evaluation Criteria •Impact:Reduction in rejection rate and resubmission overhead. •Intelligence Depth:Quality of pre submission inference and error prediction. •Field Realism:Does it work under low bandwidth and time pressure. •UX for Operators:Zero learning curve: usable in under 60 seconds. 2"
+        }
+      }
+    ],
+    "validation": {
+      "warnings": [
+        "Missing required field: gender",
+        "Missing required field: age_of_beneficiary",
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: relation_with_applicant",
+        "Missing required field: son_or_daughter_or_wife_name_of_beneficiary",
+        "Missing required field: caste",
+        "Missing required field: type",
+        "Missing required field: class_number",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years",
+        "Annual income must be a number.",
+        "Missing documents: Affidavit",
+        "Document mismatch detected"
+      ],
+      "failedRules": [
+        "income_numeric"
+      ],
+      "missingDocuments": [
+        "Affidavit"
+      ],
+      "schemaErrors": [
+        "Missing required field: gender",
+        "Missing required field: age_of_beneficiary",
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: relation_with_applicant",
+        "Missing required field: son_or_daughter_or_wife_name_of_beneficiary",
+        "Missing required field: caste",
+        "Missing required field: type",
+        "Missing required field: class_number",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Affidavit"
+        ],
+        "optional": [
+          "Income Certificate Employer/Form 16",
+          "Income From Land/House",
+          "Other Documents",
+          "Application Form",
+          "Form 16",
+          "Income Of Other Members Of The Family",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": [
+          "Income Certificate Employer/Form 16"
+        ]
+      }
+    },
+    "document_verification": {
+      "mismatches": [
+        {
+          "field": "applicant_name",
+          "reason": "mismatch"
+        }
+      ],
+      "field_mismatch_count": 1,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "document_quality",
+        "age_eligible",
+        "missing_documents",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "document_quality",
+        "age_eligible",
+        "missing_documents"
+      ],
+      "debug_summary": {
+        "service_type": "income_certificate",
+        "uploaded_documents": [
+          "income certificate employer/form 16"
+        ],
+        "missing_mandatory_documents": [
+          "Affidavit"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 1,
+        "missing_fields_count": 4,
+        "field_mismatch_count": 1,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 0,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773549273925",
+    "service_type": "income_certificate",
+    "operator_id": "saf",
+    "citizen_data": {},
+    "application_status": "validated",
+    "created_at": "2026-03-15T04:36:51.716Z",
+    "service_name": "Income Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing required field: gender",
+        "Missing required field: age_of_beneficiary",
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: relation_with_applicant",
+        "Missing required field: son_or_daughter_or_wife_name_of_beneficiary",
+        "Missing required field: caste",
+        "Missing required field: type",
+        "Missing required field: class_number",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years",
+        "Annual income must be a number.",
+        "Missing documents: Affidavit, Income Proof"
+      ],
+      "failedRules": [
+        "income_numeric"
+      ],
+      "missingDocuments": [
+        "Affidavit",
+        "Income Proof"
+      ],
+      "schemaErrors": [
+        "Missing required field: gender",
+        "Missing required field: age_of_beneficiary",
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: relation_with_applicant",
+        "Missing required field: son_or_daughter_or_wife_name_of_beneficiary",
+        "Missing required field: caste",
+        "Missing required field: type",
+        "Missing required field: class_number",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "optional": [
+          "Income Certificate Employer/Form 16",
+          "Income From Land/House",
+          "Other Documents",
+          "Application Form",
+          "Form 16",
+          "Income Of Other Members Of The Family",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "document_quality",
+        "age_eligible",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "document_quality",
+        "age_eligible"
+      ],
+      "debug_summary": {
+        "service_type": "income_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 2,
+        "missing_fields_count": 4,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 0,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773550760201",
+    "service_type": "sc_st_certificate",
+    "operator_id": "saf",
+    "citizen_data": {
+      "applicant_name": "ba a (GN",
+      "date_of_birth": "1985-04-22"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-15T05:00:01.637Z",
+    "documents": [
+      {
+        "documentType": "aadhaar_card",
+        "filePath": "/Users/gaurav/csc/data/uploads/1773550770610_download.jpeg",
+        "ocrText": "{\"dob\":\"22/04/1985\",\"gender\":\"male\",\"name\":\"ba a (GN\",\"raw_text\":\"4 FEAST\\nba a (GN\\ngl | sam Altman\\n5 Male\\nNE 22/04/1985 EL =\\n| 456, 81 Nagar\"}",
+        "parsedFields": [
+          {
+            "field_name": "dob",
+            "field_value": "22/04/1985"
+          },
+          {
+            "field_name": "gender",
+            "field_value": "male"
+          },
+          {
+            "field_name": "name",
+            "field_value": "ba a (GN"
+          },
+          {
+            "field_name": "raw_text",
+            "field_value": "4 FEAST\nba a (GN\ngl | sam Altman\n5 Male\nNE 22/04/1985 EL =\n| 456, 81 Nagar"
+          }
+        ]
+      }
+    ],
+    "service_name": "SC/ST Certificate",
+    "ocr_results": [
+      {
+        "documentType": "aadhaar_card",
+        "fields": {
+          "dob": "22/04/1985",
+          "gender": "male",
+          "name": "ba a (GN",
+          "raw_text": "4 FEAST\nba a (GN\ngl | sam Altman\n5 Male\nNE 22/04/1985 EL =\n| 456, 81 Nagar"
+        }
+      }
+    ],
+    "validation": {
+      "warnings": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: beneficiary_guardian_type_in_english",
+        "Missing required field: beneficiary_guardian_name_in_english",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: post_box_number",
+        "Missing required field: district",
+        "Missing required field: address_in_english",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: post_box_number",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st",
+        "Missing documents: Caste Proof",
+        "Document mismatch detected"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Caste Proof"
+      ],
+      "schemaErrors": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: beneficiary_guardian_type_in_english",
+        "Missing required field: beneficiary_guardian_name_in_english",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: post_box_number",
+        "Missing required field: district",
+        "Missing required field: address_in_english",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: post_box_number",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Caste Proof"
+        ],
+        "optional": [
+          "Residential Proof",
+          "Electricity Bill",
+          "Ration Card",
+          "Telephone Bill",
+          "Birth Certificate",
+          "Voters Identity Card",
+          "Bpl Certificate",
+          "Land And House Document",
+          "Driving License",
+          "Other Documents",
+          "Certificate From Ward Member, Local Mla/Mp",
+          "Photo Identity Card",
+          "Service Certificate Of Father / Guardian",
+          "Order Of Involuntary Migration",
+          "Domicile Certificate",
+          "Sc/St Certificate From Sarpanch / Parshad / Mla / Mp",
+          "Transfer Certificate From Any Recognized School Or Any School Countersigned By Deo",
+          "Father/Guardians Service Certificate/Identity Card",
+          "Educational Certificate",
+          "Caste Certificate Issued Earlier To The Applicant Or Any Member Of His Family",
+          "Primary School Certificate",
+          "Birth Information Form",
+          "Misal",
+          "Adhikar Abhilekh",
+          "Jamabandi",
+          "Census Register Of 1931",
+          "Citizen Register Of 1959",
+          "Dakhil / Kharij Panji",
+          "Disability / Unavailability Proof",
+          "Affidavit",
+          "Vanshavali",
+          "Vanshavali 1",
+          "Vanshavali 2",
+          "Vanshavali 3",
+          "Vanshavali 4",
+          "Gram Sabha Proposal (Resident Of Rural Areas People)",
+          "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": [
+          "aadhaar_card"
+        ]
+      }
+    },
+    "document_verification": {
+      "mismatches": [
+        {
+          "field": "date_of_birth",
+          "reason": "mismatch"
+        }
+      ],
+      "field_mismatch_count": 1,
+      "document_quality_score": 0.5
+    },
+    "risk": {
+      "risk_probability": 0.98,
+      "risk_score": 0.98,
+      "risk_level": "VERY_HIGH",
+      "score_percent": 98,
+      "rejected_prediction": true,
+      "threshold_used": 0.5,
+      "main_contributing_factors": [
+        "missing_documents",
+        "missing_fields",
+        "field_mismatch",
+        "Missing mandatory documents"
+      ],
+      "debug_summary": {
+        "service_type": "sc_st_certificate",
+        "uploaded_documents": [
+          "aadhaar_card"
+        ],
+        "missing_mandatory_documents": [
+          "Caste Proof"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 1,
+        "missing_fields_count": 4,
+        "field_mismatch_count": 1,
+        "document_quality_score": 0.5,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Caste Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773550866952",
+    "service_type": "income_certificate",
+    "operator_id": "gaurav",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T05:01:06.952Z"
+  },
+  {
+    "application_id": "app_1773551697915",
+    "service_type": "income_certificate",
+    "operator_id": "gaurav",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T05:14:57.915Z"
+  },
+  {
+    "application_id": "app_1773551723958",
+    "service_type": "sc_st_certificate",
+    "operator_id": "sdaf",
+    "citizen_data": {
+      "applicant_name": "gl sam Altman",
+      "date_of_birth": "1985-04-22"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-15T05:18:14.327Z",
+    "documents": [
+      {
+        "documentType": "aadhaar_card",
+        "filePath": "/Users/gaurav/csc/data/uploads/1773551729320_download.jpeg",
+        "ocrText": "{\"dob\":\"22/04/1985\",\"gender\":\"male\",\"name\":\"gl sam Altman\",\"raw_text\":\"4 FEAST\\nba a (GN\\ngl | sam Altman\\n5 Male\\nNE 22/04/1985 EL =\\n| 456, 81 Nagar\"}",
+        "parsedFields": [
+          {
+            "field_name": "dob",
+            "field_value": "22/04/1985"
+          },
+          {
+            "field_name": "gender",
+            "field_value": "male"
+          },
+          {
+            "field_name": "name",
+            "field_value": "gl sam Altman"
+          },
+          {
+            "field_name": "raw_text",
+            "field_value": "4 FEAST\nba a (GN\ngl | sam Altman\n5 Male\nNE 22/04/1985 EL =\n| 456, 81 Nagar"
+          }
+        ]
+      },
+      {
+        "documentType": "Birth Certificate",
+        "filePath": "/Users/gaurav/csc/data/uploads/1773551862325_1b205a88-704f-43bd-af4e-cf4bb7242ecf.pdf",
+        "ocrText": "{\"name\":\"AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh\",\"raw_text\":\"AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh Infotech Promotion Society) PS 01 : AI Co-Pilot for CSC Operators Domain :AI for Citizen Services : GovTech Background A Common Service Centre operator in a district like Rajnandgaon may process 70 to 90 applications a day: pensions, certificates, licenses, corrections: on a slow portal with no real-time guidance and no tool to catch mistakes before they become rejections. She is the only human standing between the government system and the citizen. Every rejection bounces back to her desk. Problem Statement Design and build an intelligent assistant for frontline CSC operators that reduces form rejections and cuts per-application handling time without replacing the operator’s judg- ment. The system should understand the context of each service type, surface the right information at the right moment, and learn from the pattern of past errors to warn before a mistake is submitted. Your solution should work under real field constraints: intermittent connectivity, mixed literacy users on the citizen side, and operators who have no time to read a manual. Directions Worth Exploring •AI:Local NLP models that parse form fields and flag anomalies before submission even offline. •Data:Rejection pattern analysis: which form fields cause the most bouncebacks and for which service types. •Check:Pre submission eligibility inference from document metadata without stor- ing sensitive data. •Language:Operator facing voice or chat interface in Hindi or local language for contextual guidance mid form. 1 •Prediction:Application triage: predicting which submissions are likely to stall and surfacing them proactively. •Network:Graceful degradation: core intelligence available even on 2G or offline via edge cached models. Evaluation Criteria •Impact:Reduction in rejection rate and resubmission overhead. •Intelligence Depth:Quality of pre submission inference and error prediction. •Field Realism:Does it work under low bandwidth and time pressure. •UX for Operators:Zero learning curve: usable in under 60 seconds. 2\"}",
+        "parsedFields": [
+          {
+            "field_name": "name",
+            "field_value": "AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh"
+          },
+          {
+            "field_name": "raw_text",
+            "field_value": "AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh Infotech Promotion Society) PS 01 : AI Co-Pilot for CSC Operators Domain :AI for Citizen Services : GovTech Background A Common Service Centre operator in a district like Rajnandgaon may process 70 to 90 applications a day: pensions, certificates, licenses, corrections: on a slow portal with no real-time guidance and no tool to catch mistakes before they become rejections. She is the only human standing between the government system and the citizen. Every rejection bounces back to her desk. Problem Statement Design and build an intelligent assistant for frontline CSC operators that reduces form rejections and cuts per-application handling time without replacing the operator’s judg- ment. The system should understand the context of each service type, surface the right information at the right moment, and learn from the pattern of past errors to warn before a mistake is submitted. Your solution should work under real field constraints: intermittent connectivity, mixed literacy users on the citizen side, and operators who have no time to read a manual. Directions Worth Exploring •AI:Local NLP models that parse form fields and flag anomalies before submission even offline. •Data:Rejection pattern analysis: which form fields cause the most bouncebacks and for which service types. •Check:Pre submission eligibility inference from document metadata without stor- ing sensitive data. •Language:Operator facing voice or chat interface in Hindi or local language for contextual guidance mid form. 1 •Prediction:Application triage: predicting which submissions are likely to stall and surfacing them proactively. •Network:Graceful degradation: core intelligence available even on 2G or offline via edge cached models. Evaluation Criteria •Impact:Reduction in rejection rate and resubmission overhead. •Intelligence Depth:Quality of pre submission inference and error prediction. •Field Realism:Does it work under low bandwidth and time pressure. •UX for Operators:Zero learning curve: usable in under 60 seconds. 2"
+          }
+        ]
+      },
+      {
+        "documentType": "aadhaar_card",
+        "filePath": "/Users/gaurav/csc/data/uploads/1773551884705_download.jpeg",
+        "ocrText": "{\"dob\":\"22/04/1985\",\"gender\":\"male\",\"name\":\"gl sam Altman\",\"raw_text\":\"4 FEAST\\nba a (GN\\ngl | sam Altman\\n5 Male\\nNE 22/04/1985 EL =\\n| 456, 81 Nagar\"}",
+        "parsedFields": [
+          {
+            "field_name": "dob",
+            "field_value": "22/04/1985"
+          },
+          {
+            "field_name": "gender",
+            "field_value": "male"
+          },
+          {
+            "field_name": "name",
+            "field_value": "gl sam Altman"
+          },
+          {
+            "field_name": "raw_text",
+            "field_value": "4 FEAST\nba a (GN\ngl | sam Altman\n5 Male\nNE 22/04/1985 EL =\n| 456, 81 Nagar"
+          }
+        ]
+      }
+    ],
+    "service_name": "SC/ST Certificate",
+    "ocr_results": [
+      {
+        "documentType": "aadhaar_card",
+        "fields": {
+          "dob": "22/04/1985",
+          "gender": "male",
+          "name": "gl sam Altman",
+          "raw_text": "4 FEAST\nba a (GN\ngl | sam Altman\n5 Male\nNE 22/04/1985 EL =\n| 456, 81 Nagar"
+        }
+      },
+      {
+        "documentType": "Birth Certificate",
+        "fields": {
+          "name": "AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh",
+          "raw_text": "AIML Hackathon Problem Statement-1 CHIPS (Chhattisgarh Infotech Promotion Society) PS 01 : AI Co-Pilot for CSC Operators Domain :AI for Citizen Services : GovTech Background A Common Service Centre operator in a district like Rajnandgaon may process 70 to 90 applications a day: pensions, certificates, licenses, corrections: on a slow portal with no real-time guidance and no tool to catch mistakes before they become rejections. She is the only human standing between the government system and the citizen. Every rejection bounces back to her desk. Problem Statement Design and build an intelligent assistant for frontline CSC operators that reduces form rejections and cuts per-application handling time without replacing the operator’s judg- ment. The system should understand the context of each service type, surface the right information at the right moment, and learn from the pattern of past errors to warn before a mistake is submitted. Your solution should work under real field constraints: intermittent connectivity, mixed literacy users on the citizen side, and operators who have no time to read a manual. Directions Worth Exploring •AI:Local NLP models that parse form fields and flag anomalies before submission even offline. •Data:Rejection pattern analysis: which form fields cause the most bouncebacks and for which service types. •Check:Pre submission eligibility inference from document metadata without stor- ing sensitive data. •Language:Operator facing voice or chat interface in Hindi or local language for contextual guidance mid form. 1 •Prediction:Application triage: predicting which submissions are likely to stall and surfacing them proactively. •Network:Graceful degradation: core intelligence available even on 2G or offline via edge cached models. Evaluation Criteria •Impact:Reduction in rejection rate and resubmission overhead. •Intelligence Depth:Quality of pre submission inference and error prediction. •Field Realism:Does it work under low bandwidth and time pressure. •UX for Operators:Zero learning curve: usable in under 60 seconds. 2"
+        }
+      },
+      {
+        "documentType": "aadhaar_card",
+        "fields": {
+          "dob": "22/04/1985",
+          "gender": "male",
+          "name": "gl sam Altman",
+          "raw_text": "4 FEAST\nba a (GN\ngl | sam Altman\n5 Male\nNE 22/04/1985 EL =\n| 456, 81 Nagar"
+        }
+      }
+    ],
+    "validation": {
+      "warnings": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: beneficiary_guardian_type_in_english",
+        "Missing required field: beneficiary_guardian_name_in_english",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: post_box_number",
+        "Missing required field: district",
+        "Missing required field: address_in_english",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: post_box_number",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st",
+        "Missing documents: Caste Proof",
+        "Document mismatch detected"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Caste Proof"
+      ],
+      "schemaErrors": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: beneficiary_guardian_type_in_english",
+        "Missing required field: beneficiary_guardian_name_in_english",
+        "Missing required field: gender",
+        "Missing required field: marital_status",
+        "Missing required field: relation_to_applicant",
+        "Missing required field: caste_stsc",
+        "Missing required field: category",
+        "Missing required field: caste_in_english",
+        "Missing required field: category_in_english",
+        "Missing required field: category_number",
+        "Missing required field: beneficiary_name_in_english",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: post_box_number",
+        "Missing required field: district",
+        "Missing required field: address_in_english",
+        "Missing required field: is_present_address_and_permanent_address_is_same",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: post_box_number",
+        "Missing required field: police_station",
+        "Missing required field: village_or_town",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: tehsil",
+        "Missing required field: district",
+        "Missing required field: name_of_head_of_family_on_this_date",
+        "Missing required field: applicant_relation_to_head_of_family",
+        "Missing required field: is_applicant_or_his_father_or_mother_or_guardian_year_1950_to_till_date_live_in_chhattisgarh",
+        "Missing required field: address_details_of_applicants_guardian",
+        "Missing required field: have_applicant_issued_scst_certificate_before",
+        "Missing required field: details_of_document_to_proof_that_beneficiary_belongs_to_sc_st"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Caste Proof"
+        ],
+        "optional": [
+          "Residential Proof",
+          "Electricity Bill",
+          "Ration Card",
+          "Telephone Bill",
+          "Birth Certificate",
+          "Voters Identity Card",
+          "Bpl Certificate",
+          "Land And House Document",
+          "Driving License",
+          "Other Documents",
+          "Certificate From Ward Member, Local Mla/Mp",
+          "Photo Identity Card",
+          "Service Certificate Of Father / Guardian",
+          "Order Of Involuntary Migration",
+          "Domicile Certificate",
+          "Sc/St Certificate From Sarpanch / Parshad / Mla / Mp",
+          "Transfer Certificate From Any Recognized School Or Any School Countersigned By Deo",
+          "Father/Guardians Service Certificate/Identity Card",
+          "Educational Certificate",
+          "Caste Certificate Issued Earlier To The Applicant Or Any Member Of His Family",
+          "Primary School Certificate",
+          "Birth Information Form",
+          "Misal",
+          "Adhikar Abhilekh",
+          "Jamabandi",
+          "Census Register Of 1931",
+          "Citizen Register Of 1959",
+          "Dakhil / Kharij Panji",
+          "Disability / Unavailability Proof",
+          "Affidavit",
+          "Vanshavali",
+          "Vanshavali 1",
+          "Vanshavali 2",
+          "Vanshavali 3",
+          "Vanshavali 4",
+          "Gram Sabha Proposal (Resident Of Rural Areas People)",
+          "Madhya Pradesh Reorganization Act 2000 (No. 26 Of 2000 Under Section 67 C.G. State Cadre Allocation) Proof",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": [
+          "aadhaar_card",
+          "Birth Certificate",
+          "aadhaar_card"
+        ]
+      }
+    },
+    "document_verification": {
+      "mismatches": [
+        {
+          "field": "date_of_birth",
+          "reason": "mismatch"
+        }
+      ],
+      "field_mismatch_count": 1,
+      "document_quality_score": 0.5
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "missing_fields",
+        "document_quality",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "missing_fields",
+        "document_quality"
+      ],
+      "debug_summary": {
+        "service_type": "sc_st_certificate",
+        "uploaded_documents": [
+          "aadhaar_card",
+          "birth certificate",
+          "aadhaar_card"
+        ],
+        "missing_mandatory_documents": [
+          "Caste Proof"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 1,
+        "missing_fields_count": 4,
+        "field_mismatch_count": 1,
+        "document_quality_score": 0.5,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Caste Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773552396200",
+    "service_type": "income_certificate",
+    "operator_id": "gaurav",
+    "citizen_data": {
+      "applicant_name": "gl sam Altman",
+      "date_of_birth": "1985-04-22"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-15T05:28:02.508Z",
+    "documents": [
+      {
+        "documentType": "aadhaar_card",
+        "filePath": "/Users/gaurav/csc/data/uploads/1773552405482_download.jpeg",
+        "ocrText": "{\"dob\":\"22/04/1985\",\"gender\":\"male\",\"name\":\"gl sam Altman\",\"raw_text\":\"4 FEAST\\nba a (GN\\ngl | sam Altman\\n5 Male\\nNE 22/04/1985 EL =\\n| 456, 81 Nagar\"}",
+        "parsedFields": [
+          {
+            "field_name": "dob",
+            "field_value": "22/04/1985"
+          },
+          {
+            "field_name": "gender",
+            "field_value": "male"
+          },
+          {
+            "field_name": "name",
+            "field_value": "gl sam Altman"
+          },
+          {
+            "field_name": "raw_text",
+            "field_value": "4 FEAST\nba a (GN\ngl | sam Altman\n5 Male\nNE 22/04/1985 EL =\n| 456, 81 Nagar"
+          }
+        ]
+      },
+      {
+        "documentType": "aadhaar_card",
+        "filePath": "/Users/gaurav/csc/data/uploads/1773552470953_20250404112835_Aadhaar-card-generated-using-AI.avif",
+        "ocrText": "{\"raw_text\":\"\"}",
+        "parsedFields": [
+          {
+            "field_name": "raw_text",
+            "field_value": ""
+          }
+        ]
+      }
+    ],
+    "service_name": "Income Certificate",
+    "ocr_results": [
+      {
+        "documentType": "aadhaar_card",
+        "fields": {
+          "dob": "22/04/1985",
+          "gender": "male",
+          "name": "gl sam Altman",
+          "raw_text": "4 FEAST\nba a (GN\ngl | sam Altman\n5 Male\nNE 22/04/1985 EL =\n| 456, 81 Nagar"
+        }
+      },
+      {
+        "documentType": "aadhaar_card",
+        "fields": {
+          "raw_text": ""
+        }
+      }
+    ],
+    "validation": {
+      "warnings": [
+        "Missing required field: gender",
+        "Missing required field: age_of_beneficiary",
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: relation_with_applicant",
+        "Missing required field: son_or_daughter_or_wife_name_of_beneficiary",
+        "Missing required field: caste",
+        "Missing required field: type",
+        "Missing required field: class_number",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years",
+        "Annual income must be a number.",
+        "Missing documents: Affidavit, Income Proof",
+        "Document mismatch detected"
+      ],
+      "failedRules": [
+        "income_numeric"
+      ],
+      "missingDocuments": [
+        "Affidavit",
+        "Income Proof"
+      ],
+      "schemaErrors": [
+        "Missing required field: gender",
+        "Missing required field: age_of_beneficiary",
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: relation_with_applicant",
+        "Missing required field: son_or_daughter_or_wife_name_of_beneficiary",
+        "Missing required field: caste",
+        "Missing required field: type",
+        "Missing required field: class_number",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "optional": [
+          "Income Certificate Employer/Form 16",
+          "Income From Land/House",
+          "Other Documents",
+          "Application Form",
+          "Form 16",
+          "Income Of Other Members Of The Family",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": [
+          "aadhaar_card",
+          "aadhaar_card"
+        ]
+      }
+    },
+    "document_verification": {
+      "mismatches": [
+        {
+          "field": "date_of_birth",
+          "reason": "mismatch"
+        }
+      ],
+      "field_mismatch_count": 1,
+      "document_quality_score": 0.5
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "age_eligible",
+        "missing_fields",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "age_eligible",
+        "missing_fields"
+      ],
+      "debug_summary": {
+        "service_type": "income_certificate",
+        "uploaded_documents": [
+          "aadhaar_card",
+          "aadhaar_card"
+        ],
+        "missing_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 2,
+        "missing_fields_count": 4,
+        "field_mismatch_count": 1,
+        "document_quality_score": 0.5,
+        "eligibility": {
+          "age_eligible": 0,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773554086994",
+    "service_type": "sc_st_certificate",
+    "operator_id": "sdaf",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T05:54:46.994Z"
+  },
+  {
+    "application_id": "app_1773554660516",
+    "service_type": "sc_st_certificate",
+    "operator_id": "gas",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T06:04:20.516Z"
+  },
+  {
+    "application_id": "app_1773558920946",
+    "service_type": "sc_st_certificate",
+    "operator_id": "gs",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-15T07:15:20.946Z"
   }
 ]

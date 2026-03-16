@@ -7,6 +7,7 @@ const { buildRiskFeatures } = require("../modules/risk/featureEngineering");
 const { recommend } = require("../modules/schemes/recommendSchemes");
 const { explain } = require("../modules/llm/explain");
 const { chatWithAssistant } = require("../modules/llm/chatAssistant");
+const { analyzeUploadedDocumentAI } = require("../modules/llm/documentAnalysis");
 const { buildApplication } = require("../modules/applications/applicationBuilder");
 const { saveApplication, loadApplications, updateApplicationStatus, createDraftApplication, getApplicationById, addDocument } = require("../modules/applications/applicationStore");
 const { saveBufferToFile, saveBase64ToFile } = require("../modules/documents/storage");
@@ -111,6 +112,20 @@ async function uploadApplicationDocument(req, res) {
 
   const citizenData = buildCitizenData(application);
   const verification = verifyDocuments({ citizenData, ocrResults: [ocrResult] });
+  const aiDocumentAnalysis = await analyzeUploadedDocumentAI({
+    filePath,
+    documentType,
+    ocrFields: ocrResult.fields || {},
+    serviceType: application.service_type
+  });
+
+  const aiMismatch = aiDocumentAnalysis && aiDocumentAnalysis.is_match === false;
+  const computedStatus = aiMismatch
+    ? "format_suspect"
+    : verification.field_mismatch_count > 0
+      ? "mismatch_detected"
+      : "verified";
+
   const parsedFields = Object.entries(ocrResult.fields || {}).map(([field_name, field_value]) => ({
     field_name,
     field_value
@@ -123,7 +138,7 @@ async function uploadApplicationDocument(req, res) {
       document_type: documentType || "unknown",
       file_path: filePath,
       ocr_text: JSON.stringify(ocrResult.fields || {}),
-      document_status: verification.field_mismatch_count > 0 ? "mismatch_detected" : "verified",
+      document_status: computedStatus,
       document_fields: parsedFields
     }
   });
@@ -132,7 +147,8 @@ async function uploadApplicationDocument(req, res) {
     application_id: applicationId,
     document: stored,
     ocr: ocrResult,
-    document_verification: verification
+    document_verification: verification,
+    ai_document_analysis: aiDocumentAnalysis
   });
 }
 

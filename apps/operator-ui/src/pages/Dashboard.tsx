@@ -206,6 +206,24 @@ export default function Dashboard() {
                 const type = String(service.service_type || "").toLowerCase();
                 return name.includes(q) || type.includes(q);
               })
+              .sort((a, b) => {
+                const priority = [
+                  "income_certificate",
+                  "domicile_certificate",
+                  "sc_st_certificate",
+                  "obc_certificate",
+                  "land_use_information",
+                  "birth_certificate_correction"
+                ];
+                const aIdx = priority.indexOf(a.service_type);
+                const bIdx = priority.indexOf(b.service_type);
+                if (aIdx !== -1 || bIdx !== -1) {
+                  if (aIdx === -1) return 1;
+                  if (bIdx === -1) return -1;
+                  return aIdx - bIdx;
+                }
+                return String(a.service_name || "").localeCompare(String(b.service_name || ""));
+              })
               .map((service, index) => {
               const summary = serviceSummaryMap[service.service_type];
               const description =
