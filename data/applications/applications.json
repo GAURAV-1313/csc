@@ -9360,5 +9360,619 @@
     "citizen_data": {},
     "application_status": "draft",
     "created_at": "2026-03-15T07:15:20.946Z"
+  },
+  {
+    "application_id": "app_1773667388742",
+    "service_type": "land_use_information",
+    "operator_id": "gs12222",
+    "citizen_data": {
+      "applicant_name": ""
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-16T13:23:48.136Z",
+    "service_name": "Land Use Information",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing required field: name",
+        "Missing required field: fathers_name",
+        "Missing required field: name_of_village",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: khasara_no",
+        "Missing required field: is_applicant_applying_for_his_her_own_land",
+        "Missing documents: Khasara, Naksha, Challan Copy"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Khasara",
+        "Naksha",
+        "Challan Copy"
+      ],
+      "schemaErrors": [
+        "Missing required field: name",
+        "Missing required field: fathers_name",
+        "Missing required field: name_of_village",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: khasara_no",
+        "Missing required field: is_applicant_applying_for_his_her_own_land"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Khasara",
+          "Naksha",
+          "Challan Copy"
+        ],
+        "optional": [
+          "B1",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 1,
+      "risk_score": 1,
+      "risk_level": "VERY_HIGH",
+      "score_percent": 100,
+      "rejected_prediction": true,
+      "threshold_used": 0.5,
+      "main_contributing_factors": [
+        "missing_documents",
+        "Missing mandatory documents"
+      ],
+      "debug_summary": {
+        "service_type": "land_use_information",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Khasara",
+          "Naksha",
+          "Challan Copy"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 3,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Khasara",
+          "Naksha",
+          "Challan Copy"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773667478254",
+    "service_type": "land_use_information",
+    "operator_id": "gs",
+    "citizen_data": {},
+    "application_status": "submitted",
+    "created_at": "2026-03-16T13:24:56.551Z",
+    "service_name": "Land Use Information",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing required field: name",
+        "Missing required field: fathers_name",
+        "Missing required field: name_of_village",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: khasara_no",
+        "Missing required field: is_applicant_applying_for_his_her_own_land",
+        "Missing documents: Khasara, Naksha, Challan Copy"
+      ],
+      "failedRules": [],
+      "missingDocuments": [
+        "Khasara",
+        "Naksha",
+        "Challan Copy"
+      ],
+      "schemaErrors": [
+        "Missing required field: name",
+        "Missing required field: fathers_name",
+        "Missing required field: name_of_village",
+        "Missing required field: patwari_halka_number",
+        "Missing required field: khasara_no",
+        "Missing required field: is_applicant_applying_for_his_her_own_land"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Khasara",
+          "Naksha",
+          "Challan Copy"
+        ],
+        "optional": [
+          "B1",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 0.75,
+      "risk_score": 0.75,
+      "risk_level": "HIGH",
+      "rejected_prediction": true,
+      "threshold_used": 0.4517,
+      "main_contributing_factors": [
+        "missing_documents",
+        "document_quality",
+        "Missing mandatory documents"
+      ],
+      "rejectedPrediction": 1,
+      "thresholdUsed": 0.4517,
+      "mainContributingFactors": [
+        "missing_documents",
+        "document_quality"
+      ],
+      "debug_summary": {
+        "service_type": "land_use_information",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Khasara",
+          "Naksha",
+          "Challan Copy"
+        ],
+        "missing_required_fields": [],
+        "missing_documents_count": 3,
+        "missing_fields_count": 0,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 1
+        },
+        "schema_required_fields": [],
+        "schema_mandatory_documents": [
+          "Khasara",
+          "Naksha",
+          "Challan Copy"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773675085883",
+    "service_type": "income_certificate",
+    "operator_id": "fyf",
+    "citizen_data": {
+      "applicant_name": "rgfv",
+      "beneficiary_guardian_type": "434"
+    },
+    "application_status": "validated",
+    "created_at": "2026-03-16T15:32:50.365Z",
+    "documents": [
+      {
+        "documentType": "Income From Land/House",
+        "filePath": "/Users/gaurav/csc/data/uploads/1773675115489_Event_Management_System_SRS__3___1_.docx",
+        "ocrText": "{}",
+        "parsedFields": []
+      }
+    ],
+    "service_name": "Income Certificate",
+    "ocr_results": [
+      {
+        "documentType": "Income From Land/House",
+        "fields": {}
+      }
+    ],
+    "validation": {
+      "warnings": [
+        "Missing required field: gender",
+        "Missing required field: age_of_beneficiary",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: relation_with_applicant",
+        "Missing required field: son_or_daughter_or_wife_name_of_beneficiary",
+        "Missing required field: caste",
+        "Missing required field: type",
+        "Missing required field: class_number",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years",
+        "Annual income must be a number.",
+        "Missing documents: Affidavit, Income Proof",
+        "Document mismatch detected"
+      ],
+      "failedRules": [
+        "income_numeric"
+      ],
+      "missingDocuments": [
+        "Affidavit",
+        "Income Proof"
+      ],
+      "schemaErrors": [
+        "Missing required field: gender",
+        "Missing required field: age_of_beneficiary",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: relation_with_applicant",
+        "Missing required field: son_or_daughter_or_wife_name_of_beneficiary",
+        "Missing required field: caste",
+        "Missing required field: type",
+        "Missing required field: class_number",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: details_of_business_or_service",
+        "Missing required field: reason_for_application",
+        "Missing required field: annual_income",
+        "Missing required field: average_income_for_last_3_years"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "optional": [
+          "Income Certificate Employer/Form 16",
+          "Income From Land/House",
+          "Other Documents",
+          "Application Form",
+          "Form 16",
+          "Income Of Other Members Of The Family",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": [
+          "Income From Land/House"
+        ]
+      }
+    },
+    "document_verification": {
+      "mismatches": [
+        {
+          "field": "applicant_name",
+          "reason": "mismatch"
+        }
+      ],
+      "field_mismatch_count": 1,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 1,
+      "risk_score": 1,
+      "risk_level": "VERY_HIGH",
+      "score_percent": 100,
+      "rejected_prediction": true,
+      "threshold_used": 0.5,
+      "main_contributing_factors": [
+        "missing_documents",
+        "missing_fields",
+        "field_mismatch",
+        "Missing mandatory documents"
+      ],
+      "debug_summary": {
+        "service_type": "income_certificate",
+        "uploaded_documents": [
+          "income from land/house"
+        ],
+        "missing_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 2,
+        "missing_fields_count": 4,
+        "field_mismatch_count": 1,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 0,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Affidavit",
+          "Income Proof"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773702334613",
+    "service_type": "domicile_certificate",
+    "operator_id": "adadsaddsd",
+    "citizen_data": {},
+    "application_status": "validated",
+    "created_at": "2026-03-16T23:06:51.322Z",
+    "service_name": "Domicile Certificate",
+    "documents": [],
+    "ocr_results": [],
+    "validation": {
+      "warnings": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: guardians_occupation_of_beneficiary",
+        "Missing required field: beneficiary_place_of_birth",
+        "Missing required field: gender",
+        "Missing required field: date_of_birth",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: particulars_of_stay_after_birth_of_beneficiary",
+        "Missing required field: beneficiary_details_of_business_or_service",
+        "Missing required field: beneficiary_education_level",
+        "Missing required field: have_beneficiary_voter_id",
+        "Missing required field: district_name_of_beneficiary",
+        "Missing required field: living_from_in_years",
+        "Missing required field: reason_for_application_domicile",
+        "Missing required field: any_other_detail",
+        "Living in state years must be a number.",
+        "Missing documents: Affidavit, Proof Of At Least 15 Years Stay, Educational Certificate"
+      ],
+      "failedRules": [
+        "residence_years_numeric"
+      ],
+      "missingDocuments": [
+        "Affidavit",
+        "Proof Of At Least 15 Years Stay",
+        "Educational Certificate"
+      ],
+      "schemaErrors": [
+        "Missing required field: beneficiary_guardian_type",
+        "Missing required field: beneficiary_guardian_name",
+        "Missing required field: guardians_occupation_of_beneficiary",
+        "Missing required field: beneficiary_place_of_birth",
+        "Missing required field: gender",
+        "Missing required field: date_of_birth",
+        "Missing required field: address",
+        "Missing required field: pin_code",
+        "Missing required field: district",
+        "Missing required field: particulars_of_stay_after_birth_of_beneficiary",
+        "Missing required field: beneficiary_details_of_business_or_service",
+        "Missing required field: beneficiary_education_level",
+        "Missing required field: have_beneficiary_voter_id",
+        "Missing required field: district_name_of_beneficiary",
+        "Missing required field: living_from_in_years",
+        "Missing required field: reason_for_application_domicile",
+        "Missing required field: any_other_detail"
+      ],
+      "documentStatus": {
+        "missing": [
+          "Affidavit",
+          "Proof Of At Least 15 Years Stay",
+          "Educational Certificate"
+        ],
+        "optional": [
+          "Other",
+          "Father/ Guardian Service Certificate",
+          "Job Service Certificate / Identity Card",
+          "Voters Identity Card",
+          "Land And House Document",
+          "Birth Information Form",
+          "Certificate From Ward Member, Local Mla/Mp",
+          "Ration Card",
+          "Electricity Bill",
+          "Primary School Certificate - 5th Standard",
+          "High School Certificate",
+          "Higher Secondary School Certificate",
+          "M.Phil/D.Lit./Ph.D. Certificate",
+          "School Certificate",
+          "Post Graduation Certificate",
+          "Certificate In Technical Subjects",
+          "Proof Of At Least 5 Years Stay",
+          "Persons Service Book.",
+          "aadhaar_card",
+          "pan_card"
+        ],
+        "provided": []
+      }
+    },
+    "document_verification": {
+      "mismatches": [],
+      "field_mismatch_count": 0,
+      "document_quality_score": 0
+    },
+    "risk": {
+      "risk_probability": 1,
+      "risk_score": 1,
+      "risk_level": "VERY_HIGH",
+      "score_percent": 100,
+      "rejected_prediction": true,
+      "threshold_used": 0.5,
+      "main_contributing_factors": [
+        "missing_documents",
+        "missing_fields",
+        "Missing mandatory documents"
+      ],
+      "debug_summary": {
+        "service_type": "domicile_certificate",
+        "uploaded_documents": [],
+        "missing_mandatory_documents": [
+          "Affidavit",
+          "Proof Of At Least 15 Years Stay",
+          "Educational Certificate"
+        ],
+        "missing_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "missing_documents_count": 3,
+        "missing_fields_count": 5,
+        "field_mismatch_count": 0,
+        "document_quality_score": 0,
+        "eligibility": {
+          "age_eligible": 1,
+          "income_eligible": 1,
+          "district_valid": 0
+        },
+        "schema_required_fields": [
+          "beneficiary_guardian_name",
+          "date_of_birth",
+          "address",
+          "district",
+          "pin_code"
+        ],
+        "schema_mandatory_documents": [
+          "Affidavit",
+          "Proof Of At Least 15 Years Stay",
+          "Educational Certificate"
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "scheme_id": "sch_old_age_pension",
+        "scheme_name": "Old Age Pension",
+        "conditions": {
+          "min_age": 60
+        },
+        "required_documents": [
+          "aadhaar",
+          "age_proof"
+        ]
+      },
+      {
+        "scheme_id": "sch_ayushman_bharat",
+        "scheme_name": "Ayushman Bharat",
+        "conditions": {
+          "max_income": 250000
+        },
+        "required_documents": [
+          "aadhaar",
+          "income_proof"
+        ]
+      }
+    ]
+  },
+  {
+    "application_id": "app_1773702540577",
+    "service_type": "sc_st_certificate",
+    "operator_id": "asdf",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-16T23:09:00.577Z"
+  },
+  {
+    "application_id": "app_1773702552808",
+    "service_type": "food_registration_application_for_small_cottage",
+    "operator_id": "asdf",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-16T23:09:12.808Z"
+  },
+  {
+    "application_id": "app_1773702563281",
+    "service_type": "public_grievance_municipal_corporation_municipality_town_panchayat",
+    "operator_id": "asdf",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-16T23:09:23.281Z"
+  },
+  {
+    "application_id": "app_1773702582666",
+    "service_type": "shop_and_establishment_registration",
+    "operator_id": "asdf",
+    "citizen_data": {},
+    "application_status": "draft",
+    "created_at": "2026-03-16T23:09:42.666Z"
   }
 ]
